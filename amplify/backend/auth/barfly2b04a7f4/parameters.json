@@ -1,6 +1,6 @@
 {
     "identityPoolName": "barfly2b04a7f4_identitypool_2b04a7f4",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "barfly2b04a7f4",
     "userPoolName": "barfly2b04a7f4_userpool_2b04a7f4",
     "autoVerifiedAttributes": [

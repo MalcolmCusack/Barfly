@@ -1,3 +1,11 @@
+
+type Note @model {
+  id: ID!
+  name: String!
+  description: String
+  image: String
+}
+
 type OrderHistory @model @auth(rules: [{allow: public}]) {
   id: ID!
   Orders: [Order] @connection(keyName: "byOrderHistory", fields: ["id"])

@@ -44,5 +44,11 @@
         ]
       }
     }
+  },
+  "storage": {
+    "barflystorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }
