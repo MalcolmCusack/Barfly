@@ -1,0 +1,219 @@
+type OrderHistory @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Orders: [Order] @connection(keyName: "byOrderHistory", fields: ["id"])
+}
+
+type Mixer @model @auth(rules: [{allow: public}]) @key(name: "bySpecial", fields: ["specialID"]) @key(name: "byCocktail", fields: ["cocktailID"]) @key(name: "byShot", fields: ["shotID"]) {
+  id: ID!
+  name: String
+  price: Float
+  request: String
+  brand: String
+  img: AWSJSON
+  specialID: ID
+  cocktailID: ID
+  shotID: ID
+  MixerCocktails: [MixerCocktail] @connection(keyName: "byMixer", fields: ["id"])
+  MixerSpecials: [MixerSpecial] @connection(keyName: "byMixer", fields: ["id"])
+}
+
+type LiquorType @model @auth(rules: [{allow: public}]) @key(name: "bySpecial", fields: ["specialID"]) @key(name: "byCocktail", fields: ["cocktailID"]) @key(name: "byShot", fields: ["shotID"]) {
+  id: ID!
+  name: String
+  well: AWSDate
+  type: String
+  price: Float
+  brand: String
+  img: AWSJSON
+  specialID: ID
+  cocktailID: ID
+  shotID: ID
+  LiquorTypeShots: [LiquorTypeShot] @connection(keyName: "byLiquorType", fields: ["id"])
+  LiquorTypeCocktails: [LiquorTypeCocktail] @connection(keyName: "byLiquorType", fields: ["id"])
+  LiquorTypeSpecials: [LiquorTypeSpecial] @connection(keyName: "byLiquorType", fields: ["id"])
+}
+
+type Special @model @auth(rules: [{allow: public}]) @key(name: "byMenu", fields: ["menuID"]) {
+  id: ID!
+  name: String!
+  price: Float!
+  img: AWSJSON
+  discription: String
+  LiquorTypes: [LiquorType] @connection(keyName: "bySpecial", fields: ["id"])
+  Mixers: [Mixer] @connection(keyName: "bySpecial", fields: ["id"])
+  menuID: ID
+  liquortypes: [LiquorTypeSpecial] @connection(keyName: "bySpecial", fields: ["id"])
+  mixers: [MixerSpecial] @connection(keyName: "bySpecial", fields: ["id"])
+}
+
+type Wine @model @auth(rules: [{allow: public}]) @key(name: "byMenu", fields: ["menuID"]) {
+  id: ID!
+  name: String!
+  price: Float!
+  description: String
+  img: AWSJSON
+  brand: String
+  menuID: ID
+}
+
+type Beer @model @auth(rules: [{allow: public}]) @key(name: "byMenu", fields: ["menuID"]) {
+  id: ID!
+  name: String!
+  price: Float!
+  request: String
+  img: AWSJSON
+  brand: String
+  menuID: ID
+}
+
+type Cocktail @model @auth(rules: [{allow: public}]) @key(name: "byMenu", fields: ["menuID"]) {
+  id: ID!
+  name: String!
+  price: Float!
+  description: String
+  img: AWSJSON
+  LiquorTypes: [LiquorType] @connection(keyName: "byCocktail", fields: ["id"])
+  Mixers: [Mixer] @connection(keyName: "byCocktail", fields: ["id"])
+  menuID: ID
+  liquortypes: [LiquorTypeCocktail] @connection(keyName: "byCocktail", fields: ["id"])
+  mixers: [MixerCocktail] @connection(keyName: "byCocktail", fields: ["id"])
+}
+
+type Shot @model @auth(rules: [{allow: public}]) @key(name: "byMenu", fields: ["menuID"]) {
+  id: ID!
+  name: String!
+  price: Float!
+  description: String
+  img: AWSJSON
+  menuID: ID
+  LiquorTypes: [LiquorType] @connection(keyName: "byShot", fields: ["id"])
+  Mixers: [Mixer] @connection(keyName: "byShot", fields: ["id"])
+  liquortypes: [LiquorTypeShot] @connection(keyName: "byShot", fields: ["id"])
+}
+
+type Food @model @auth(rules: [{allow: public}]) @key(name: "byMenu", fields: ["menuID"]) {
+  id: ID!
+  name: String!
+  price: Float!
+  type: String
+  img: AWSJSON
+  description: String
+  menuID: ID
+}
+
+type Menu @model @auth(rules: [{allow: public}]) @key(name: "byBar", fields: ["barID"]) {
+  id: ID!
+  barID: ID
+  Foods: [Food] @connection(keyName: "byMenu", fields: ["id"])
+  Shots: [Shot] @connection(keyName: "byMenu", fields: ["id"])
+  Cocktails: [Cocktail] @connection(keyName: "byMenu", fields: ["id"])
+  Beers: [Beer] @connection(keyName: "byMenu", fields: ["id"])
+  Wines: [Wine] @connection(keyName: "byMenu", fields: ["id"])
+  Specials: [Special] @connection(keyName: "byMenu", fields: ["id"])
+}
+
+type Employee @model @auth(rules: [{allow: public}]) @key(name: "byBar", fields: ["barID"]) {
+  id: ID!
+  name: String!
+  Orders: [Order] @connection(keyName: "byEmployee", fields: ["id"])
+  barID: ID
+  Bar: Bar @connection
+}
+
+type Bar @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  email: AWSEmail!
+  phone: AWSPhone!
+  profileImg: AWSJSON
+  location: AWSJSON
+  payment: AWSJSON
+  event: String
+  createdAt: AWSTimestamp!
+  address: AWSJSON
+  nightSummary: AWSJSON
+  Orders: [Order] @connection(keyName: "byBar", fields: ["id"])
+  Employees: [Employee] @connection(keyName: "byBar", fields: ["id"])
+  Menu: [Menu] @connection(keyName: "byBar", fields: ["id"])
+}
+
+type Order @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: ["userID"]) @key(name: "byTab", fields: ["tabID"]) @key(name: "byBar", fields: ["barID"]) @key(name: "byEmployee", fields: ["employeeID"]) @key(name: "byOrderHistory", fields: ["orderhistoryID"]) {
+  id: ID!
+  timestamp: AWSTimestamp!
+  items: [AWSJSON!]
+  completed: Boolean!
+  userID: ID
+  tabID: ID
+  User: User @connection
+  barID: ID
+  employeeID: ID
+  orderhistoryID: ID
+}
+
+type Tab @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  paid: Boolean!
+  Users: [User!] @connection(keyName: "byTab", fields: ["id"])
+  tip: String
+  timestamp: AWSTimestamp!
+  Orders: [Order] @connection(keyName: "byTab", fields: ["id"])
+}
+
+type User @model @auth(rules: [{allow: public}]) @key(name: "byTab", fields: ["tabID"]) {
+  id: ID!
+  email: AWSEmail!
+  phone: AWSPhone!
+  profileImg: AWSJSON
+  location: AWSJSON
+  payment: AWSTimestamp
+  age: String!
+  createdAt: AWSTimestamp!
+  name: String!
+  address: AWSJSON
+  order: String
+  orderHistory: AWSJSON
+  Tab: Tab @connection
+  tabID: ID
+  Orders: [Order] @connection(keyName: "byUser", fields: ["id"])
+}
+
+type LiquorTypeShot @model(queries: null) @key(name: "byLiquorType", fields: ["liquortypeID", "shotID"]) @key(name: "byShot", fields: ["shotID", "liquortypeID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+  id: ID!
+  liquortypeID: ID!
+  shotID: ID!
+  liquortype: LiquorType! @connection(fields: ["liquortypeID"])
+  shot: Shot! @connection(fields: ["shotID"])
+}
+
+type LiquorTypeCocktail @model(queries: null) @key(name: "byLiquorType", fields: ["liquortypeID", "cocktailID"]) @key(name: "byCocktail", fields: ["cocktailID", "liquortypeID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+  id: ID!
+  liquortypeID: ID!
+  cocktailID: ID!
+  liquortype: LiquorType! @connection(fields: ["liquortypeID"])
+  cocktail: Cocktail! @connection(fields: ["cocktailID"])
+}
+
+type LiquorTypeSpecial @model(queries: null) @key(name: "byLiquorType", fields: ["liquortypeID", "specialID"]) @key(name: "bySpecial", fields: ["specialID", "liquortypeID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+  id: ID!
+  liquortypeID: ID!
+  specialID: ID!
+  liquortype: LiquorType! @connection(fields: ["liquortypeID"])
+  special: Special! @connection(fields: ["specialID"])
+}
+
+type MixerCocktail @model(queries: null) @key(name: "byMixer", fields: ["mixerID", "cocktailID"]) @key(name: "byCocktail", fields: ["cocktailID", "mixerID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+  id: ID!
+  mixerID: ID!
+  cocktailID: ID!
+  mixer: Mixer! @connection(fields: ["mixerID"])
+  cocktail: Cocktail! @connection(fields: ["cocktailID"])
+}
+
+type MixerSpecial @model(queries: null) @key(name: "byMixer", fields: ["mixerID", "specialID"]) @key(name: "bySpecial", fields: ["specialID", "mixerID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+  id: ID!
+  mixerID: ID!
+  specialID: ID!
+  mixer: Mixer! @connection(fields: ["mixerID"])
+  special: Special! @connection(fields: ["specialID"])
+}
+ 

@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-barfly-staging-35333-authRole",
+      "UnauthRoleArn": "arn:aws:iam::814509855914:role/amplify-barfly-staging-35333-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::814509855914:role/amplify-barfly-staging-35333-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-barfly-staging-35333-deployment",
+      "UnauthRoleName": "amplify-barfly-staging-35333-unauthRole",
+      "StackName": "amplify-barfly-staging-35333",
+      "StackId": "arn:aws:cloudformation:us-west-2:814509855914:stack/amplify-barfly-staging-35333/56a67a00-1058-11ec-a947-02d85589fa65",
+      "AmplifyAppId": "dcn1zyfd4sz2z"
+    }
+  }
+}
