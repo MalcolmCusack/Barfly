@@ -10,6 +10,11 @@
       "StackName": "amplify-barfly-staging-35333",
       "StackId": "arn:aws:cloudformation:us-west-2:814509855914:stack/amplify-barfly-staging-35333/56a67a00-1058-11ec-a947-02d85589fa65",
       "AmplifyAppId": "dcn1zyfd4sz2z"
+    },
+    "categories": {
+      "auth": {
+        "barfly2b04a7f4": {}
+      }
     }
   }
 }
