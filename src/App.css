@@ -14,19 +14,17 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f4f4f4;
+  font-family: 'Noto Sans JP', sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(50px + 2vmin);
+  color: #fcba03;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {

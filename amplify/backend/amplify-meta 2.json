@@ -1,0 +1,101 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-barfly-staging-35333-authRole",
+      "UnauthRoleArn": "arn:aws:iam::814509855914:role/amplify-barfly-staging-35333-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::814509855914:role/amplify-barfly-staging-35333-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-barfly-staging-35333-deployment",
+      "UnauthRoleName": "amplify-barfly-staging-35333-unauthRole",
+      "StackName": "amplify-barfly-staging-35333",
+      "StackId": "arn:aws:cloudformation:us-west-2:814509855914:stack/amplify-barfly-staging-35333/56a67a00-1058-11ec-a947-02d85589fa65",
+      "AmplifyAppId": "dcn1zyfd4sz2z"
+    }
+  },
+  "api": {
+    "Barfly": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "ouwvicn2grckhhmmmv6zrn5fxi",
+        "GraphQLAPIEndpointOutput": "https://pyijvt4mnbdftadmc5wp7wslue.appsync-api.us-west-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-euxm4iwkd5aftgkgovvfms6vee"
+      },
+      "lastPushTimeStamp": "2021-11-10T05:17:17.154Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-barfly-staging-35333-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiBarfly"
+      },
+      "lastPushDirHash": "xTwzP85ipLy1HqB4FlYZxx5d1Fs="
+    }
+  },
+  "auth": {
+    "barfly2b04a7f4": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "loginMechanisms": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ]
+      },
+      "output": {
+        "UserPoolId": "us-west-2_Tz0ORDgKV",
+        "AppClientIDWeb": "7194rft38o29mlq2guktkhto17",
+        "AppClientID": "7paosefuk9dot6j8jfhf6u1nf5",
+        "IdentityPoolId": "us-west-2:088883fc-fc51-485b-a4a6-a1df65929c7d",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-2:814509855914:userpool/us-west-2_Tz0ORDgKV",
+        "IdentityPoolName": "barfly2b04a7f4_identitypool_2b04a7f4__staging",
+        "UserPoolName": "barfly2b04a7f4_userpool_2b04a7f4"
+      },
+      "lastPushTimeStamp": "2021-11-10T05:17:10.717Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-barfly-staging-35333-deployment/amplify-cfn-templates/auth/barfly2b04a7f4-cloudformation-template.yml",
+        "logicalId": "authbarfly2b04a7f4"
+      },
+      "lastPushDirHash": "jtglIVsPDKArp49jgoxSZHlu3yc="
+    }
+  },
+  "storage": {
+    "barflystorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-barfly-staging-35333-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storagebarflystorage"
+      },
+      "lastPushTimeStamp": "2021-11-10T05:17:10.717Z",
+      "output": {
+        "BucketName": "barfly94785142da6b4040965c0807e122901a35333-staging",
+        "Region": "us-west-2"
+      },
+      "lastPushDirHash": "zUwqE/+aewLqA7lD5zPvXAxhGGU="
+    }
+  }
+}
