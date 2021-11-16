@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #f4f4f4;
+  background-color: #040404;
   font-family: 'Noto Sans JP', sans-serif;
   min-height: 100vh;
   display: flex;
@@ -22,8 +22,26 @@
   align-items: center;
   justify-content: center;
   font-size: calc(50px + 2vmin);
-  color: #fcba03;
+  color:#fcba03 ;
 }
+
+amplify-authenticator {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+  background-color: #040404;
+
+}
+
+amplify-sign-in {
+  
+}
+
+button {
+  background-color: #fcba03 ;
+}
+
 
 
 @keyframes App-logo-spin {
