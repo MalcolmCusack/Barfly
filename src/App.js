@@ -4,7 +4,11 @@ import React, {useState, useEffect} from 'react'
 import Amplify, {Auth, API, Storage, graphqlOperation } from 'aws-amplify'
 import { withAuthenticator, AmplifyAuthContainer, AmplifyAuthenticator, AmplifySignOut, AmplifySignIn, AmplifySignUp, AmplifyForgotPassword } from '@aws-amplify/ui-react'
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Routes, Route, Link } from 'react-router-dom';
+import SignIn  from './components/auth/signIn';
+import Welcome from './components/welcome';
+import Button from '@mui/material/Button';
+
 
 import {listBeers} from './graphql'
 
@@ -18,7 +22,8 @@ function App() {
   const [beer, setBeer] = useState([]);
   const [authState, setAuthState] = useState()
   const [user, setUser] = useState()
-  const [loggedIn, setLoggedIn] = useState()
+  const [loggedIn, setLoggedIn] = useState(false)
+
 
   const loggedInState = () => {
     Auth.currentAuthenticatedUser()
@@ -28,6 +33,8 @@ function App() {
         setLoggedIn(false)
       });
   }
+
+  
 
 
   useEffect(() => {
@@ -50,26 +57,34 @@ function App() {
 
   console.log(beer)
 
+  console.log(AuthState.SignedIn)
+  console.log(user)
 
+  return  (
 
-  return authState === AuthState.SignedIn && user ? (
+      
+        <Router>
+          <div className="App">
+          <Routes>
 
-    <Router>
-      <div className="App">
-        <header className="App-header">
-        <img src={logoWhite} className="App-logo" alt="logo" />
-        <p>
-            Barfly  バーフライ
-        </p>
-        <p>Hello, {user.name}</p>
-        <AmplifySignOut />
-          
-        </header>
-      </div>
+            {
+             !loggedIn ? (
+              <Route path = '/signin' element={<SignIn onSignIn={loggedInState}/>}/>
+                
+      
+            ) : (
+            <Route  path= '/' element={<Welcome onSignOut={loggedInState}/>}/>
+                
+            )
+            }
+            </Routes>
+            </div>
+        </Router>
+      
 
-    </Router>
-    
-  ) : (
+   
+   
+  ) /*: (
   <AmplifyAuthContainer>
       <AmplifyAuthenticator usernameAlias='email'>
         <AmplifySignUp
@@ -102,7 +117,7 @@ function App() {
       </AmplifyAuthenticator>
 
   </AmplifyAuthContainer>
-  )
-}
+  ) */
+} 
 
 export default App;
