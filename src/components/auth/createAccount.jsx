@@ -5,28 +5,23 @@ import {Link, useNavigate} from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
+const CreateAccount = (onCreateAccount) => {
 
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [phone, setPhone] = useState();
+    const [age, setAge] = useState();
 
-const SignIn = ({ onSignIn }) => {
+    const navigate = useNavigate()
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    
-    const navigate = useNavigate();
-
-    const signIn = async () => {
+    const createAccount = async () => {
         try {
-          await Auth.signIn(email, password);
-          
-          onSignIn()
-          navigate('/');
+
+          navigate('/confirmAccount');
         } catch (err) {
           console.log(err)
         }
       }
-    
-    //const handlePassReset()
-
 
     return (
         <div>
@@ -36,13 +31,13 @@ const SignIn = ({ onSignIn }) => {
             <h2>Log in</h2>
             <TextField value={email} onChange={e => setEmail(e.target.value)} label="email" variant="outlined" required/>
             <TextField value={password} onChange={e => setPassword(e.target.value)} label="password" variant="outlined" type="password" required/>
-            <span>Forgot your password? <Link to='/resetpassword'>Reset Password</Link></span>
-            <Button variant='contained' onClick={signIn}>Log In</Button>
-            <span>No account?<Link to='/createaccount'>Create a Barfly Account</Link></span>
-
-
+            <TextField value={phone} onChange={e => setPhone(e.target.value)} label='phone' varient='outlined' type='phone' required/>
+            <TextField value={age} onChange={(e) => setAge(e.target.value)} label='age' required/>
+            
+            <Button variant='contained' onClick={createAccount}>Log In</Button>
+            <span>Have an account? <Link to='/signin'>Sign In</Link></span>
         </div>
     )
 }
 
-export default SignIn
+export default CreateAccount

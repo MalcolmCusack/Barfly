@@ -6,6 +6,8 @@ import { withAuthenticator, AmplifyAuthContainer, AmplifyAuthenticator, AmplifyS
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import { BrowserRouter as Router, Switch, Routes, Route, Link } from 'react-router-dom';
 import SignIn  from './components/auth/signIn';
+import ResetPass from './components/auth/resetPass';
+import CreateAccount from './components/auth/createAccount';
 import Welcome from './components/welcome';
 import Button from '@mui/material/Button';
 
@@ -59,26 +61,29 @@ function App() {
 
   console.log(AuthState.SignedIn)
   console.log(user)
+  console.log(loggedIn)
 
   return  (
 
       
         <Router>
           <div className="App">
-          <Routes>
+            <Routes>
 
             {
              !loggedIn ? (
-              <Route path = '/signin' element={<SignIn onSignIn={loggedInState}/>}/>
-                
-      
-            ) : (
-            <Route  path= '/' element={<Welcome onSignOut={loggedInState}/>}/>
-                
+              <Route path ='/signin' element={<SignIn onSignIn={loggedInState}/>}/>
+             ) : (
+            <>
+            <Route  path='/' element={<Welcome onSignOut={loggedInState}/>}/>
+            <Route path ='/resetpassword' element={<ResetPass />} />
+            <Route path = '/createaccount' element={<CreateAccount />} />
+            </>
+            
             )
             }
             </Routes>
-            </div>
+          </div>
         </Router>
       
 
