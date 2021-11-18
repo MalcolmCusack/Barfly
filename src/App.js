@@ -9,6 +9,7 @@ import SignIn  from './components/auth/signIn';
 import ForgotPass from './components/auth/forgotPass';
 import SignUp from './components/auth/signUp';
 import Welcome from './components/welcome';
+import ConfirmSignUp from './components/auth/confirmSignUp';
 
 
 import {listBeers} from './graphql'
@@ -71,9 +72,10 @@ function App() {
              !loggedIn ? (
               <>
                 
-                <Route from='/' path ='/signin' element={<SignIn onSignIn={loggedInState}/>}/>
+                <Route path ='/' element={<SignIn onSignIn={loggedInState}/>}/>
                 <Route path ='/forgotpass' element={<ForgotPass />} />
-                <Route path = '/signup' element={<SignUp />} />
+                <Route path = '/signup' element={<SignUp onCreateAccount={setUser}/>} />
+                <Route path = '/confirmsignup' element={<ConfirmSignUp username={user}/>} />
               </>
              ) : (
             <>

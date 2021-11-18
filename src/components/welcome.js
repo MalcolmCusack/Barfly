@@ -12,7 +12,7 @@ const Welcome = ({onSignOut}) => {
         try {
           await Auth.signOut();
           onSignOut();
-          navigate('/signin')
+          navigate('/')
     
         } catch (err) {
           console.log(err)
