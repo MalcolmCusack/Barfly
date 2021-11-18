@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import logoWhite from '../../BarflyLogoWhite.png';
-import Amplify, {Auth } from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import {Link, useNavigate} from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -36,9 +36,9 @@ const SignIn = ({ onSignIn }) => {
             <h2>Log in</h2>
             <TextField value={email} onChange={e => setEmail(e.target.value)} label="email" variant="outlined" required/>
             <TextField value={password} onChange={e => setPassword(e.target.value)} label="password" variant="outlined" type="password" required/>
-            <span>Forgot your password? <Link to='/resetpassword'>Reset Password</Link></span>
+            <span>Forgot your password? <Link to='/forgotpass'>Reset Password</Link></span>
             <Button variant='contained' onClick={signIn}>Log In</Button>
-            <span>No account?<Link to='/createaccount'>Create a Barfly Account</Link></span>
+            <span>No account?<Link to='/signup'>Create a Barfly Account</Link></span>
 
 
         </div>
