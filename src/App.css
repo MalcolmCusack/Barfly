@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background: #fff;
+  color: #fcba03;
+  height: 100%;
 }
 
 .App-logo {
@@ -25,18 +28,6 @@
   color:#fcba03 ;
 }
 
-amplify-authenticator {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex: 1;
-  background-color: #040404;
-
-}
-
-amplify-sign-in {
-  
-}
 
 button {
   background-color: #fcba03 ;

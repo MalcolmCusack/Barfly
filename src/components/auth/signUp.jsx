@@ -29,7 +29,7 @@ const SignUp = ( {onCreateAccount}) => {
 
     return (
         <div>
-            <h1>Welcome To Barfly</h1>
+            <h1>Sign Up For Barfly!</h1>
             <img src={logoWhite} className="App-logo" alt="logo" />
             
             <h2>Log in</h2>

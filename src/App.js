@@ -1,15 +1,17 @@
 //import logoWhite from './BarflyLogoWhite.png';
 import './App.css';
 import React, {useState, useEffect} from 'react'
-import Amplify, {Auth, API, Storage, graphqlOperation } from 'aws-amplify'
+import {Auth, API, Storage, graphqlOperation } from 'aws-amplify'
 import {AmplifyAuthenticator} from '@aws-amplify/ui-react'
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider, createTheme} from '@material-ui/core/styles'
 import SignIn  from './components/auth/signIn';
 import ForgotPass from './components/auth/forgotPass';
 import SignUp from './components/auth/signUp';
 import Welcome from './components/welcome';
 import ConfirmSignUp from './components/auth/confirmSignUp';
+
 
 
 import {listBeers} from './graphql'
@@ -19,6 +21,21 @@ import {listBeers} from './graphql'
 
 
 function App() {
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#fcba03',
+        secondary: '#fcba03'
+      },
+      secondary: {
+        main: '#fcba03',
+        secondary: '#fcba03'
+      }
+    }
+  })
+
+
   
   const [beer, setBeer] = useState([]);
   const [authState, setAuthState] = useState()
@@ -63,7 +80,7 @@ function App() {
   console.log(loggedIn)
 
   return  (
-
+      <ThemeProvider theme={theme}>
         <Router>
           <div className="App">
             <Routes>
@@ -88,6 +105,7 @@ function App() {
             </Routes>
           </div>
         </Router>
+      </ThemeProvider>
 
       
 
