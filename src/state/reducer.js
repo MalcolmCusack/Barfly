@@ -11,11 +11,28 @@ export const getOrderTotal = (order) =>
 const reducer = (state, action) => {
     console.log(action);
     switch(action.type) {  //mutable updates
-        case "SET_USER":
+        case "FETCH_USER_DATA_INIT":
             return {
                 ...state,
-                user: action.user,
+                isLoading: true,
+                isError: false,
             };
+
+        case 'FETCH_USER_DATA_SUCCESS':
+            return {
+                ...state,
+                isLoading: false,
+                isError: false,
+                user: action.payload.user,
+            }
+
+        case 'FETCH_USER_DATA_FAILURE':
+            return {...state, isLoading: false, isError: true}
+
+        case 'RESET_USER_DATA':
+            return {...state, user: null}
+
+
         case 'ADD_TO_ORDER':
             //Logic for order
             return { 

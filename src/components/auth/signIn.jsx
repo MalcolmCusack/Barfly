@@ -9,7 +9,7 @@ import '../../styles/auth.css';
 
 
 
-const SignIn = ({ onSignIn }) => {
+const SignIn = () => {
 
     const theme = useTheme();
 
@@ -18,11 +18,13 @@ const SignIn = ({ onSignIn }) => {
     
     const navigate = useNavigate();
 
-    const signIn = async () => {
+    const signIn = async (event) => {
+        //event.preventDefault()
+
         try {
           await Auth.signIn(email, password);
-          
-          onSignIn()
+          console.log('hit')
+          //onSignIn()
           navigate('/');
         } catch (err) {
           console.log(err)
