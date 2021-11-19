@@ -1,8 +1,8 @@
 //import logoWhite from './BarflyLogoWhite.png';
 import './App.css';
 import React, {useState, useEffect} from 'react'
+import {SignInContext} from './contex/signInContext'
 import {Auth, API, Storage, graphqlOperation } from 'aws-amplify'
-import {AmplifyAuthenticator} from '@aws-amplify/ui-react'
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme} from '@material-ui/core/styles'
@@ -81,30 +81,33 @@ function App() {
 
   return  (
       <ThemeProvider theme={theme}>
-        <Router>
-          <div className="App">
-            <Routes>
+        <SignInContext.Provider value={user}>
 
-            {
-             !loggedIn ? (
+          <Router>
+            <div className="App">
+              <Routes>
+
+              {
+              !loggedIn ? (
+                <>
+                  
+                  <Route path ='/' element={<SignIn onSignIn={loggedInState}/>}/>
+                  <Route path ='/forgotpass' element={<ForgotPass />} />
+                  <Route path = '/signup' element={<SignUp onCreateAccount={setUser}/>} />
+                  <Route path = '/confirmsignup' element={<ConfirmSignUp username={user}/>} />
+                </>
+              ) : (
               <>
-                
-                <Route path ='/' element={<SignIn onSignIn={loggedInState}/>}/>
-                <Route path ='/forgotpass' element={<ForgotPass />} />
-                <Route path = '/signup' element={<SignUp onCreateAccount={setUser}/>} />
-                <Route path = '/confirmsignup' element={<ConfirmSignUp username={user}/>} />
+              <Route  path='/' element={<Welcome onSignOut={loggedInState}/>}/>
+              
               </>
-             ) : (
-            <>
-            <Route  path='/' element={<Welcome onSignOut={loggedInState}/>}/>
-            
-            </>
-            
-            )
-            }
-            </Routes>
-          </div>
-        </Router>
+              
+              )
+              }
+              </Routes>
+            </div>
+          </Router>
+        </SignInContext.Provider>
       </ThemeProvider>
 
       

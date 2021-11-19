@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { SignInContext } from '../contex/signInContext';
 import Amplify, {Auth}  from 'aws-amplify'
 import { Button } from '@mui/material'
 import logoWhite from '../BarflyLogoWhite.png';
@@ -7,6 +8,8 @@ import {useNavigate} from 'react-router-dom';
 const Welcome = ({onSignOut}) => {
 
     const navigate = useNavigate();
+
+    const { user } = useContext(SignInContext)
 
     const signOut = async () => {
         try {
