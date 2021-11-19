@@ -13,6 +13,8 @@ import Welcome from './components/welcome';
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
 
+//adding a comment to merge again cuase im retarded and reverted the last pull request
+
 const theme = createTheme({
   palette: {
     primary: {
