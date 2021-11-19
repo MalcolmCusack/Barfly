@@ -1,7 +1,7 @@
 // data layer to prevent props drilling
 // using React context API
 // pretty much creating global variables
-import React, { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 //data layer
 export const StateContext = createContext(null as any);

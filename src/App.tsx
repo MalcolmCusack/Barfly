@@ -1,6 +1,6 @@
 //import logoWhite from './BarflyLogoWhite.png';
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import { useStateValue } from './state/StateProvider';
 import { Auth, Hub } from 'aws-amplify'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -29,18 +29,7 @@ function App() {
 
   const [ {state, user, order}, dispatch] = useStateValue();
 
-
-  const [loggedIn, setLoggedIn] = useState(false)
   const [triggerFetch, setTriggerFetch] = useState(false)
-
-  const loggedInState = () => {
-    Auth.currentAuthenticatedUser()
-      .then(sess => {
-        setLoggedIn(true)
-      }).catch(() => {
-        setLoggedIn(false)
-      });
-  }
 
   const handleSignout = async () => {
     try {

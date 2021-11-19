@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import logoWhite from '../../BarflyLogoWhite.png';
 import {Auth } from 'aws-amplify';
 import {Link, useNavigate} from 'react-router-dom';
@@ -19,7 +19,7 @@ const SignUp = () => {
 
     const navigate = useNavigate()
 
-    const createAccount = async (event) => {
+    const createAccount = async (event: any) => {
       event.preventDefault(); //prevents referesh
       try {
           Auth.signUp(name.replace(' ', ''), password, email)
