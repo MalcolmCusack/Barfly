@@ -29,7 +29,7 @@ const theme = createTheme({
 
 function App() {
 
-  const [ {state, user}, dispatch] = useStateValue();
+  const [ {state, user, order}, dispatch] = useStateValue();
 
 
   const [loggedIn, setLoggedIn] = useState(false)
