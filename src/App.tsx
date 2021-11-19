@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 import { useStateValue } from './state/StateProvider';
 import { Auth, Hub } from 'aws-amplify'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider, createTheme} from '@material-ui/core/styles'
+import { ThemeProvider, createTheme } from '@mui/material';
 import SignIn  from './components/auth/signIn';
 import SignUp from './components/auth/signUp';
 import Welcome from './components/welcome';
@@ -21,6 +21,7 @@ const theme = createTheme({
     secondary: {
       main: '#fcba03'
     }
+    
   }
 })
 

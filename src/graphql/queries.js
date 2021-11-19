@@ -1,6 +1,136 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const listWholeMenu =  /* GraphQL */ `
+  query MyQuery {
+  listMenus {
+    items {
+      Beers {
+        items {
+          price
+          name
+          id
+          brand
+        }
+      }
+      Cocktails {
+        items {
+          LiquorTypes {
+            items {
+              name
+              price
+              type
+              brand
+            }
+          }
+          Mixers {
+            items {
+              brand
+              name
+              price
+              id
+            }
+          }
+          id
+          description
+          name
+          price
+        }
+      }
+      Foods {
+        items {
+          description
+          id
+          name
+          price
+          type
+        }
+      }
+      Shots {
+        items {
+          name
+          price
+          id
+          description
+          liquortypes {
+            items {
+              liquortype {
+                name
+                price
+                type
+                id
+                brand
+              }
+            }
+          }
+        }
+      }
+    
+    }
+  }
+}
+
+`;
+
+
+export const getWholeMenu = /* GraphQL */ `
+query MyQuery($id: ID!) {
+  getMenu(id: $id) {
+    id
+    Beers {
+      items {
+        name
+        brand
+        id
+        price
+      }
+    }
+    Cocktails {
+      items {
+        description
+        id
+        mixers {
+          items {
+            cocktail {
+              name
+              price
+              id
+              description
+            }
+          }
+        }
+      }
+    }
+    Foods {
+      items {
+        name
+        price
+        type
+        description
+        id
+      }
+    }
+    Shots {
+      items {
+        name
+        price
+        description
+        id
+      }
+    }
+    Wines {
+      items {
+        brand
+        description
+        name
+        price
+        id
+      }
+    }
+  }
+}
+`;
+
 export const syncNotes = /* GraphQL */ `
   query SyncNotes(
     $filter: ModelNoteFilterInput
