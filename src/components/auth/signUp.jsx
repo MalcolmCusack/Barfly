@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import logoWhite from '../../BarflyLogoWhite.png';
 import {Auth } from 'aws-amplify';
 import {Link, useNavigate} from 'react-router-dom';
@@ -19,7 +19,7 @@ const SignUp = () => {
 
     const navigate = useNavigate()
 
-    const createAccount = async (event: any) => {
+    const createAccount = async (event) => {
       event.preventDefault(); //prevents referesh
       try {
           Auth.signUp(name.replace(' ', ''), password, email)
@@ -48,7 +48,7 @@ const SignUp = () => {
             <h1>Please Enter Confirmation Code From Email</h1>
             <img src={logoWhite} className="App-logo" alt="logo" />
             <TextField value={name} label="name" variant='outlined' disabled />
-            <TextField value={code} onChange={e => setCode(e.target.value)} label='code' variant='outlined' type='text' required/>
+            <TextField value={code} onChange={e => setCode(e.target.value)} label='code' varient='outlined' type='text' required/>
             <Link to='/'>Back To Sign In</Link>
             <Button variant='contained' onClick={confirmSignUp}>CONFIRM</Button>
         </div>
@@ -63,11 +63,11 @@ const SignUp = () => {
           <img src={logoWhite} className="App-logo" alt="logo" />
           
           <h2>Log in</h2>
-          <TextField value={name} onChange={e => setName(e.target.value)} label='name' variant='outlined' type='text' required/>
+          <TextField value={name} onChange={e => setName(e.target.value)} label='name' varient='outlined' type='text' required/>
           <TextField value={email} onChange={e => setEmail(e.target.value)} label="email" variant="outlined" required/>
           <TextField value={password} onChange={e => setPassword(e.target.value)} label="password" variant="outlined" type="password" required/>
           
-          <TextField value={phone} onChange={e => setPhone(e.target.value)} label='phone' variant='outlined' type='phone' required/>
+          <TextField value={phone} onChange={e => setPhone(e.target.value)} label='phone' varient='outlined' type='phone' required/>
           <TextField value={age} onChange={(e) => setAge(e.target.value)} label='age'  type='number' required/>
           
           <Button variant='contained' onClick={createAccount}>Sign Up!</Button>
