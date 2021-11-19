@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import logoWhite from '../../BarflyLogoWhite.png';
 import { Auth } from 'aws-amplify';
 import {Link, useNavigate} from 'react-router-dom';
-import { useTheme } from '@material-ui/core/styles'
+import { useTheme } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import '../../styles/auth.css';
