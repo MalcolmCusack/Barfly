@@ -1,6 +1,4 @@
 import React, {useContext} from 'react'
-import { SignInContext } from '../contex/signInContext';
-import Amplify  from 'aws-amplify'
 import { Button } from '@mui/material'
 import logoWhite from '../BarflyLogoWhite.png';
 import {useNavigate} from 'react-router-dom';
