@@ -3,12 +3,12 @@ export const initialState = {
     user: null,
 };
 
-export const getOrderTotal = (order: any) =>
-    order?.reduce((amount: any, item: any) => item.price + amount, 0);
+export const getOrderTotal = (order) =>
+    order?.reduce((amount, item) => item.price + amount, 0);
 // This goes through all the items in the basket and adds them up starting from 0
 // reduces the array to one value
 
-const reducer = (state: any, action: any) => {
+const reducer = (state, action) => {
     console.log(action);
     switch(action.type) {  //mutable updates
         case "FETCH_USER_DATA_INIT":
@@ -44,12 +44,12 @@ const reducer = (state: any, action: any) => {
             let newOrder = [...state.order]; //copying the basket state to new basket
             
             // checking to see if product exists
-            const index = state.order.findIndex((orderItem: any) => orderItem.id === action.id);
+            const index = state.order.findIndex((orderItem) => orderItem.id === action.id);
 
             if (index >=0) {
                 newOrder.splice(index, 1); //remove from basket
             } else {
-                console.warn(`Cant remove product (id: ${action.id}) as its not in the order`);
+                console.warr(`Cant remove product (id: ${action.id}) as its not in the order`);
             }
 
             return { ...state, 

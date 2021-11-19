@@ -1,32 +1,39 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import logoWhite from '../../BarflyLogoWhite.png';
 import { Auth } from 'aws-amplify';
 import {Link, useNavigate} from 'react-router-dom';
+import { useTheme } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import '../../styles/auth.css';
 
 
+
 const SignIn = () => {
 
+    const theme = useTheme();
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     
     const navigate = useNavigate();
 
-    const signIn = async (event: any) => {
-        event.preventDefault()
+    const signIn = async (event) => {
+        //event.preventDefault()
 
         try {
           await Auth.signIn(email, password);
           console.log('hit')
-        
+          //onSignIn()
           navigate('/');
         } catch (err) {
           console.log(err)
         }
       }
+
+    
+    //const handlePassReset()
+
 
     return (
         <div>

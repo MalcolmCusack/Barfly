@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 import { useStateValue } from '../state/StateProvider';
 import {getWholeMenu, listWholeMenu, listMenus} from './../graphql/queries'
 
-const Welcome = ({onSignOut}:{onSignOut:() => {}}) => {
+const Welcome = ({onSignOut}) => {
 
     const [state] = useStateValue();
 
