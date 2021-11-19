@@ -20,7 +20,16 @@ const theme = createTheme({
     },
     secondary: {
       main: '#fcba03'
+    },
+    grey: {
+      main: '#fcba03'
+    },
+    action: {
+      active: '#fcba03',
+      selected: '#fcba03',
+      focus: '#fcba03',
     }
+    
   }
 })
 

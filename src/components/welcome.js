@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 import logoWhite from '../BarflyLogoWhite.png';
 import {useNavigate} from 'react-router-dom';
 import { useStateValue } from '../state/StateProvider';
-import {getMenu} from './../graphql/queries'
+import {getWholeMenu, listWholeMenu, listMenus} from './../graphql/queries'
 
 const Welcome = ({onSignOut}) => {
 
@@ -12,9 +12,10 @@ const Welcome = ({onSignOut}) => {
 
     console.log(state.user.username)
 
-    const allMenu =  API.graphql({ query: getMenu, variables: {id: 'f22508f7-a1c0-423e-a4cd-c5c066538efb'}});
-
+    const WholeMenu =  API.graphql({ query: listWholeMenu});
+    const allMenu =  API.graphql({ query: listMenus});
     console.log(allMenu)
+    console.log(WholeMenu)
 
     return (
         <div>
