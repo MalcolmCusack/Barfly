@@ -4,9 +4,9 @@ import { Button } from '@mui/material';
 import logoWhite from '../BarflyLogoWhite.png';
 import {useNavigate} from 'react-router-dom';
 import { useStateValue } from '../state/StateProvider';
-import {getMenu} from './../graphql/queries'
+import {getMenu} from '../graphql/queries'
 
-const Welcome = ({onSignOut}) => {
+const Welcome = ({onSignOut}:{onSignOut:() => {}}) => {
 
     const [state] = useStateValue();
 

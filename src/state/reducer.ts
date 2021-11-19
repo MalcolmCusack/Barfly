@@ -49,7 +49,7 @@ const reducer = (state, action) => {
             if (index >=0) {
                 newOrder.splice(index, 1); //remove from basket
             } else {
-                console.warr(`Cant remove product (id: ${action.id}) as its not in the order`);
+                console.warn(`Cant remove product (id: ${action.id}) as its not in the order`);
             }
 
             return { ...state, 

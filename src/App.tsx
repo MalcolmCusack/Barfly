@@ -16,12 +16,10 @@ import Welcome from './components/welcome';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#fcba03',
-      secondary: '#fcba03'
+      main: '#fcba03'
     },
     secondary: {
-      main: '#fcba03',
-      secondary: '#fcba03'
+      main: '#fcba03'
     }
   }
 })
@@ -106,7 +104,7 @@ function App() {
     fetchUserData()
 
     return () => {
-      Hub.remove('auth')
+      Hub.remove('auth', () => {})
       isMounted = false
     }
 
