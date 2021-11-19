@@ -1,0 +1,57 @@
+{
+    "beers" : [
+        {
+            "name" : "",
+            "brand" : "",
+            "price" : "",
+            "discription" : ""
+        },
+        {
+            "name" : "",
+            "brand" : "",
+            "price" : ""
+        }
+    ],
+
+    "cocktails" : [
+        {
+            "name" : "",
+            "brand" : "",
+            "price" : "",
+            "description" : "",
+            "liquorType" : "",
+            "mixers" : ""
+        }
+    ],
+
+    "shots" : [
+        {
+            "name" : "",
+            "brand" : "",
+            "price" : "",
+            "description" : "",
+            "liquorType" : ""
+        }
+    ],
+
+    "wines" : [
+        {
+            "name" : "",
+            "brand" : "",
+            "price" : "",
+            "description" : ""
+        }
+    ],
+
+    "foods" : [
+        {
+            "name" : "",
+            "price" : "",
+            "type" : "",
+            "description" : "",
+            "img" : {}
+        }
+    ]
+
+
+}

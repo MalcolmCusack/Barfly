@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background: #fff;
+  color: #fcba03;
+  height: 100%;
 }
 
 .App-logo {
@@ -14,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #f4f4f4;
+  background-color: #040404;
   font-family: 'Noto Sans JP', sans-serif;
   min-height: 100vh;
   display: flex;
@@ -22,8 +25,14 @@
   align-items: center;
   justify-content: center;
   font-size: calc(50px + 2vmin);
-  color: #fcba03;
+  color:#fcba03 ;
 }
+
+
+button {
+  background-color: #fcba03 ;
+}
+
 
 
 @keyframes App-logo-spin {
