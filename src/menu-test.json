@@ -23,36 +23,5 @@
             "liquorType" : "",
             "mixers" : ["sand"]
         }
-    ],
-
-    "shots" : [
-        {
-            "name" : "",
-            "brand" : "",
-            "price" : "",
-            "description" : "",
-            "liquorType" : ""
-        }
-    ],
-
-    "wines" : [
-        {
-            "name" : "",
-            "brand" : "",
-            "price" : "",
-            "description" : ""
-        }
-    ],
-
-    "foods" : [
-        {
-            "name" : "sandwich",
-            "price" : 50000,
-            "type" : "medicin",
-            "description" : "The createst sandwich you will ever have",
-            "img" : {}
-        }
     ]
-
-
 }
