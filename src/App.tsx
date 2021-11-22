@@ -8,6 +8,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import Welcome from "./components/welcome";
+import MenuItem from "./components/menu/MenuItem";
 import OrderScreen from "./components/OrderScreen";
 
 // Back end push: amplify push
@@ -113,6 +114,14 @@ function App() {
                                 <Route
                                     path="/order"
                                     element={<OrderScreen />}
+                                />
+                                <Route
+                                    path="/Beers"
+                                    element={<MenuItem />}
+                                />
+                                <Route
+                                    path="/Shots"
+                                    element={<MenuItem />}
                                 />
                             </>
                         )}
