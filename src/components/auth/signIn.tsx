@@ -44,7 +44,8 @@ const SignIn = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     label="email"
-                    variant="outlined"
+                    
+                    style={{borderColor:"green"}}
                     required
                 />
                 <TextField

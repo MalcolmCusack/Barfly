@@ -1,8 +1,13 @@
-export default function prevDef<E extends { preventDefault: () => any }>(
-    eventHandler: (event: E) => any
-) {
-    return (event: E) => {
-        event.preventDefault();
-        return eventHandler(event);
+export default function prevDef<E>(
+    eventHandler: E
+): E {
+    //@ts-ignore
+    return function (event, ...rest) {
+        if (typeof (event as any).preventDefault === "function") {
+            (event as any).preventDefault();
+        }
+        (event as any).preventDefault();
+        //@ts-ignore
+        return eventHandler(event, ...rest);
     };
 }

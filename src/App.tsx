@@ -9,19 +9,46 @@ import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import Welcome from "./components/welcome";
 import OrderScreen from "./components/OrderScreen";
+import OrderWell from "./components/order/OrderWell";
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
 
 const theme = createTheme({
     palette: {
+      divider:"#fcba03",
+      mode:"dark",
         primary: {
             main: "#fcba03",
+            contrastText: "black",
+            light:"#fcba03",
+            dark:"#fcba03",
         },
         secondary: {
             main: "#fcba03",
+            contrastText: "black",
+            light:"#fcba03",
+            dark:"#fcba03",
         },
+        background:{
+          default: "#fcba03",
+        },
+        text:{
+          primary: "#fcba03",
+          secondary: "#fcba03",
+        },
+
+    },
+    components:{
+      MuiTextField:{
+        styleOverrides:{
+          root:{
+            backgroundClip:"black",
+          }
+        }
+      }
     }
+    
 });
 
 function App() {
@@ -113,6 +140,10 @@ function App() {
                                 <Route
                                     path="/order"
                                     element={<OrderScreen />}
+                                />
+                                <Route
+                                    path="/orderwell"
+                                    element={<OrderWell />}
                                 />
                             </>
                         )}

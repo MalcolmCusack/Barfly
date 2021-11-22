@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { MouseEventHandler, useContext } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { Button, CircularProgress, Box } from "@mui/material";
 import logoWhite from "../BarflyLogoWhite.png";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../state/StateProvider";
 import { getWholeMenu, listWholeMenu, listMenus } from "./../graphql/queries";
 import LoadingIndicator from "./LoadingIndicator";
+import prevDef from "../decorators/prevDef";
 
 const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
     const [state] = useStateValue();
@@ -15,8 +16,8 @@ const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
     const WholeMenu = API.graphql({ query: listWholeMenu });
     const allMenu = API.graphql({ query: listMenus });
     async function logMenu() {
-        console.log("allMenu: ", await allMenu);
-        console.log("menu:", await WholeMenu);
+        console.log("allMenu: ", JSON.stringify(await allMenu));
+        console.log("menu:", JSON.stringify(await WholeMenu));
     }
 
     logMenu();
@@ -25,13 +26,13 @@ const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
         <div>
             <img src={logoWhite} className="App-logo" alt="logo" />
             <p>Hello, {state.user.username}</p>
-<div style={{border:"1px solid black"}}>
-    <LoadingIndicator/>
-    <LoadingIndicator/>
-    <LoadingIndicator/>
-    <LoadingIndicator/>
-    <LoadingIndicator/>
-</div>
+            <Button
+                href="/orderwell"
+                
+                variant="contained"
+            >
+                order
+            </Button>
 
             <Button onClick={onSignOut} variant="contained">
                 Log Out
