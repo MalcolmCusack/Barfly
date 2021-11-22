@@ -1,10 +1,8 @@
-interface EventLike{
-    preventDefault: () => any,
-}
-
-export default function prevDef(eventHandler: (event: EventLike) => any){
-    return (event: EventLike) => {
+export default function prevDef<E extends { preventDefault: () => any }>(
+    eventHandler: (event: E) => any
+) {
+    return (event: E) => {
         event.preventDefault();
         return eventHandler(event);
-    }
+    };
 }

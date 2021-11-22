@@ -13,6 +13,10 @@ const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loggingIn, setLoggingIn] = useState(false);
+    const [capsLock, setCapsLock] = useState(false);
+    function detectCapsLock(e: React.KeyboardEvent){
+      setCapsLock(e.getModifierState("CapsLock"));
+    }
 
     const navigate = useNavigate();
 
@@ -30,7 +34,7 @@ const SignIn = () => {
         }
     };
     return (
-        <div>
+        <div onKeyUp={prevDef(detectCapsLock)}>
             <h1>Sign In To Barfly!</h1>
             <img src={logoWhite} className="App-logo" alt="logo" />
 
@@ -54,8 +58,8 @@ const SignIn = () => {
 
                 <Box display="inline-block" height="7ch" width="12ch">
                     {loggingIn ? (
-                        <LoadingIndicator size="30px" />
-                    ) : (
+                      <LoadingIndicator size="30px" />
+                      ) : (
                         <Centerer>
                             <Button type="submit" variant="contained">
                                 Sign In
@@ -64,6 +68,7 @@ const SignIn = () => {
                     )}
                 </Box>
             </form>
+                    {capsLock && <><span>⚠ CAPSLOCK IS ON ⚠</span><br/></>}
             <span>
                 Forgot your password?{" "}
                 <Link to="/forgotpass">Reset Password</Link>
