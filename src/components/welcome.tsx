@@ -25,6 +25,14 @@ const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
         <div>
             <img src={logoWhite} className="App-logo" alt="logo" />
             <p>Hello, {state.user.username}</p>
+<div style={{border:"1px solid black"}}>
+    <LoadingIndicator/>
+    <LoadingIndicator/>
+    <LoadingIndicator/>
+    <LoadingIndicator/>
+    <LoadingIndicator/>
+</div>
+
             <Button onClick={onSignOut} variant="contained">
                 Log Out
             </Button>

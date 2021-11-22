@@ -1,4 +1,4 @@
-export interface EventLike{
+interface EventLike{
     preventDefault: () => any,
 }
 

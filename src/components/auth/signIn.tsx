@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import "../../styles/auth.css";
 import prevDef from "../../decorators/prevDef";
 import LoadingIndicator from "../LoadingIndicator";
+import Centerer from "../Centerer";
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -50,20 +51,23 @@ const SignIn = () => {
                     type="password"
                     required
                 />
-                <span>
-                    Forgot your password?{" "}
-                    <Link to="/forgotpass">Reset Password</Link>
-                </span>
-                <Box display="inline-block" width="20ch" height="5ch">
+
+                <Box display="inline-block" height="7ch" width="12ch">
                     {loggingIn ? (
                         <LoadingIndicator size="30px" />
                     ) : (
-                        <Button type="submit" variant="contained">
-                            Sign In
-                        </Button>
+                        <Centerer>
+                            <Button type="submit" variant="contained">
+                                Sign In
+                            </Button>
+                        </Centerer>
                     )}
                 </Box>
             </form>
+            <span>
+                Forgot your password?{" "}
+                <Link to="/forgotpass">Reset Password</Link>
+            </span>
             <span>
                 No account?<Link to="/signup">Create a Barfly Account</Link>
             </span>
