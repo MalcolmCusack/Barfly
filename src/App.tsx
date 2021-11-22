@@ -10,6 +10,7 @@ import SignUp from "./components/auth/signUp";
 import Welcome from "./components/welcome";
 import OrderScreen from "./components/OrderScreen";
 import OrderWell from "./components/order/OrderWell";
+import OrderHome from "./components/order/OrderHome";
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
@@ -139,7 +140,7 @@ function App() {
                                 />
                                 <Route
                                     path="/order"
-                                    element={<OrderScreen />}
+                                    element={<OrderHome/>}
                                 />
                                 <Route
                                     path="/orderwell"

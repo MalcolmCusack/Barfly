@@ -27,7 +27,7 @@ const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
             <img src={logoWhite} className="App-logo" alt="logo" />
             <p>Hello, {state.user.username}</p>
             <Button
-                href="/orderwell"
+                href="/order"
                 
                 variant="contained"
             >
