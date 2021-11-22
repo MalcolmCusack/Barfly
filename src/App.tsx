@@ -8,6 +8,7 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import SignIn  from './components/auth/signIn';
 import SignUp from './components/auth/signUp';
 import Welcome from './components/welcome';
+import OrderScreen from './components/OrderScreen';
 
 
 // Back end push: amplify push
@@ -118,7 +119,7 @@ function App() {
               ) : (
               <>
               <Route  path='/' element={<Welcome onSignOut={handleSignout}/>}/>
-              
+              <Route path="/order" element={<OrderScreen/>}/>
               </>
               
               )
