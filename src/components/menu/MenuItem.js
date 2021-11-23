@@ -25,10 +25,10 @@ const MenuItem = ({item}) => {
     };
 
     return (
-        <div>
+        <div style={{borderBottom: '1px solid #fcba03', paddingBottom: '20px'}}>
             <h3>{item.name}</h3>
             <h4>$ {item.price.toFixed(2)}</h4>
-            <Button variant="contained" onClick={addToOrder}>Add To Order</Button>
+            <Button size='small' variant="contained" onClick={addToOrder}>Add To Order</Button>
         </div>
     )
 }
