@@ -11,6 +11,7 @@ import Welcome from "./components/welcome";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
 import OrderStatus from "./components/payment/OrderStatus";
+import { Box } from "@mui/material";
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
@@ -26,10 +27,10 @@ const theme = createTheme({
             dark:"#fcba03",
         },
         secondary: {
-            main: "#fcba03",
-            contrastText: "black",
-            light:"#fcba03",
-            dark:"#fcba03",
+            main: "#222",
+            contrastText: "white",
+            light:"white",
+            dark:"black",
         },
         background:{
           default: "#fcba03",
@@ -123,7 +124,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <Router>
-                <div className="App">
+                <Box className="App" margin="2ch">
                     <Routes>
                         {!user ? (
                             <>
@@ -157,7 +158,7 @@ function App() {
                             </>
                         )}
                     </Routes>
-                </div>
+                </Box>
             </Router>
         </ThemeProvider>
     );

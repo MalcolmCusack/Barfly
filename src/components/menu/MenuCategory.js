@@ -1,30 +1,35 @@
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Button,
+    Collapse,
+} from "@mui/material";
+import { useState } from "react";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MenuItem from "./MenuItem";
 
-import { Button } from "@mui/material"
-import { useState } from "react"
-import MenuItem from "./MenuItem"
-
-const MenuCategory = ({category, items}) => {
-
-    const [show, setShow] = useState(false)
+const MenuCategory = ({ category, items }) => {
+    const [show, setShow] = useState(false);
 
     const displayItems = () => {
-        setShow(!show)
-        
-    }
+        setShow(!show);
+    };
 
     return (
-        <div>
-            <Button variant="outlined" onClick={displayItems} key={Math.random(10000) + ''}>{category}</Button>
+        <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                {category}
+            </AccordionSummary>
+            <AccordionDetails>
+                {items.items.map((item) => (
+                    <MenuItem key={item.id} item={item} />
+                ))}
+            </AccordionDetails>
+        </Accordion>
+    );
+};
 
-            {show ? items.items.map(item => {
-                return (
-                    <MenuItem key={item.id} item={item}/>
-                )
-                
-        }) :  <> </>}
-        </div>
-        
-    )
-}
-
-export default MenuCategory
+export default MenuCategory;
