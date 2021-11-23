@@ -9,6 +9,8 @@ import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import Welcome from "./components/welcome";
 import OrderScreen from "./components/OrderScreen";
+import OrderSummary from "./components/order/OrderSummary";
+import Payment from "./components/payment/Payment";
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
@@ -114,7 +116,17 @@ function App() {
                                     path="/order"
                                     element={<OrderScreen />}
                                 />
-                               
+
+                                <Route
+                                    path="/ordersummary"
+                                    element={<OrderSummary />}
+                                />
+
+                                <Route
+                                    path="/payment"
+                                    element={<Payment />}
+                               />
+
                             </>
                         )}
                     </Routes>

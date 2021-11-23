@@ -8,6 +8,12 @@ import Menu from "./menu/Menu";
 const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
     const [state] = useStateValue();
 
+    const navigator = useNavigate()
+
+    function navigate(destination:string) {
+        navigator(destination)
+    }
+
     return (
         <div>
             <img src={logoWhite} className="App-logo" alt="logo" />
@@ -17,7 +23,7 @@ const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
         <Menu />
     
         </div>
-
+            <Button onClick={() => navigate('./ordersummary')}>Order Summary</Button>
             <Button onClick={onSignOut} variant="contained">
                 Log Out
             </Button>
