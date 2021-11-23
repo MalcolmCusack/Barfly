@@ -14,15 +14,18 @@ const Menu = () => {
         const fetchMenu = async () => {
             try {
                 setIsLoading(true);
-                const response = await API.graphql(
+                const response_promise =API.graphql(
                     graphqlOperation(getWholeMenu, {
                         id: "c7171fde-ffc4-4635-9d9e-ab3852d3d0b9",
                     })
                 );
+                const orders_promise = API.graphql(graphqlOperation(listOrders));
+
+                const response = await response_promise
                 console.log(response.data);
                 setMenu(response.data.getMenu);
 
-                const orders = await API.graphql(graphqlOperation(listOrders));
+                const orders = await orders_promise;
 
                 console.log(orders);
             } catch (err) {
