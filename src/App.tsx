@@ -14,6 +14,7 @@ import {
     List,
     Toolbar,
     Link as Typeography,
+    SwipeableDrawer,
 } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
@@ -29,6 +30,8 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
+
+const APPBAR_HEIGHT = "5ch";
 
 const theme = createTheme({
     palette: {
@@ -69,6 +72,12 @@ function App() {
     const [drawerOpen, setDrawerOpen] = useState(false);
     function toggleDrawerOpen() {
         setDrawerOpen(!drawerOpen);
+    }
+    function closeDrawer(){
+        setDrawerOpen(false);
+    }
+    function openDrawer(){
+        setDrawerOpen(true);
     }
     const [{ state, user, order }, dispatch] = useStateValue();
 
@@ -141,7 +150,14 @@ function App() {
         <ThemeProvider theme={theme}>
             <SnackbarProvider maxSnack={3}>
                 <AppBar>
-                    <Box display="flex" alignItems="center" justifyContent="center" position="relative" width="100%" height="5ch">
+                    <Box
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        position="relative"
+                        width="100%"
+                        height={APPBAR_HEIGHT}
+                    >
                         {/* appbar-left */}
                         <Box position="absolute" left="0">
                             <IconButton
@@ -153,9 +169,15 @@ function App() {
                         </Box>
                         {/* appbar-center */}
                         <Box>
-                        <Typeography href="/" style={{textDecoration:"none", fontSize:"3ch"}}>
-                            Barfly
-                        </Typeography>
+                            <Typeography
+                                href="/"
+                                style={{
+                                    textDecoration: "none",
+                                    fontSize: "3ch",
+                                }}
+                            >
+                                Barfly
+                            </Typeography>
                         </Box>
                         {/* appbar-right */}
                         <Box position="absolute" right="1ch">
@@ -164,8 +186,10 @@ function App() {
                     </Box>
                 </AppBar>
                 <Toolbar />
-                <Drawer
+                <SwipeableDrawer
                     open={drawerOpen}
+                    onClose={closeDrawer}
+                    onOpen={openDrawer}
                     anchor="left"
                     style={{
                         height: "100%",
@@ -173,6 +197,10 @@ function App() {
                     }}
                     onBackdropClick={() => setDrawerOpen(false)}
                 >
+                    <Box
+                        height={APPBAR_HEIGHT}
+                        style={{ backgroundColor: "black" }}
+                    ></Box>
                     <Box width="min(50vw, 30ch)">
                         <List>
                             <Button
@@ -188,7 +216,7 @@ function App() {
                             </Button>
                         </List>
                     </Box>
-                </Drawer>
+                </SwipeableDrawer>
                 <Router>
                     <Box className="App" margin="2ch">
                         <Routes>
