@@ -83,12 +83,15 @@ query MyQuery($id: ID!) {
         brand
         id
         price
+        
       }
     }
     Cocktails {
       items {
         description
         id
+        name
+        price
         mixers {
           items {
             cocktail {
