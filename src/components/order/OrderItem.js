@@ -20,7 +20,7 @@ function OrderItem({ item }) {
             <h3>{item.name}</h3>
             <h4>{item.price}</h4>
 
-            <Button onClick={removeFromOrder}>Remove From Order</Button>
+            <Button variant="contained" onClick={removeFromOrder}>Remove From Order</Button>
             
         </div>
     )

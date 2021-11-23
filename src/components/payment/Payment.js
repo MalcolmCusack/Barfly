@@ -56,8 +56,8 @@ function Payment() {
             <h1>Payment</h1>
             <h2>Order Total: {getOrderTotal(order)}</h2>
 
-            <Button onClick={handleSubmit}>Place Order</Button>
-            <Button onClick={() => navigate('/ordersummary')}>Back to Summary</Button>
+            <Button variant="outlined" onClick={handleSubmit}>Place Order</Button>
+            <Button variant="outlined" onClick={() => navigate('/ordersummary')}>Back to Summary</Button>
         </div>
     )
 }

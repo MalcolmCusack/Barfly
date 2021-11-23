@@ -23,7 +23,7 @@ const MenuItem = ({item}) => {
         <div>
             <h3>{item.name}</h3>
             <h4>{item.price}</h4>
-            <Button onClick={addToOrder}>Add To Order</Button>
+            <Button variant="contained" onClick={addToOrder}>Add To Order</Button>
         </div>
     )
 }

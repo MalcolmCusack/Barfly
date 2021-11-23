@@ -29,8 +29,8 @@ const OrderSummary = () => {
             <h2>Order Total: {getOrderTotal(order)}</h2>
         
 
-            <Button onClick={() => navigate('/')}>Back to Menu</Button>
-            <Button onClick={() => navigate('/payment')}>Checkout</Button>
+            <Button variant="contained" onClick={() => navigate('/')}>Back to Menu</Button>
+            <Button variant="contained" onClick={() => navigate('/payment')}>Checkout</Button>
 
         </div>
         

@@ -8,7 +8,6 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import Welcome from "./components/welcome";
-import OrderScreen from "./components/OrderScreen";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
 import OrderStatus from "./components/payment/OrderStatus";
