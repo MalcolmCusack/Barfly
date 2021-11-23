@@ -1,3 +1,4 @@
+/* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
@@ -1180,11 +1181,14 @@ export const createOrder = /* GraphQL */ `
         phone
         profileImg
         location
+        payment
         age
         createdAt
         name
         address
         order
+        orderHistory
+        tabID
         _version
         _deleted
         _lastChangedAt

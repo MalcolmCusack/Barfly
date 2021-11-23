@@ -1,12 +1,10 @@
+/* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createNote = /* GraphQL */ `
-  mutation CreateNote(
-    $input: CreateNoteInput!
-    $condition: ModelNoteConditionInput
-  ) {
-    createNote(input: $input, condition: $condition) {
+export const onCreateNote = /* GraphQL */ `
+  subscription OnCreateNote {
+    onCreateNote {
       id
       name
       description
@@ -19,12 +17,9 @@ export const createNote = /* GraphQL */ `
     }
   }
 `;
-export const updateNote = /* GraphQL */ `
-  mutation UpdateNote(
-    $input: UpdateNoteInput!
-    $condition: ModelNoteConditionInput
-  ) {
-    updateNote(input: $input, condition: $condition) {
+export const onUpdateNote = /* GraphQL */ `
+  subscription OnUpdateNote {
+    onUpdateNote {
       id
       name
       description
@@ -37,12 +32,9 @@ export const updateNote = /* GraphQL */ `
     }
   }
 `;
-export const deleteNote = /* GraphQL */ `
-  mutation DeleteNote(
-    $input: DeleteNoteInput!
-    $condition: ModelNoteConditionInput
-  ) {
-    deleteNote(input: $input, condition: $condition) {
+export const onDeleteNote = /* GraphQL */ `
+  subscription OnDeleteNote {
+    onDeleteNote {
       id
       name
       description
@@ -55,12 +47,9 @@ export const deleteNote = /* GraphQL */ `
     }
   }
 `;
-export const createOrderHistory = /* GraphQL */ `
-  mutation CreateOrderHistory(
-    $input: CreateOrderHistoryInput!
-    $condition: ModelOrderHistoryConditionInput
-  ) {
-    createOrderHistory(input: $input, condition: $condition) {
+export const onCreateOrderHistory = /* GraphQL */ `
+  subscription OnCreateOrderHistory {
+    onCreateOrderHistory {
       id
       _version
       _deleted
@@ -74,12 +63,9 @@ export const createOrderHistory = /* GraphQL */ `
     }
   }
 `;
-export const updateOrderHistory = /* GraphQL */ `
-  mutation UpdateOrderHistory(
-    $input: UpdateOrderHistoryInput!
-    $condition: ModelOrderHistoryConditionInput
-  ) {
-    updateOrderHistory(input: $input, condition: $condition) {
+export const onUpdateOrderHistory = /* GraphQL */ `
+  subscription OnUpdateOrderHistory {
+    onUpdateOrderHistory {
       id
       _version
       _deleted
@@ -93,12 +79,9 @@ export const updateOrderHistory = /* GraphQL */ `
     }
   }
 `;
-export const deleteOrderHistory = /* GraphQL */ `
-  mutation DeleteOrderHistory(
-    $input: DeleteOrderHistoryInput!
-    $condition: ModelOrderHistoryConditionInput
-  ) {
-    deleteOrderHistory(input: $input, condition: $condition) {
+export const onDeleteOrderHistory = /* GraphQL */ `
+  subscription OnDeleteOrderHistory {
+    onDeleteOrderHistory {
       id
       _version
       _deleted
@@ -112,12 +95,9 @@ export const deleteOrderHistory = /* GraphQL */ `
     }
   }
 `;
-export const createMixer = /* GraphQL */ `
-  mutation CreateMixer(
-    $input: CreateMixerInput!
-    $condition: ModelMixerConditionInput
-  ) {
-    createMixer(input: $input, condition: $condition) {
+export const onCreateMixer = /* GraphQL */ `
+  subscription OnCreateMixer {
+    onCreateMixer {
       id
       name
       price
@@ -143,12 +123,9 @@ export const createMixer = /* GraphQL */ `
     }
   }
 `;
-export const updateMixer = /* GraphQL */ `
-  mutation UpdateMixer(
-    $input: UpdateMixerInput!
-    $condition: ModelMixerConditionInput
-  ) {
-    updateMixer(input: $input, condition: $condition) {
+export const onUpdateMixer = /* GraphQL */ `
+  subscription OnUpdateMixer {
+    onUpdateMixer {
       id
       name
       price
@@ -174,12 +151,9 @@ export const updateMixer = /* GraphQL */ `
     }
   }
 `;
-export const deleteMixer = /* GraphQL */ `
-  mutation DeleteMixer(
-    $input: DeleteMixerInput!
-    $condition: ModelMixerConditionInput
-  ) {
-    deleteMixer(input: $input, condition: $condition) {
+export const onDeleteMixer = /* GraphQL */ `
+  subscription OnDeleteMixer {
+    onDeleteMixer {
       id
       name
       price
@@ -205,12 +179,9 @@ export const deleteMixer = /* GraphQL */ `
     }
   }
 `;
-export const createLiquorType = /* GraphQL */ `
-  mutation CreateLiquorType(
-    $input: CreateLiquorTypeInput!
-    $condition: ModelLiquorTypeConditionInput
-  ) {
-    createLiquorType(input: $input, condition: $condition) {
+export const onCreateLiquorType = /* GraphQL */ `
+  subscription OnCreateLiquorType {
+    onCreateLiquorType {
       id
       name
       well
@@ -241,12 +212,9 @@ export const createLiquorType = /* GraphQL */ `
     }
   }
 `;
-export const updateLiquorType = /* GraphQL */ `
-  mutation UpdateLiquorType(
-    $input: UpdateLiquorTypeInput!
-    $condition: ModelLiquorTypeConditionInput
-  ) {
-    updateLiquorType(input: $input, condition: $condition) {
+export const onUpdateLiquorType = /* GraphQL */ `
+  subscription OnUpdateLiquorType {
+    onUpdateLiquorType {
       id
       name
       well
@@ -277,12 +245,9 @@ export const updateLiquorType = /* GraphQL */ `
     }
   }
 `;
-export const deleteLiquorType = /* GraphQL */ `
-  mutation DeleteLiquorType(
-    $input: DeleteLiquorTypeInput!
-    $condition: ModelLiquorTypeConditionInput
-  ) {
-    deleteLiquorType(input: $input, condition: $condition) {
+export const onDeleteLiquorType = /* GraphQL */ `
+  subscription OnDeleteLiquorType {
+    onDeleteLiquorType {
       id
       name
       well
@@ -313,12 +278,9 @@ export const deleteLiquorType = /* GraphQL */ `
     }
   }
 `;
-export const createSpecial = /* GraphQL */ `
-  mutation CreateSpecial(
-    $input: CreateSpecialInput!
-    $condition: ModelSpecialConditionInput
-  ) {
-    createSpecial(input: $input, condition: $condition) {
+export const onCreateSpecial = /* GraphQL */ `
+  subscription OnCreateSpecial {
+    onCreateSpecial {
       id
       name
       price
@@ -349,12 +311,9 @@ export const createSpecial = /* GraphQL */ `
     }
   }
 `;
-export const updateSpecial = /* GraphQL */ `
-  mutation UpdateSpecial(
-    $input: UpdateSpecialInput!
-    $condition: ModelSpecialConditionInput
-  ) {
-    updateSpecial(input: $input, condition: $condition) {
+export const onUpdateSpecial = /* GraphQL */ `
+  subscription OnUpdateSpecial {
+    onUpdateSpecial {
       id
       name
       price
@@ -385,12 +344,9 @@ export const updateSpecial = /* GraphQL */ `
     }
   }
 `;
-export const deleteSpecial = /* GraphQL */ `
-  mutation DeleteSpecial(
-    $input: DeleteSpecialInput!
-    $condition: ModelSpecialConditionInput
-  ) {
-    deleteSpecial(input: $input, condition: $condition) {
+export const onDeleteSpecial = /* GraphQL */ `
+  subscription OnDeleteSpecial {
+    onDeleteSpecial {
       id
       name
       price
@@ -421,12 +377,9 @@ export const deleteSpecial = /* GraphQL */ `
     }
   }
 `;
-export const createWine = /* GraphQL */ `
-  mutation CreateWine(
-    $input: CreateWineInput!
-    $condition: ModelWineConditionInput
-  ) {
-    createWine(input: $input, condition: $condition) {
+export const onCreateWine = /* GraphQL */ `
+  subscription OnCreateWine {
+    onCreateWine {
       id
       name
       price
@@ -442,12 +395,9 @@ export const createWine = /* GraphQL */ `
     }
   }
 `;
-export const updateWine = /* GraphQL */ `
-  mutation UpdateWine(
-    $input: UpdateWineInput!
-    $condition: ModelWineConditionInput
-  ) {
-    updateWine(input: $input, condition: $condition) {
+export const onUpdateWine = /* GraphQL */ `
+  subscription OnUpdateWine {
+    onUpdateWine {
       id
       name
       price
@@ -463,12 +413,9 @@ export const updateWine = /* GraphQL */ `
     }
   }
 `;
-export const deleteWine = /* GraphQL */ `
-  mutation DeleteWine(
-    $input: DeleteWineInput!
-    $condition: ModelWineConditionInput
-  ) {
-    deleteWine(input: $input, condition: $condition) {
+export const onDeleteWine = /* GraphQL */ `
+  subscription OnDeleteWine {
+    onDeleteWine {
       id
       name
       price
@@ -484,12 +431,9 @@ export const deleteWine = /* GraphQL */ `
     }
   }
 `;
-export const createBeer = /* GraphQL */ `
-  mutation CreateBeer(
-    $input: CreateBeerInput!
-    $condition: ModelBeerConditionInput
-  ) {
-    createBeer(input: $input, condition: $condition) {
+export const onCreateBeer = /* GraphQL */ `
+  subscription OnCreateBeer {
+    onCreateBeer {
       id
       name
       price
@@ -505,12 +449,9 @@ export const createBeer = /* GraphQL */ `
     }
   }
 `;
-export const updateBeer = /* GraphQL */ `
-  mutation UpdateBeer(
-    $input: UpdateBeerInput!
-    $condition: ModelBeerConditionInput
-  ) {
-    updateBeer(input: $input, condition: $condition) {
+export const onUpdateBeer = /* GraphQL */ `
+  subscription OnUpdateBeer {
+    onUpdateBeer {
       id
       name
       price
@@ -526,12 +467,9 @@ export const updateBeer = /* GraphQL */ `
     }
   }
 `;
-export const deleteBeer = /* GraphQL */ `
-  mutation DeleteBeer(
-    $input: DeleteBeerInput!
-    $condition: ModelBeerConditionInput
-  ) {
-    deleteBeer(input: $input, condition: $condition) {
+export const onDeleteBeer = /* GraphQL */ `
+  subscription OnDeleteBeer {
+    onDeleteBeer {
       id
       name
       price
@@ -547,12 +485,9 @@ export const deleteBeer = /* GraphQL */ `
     }
   }
 `;
-export const createCocktail = /* GraphQL */ `
-  mutation CreateCocktail(
-    $input: CreateCocktailInput!
-    $condition: ModelCocktailConditionInput
-  ) {
-    createCocktail(input: $input, condition: $condition) {
+export const onCreateCocktail = /* GraphQL */ `
+  subscription OnCreateCocktail {
+    onCreateCocktail {
       id
       name
       price
@@ -583,12 +518,9 @@ export const createCocktail = /* GraphQL */ `
     }
   }
 `;
-export const updateCocktail = /* GraphQL */ `
-  mutation UpdateCocktail(
-    $input: UpdateCocktailInput!
-    $condition: ModelCocktailConditionInput
-  ) {
-    updateCocktail(input: $input, condition: $condition) {
+export const onUpdateCocktail = /* GraphQL */ `
+  subscription OnUpdateCocktail {
+    onUpdateCocktail {
       id
       name
       price
@@ -619,12 +551,9 @@ export const updateCocktail = /* GraphQL */ `
     }
   }
 `;
-export const deleteCocktail = /* GraphQL */ `
-  mutation DeleteCocktail(
-    $input: DeleteCocktailInput!
-    $condition: ModelCocktailConditionInput
-  ) {
-    deleteCocktail(input: $input, condition: $condition) {
+export const onDeleteCocktail = /* GraphQL */ `
+  subscription OnDeleteCocktail {
+    onDeleteCocktail {
       id
       name
       price
@@ -655,12 +584,9 @@ export const deleteCocktail = /* GraphQL */ `
     }
   }
 `;
-export const createShot = /* GraphQL */ `
-  mutation CreateShot(
-    $input: CreateShotInput!
-    $condition: ModelShotConditionInput
-  ) {
-    createShot(input: $input, condition: $condition) {
+export const onCreateShot = /* GraphQL */ `
+  subscription OnCreateShot {
+    onCreateShot {
       id
       name
       price
@@ -687,12 +613,9 @@ export const createShot = /* GraphQL */ `
     }
   }
 `;
-export const updateShot = /* GraphQL */ `
-  mutation UpdateShot(
-    $input: UpdateShotInput!
-    $condition: ModelShotConditionInput
-  ) {
-    updateShot(input: $input, condition: $condition) {
+export const onUpdateShot = /* GraphQL */ `
+  subscription OnUpdateShot {
+    onUpdateShot {
       id
       name
       price
@@ -719,12 +642,9 @@ export const updateShot = /* GraphQL */ `
     }
   }
 `;
-export const deleteShot = /* GraphQL */ `
-  mutation DeleteShot(
-    $input: DeleteShotInput!
-    $condition: ModelShotConditionInput
-  ) {
-    deleteShot(input: $input, condition: $condition) {
+export const onDeleteShot = /* GraphQL */ `
+  subscription OnDeleteShot {
+    onDeleteShot {
       id
       name
       price
@@ -751,12 +671,9 @@ export const deleteShot = /* GraphQL */ `
     }
   }
 `;
-export const createFood = /* GraphQL */ `
-  mutation CreateFood(
-    $input: CreateFoodInput!
-    $condition: ModelFoodConditionInput
-  ) {
-    createFood(input: $input, condition: $condition) {
+export const onCreateFood = /* GraphQL */ `
+  subscription OnCreateFood {
+    onCreateFood {
       id
       name
       price
@@ -772,12 +689,9 @@ export const createFood = /* GraphQL */ `
     }
   }
 `;
-export const updateFood = /* GraphQL */ `
-  mutation UpdateFood(
-    $input: UpdateFoodInput!
-    $condition: ModelFoodConditionInput
-  ) {
-    updateFood(input: $input, condition: $condition) {
+export const onUpdateFood = /* GraphQL */ `
+  subscription OnUpdateFood {
+    onUpdateFood {
       id
       name
       price
@@ -793,12 +707,9 @@ export const updateFood = /* GraphQL */ `
     }
   }
 `;
-export const deleteFood = /* GraphQL */ `
-  mutation DeleteFood(
-    $input: DeleteFoodInput!
-    $condition: ModelFoodConditionInput
-  ) {
-    deleteFood(input: $input, condition: $condition) {
+export const onDeleteFood = /* GraphQL */ `
+  subscription OnDeleteFood {
+    onDeleteFood {
       id
       name
       price
@@ -814,12 +725,9 @@ export const deleteFood = /* GraphQL */ `
     }
   }
 `;
-export const createMenu = /* GraphQL */ `
-  mutation CreateMenu(
-    $input: CreateMenuInput!
-    $condition: ModelMenuConditionInput
-  ) {
-    createMenu(input: $input, condition: $condition) {
+export const onCreateMenu = /* GraphQL */ `
+  subscription OnCreateMenu {
+    onCreateMenu {
       id
       barID
       _version
@@ -854,12 +762,9 @@ export const createMenu = /* GraphQL */ `
     }
   }
 `;
-export const updateMenu = /* GraphQL */ `
-  mutation UpdateMenu(
-    $input: UpdateMenuInput!
-    $condition: ModelMenuConditionInput
-  ) {
-    updateMenu(input: $input, condition: $condition) {
+export const onUpdateMenu = /* GraphQL */ `
+  subscription OnUpdateMenu {
+    onUpdateMenu {
       id
       barID
       _version
@@ -894,12 +799,9 @@ export const updateMenu = /* GraphQL */ `
     }
   }
 `;
-export const deleteMenu = /* GraphQL */ `
-  mutation DeleteMenu(
-    $input: DeleteMenuInput!
-    $condition: ModelMenuConditionInput
-  ) {
-    deleteMenu(input: $input, condition: $condition) {
+export const onDeleteMenu = /* GraphQL */ `
+  subscription OnDeleteMenu {
+    onDeleteMenu {
       id
       barID
       _version
@@ -934,12 +836,9 @@ export const deleteMenu = /* GraphQL */ `
     }
   }
 `;
-export const createEmployee = /* GraphQL */ `
-  mutation CreateEmployee(
-    $input: CreateEmployeeInput!
-    $condition: ModelEmployeeConditionInput
-  ) {
-    createEmployee(input: $input, condition: $condition) {
+export const onCreateEmployee = /* GraphQL */ `
+  subscription OnCreateEmployee {
+    onCreateEmployee {
       id
       name
       barID
@@ -972,12 +871,9 @@ export const createEmployee = /* GraphQL */ `
     }
   }
 `;
-export const updateEmployee = /* GraphQL */ `
-  mutation UpdateEmployee(
-    $input: UpdateEmployeeInput!
-    $condition: ModelEmployeeConditionInput
-  ) {
-    updateEmployee(input: $input, condition: $condition) {
+export const onUpdateEmployee = /* GraphQL */ `
+  subscription OnUpdateEmployee {
+    onUpdateEmployee {
       id
       name
       barID
@@ -1010,12 +906,9 @@ export const updateEmployee = /* GraphQL */ `
     }
   }
 `;
-export const deleteEmployee = /* GraphQL */ `
-  mutation DeleteEmployee(
-    $input: DeleteEmployeeInput!
-    $condition: ModelEmployeeConditionInput
-  ) {
-    deleteEmployee(input: $input, condition: $condition) {
+export const onDeleteEmployee = /* GraphQL */ `
+  subscription OnDeleteEmployee {
+    onDeleteEmployee {
       id
       name
       barID
@@ -1048,12 +941,9 @@ export const deleteEmployee = /* GraphQL */ `
     }
   }
 `;
-export const createBar = /* GraphQL */ `
-  mutation CreateBar(
-    $input: CreateBarInput!
-    $condition: ModelBarConditionInput
-  ) {
-    createBar(input: $input, condition: $condition) {
+export const onCreateBar = /* GraphQL */ `
+  subscription OnCreateBar {
+    onCreateBar {
       id
       name
       email
@@ -1084,12 +974,9 @@ export const createBar = /* GraphQL */ `
     }
   }
 `;
-export const updateBar = /* GraphQL */ `
-  mutation UpdateBar(
-    $input: UpdateBarInput!
-    $condition: ModelBarConditionInput
-  ) {
-    updateBar(input: $input, condition: $condition) {
+export const onUpdateBar = /* GraphQL */ `
+  subscription OnUpdateBar {
+    onUpdateBar {
       id
       name
       email
@@ -1120,12 +1007,9 @@ export const updateBar = /* GraphQL */ `
     }
   }
 `;
-export const deleteBar = /* GraphQL */ `
-  mutation DeleteBar(
-    $input: DeleteBarInput!
-    $condition: ModelBarConditionInput
-  ) {
-    deleteBar(input: $input, condition: $condition) {
+export const onDeleteBar = /* GraphQL */ `
+  subscription OnDeleteBar {
+    onDeleteBar {
       id
       name
       email
@@ -1156,49 +1040,9 @@ export const deleteBar = /* GraphQL */ `
     }
   }
 `;
-export const createOrder = /* GraphQL */ `
-  mutation CreateOrder(
-    $input: CreateOrderInput!
-    $condition: ModelOrderConditionInput
-  ) {
-    createOrder(input: $input, condition: $condition) {
-      id
-      timestamp
-      items
-      completed
-      userID
-      barID
-      employeeID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-      User {
-        id
-        email
-        phone
-        profileImg
-        location
-        age
-        createdAt
-        name
-        address
-        order
-        _version
-        _deleted
-        _lastChangedAt
-        updatedAt
-      }
-    }
-  }
-`;
-export const updateOrder = /* GraphQL */ `
-  mutation UpdateOrder(
-    $input: UpdateOrderInput!
-    $condition: ModelOrderConditionInput
-  ) {
-    updateOrder(input: $input, condition: $condition) {
+export const onCreateOrder = /* GraphQL */ `
+  subscription OnCreateOrder {
+    onCreateOrder {
       id
       timestamp
       items
@@ -1235,12 +1079,9 @@ export const updateOrder = /* GraphQL */ `
     }
   }
 `;
-export const deleteOrder = /* GraphQL */ `
-  mutation DeleteOrder(
-    $input: DeleteOrderInput!
-    $condition: ModelOrderConditionInput
-  ) {
-    deleteOrder(input: $input, condition: $condition) {
+export const onUpdateOrder = /* GraphQL */ `
+  subscription OnUpdateOrder {
+    onUpdateOrder {
       id
       timestamp
       items
@@ -1277,12 +1118,48 @@ export const deleteOrder = /* GraphQL */ `
     }
   }
 `;
-export const createTab = /* GraphQL */ `
-  mutation CreateTab(
-    $input: CreateTabInput!
-    $condition: ModelTabConditionInput
-  ) {
-    createTab(input: $input, condition: $condition) {
+export const onDeleteOrder = /* GraphQL */ `
+  subscription OnDeleteOrder {
+    onDeleteOrder {
+      id
+      timestamp
+      items
+      completed
+      userID
+      tabID
+      barID
+      employeeID
+      orderhistoryID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      User {
+        id
+        email
+        phone
+        profileImg
+        location
+        payment
+        age
+        createdAt
+        name
+        address
+        order
+        orderHistory
+        tabID
+        _version
+        _deleted
+        _lastChangedAt
+        updatedAt
+      }
+    }
+  }
+`;
+export const onCreateTab = /* GraphQL */ `
+  subscription OnCreateTab {
+    onCreateTab {
       id
       paid
       tip
@@ -1303,12 +1180,9 @@ export const createTab = /* GraphQL */ `
     }
   }
 `;
-export const updateTab = /* GraphQL */ `
-  mutation UpdateTab(
-    $input: UpdateTabInput!
-    $condition: ModelTabConditionInput
-  ) {
-    updateTab(input: $input, condition: $condition) {
+export const onUpdateTab = /* GraphQL */ `
+  subscription OnUpdateTab {
+    onUpdateTab {
       id
       paid
       tip
@@ -1329,12 +1203,9 @@ export const updateTab = /* GraphQL */ `
     }
   }
 `;
-export const deleteTab = /* GraphQL */ `
-  mutation DeleteTab(
-    $input: DeleteTabInput!
-    $condition: ModelTabConditionInput
-  ) {
-    deleteTab(input: $input, condition: $condition) {
+export const onDeleteTab = /* GraphQL */ `
+  subscription OnDeleteTab {
+    onDeleteTab {
       id
       paid
       tip
@@ -1355,12 +1226,9 @@ export const deleteTab = /* GraphQL */ `
     }
   }
 `;
-export const createUser = /* GraphQL */ `
-  mutation CreateUser(
-    $input: CreateUserInput!
-    $condition: ModelUserConditionInput
-  ) {
-    createUser(input: $input, condition: $condition) {
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser {
+    onCreateUser {
       id
       email
       phone
@@ -1396,12 +1264,9 @@ export const createUser = /* GraphQL */ `
     }
   }
 `;
-export const updateUser = /* GraphQL */ `
-  mutation UpdateUser(
-    $input: UpdateUserInput!
-    $condition: ModelUserConditionInput
-  ) {
-    updateUser(input: $input, condition: $condition) {
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser {
+    onUpdateUser {
       id
       email
       phone
@@ -1437,12 +1302,9 @@ export const updateUser = /* GraphQL */ `
     }
   }
 `;
-export const deleteUser = /* GraphQL */ `
-  mutation DeleteUser(
-    $input: DeleteUserInput!
-    $condition: ModelUserConditionInput
-  ) {
-    deleteUser(input: $input, condition: $condition) {
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser {
+    onDeleteUser {
       id
       email
       phone
@@ -1478,12 +1340,9 @@ export const deleteUser = /* GraphQL */ `
     }
   }
 `;
-export const createLiquorTypeShot = /* GraphQL */ `
-  mutation CreateLiquorTypeShot(
-    $input: CreateLiquorTypeShotInput!
-    $condition: ModelLiquorTypeShotConditionInput
-  ) {
-    createLiquorTypeShot(input: $input, condition: $condition) {
+export const onCreateLiquorTypeShot = /* GraphQL */ `
+  subscription OnCreateLiquorTypeShot {
+    onCreateLiquorTypeShot {
       id
       liquortypeID
       shotID
@@ -1525,12 +1384,9 @@ export const createLiquorTypeShot = /* GraphQL */ `
     }
   }
 `;
-export const updateLiquorTypeShot = /* GraphQL */ `
-  mutation UpdateLiquorTypeShot(
-    $input: UpdateLiquorTypeShotInput!
-    $condition: ModelLiquorTypeShotConditionInput
-  ) {
-    updateLiquorTypeShot(input: $input, condition: $condition) {
+export const onUpdateLiquorTypeShot = /* GraphQL */ `
+  subscription OnUpdateLiquorTypeShot {
+    onUpdateLiquorTypeShot {
       id
       liquortypeID
       shotID
@@ -1572,12 +1428,9 @@ export const updateLiquorTypeShot = /* GraphQL */ `
     }
   }
 `;
-export const deleteLiquorTypeShot = /* GraphQL */ `
-  mutation DeleteLiquorTypeShot(
-    $input: DeleteLiquorTypeShotInput!
-    $condition: ModelLiquorTypeShotConditionInput
-  ) {
-    deleteLiquorTypeShot(input: $input, condition: $condition) {
+export const onDeleteLiquorTypeShot = /* GraphQL */ `
+  subscription OnDeleteLiquorTypeShot {
+    onDeleteLiquorTypeShot {
       id
       liquortypeID
       shotID
@@ -1619,12 +1472,9 @@ export const deleteLiquorTypeShot = /* GraphQL */ `
     }
   }
 `;
-export const createLiquorTypeCocktail = /* GraphQL */ `
-  mutation CreateLiquorTypeCocktail(
-    $input: CreateLiquorTypeCocktailInput!
-    $condition: ModelLiquorTypeCocktailConditionInput
-  ) {
-    createLiquorTypeCocktail(input: $input, condition: $condition) {
+export const onCreateLiquorTypeCocktail = /* GraphQL */ `
+  subscription OnCreateLiquorTypeCocktail {
+    onCreateLiquorTypeCocktail {
       id
       liquortypeID
       cocktailID
@@ -1666,12 +1516,9 @@ export const createLiquorTypeCocktail = /* GraphQL */ `
     }
   }
 `;
-export const updateLiquorTypeCocktail = /* GraphQL */ `
-  mutation UpdateLiquorTypeCocktail(
-    $input: UpdateLiquorTypeCocktailInput!
-    $condition: ModelLiquorTypeCocktailConditionInput
-  ) {
-    updateLiquorTypeCocktail(input: $input, condition: $condition) {
+export const onUpdateLiquorTypeCocktail = /* GraphQL */ `
+  subscription OnUpdateLiquorTypeCocktail {
+    onUpdateLiquorTypeCocktail {
       id
       liquortypeID
       cocktailID
@@ -1713,12 +1560,9 @@ export const updateLiquorTypeCocktail = /* GraphQL */ `
     }
   }
 `;
-export const deleteLiquorTypeCocktail = /* GraphQL */ `
-  mutation DeleteLiquorTypeCocktail(
-    $input: DeleteLiquorTypeCocktailInput!
-    $condition: ModelLiquorTypeCocktailConditionInput
-  ) {
-    deleteLiquorTypeCocktail(input: $input, condition: $condition) {
+export const onDeleteLiquorTypeCocktail = /* GraphQL */ `
+  subscription OnDeleteLiquorTypeCocktail {
+    onDeleteLiquorTypeCocktail {
       id
       liquortypeID
       cocktailID
@@ -1760,12 +1604,9 @@ export const deleteLiquorTypeCocktail = /* GraphQL */ `
     }
   }
 `;
-export const createLiquorTypeSpecial = /* GraphQL */ `
-  mutation CreateLiquorTypeSpecial(
-    $input: CreateLiquorTypeSpecialInput!
-    $condition: ModelLiquorTypeSpecialConditionInput
-  ) {
-    createLiquorTypeSpecial(input: $input, condition: $condition) {
+export const onCreateLiquorTypeSpecial = /* GraphQL */ `
+  subscription OnCreateLiquorTypeSpecial {
+    onCreateLiquorTypeSpecial {
       id
       liquortypeID
       specialID
@@ -1807,12 +1648,9 @@ export const createLiquorTypeSpecial = /* GraphQL */ `
     }
   }
 `;
-export const updateLiquorTypeSpecial = /* GraphQL */ `
-  mutation UpdateLiquorTypeSpecial(
-    $input: UpdateLiquorTypeSpecialInput!
-    $condition: ModelLiquorTypeSpecialConditionInput
-  ) {
-    updateLiquorTypeSpecial(input: $input, condition: $condition) {
+export const onUpdateLiquorTypeSpecial = /* GraphQL */ `
+  subscription OnUpdateLiquorTypeSpecial {
+    onUpdateLiquorTypeSpecial {
       id
       liquortypeID
       specialID
@@ -1854,12 +1692,9 @@ export const updateLiquorTypeSpecial = /* GraphQL */ `
     }
   }
 `;
-export const deleteLiquorTypeSpecial = /* GraphQL */ `
-  mutation DeleteLiquorTypeSpecial(
-    $input: DeleteLiquorTypeSpecialInput!
-    $condition: ModelLiquorTypeSpecialConditionInput
-  ) {
-    deleteLiquorTypeSpecial(input: $input, condition: $condition) {
+export const onDeleteLiquorTypeSpecial = /* GraphQL */ `
+  subscription OnDeleteLiquorTypeSpecial {
+    onDeleteLiquorTypeSpecial {
       id
       liquortypeID
       specialID
@@ -1901,12 +1736,9 @@ export const deleteLiquorTypeSpecial = /* GraphQL */ `
     }
   }
 `;
-export const createMixerCocktail = /* GraphQL */ `
-  mutation CreateMixerCocktail(
-    $input: CreateMixerCocktailInput!
-    $condition: ModelMixerCocktailConditionInput
-  ) {
-    createMixerCocktail(input: $input, condition: $condition) {
+export const onCreateMixerCocktail = /* GraphQL */ `
+  subscription OnCreateMixerCocktail {
+    onCreateMixerCocktail {
       id
       mixerID
       cocktailID
@@ -1947,12 +1779,9 @@ export const createMixerCocktail = /* GraphQL */ `
     }
   }
 `;
-export const updateMixerCocktail = /* GraphQL */ `
-  mutation UpdateMixerCocktail(
-    $input: UpdateMixerCocktailInput!
-    $condition: ModelMixerCocktailConditionInput
-  ) {
-    updateMixerCocktail(input: $input, condition: $condition) {
+export const onUpdateMixerCocktail = /* GraphQL */ `
+  subscription OnUpdateMixerCocktail {
+    onUpdateMixerCocktail {
       id
       mixerID
       cocktailID
@@ -1993,12 +1822,9 @@ export const updateMixerCocktail = /* GraphQL */ `
     }
   }
 `;
-export const deleteMixerCocktail = /* GraphQL */ `
-  mutation DeleteMixerCocktail(
-    $input: DeleteMixerCocktailInput!
-    $condition: ModelMixerCocktailConditionInput
-  ) {
-    deleteMixerCocktail(input: $input, condition: $condition) {
+export const onDeleteMixerCocktail = /* GraphQL */ `
+  subscription OnDeleteMixerCocktail {
+    onDeleteMixerCocktail {
       id
       mixerID
       cocktailID
@@ -2039,12 +1865,9 @@ export const deleteMixerCocktail = /* GraphQL */ `
     }
   }
 `;
-export const createMixerSpecial = /* GraphQL */ `
-  mutation CreateMixerSpecial(
-    $input: CreateMixerSpecialInput!
-    $condition: ModelMixerSpecialConditionInput
-  ) {
-    createMixerSpecial(input: $input, condition: $condition) {
+export const onCreateMixerSpecial = /* GraphQL */ `
+  subscription OnCreateMixerSpecial {
+    onCreateMixerSpecial {
       id
       mixerID
       specialID
@@ -2085,12 +1908,9 @@ export const createMixerSpecial = /* GraphQL */ `
     }
   }
 `;
-export const updateMixerSpecial = /* GraphQL */ `
-  mutation UpdateMixerSpecial(
-    $input: UpdateMixerSpecialInput!
-    $condition: ModelMixerSpecialConditionInput
-  ) {
-    updateMixerSpecial(input: $input, condition: $condition) {
+export const onUpdateMixerSpecial = /* GraphQL */ `
+  subscription OnUpdateMixerSpecial {
+    onUpdateMixerSpecial {
       id
       mixerID
       specialID
@@ -2131,12 +1951,9 @@ export const updateMixerSpecial = /* GraphQL */ `
     }
   }
 `;
-export const deleteMixerSpecial = /* GraphQL */ `
-  mutation DeleteMixerSpecial(
-    $input: DeleteMixerSpecialInput!
-    $condition: ModelMixerSpecialConditionInput
-  ) {
-    deleteMixerSpecial(input: $input, condition: $condition) {
+export const onDeleteMixerSpecial = /* GraphQL */ `
+  subscription OnDeleteMixerSpecial {
+    onDeleteMixerSpecial {
       id
       mixerID
       specialID

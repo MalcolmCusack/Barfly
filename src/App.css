@@ -1,13 +1,16 @@
 .App {
   text-align: center;
-  background: #fff;
+  
   color: #fcba03;
-  height: 100%;
+
+
 }
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  margin: 30px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -28,10 +31,10 @@
   color:#fcba03 ;
 }
 
-
+/* 
 button {
   background-color: #fcba03 ;
-}
+} */
 
 
 
