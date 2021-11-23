@@ -4,14 +4,9 @@ import { schema } from './schema';
 
 
 
-const { Note, OrderHistory, Order, User, Tab, Mixer, MixerCocktail, Cocktail, LiquorType, LiquorTypeShot, Shot, LiquorTypeCocktail, LiquorTypeSpecial, Special, MixerSpecial, Wine, Beer, Food, Menu, Employee, Bar } = initSchema(schema);
+const { Mixer, MixerCocktail, Cocktail, LiquorType, LiquorTypeShot, Shot, LiquorTypeCocktail, LiquorTypeSpecial, Special, MixerSpecial, Wine, Beer, Food, Menu, Employee, Order, User, Bar } = initSchema(schema);
 
 export {
-  Note,
-  OrderHistory,
-  Order,
-  User,
-  Tab,
   Mixer,
   MixerCocktail,
   Cocktail,
@@ -27,5 +22,7 @@ export {
   Food,
   Menu,
   Employee,
+  Order,
+  User,
   Bar
 };

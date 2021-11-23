@@ -1,3 +1,16 @@
+
+type Note @model {
+  id: ID!
+  name: String!
+  description: String
+  image: String
+}
+
+type OrderHistory @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Orders: [Order] @connection(keyName: "byOrderHistory", fields: ["id"])
+}
+
 type Mixer @model @auth(rules: [{allow: public}]) @key(name: "bySpecial", fields: ["specialID"]) @key(name: "byCocktail", fields: ["cocktailID"]) @key(name: "byShot", fields: ["shotID"]) {
   id: ID!
   name: String
@@ -124,6 +137,7 @@ type Bar @model @auth(rules: [{allow: public}]) {
   location: AWSJSON
   payment: AWSJSON
   event: String
+  createdAt: AWSTimestamp!
   address: AWSJSON
   nightSummary: AWSJSON
   Orders: [Order] @connection(keyName: "byBar", fields: ["id"])
@@ -131,28 +145,43 @@ type Bar @model @auth(rules: [{allow: public}]) {
   Menu: [Menu] @connection(keyName: "byBar", fields: ["id"])
 }
 
-type Order @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: ["userID"]) @key(name: "byBar", fields: ["barID"]) @key(name: "byEmployee", fields: ["employeeID"]) {
+type Order @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: ["userID"]) @key(name: "byTab", fields: ["tabID"]) @key(name: "byBar", fields: ["barID"]) @key(name: "byEmployee", fields: ["employeeID"]) @key(name: "byOrderHistory", fields: ["orderhistoryID"]) {
   id: ID!
-  timestamp: AWSTimestamp
+  timestamp: AWSTimestamp!
   items: [AWSJSON!]
   completed: Boolean!
   userID: ID
+  tabID: ID
   User: User @connection
   barID: ID
   employeeID: ID
+  orderhistoryID: ID
 }
 
-type User @model @auth(rules: [{allow: public}]) {
+type Tab @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  paid: Boolean!
+  Users: [User!] @connection(keyName: "byTab", fields: ["id"])
+  tip: String
+  timestamp: AWSTimestamp!
+  Orders: [Order] @connection(keyName: "byTab", fields: ["id"])
+}
+
+type User @model @auth(rules: [{allow: public}]) @key(name: "byTab", fields: ["tabID"]) {
   id: ID!
   email: AWSEmail!
   phone: AWSPhone!
   profileImg: AWSJSON
   location: AWSJSON
+  payment: AWSTimestamp
   age: String!
-  createdAt: AWSTimestamp
+  createdAt: AWSTimestamp!
   name: String!
   address: AWSJSON
   order: String
+  orderHistory: AWSJSON
+  Tab: Tab @connection
+  tabID: ID
   Orders: [Order] @connection(keyName: "byUser", fields: ["id"])
 }
 

@@ -4,26 +4,6 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
-type NoteMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
-type OrderHistoryMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
-type OrderMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
-type UserMetaData = {
-  readOnlyFields: 'updatedAt';
-}
-
-type TabMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
 type MixerMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -84,79 +64,16 @@ type EmployeeMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type BarMetaData = {
+type OrderMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type UserMetaData = {
   readOnlyFields: 'updatedAt';
 }
 
-export declare class Note {
-  readonly id: string;
-  readonly name: string;
-  readonly description?: string;
-  readonly image?: string;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<Note, NoteMetaData>);
-  static copyOf(source: Note, mutator: (draft: MutableModel<Note, NoteMetaData>) => MutableModel<Note, NoteMetaData> | void): Note;
-}
-
-export declare class OrderHistory {
-  readonly id: string;
-  readonly Orders?: (Order | null)[];
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<OrderHistory, OrderHistoryMetaData>);
-  static copyOf(source: OrderHistory, mutator: (draft: MutableModel<OrderHistory, OrderHistoryMetaData>) => MutableModel<OrderHistory, OrderHistoryMetaData> | void): OrderHistory;
-}
-
-export declare class Order {
-  readonly id: string;
-  readonly timestamp: number;
-  readonly items?: string[];
-  readonly completed: boolean;
-  readonly userID?: string;
-  readonly tabID?: string;
-  readonly User?: User;
-  readonly barID?: string;
-  readonly employeeID?: string;
-  readonly orderhistoryID?: string;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<Order, OrderMetaData>);
-  static copyOf(source: Order, mutator: (draft: MutableModel<Order, OrderMetaData>) => MutableModel<Order, OrderMetaData> | void): Order;
-}
-
-export declare class User {
-  readonly id: string;
-  readonly email: string;
-  readonly phone: string;
-  readonly profileImg?: string;
-  readonly location?: string;
-  readonly payment?: number;
-  readonly age: string;
-  readonly createdAt: number;
-  readonly name: string;
-  readonly address?: string;
-  readonly order?: string;
-  readonly orderHistory?: string;
-  readonly Tab?: Tab;
-  readonly tabID?: string;
-  readonly Orders?: (Order | null)[];
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<User, UserMetaData>);
-  static copyOf(source: User, mutator: (draft: MutableModel<User, UserMetaData>) => MutableModel<User, UserMetaData> | void): User;
-}
-
-export declare class Tab {
-  readonly id: string;
-  readonly paid: boolean;
-  readonly Users?: User[];
-  readonly tip?: string;
-  readonly timestamp: number;
-  readonly Orders?: (Order | null)[];
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<Tab, TabMetaData>);
-  static copyOf(source: Tab, mutator: (draft: MutableModel<Tab, TabMetaData>) => MutableModel<Tab, TabMetaData> | void): Tab;
+type BarMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
 export declare class Mixer {
@@ -366,6 +283,38 @@ export declare class Employee {
   static copyOf(source: Employee, mutator: (draft: MutableModel<Employee, EmployeeMetaData>) => MutableModel<Employee, EmployeeMetaData> | void): Employee;
 }
 
+export declare class Order {
+  readonly id: string;
+  readonly timestamp?: number;
+  readonly items?: string[];
+  readonly completed: boolean;
+  readonly userID?: string;
+  readonly User?: User;
+  readonly barID?: string;
+  readonly employeeID?: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Order, OrderMetaData>);
+  static copyOf(source: Order, mutator: (draft: MutableModel<Order, OrderMetaData>) => MutableModel<Order, OrderMetaData> | void): Order;
+}
+
+export declare class User {
+  readonly id: string;
+  readonly email: string;
+  readonly phone: string;
+  readonly profileImg?: string;
+  readonly location?: string;
+  readonly age: string;
+  readonly createdAt?: number;
+  readonly name: string;
+  readonly address?: string;
+  readonly order?: string;
+  readonly Orders?: (Order | null)[];
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<User, UserMetaData>);
+  static copyOf(source: User, mutator: (draft: MutableModel<User, UserMetaData>) => MutableModel<User, UserMetaData> | void): User;
+}
+
 export declare class Bar {
   readonly id: string;
   readonly name: string;
@@ -375,12 +324,12 @@ export declare class Bar {
   readonly location?: string;
   readonly payment?: string;
   readonly event?: string;
-  readonly createdAt: number;
   readonly address?: string;
   readonly nightSummary?: string;
   readonly Orders?: (Order | null)[];
   readonly Employees?: (Employee | null)[];
   readonly Menu?: (Menu | null)[];
+  readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Bar, BarMetaData>);
   static copyOf(source: Bar, mutator: (draft: MutableModel<Bar, BarMetaData>) => MutableModel<Bar, BarMetaData> | void): Bar;

@@ -1,5 +1,12 @@
 {
   "AppSyncApiName": "Barfly",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authbarfly2b04a7f4",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2021-11-23T03:34:58.089Z"
 }
