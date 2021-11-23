@@ -13,6 +13,7 @@ import {
     Drawer,
     List,
     Toolbar,
+    Link as Typeography,
 } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
@@ -65,6 +66,10 @@ const theme = createTheme({
 });
 
 function App() {
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    function toggleDrawerOpen() {
+        setDrawerOpen(!drawerOpen);
+    }
     const [{ state, user, order }, dispatch] = useStateValue();
 
     const [triggerFetch, setTriggerFetch] = useState(false);
@@ -132,22 +137,28 @@ function App() {
         };
     }, [triggerFetch]);
 
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    function toggleDrawerOpen() {
-        setDrawerOpen(!drawerOpen);
-    }
-
     return (
         <ThemeProvider theme={theme}>
             <SnackbarProvider maxSnack={3}>
                 <AppBar>
-                    <Box display="flex" justifyItems="flex-start">
-                        <IconButton onClick={toggleDrawerOpen}>
-                            <MenuIcon />
-                        </IconButton>
+                    <Box display="flex" alignItems="center" justifyContent="center" position="relative" width="100%">
+                        <Box position="absolute" left="0">
+                            <IconButton
+                                style={{ justifySelf: "flex-end" }}
+                                onClick={toggleDrawerOpen}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        </Box>
+                        <Typeography href="/" >
+                            Barfly
+                        </Typeography>
+                        <Box position="absolute" right="1ch">
+                            <>user picture place holder</>
+                        </Box>
                     </Box>
                 </AppBar>
-                <Toolbar/>
+                <Toolbar />
                 <Drawer
                     open={drawerOpen}
                     anchor="left"
@@ -157,15 +168,20 @@ function App() {
                     }}
                     onBackdropClick={() => setDrawerOpen(false)}
                 >
-                    <Box
-                    width="50vw">
-                    <List>
-                        <p>test</p>
-                        <p>test</p>
-                        <p>test</p>
-                        <p>test</p>
-                        <p>test</p>
-                    </List>
+                    <Box width="min(50vw, 30ch)">
+                        <List>
+                            <Button
+                                onClick={() => {
+                                    setDrawerOpen(false);
+                                    handleSignout().then(
+                                        () => (window.location.href = "/")
+                                    );
+                                }}
+                                variant="contained"
+                            >
+                                Log Out
+                            </Button>
+                        </List>
                     </Box>
                 </Drawer>
                 <Router>

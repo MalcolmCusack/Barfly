@@ -1,5 +1,5 @@
 import React from "react";
-import { Button} from "@mui/material";
+import { Button } from "@mui/material";
 import logoWhite from "../BarflyLogoWhite.png";
 import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../state/StateProvider";
@@ -8,26 +8,25 @@ import Menu from "./menu/Menu";
 const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
     const [state] = useStateValue();
 
-    const navigator = useNavigate()
+    const navigator = useNavigate();
 
-    function navigate(destination:string) {
-        navigator(destination)
+    function navigate(destination: string) {
+        navigator(destination);
     }
 
     return (
         <div>
             <img src={logoWhite} className="App-logo" alt="logo" />
             <h2>Hello, {state.user.username}</h2>
-            <Button variant="contained" onClick={() => navigate('./ordersummary')}>Place Order</Button>
-        <div style={{border:"1px solid black"}}>
-
-        <Menu />
-    
-        </div>
-            
-            <Button onClick={onSignOut} variant="contained">
-                Log Out
+            <Button
+                variant="contained"
+                onClick={() => navigate("./ordersummary")}
+            >
+                Place Order
             </Button>
+            <div style={{ border: "1px solid black" }}>
+                <Menu />
+            </div>
         </div>
     );
 };
