@@ -1,5 +1,7 @@
+/* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
+
 
 export const listWholeMenu =  /* GraphQL */ `
   query MyQuery {
@@ -83,15 +85,12 @@ query MyQuery($id: ID!) {
         brand
         id
         price
-        
       }
     }
     Cocktails {
       items {
         description
         id
-        name
-        price
         mixers {
           items {
             cocktail {
@@ -1251,8 +1250,10 @@ export const listOrders = /* GraphQL */ `
         items
         completed
         userID
+        tabID
         barID
         employeeID
+        orderhistoryID
         _version
         _deleted
         _lastChangedAt
