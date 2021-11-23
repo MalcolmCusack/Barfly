@@ -9,8 +9,6 @@ const MenuItem = ({item}) => {
 
     const [{order}, dispatch] = useStateValue();
 
-    console.log(order)
-
     const addToOrder = () => {
         dispatch({
             type: 'ADD_TO_ORDER',

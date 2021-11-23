@@ -70,6 +70,7 @@ const theme = createTheme({
 });
 
 function App() {
+
     const [drawerOpen, setDrawerOpen] = useState(false);
     function toggleDrawerOpen() {
         setDrawerOpen(!drawerOpen);
@@ -261,7 +262,7 @@ function App() {
                                     />
 
                                     <Route
-                                        path="/status"
+                                        path="/orderstatus"
                                         element={<OrderStatus />}
                                     />
                                 </>
