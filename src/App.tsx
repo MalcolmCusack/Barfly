@@ -26,7 +26,8 @@ import { Box } from "@mui/material";
 import { SnackbarProvider } from "notistack";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import SportsBarIcon from '@mui/icons-material/SportsBar';
+import { color } from "@mui/system";
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
@@ -181,7 +182,8 @@ function App() {
                         </Box>
                         {/* appbar-right */}
                         <Box position="absolute" right="1ch">
-                            {user && <h2>Hello, {user.username}</h2>}
+                            
+                        <a style={{textDecoration: 'none', color: "#fcba03"}} href='/ordersummary'><SportsBarIcon /><span>{order.length}</span></a>
                         
                             {/* put user profile thingy here */}
                         </Box>
