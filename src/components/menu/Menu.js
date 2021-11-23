@@ -4,11 +4,14 @@ import { getWholeMenu } from "../../graphql/queries";
 import LoadingIndicator from "../LoadingIndicator";
 import MenuCategory from "./MenuCategory";
 import { listOrders } from "../../graphql/queries";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { useNavigate } from "react-router";
 
 const Menu = () => {
     const [menu, setMenu] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -42,19 +45,28 @@ const Menu = () => {
             .filter((category) => category !== "id")
             .map((category) => (
                 <MenuCategory
-                    key={category + ""}
+                    key={category}
                     category={category}
                     items={menu[category]}
+                    
                 />
             ));
     };
 
     console.log(menu);
 
+
     return (
         <Box>
             <h2>Menu</h2>
             {isLoading ? <LoadingIndicator size="30px" /> : renderMenu()}
+            <Box height="2em"/>
+            <Button
+                variant="contained"
+                onClick={() => navigate("./ordersummary")}
+            >
+                Place Order
+            </Button>
         </Box>
     );
 };

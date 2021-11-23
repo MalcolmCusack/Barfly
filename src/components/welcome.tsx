@@ -4,26 +4,18 @@ import logoWhite from "../BarflyLogoWhite.png";
 import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../state/StateProvider";
 import Menu from "./menu/Menu";
+import Centerer from "./Centerer";
 
 const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
     const [state] = useStateValue();
 
-    const navigator = useNavigate();
 
-    function navigate(destination: string) {
-        navigator(destination);
-    }
 
     return (
         <div>
             <img src={logoWhite} className="App-logo" alt="logo" />
-            <h2>Hello, {state.user.username}</h2>
-            <Button
-                variant="contained"
-                onClick={() => navigate("./ordersummary")}
-            >
-                Place Order
-            </Button>
+            
+
             <div style={{ border: "1px solid black" }}>
                 <Menu />
             </div>

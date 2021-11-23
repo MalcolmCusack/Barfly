@@ -80,7 +80,6 @@ function App() {
         setDrawerOpen(true);
     }
     const [{ state, user, order }, dispatch] = useStateValue();
-
     const [triggerFetch, setTriggerFetch] = useState(false);
 
     const handleSignout = async () => {
@@ -182,6 +181,8 @@ function App() {
                         </Box>
                         {/* appbar-right */}
                         <Box position="absolute" right="1ch">
+                            {user && <h2>Hello, {user.username}</h2>}
+                        
                             {/* put user profile thingy here */}
                         </Box>
                     </Box>

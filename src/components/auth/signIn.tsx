@@ -57,16 +57,11 @@ const SignIn = () => {
                     margin="normal"
                     required
                 />
+                <br />
+                {/* caps lock warning: only a littler pointless on a mobile-focused website */}
+                <Box height="1.3em" lineHeight=".8em">{capsLock && "⚠ CAPSLOCK IS ON ⚠"}</Box>
 
-                <span style={{ fontSize: "14px" }}>
-                    <br />
-                    Forgot your password?{" "}
-                    <Link style={{ color: "white" }} to="/forgotpass">
-                        Reset Password
-                    </Link>
-                </span>
-
-                <Box display="inline-block" height="7ch" width="12ch">
+                <Box display="inline-block"  width="12ch" marginBottom="1em">
                     {loggingIn ? (
                         <LoadingIndicator size="30px" />
                     ) : (
@@ -81,20 +76,21 @@ const SignIn = () => {
                         </Centerer>
                     )}
                 </Box>
-            </form>
-            {capsLock && (
-                <>
-                    <span>⚠ CAPSLOCK IS ON ⚠</span>
+                <span style={{ fontSize: "14px" }}>
                     <br />
-                </>
-            )}
+                    <Link style={{ color: "white" }} to="/forgotpass">
+                        Forgot Password
+                    </Link>
+                </span>
+                {" "}
+                <span>
+                    <Link style={{ color: "white" }} to="/signup">
+                        Create Account
+                    </Link>
+                </span>
 
-            <span>
-                No account?{" "}
-                <Link style={{ color: "white" }} to="/signup">
-                    Create a Barfly Account
-                </Link>
-            </span>
+            </form>
+
         </div>
     );
 };
