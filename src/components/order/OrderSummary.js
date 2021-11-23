@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, ButtonGroup} from '@mui/material';
 import React from 'react';
 import { useStateValue } from '../../state/StateProvider';
 import OrderItem from './OrderItem';
@@ -26,11 +26,13 @@ const OrderSummary = () => {
             })}
             </div>
 
-            <h2>Order Total: {getOrderTotal(order)}</h2>
+            <h2>Order Total: $ {getOrderTotal(order).toFixed(2)}</h2>
         
-
-            <Button variant="contained" onClick={() => navigate('/')}>Back to Menu</Button>
-            <Button variant="contained" onClick={() => navigate('/payment')}>Checkout</Button>
+            <ButtonGroup disableElevation variant='outlined'>
+                <Button  onClick={() => navigate('/')}>Back to Menu</Button>
+                <Button  variant='contained' onClick={() => navigate('/payment')}>Checkout</Button>
+            </ButtonGroup>
+            
 
         </div>
         

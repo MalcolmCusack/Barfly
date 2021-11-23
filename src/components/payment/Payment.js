@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, ButtonGroup, TextField} from '@mui/material';
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import { getOrderTotal } from '../../state/reducer';
@@ -54,10 +54,22 @@ function Payment() {
     return (
         <div>
             <h1>Payment</h1>
-            <h2>Order Total: {getOrderTotal(order)}</h2>
+            <h2>Order Total: $ {getOrderTotal(order).toFixed(2)}</h2>
 
-            <Button variant="outlined" onClick={handleSubmit}>Place Order</Button>
-            <Button variant="outlined" onClick={() => navigate('/ordersummary')}>Back to Summary</Button>
+            <TextField margin='normal' variant="outlined" placeholder='card number'></TextField>
+            <div style={{margin: '20px'}}>
+                <TextField variant="outlined" placeholder='mm/yyyy'></TextField>
+                <TextField style={{width:'100px'}}  variant="outlined" placeholder='cvv'></TextField>
+            </div>
+            
+
+
+            
+            <ButtonGroup>
+                <Button variant="outlined" onClick={() => navigate('/ordersummary')}>Back to Summary</Button>
+                <Button variant="contained" onClick={handleSubmit}>Place Order</Button>
+            </ButtonGroup>
+            
         </div>
     )
 }

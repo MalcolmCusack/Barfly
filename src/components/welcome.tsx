@@ -18,12 +18,13 @@ const Welcome = ({ onSignOut }: { onSignOut: () => {} }) => {
         <div>
             <img src={logoWhite} className="App-logo" alt="logo" />
             <h2>Hello, {state.user.username}</h2>
+            <Button variant="contained" onClick={() => navigate('./ordersummary')}>Place Order</Button>
         <div style={{border:"1px solid black"}}>
 
         <Menu />
     
         </div>
-            <Button onClick={() => navigate('./ordersummary')}>Order Summary</Button>
+            
             <Button onClick={onSignOut} variant="contained">
                 Log Out
             </Button>
