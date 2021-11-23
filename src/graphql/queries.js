@@ -1251,10 +1251,8 @@ export const listOrders = /* GraphQL */ `
         items
         completed
         userID
-        tabID
         barID
         employeeID
-        orderhistoryID
         _version
         _deleted
         _lastChangedAt

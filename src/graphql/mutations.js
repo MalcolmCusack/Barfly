@@ -1167,10 +1167,8 @@ export const createOrder = /* GraphQL */ `
       items
       completed
       userID
-      tabID
       barID
       employeeID
-      orderhistoryID
       _version
       _deleted
       _lastChangedAt
@@ -1182,14 +1180,11 @@ export const createOrder = /* GraphQL */ `
         phone
         profileImg
         location
-        payment
         age
         createdAt
         name
         address
         order
-        orderHistory
-        tabID
         _version
         _deleted
         _lastChangedAt

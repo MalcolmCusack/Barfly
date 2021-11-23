@@ -11,6 +11,7 @@ import Welcome from "./components/welcome";
 import OrderScreen from "./components/OrderScreen";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
+import OrderStatus from "./components/payment/OrderStatus";
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
@@ -126,6 +127,11 @@ function App() {
                                     path="/payment"
                                     element={<Payment />}
                                />
+
+                               <Route
+                                    path="/status"
+                                    element={<OrderStatus />}
+                                />
 
                             </>
                         )}

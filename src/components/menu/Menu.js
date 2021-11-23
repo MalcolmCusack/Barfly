@@ -3,6 +3,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import { getWholeMenu} from "../../graphql/queries";
 import LoadingIndicator from "../LoadingIndicator";
 import MenuCategory from "./MenuCategory";
+import { listOrders } from "../../graphql/queries";
 
 const Menu = () => {
 
@@ -20,6 +21,9 @@ const Menu = () => {
                 //setBeers(responseBeer.data)
                 setIsloading(true)
                 
+                const orders = await API.graphql(graphqlOperation(listOrders))
+            
+                console.log(orders)
                 
             } catch (err) {
                 console.log(err)
