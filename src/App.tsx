@@ -4,7 +4,16 @@ import { useState, useEffect } from "react";
 import { useStateValue } from "./state/StateProvider";
 import { Auth, Hub } from "aws-amplify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ThemeProvider, createTheme } from "@mui/material";
+import {
+    ThemeProvider,
+    createTheme,
+    AppBar,
+    Button,
+    IconButton,
+    Drawer,
+    List,
+    Toolbar,
+} from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import Welcome from "./components/welcome";
@@ -12,45 +21,47 @@ import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
 import OrderStatus from "./components/payment/OrderStatus";
 import { Box } from "@mui/material";
+import { SnackbarProvider } from "notistack";
+import MenuIcon from "@mui/icons-material/Menu";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
 
 const theme = createTheme({
     palette: {
-      divider:"#fcba03",
-      mode:"dark",
+        divider: "#fcba03",
+        mode: "dark",
         primary: {
             main: "#fcba03",
             contrastText: "black",
-            light:"#fcba03",
-            dark:"#fcba03",
+            light: "#fcba03",
+            dark: "#fcba03",
         },
         secondary: {
             main: "#222",
             contrastText: "white",
-            light:"white",
-            dark:"black",
+            light: "white",
+            dark: "black",
         },
-        background:{
-          default: "#fcba03",
+        background: {
+            default: "#fcba03",
         },
-        text:{
-          primary: "#fcba03",
-          secondary: "#fcba03",
+        text: {
+            primary: "#fcba03",
+            secondary: "#fcba03",
         },
-
     },
-    components:{
-      MuiTextField:{
-        styleOverrides:{
-          root:{
-            backgroundClip:"black",
-          }
-        }
-      }
-    }
-    
+    components: {
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    backgroundClip: "black",
+                },
+            },
+        },
+    },
 });
 
 function App() {
@@ -121,45 +132,84 @@ function App() {
         };
     }, [triggerFetch]);
 
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    function toggleDrawerOpen() {
+        setDrawerOpen(!drawerOpen);
+    }
+
     return (
         <ThemeProvider theme={theme}>
-            <Router>
-                <Box className="App" margin="2ch">
-                    <Routes>
-                        {!user ? (
-                            <>
-                                <Route path="/" element={<SignIn />} />
-                                <Route path="/signup" element={<SignUp />} />
-                            </>
-                        ) : (
-                            <>
-                                <Route
-                                    path="/"
-                                    element={
-                                        <Welcome onSignOut={handleSignout} />
-                                    }
-                                />
+            <SnackbarProvider maxSnack={3}>
+                <AppBar>
+                    <Box display="flex" justifyItems="flex-start">
+                        <IconButton onClick={toggleDrawerOpen}>
+                            <MenuIcon />
+                        </IconButton>
+                    </Box>
+                </AppBar>
+                <Toolbar/>
+                <Drawer
+                    open={drawerOpen}
+                    anchor="left"
+                    style={{
+                        height: "100%",
+                        width: "50%",
+                    }}
+                    onBackdropClick={() => setDrawerOpen(false)}
+                >
+                    <Box
+                    width="50vw">
+                    <List>
+                        <p>test</p>
+                        <p>test</p>
+                        <p>test</p>
+                        <p>test</p>
+                        <p>test</p>
+                    </List>
+                    </Box>
+                </Drawer>
+                <Router>
+                    <Box className="App" margin="2ch">
+                        <Routes>
+                            {!user ? (
+                                <>
+                                    <Route path="/" element={<SignIn />} />
+                                    <Route
+                                        path="/signup"
+                                        element={<SignUp />}
+                                    />
+                                </>
+                            ) : (
+                                <>
+                                    <Route
+                                        path="/"
+                                        element={
+                                            <Welcome
+                                                onSignOut={handleSignout}
+                                            />
+                                        }
+                                    />
 
-                                <Route
-                                    path="/ordersummary"
-                                    element={<OrderSummary />}
-                                />
+                                    <Route
+                                        path="/ordersummary"
+                                        element={<OrderSummary />}
+                                    />
 
-                                <Route
-                                    path="/payment"
-                                    element={<Payment />}
-                               />
+                                    <Route
+                                        path="/payment"
+                                        element={<Payment />}
+                                    />
 
-                               <Route
-                                    path="/status"
-                                    element={<OrderStatus />}
-                                />
-
-                            </>
-                        )}
-                    </Routes>
-                </Box>
-            </Router>
+                                    <Route
+                                        path="/status"
+                                        element={<OrderStatus />}
+                                    />
+                                </>
+                            )}
+                        </Routes>
+                    </Box>
+                </Router>
+            </SnackbarProvider>
         </ThemeProvider>
     );
 }
