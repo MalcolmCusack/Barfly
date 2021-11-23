@@ -2,7 +2,6 @@ type Mixer @model @auth(rules: [{allow: public}]) @key(name: "bySpecial", fields
   id: ID!
   name: String
   price: Float
-  request: String
   brand: String
   img: AWSJSON
   specialID: ID
@@ -15,7 +14,6 @@ type Mixer @model @auth(rules: [{allow: public}]) @key(name: "bySpecial", fields
 type LiquorType @model @auth(rules: [{allow: public}]) @key(name: "bySpecial", fields: ["specialID"]) @key(name: "byCocktail", fields: ["cocktailID"]) @key(name: "byShot", fields: ["shotID"]) {
   id: ID!
   name: String
-  well: AWSDate
   type: String
   price: Float
   brand: String
@@ -33,7 +31,7 @@ type Special @model @auth(rules: [{allow: public}]) @key(name: "byMenu", fields:
   name: String!
   price: Float!
   img: AWSJSON
-  discription: String
+  description: String
   LiquorTypes: [LiquorType] @connection(keyName: "bySpecial", fields: ["id"])
   Mixers: [Mixer] @connection(keyName: "bySpecial", fields: ["id"])
   menuID: ID
@@ -59,6 +57,7 @@ type Beer @model @auth(rules: [{allow: public}]) @key(name: "byMenu", fields: ["
   img: AWSJSON
   brand: String
   menuID: ID
+  description: String
 }
 
 type Cocktail @model @auth(rules: [{allow: public}]) @key(name: "byMenu", fields: ["menuID"]) {
@@ -119,7 +118,7 @@ type Bar @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   email: AWSEmail!
-  phone: AWSPhone!
+  phone: AWSPhone
   profileImg: AWSJSON
   location: AWSJSON
   payment: AWSJSON
@@ -129,11 +128,12 @@ type Bar @model @auth(rules: [{allow: public}]) {
   Orders: [Order] @connection(keyName: "byBar", fields: ["id"])
   Employees: [Employee] @connection(keyName: "byBar", fields: ["id"])
   Menu: [Menu] @connection(keyName: "byBar", fields: ["id"])
+  bio: String
 }
 
 type Order @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: ["userID"]) @key(name: "byBar", fields: ["barID"]) @key(name: "byEmployee", fields: ["employeeID"]) {
   id: ID!
-  timestamp: AWSTimestamp
+  timestamp: AWSDateTime
   items: [AWSJSON!]
   completed: Boolean!
   userID: ID
@@ -145,11 +145,11 @@ type Order @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: [
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   email: AWSEmail!
-  phone: AWSPhone!
+  phone: AWSPhone
   profileImg: AWSJSON
   location: AWSJSON
-  age: String!
-  createdAt: AWSTimestamp
+  age: String
+  createdAt: AWSDateTime
   name: String!
   address: AWSJSON
   order: String
