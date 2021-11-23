@@ -138,14 +138,6 @@ function App() {
                                         <Welcome onSignOut={handleSignout} />
                                     }
                                 />
-                                <Route
-                                    path="/order"
-                                    element={<OrderHome/>}
-                                />
-                                <Route
-                                    path="/orderwell"
-                                    element={<OrderWell />}
-                                />
 
                                 <Route
                                     path="/ordersummary"
