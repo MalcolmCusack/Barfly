@@ -141,7 +141,8 @@ function App() {
         <ThemeProvider theme={theme}>
             <SnackbarProvider maxSnack={3}>
                 <AppBar>
-                    <Box display="flex" alignItems="center" justifyContent="center" position="relative" width="100%">
+                    <Box display="flex" alignItems="center" justifyContent="center" position="relative" width="100%" height="5ch">
+                        {/* appbar-left */}
                         <Box position="absolute" left="0">
                             <IconButton
                                 style={{ justifySelf: "flex-end" }}
@@ -150,11 +151,15 @@ function App() {
                                 <MenuIcon />
                             </IconButton>
                         </Box>
-                        <Typeography href="/" >
+                        {/* appbar-center */}
+                        <Box>
+                        <Typeography href="/" style={{textDecoration:"none", fontSize:"3ch"}}>
                             Barfly
                         </Typeography>
+                        </Box>
+                        {/* appbar-right */}
                         <Box position="absolute" right="1ch">
-                            <>user picture place holder</>
+                            {/* put user profile thingy here */}
                         </Box>
                     </Box>
                 </AppBar>

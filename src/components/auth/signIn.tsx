@@ -14,8 +14,8 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
     const [loggingIn, setLoggingIn] = useState(false);
     const [capsLock, setCapsLock] = useState(false);
-    function detectCapsLock(e: React.KeyboardEvent){
-      setCapsLock(e.getModifierState("CapsLock"));
+    function detectCapsLock(e: React.KeyboardEvent) {
+        setCapsLock(e.getModifierState("CapsLock"));
     }
 
     const navigate = useNavigate();
@@ -44,9 +44,10 @@ const SignIn = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     label="email"
-                    style={{borderColor:"green"}}
+                    style={{ borderColor: "green" }}
                     required
                 />
+                <br />
                 <TextField
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -57,28 +58,42 @@ const SignIn = () => {
                     required
                 />
 
-            <span style={{fontSize: '14px'}}>
-                <br/>
-                Forgot your password?{" "}
-                <Link style={{color: 'white'}} to="/forgotpass">Reset Password</Link>
-            </span>
+                <span style={{ fontSize: "14px" }}>
+                    <br />
+                    Forgot your password?{" "}
+                    <Link style={{ color: "white" }} to="/forgotpass">
+                        Reset Password
+                    </Link>
+                </span>
 
                 <Box display="inline-block" height="7ch" width="12ch">
                     {loggingIn ? (
-                      <LoadingIndicator size="30px" />
-                      ) : (
+                        <LoadingIndicator size="30px" />
+                    ) : (
                         <Centerer>
-                            <Button size='large' type="submit" variant="contained">
+                            <Button
+                                size="large"
+                                type="submit"
+                                variant="contained"
+                            >
                                 Sign In
                             </Button>
                         </Centerer>
                     )}
                 </Box>
             </form>
-                    {capsLock && <><span>⚠ CAPSLOCK IS ON ⚠</span><br/></>}
-            
+            {capsLock && (
+                <>
+                    <span>⚠ CAPSLOCK IS ON ⚠</span>
+                    <br />
+                </>
+            )}
+
             <span>
-                No account? <Link style={{color: 'white'}} to="/signup">Create a Barfly Account</Link>
+                No account?{" "}
+                <Link style={{ color: "white" }} to="/signup">
+                    Create a Barfly Account
+                </Link>
             </span>
         </div>
     );
