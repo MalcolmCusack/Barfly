@@ -1,8 +1,11 @@
 import { Button } from "@mui/material"
+import { useSnackbar } from "notistack";
 import { useStateValue } from "../../state/StateProvider"
 
 
+
 const MenuItem = ({item}) => {
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     const [{order}, dispatch] = useStateValue();
 
@@ -17,6 +20,8 @@ const MenuItem = ({item}) => {
                 price: item.price,
             }
         })
+
+        enqueueSnackbar(`${item.name} Added To Order`, {autoHideDuration: 1000})
     };
 
     return (
