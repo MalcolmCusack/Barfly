@@ -18,13 +18,39 @@ import OrderStatus from "./components/payment/OrderStatus";
 
 const theme = createTheme({
     palette: {
+      divider:"#fcba03",
+      mode:"dark",
         primary: {
             main: "#fcba03",
+            contrastText: "black",
+            light:"#fcba03",
+            dark:"#fcba03",
         },
         secondary: {
             main: "#fcba03",
+            contrastText: "black",
+            light:"#fcba03",
+            dark:"#fcba03",
         },
+        background:{
+          default: "#fcba03",
+        },
+        text:{
+          primary: "#fcba03",
+          secondary: "#fcba03",
+        },
+
+    },
+    components:{
+      MuiTextField:{
+        styleOverrides:{
+          root:{
+            backgroundClip:"black",
+          }
+        }
+      }
     }
+    
 });
 
 function App() {
@@ -112,10 +138,6 @@ function App() {
                                     element={
                                         <Welcome onSignOut={handleSignout} />
                                     }
-                                />
-                                <Route
-                                    path="/order"
-                                    element={<OrderScreen />}
                                 />
 
                                 <Route
