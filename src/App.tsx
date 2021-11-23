@@ -163,6 +163,7 @@ function App() {
                             <IconButton
                                 style={{ justifySelf: "flex-end" }}
                                 onClick={toggleDrawerOpen}
+                                color="primary"
                             >
                                 <MenuIcon />
                             </IconButton>
@@ -193,19 +194,26 @@ function App() {
                     anchor="left"
                     style={{
                         height: "100%",
-                        width: "50%",
                     }}
-                    onBackdropClick={() => setDrawerOpen(false)}
+                    onBackdropClick={closeDrawer}
                 >
                     <Box
                         height={APPBAR_HEIGHT}
-                        style={{ backgroundColor: "black" }}
-                    ></Box>
+                        style={{ backgroundColor: "#111" }}
+                        position="relative"
+                    >
+                        <Box position="absolute"
+                        right="0">
+                            <IconButton onClick={closeDrawer} color="primary">
+                                <ChevronLeftIcon/>
+                            </IconButton>
+                            </Box>
+                    </Box>
                     <Box width="min(50vw, 30ch)">
                         <List>
                             <Button
                                 onClick={() => {
-                                    setDrawerOpen(false);
+                                    closeDrawer();
                                     handleSignout().then(
                                         () => (window.location.href = "/")
                                     );
