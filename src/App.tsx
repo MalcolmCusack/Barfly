@@ -80,6 +80,7 @@ const theme = createTheme({
 });
 
 function App() {
+
     const [drawerOpen, setDrawerOpen] = useState(false);
     function toggleDrawerOpen() {
         setDrawerOpen(!drawerOpen);
@@ -91,6 +92,13 @@ function App() {
         setDrawerOpen(true);
     }
     const [{ state, user, order }, dispatch] = useStateValue();
+
+    const LOCAL_STORAGE_KEY_ORDER = `${user?.id}-order-state`;
+    function saveOrderState() {
+        localStorage.setItem(LOCAL_STORAGE_KEY_ORDER, JSON.stringify(order));
+    }
+    function loadOrderState() {}
+
     const [triggerFetch, setTriggerFetch] = useState(false);
 
     const handleSignout = async () => {
@@ -148,7 +156,10 @@ function App() {
         };
 
         HubListener();
-        fetchUserData();
+        fetchUserData().then(() => {
+            // load order after loading user data
+            dispatch({ type: "LOAD_ORDER" });
+        });
 
         return () => {
             Hub.remove("auth", () => {});
@@ -287,7 +298,7 @@ function App() {
                                     />
 
                                     <Route
-                                        path="/status"
+                                        path="/orderstatus"
                                         element={<OrderStatus />}
                                     />
                                 </>
