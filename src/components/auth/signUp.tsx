@@ -133,7 +133,7 @@ const SignUp = () => {
                             variant="outlined"
                             type="phone"
                             required
-                            style={{ width: "50%" }}
+                            style={{ flexGrow:1, minWidth:"5ch"}}
                         />
                         <TextField
                             margin="dense"
@@ -142,13 +142,13 @@ const SignUp = () => {
                             label="age"
                             type="number"
                             required
-                            style={{ width: "50%" }}
+                            style={{ width: "20ch", minWidth:"10ch"}}
                         />
                     </Box>
                     <Centerer>
-                        <ButtonGroup>
+                        <ButtonGroup style={{width:"40ch", minWidth:"25ch"}}>
                             <Button
-                                style={{ width: "20ch", height: "5ch" }}
+                                style={{ width: "50%", height: "5ch" }}
                                 variant="outlined"
                                 onClick={() => navigate("/")}
                             >
@@ -156,7 +156,7 @@ const SignUp = () => {
                             </Button>
 
                             <Button
-                                style={{ width: "20ch", height: "5ch" }}
+                                style={{ width: "50%", height: "5ch" }}
                                 variant="contained"
                                 type="submit"
                             >
