@@ -26,7 +26,7 @@ import { Box } from "@mui/material";
 import { SnackbarProvider } from "notistack";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import SportsBarIcon from '@mui/icons-material/SportsBar';
+import SportsBarIcon from "@mui/icons-material/SportsBar";
 import { color } from "@mui/system";
 
 // Back end push: amplify push
@@ -74,13 +74,20 @@ function App() {
     function toggleDrawerOpen() {
         setDrawerOpen(!drawerOpen);
     }
-    function closeDrawer(){
+    function closeDrawer() {
         setDrawerOpen(false);
     }
-    function openDrawer(){
+    function openDrawer() {
         setDrawerOpen(true);
     }
     const [{ state, user, order }, dispatch] = useStateValue();
+
+    const LOCAL_STORAGE_KEY_ORDER = `${user?.id}-order-state`;
+    function saveOrderState() {
+        localStorage.setItem(LOCAL_STORAGE_KEY_ORDER, JSON.stringify(order));
+    }
+    function loadOrderState() {}
+
     const [triggerFetch, setTriggerFetch] = useState(false);
 
     const handleSignout = async () => {
@@ -138,7 +145,10 @@ function App() {
         };
 
         HubListener();
-        fetchUserData();
+        fetchUserData().then(() => {
+            // load order after loading user data
+            dispatch({ type: "LOAD_ORDER" });
+        });
 
         return () => {
             Hub.remove("auth", () => {});
@@ -182,9 +192,17 @@ function App() {
                         </Box>
                         {/* appbar-right */}
                         <Box position="absolute" right="1ch">
-                            
-                        <a style={{textDecoration: 'none', color: "#fcba03"}} href='/ordersummary'><SportsBarIcon /><span>{order.length}</span></a>
-                        
+                            <a
+                                style={{
+                                    textDecoration: "none",
+                                    color: "#fcba03",
+                                }}
+                                href="/ordersummary"
+                            >
+                                <SportsBarIcon />
+                                <span>{order.length}</span>
+                            </a>
+
                             {/* put user profile thingy here */}
                         </Box>
                     </Box>
@@ -205,12 +223,11 @@ function App() {
                         style={{ backgroundColor: "#111" }}
                         position="relative"
                     >
-                        <Box position="absolute"
-                        right="0">
+                        <Box position="absolute" right="0">
                             <IconButton onClick={closeDrawer} color="primary">
-                                <ChevronLeftIcon/>
+                                <ChevronLeftIcon />
                             </IconButton>
-                            </Box>
+                        </Box>
                     </Box>
                     <Box width="min(50vw, 30ch)">
                         <List>
