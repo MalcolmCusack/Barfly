@@ -3,7 +3,13 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useStateValue } from "./state/StateProvider";
 import { Auth, Hub } from "aws-amplify";
-import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useParams,
+} from "react-router-dom";
+import { useNavigate } from "react-router";
 import {
     ThemeProvider,
     createTheme,
@@ -15,6 +21,7 @@ import {
     Toolbar,
     Link as Typeography,
     SwipeableDrawer,
+    Typography,
 } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
@@ -30,7 +37,7 @@ import SportsBarIcon from "@mui/icons-material/SportsBar";
 import { color } from "@mui/system";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
-console.debug("================= console.debug is enabled ===============")
+console.debug("================= console.debug is enabled ===============");
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
@@ -149,7 +156,6 @@ function App() {
         };
     }, [triggerFetch]);
 
-
     return (
         <ThemeProvider theme={theme}>
             <SnackbarProvider maxSnack={3}>
@@ -163,7 +169,7 @@ function App() {
                         height={APPBAR_HEIGHT}
                     >
                         {/* appbar-left */}
-                        <Box position="absolute" left="0">
+                        <Box position="absolute" left="2ch">
                             <IconButton
                                 style={{ justifySelf: "flex-end" }}
                                 onClick={toggleDrawerOpen}
@@ -185,19 +191,18 @@ function App() {
                             </Typeography>
                         </Box>
                         {/* appbar-right */}
-                        <Box position="absolute" right="1ch">
-                            <a
-                                style={{
-                                    textDecoration: "none",
-                                    color: "#fcba03",
-                                }}
-                                href="/ordersummary"
-                            >
-                                <SportsBarIcon />
-                                <span>{order.length}</span>
-                            </a>
-
-                            {/* put user profile thingy here */}
+                        <Box position="absolute" right="2ch">
+                            <IconButton href="/ordersummary">
+                                <span style={{ color: "$fcba03" }}>
+                                    <SportsBarIcon color="primary" />
+                                    <Typography
+                                        color="primary"
+                                        display="inline"
+                                    >
+                                        {order.length}
+                                    </Typography>
+                                </span>
+                            </IconButton>
                         </Box>
                     </Box>
                 </AppBar>
