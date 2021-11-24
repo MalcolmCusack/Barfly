@@ -61,7 +61,6 @@ const SignUp = () => {
     const renderSignUp = () => {
       return (
         <div>
-          <h1>Sign Up For Barfly!</h1>
           <img src={logoWhite} className="App-logo" alt="logo" />
           
           <h2>Create An Account</h2>

@@ -5,6 +5,8 @@ import { getOrderTotal } from '../../state/reducer';
 import { useStateValue } from '../../state/StateProvider';
 import { API, graphqlOperation } from "aws-amplify";
 import { createOrder } from '../../graphql/mutations';
+import {onCreateOrder} from '../../graphql/subscriptions';
+
 //import {listOrders} from '../../graphql/queries';
 
 
@@ -19,8 +21,11 @@ function Payment() {
     }
 
 
+
     const handleSubmit = async (event) => {
         event.preventDefault()
+
+    
 
         const payload = {
             
@@ -32,13 +37,15 @@ function Payment() {
         try {
             const response = await API.graphql(graphqlOperation(createOrder, {input: payload}))
             //const responseBeer = await API.graphql(graphqlOperation(listBeers))
-
+            console.log(response)
             
             
             
         } catch (err) {
             console.log(err)
         }
+
+        //orderSubscription.unsubscribe();
 
         dispatch({
             type: 'EMPTY_BASKET'

@@ -33,9 +33,10 @@ const SignIn = () => {
             setLoggingIn(false);
         }
     };
+
     return (
         <div onKeyUp={prevDef(detectCapsLock)}>
-            <h1>Sign In To Barfly!</h1>
+            
             <img src={logoWhite} className="App-logo" alt="logo" />
 
             <h2>Sign In</h2>
@@ -57,7 +58,11 @@ const SignIn = () => {
                     margin="normal"
                     required
                 />
+
                 <br />
+                <Link style={{ color: "white" }} to="/forgotpass">
+                        Forgot Password?
+                </Link>
                 {/* caps lock warning: only a littler pointless on a mobile-focused website */}
                 <Box height="1.3em" lineHeight=".8em">{capsLock && "⚠ CAPSLOCK IS ON ⚠"}</Box>
 
@@ -78,14 +83,12 @@ const SignIn = () => {
                 </Box>
                 <span style={{ fontSize: "14px" }}>
                     <br />
-                    <Link style={{ color: "white" }} to="/forgotpass">
-                        Forgot Password
-                    </Link>
+                    
                 </span>
                 {" "}
                 <span>
-                    <Link style={{ color: "white" }} to="/signup">
-                        Create Account
+                     <Link style={{ color: "white" }} to="/signup">
+                         Create Account
                     </Link>
                 </span>
 
