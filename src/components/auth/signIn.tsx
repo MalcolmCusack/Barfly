@@ -40,15 +40,21 @@ const SignIn = () => {
             <img src={logoWhite} className="App-logo" alt="logo" />
 
             <h2>Sign In</h2>
-            <form onSubmit={prevDef(signIn)}>
+            <form
+                onSubmit={prevDef(signIn)}
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "stretch",
+                }}
+            >
                 <TextField
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     label="email"
-                    style={{ borderColor: "green" }}
+                    style={{ marginBottom: "1ch" }}
                     required
                 />
-                <br />
                 <TextField
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -58,42 +64,37 @@ const SignIn = () => {
                     margin="normal"
                     required
                 />
-
-                <br />
-                <Link style={{ color: "white" }} to="/forgotpass">
-                        Forgot Password?
-                </Link>
                 {/* caps lock warning: only a littler pointless on a mobile-focused website */}
-                <Box height="1.3em" lineHeight=".8em">{capsLock && "⚠ CAPSLOCK IS ON ⚠"}</Box>
-
-                <Box display="inline-block"  width="12ch" marginBottom="1em">
-                    {loggingIn ? (
-                        <LoadingIndicator size="30px" />
-                    ) : (
-                        <Centerer>
-                            <Button
-                                size="large"
-                                type="submit"
-                                variant="contained"
-                            >
-                                Sign In
-                            </Button>
-                        </Centerer>
-                    )}
+                <Box height="1.3em" lineHeight=".8em" alignSelf="flex-start">
+                    {capsLock && "CAPSLOCK IS ON"}
                 </Box>
-                <span style={{ fontSize: "14px" }}>
-                    <br />
-                    
-                </span>
-                {" "}
-                <span>
-                     <Link style={{ color: "white" }} to="/signup">
-                         Create Account
+                <Centerer>
+                    <Box display="inline-block" width="12ch" marginBottom="1em">
+                        {loggingIn ? (
+                            <LoadingIndicator size="30px" />
+                        ) : (
+                            <Centerer>
+                                <Button
+                                    size="large"
+                                    type="submit"
+                                    variant="contained"
+                                >
+                                    Sign In
+                                </Button>
+                            </Centerer>
+                        )}
+                    </Box>
+                </Centerer>
+                <br />
+                <span style={{ fontSize: "1em" }}>
+                    <Link style={{ color: "white" }} to="/forgotpass">
+                        Forgot Password
+                    </Link>{" "}
+                    <Link style={{ color: "white" }} to="/signup">
+                        Create Account
                     </Link>
                 </span>
-
             </form>
-
         </div>
     );
 };
