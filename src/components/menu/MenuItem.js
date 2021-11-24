@@ -1,34 +1,41 @@
-import { Button } from "@mui/material"
+import { Button } from "@mui/material";
 import { useSnackbar } from "notistack";
-import { useStateValue } from "../../state/StateProvider"
+import { useStateValue } from "../../state/StateProvider";
 
-
-
-const MenuItem = ({item}) => {
+const MenuItem = ({ item }) => {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
-    const [{order}, dispatch] = useStateValue();
+    const [{ order }, dispatch] = useStateValue();
 
     const addToOrder = () => {
         dispatch({
-            type: 'ADD_TO_ORDER',
+            type: "ADD_TO_ORDER",
             item: {
                 id: item.id,
                 name: item.name,
                 price: item.price,
-            }
-        })
+            },
+        });
+        dispatch({
+            type: "SAVE_ORDER",
+        });
 
-        enqueueSnackbar(`${item.name} Added To Order`, {autoHideDuration: 1000})
+        enqueueSnackbar(`${item.name} Added To Order`, {
+            autoHideDuration: 1000,
+        });
     };
 
     return (
-        <div style={{borderBottom: '1px solid #fcba03', paddingBottom: '20px'}}>
+        <div
+            style={{ borderBottom: "1px solid #fcba03", paddingBottom: "20px" }}
+        >
             <h3>{item.name}</h3>
             <h4>$ {item.price.toFixed(2)}</h4>
-            <Button size='small' variant="contained" onClick={addToOrder}>Add To Order</Button>
+            <Button size="small" variant="contained" onClick={addToOrder}>
+                Add To Order
+            </Button>
         </div>
-    )
-}
+    );
+};
 
-export default MenuItem
+export default MenuItem;

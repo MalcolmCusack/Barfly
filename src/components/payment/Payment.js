@@ -18,8 +18,6 @@ function Payment() {
         navigator(destination)
     }
 
-    console.log(order)
-    console.log(user)
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -34,7 +32,6 @@ function Payment() {
         try {
             const response = await API.graphql(graphqlOperation(createOrder, {input: payload}))
             //const responseBeer = await API.graphql(graphqlOperation(listBeers))
-            console.log(response.data)
 
             
             

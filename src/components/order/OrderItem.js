@@ -13,6 +13,7 @@ function OrderItem({ item }) {
             type: "REMOVE_FROM_ORDER",
             id: item.id,
         })
+        dispatch({type:"SAVE_ORDER"});
     }
 
     return (

@@ -16,7 +16,6 @@ const OrderSummary = () => {
         navigator(destination)
     }
 
-    console.log(order)
     return (
         <div>
             <div>
