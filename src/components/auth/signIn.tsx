@@ -59,9 +59,10 @@ const SignIn = () => {
                 />
                 <br />
                 {/* caps lock warning: only a littler pointless on a mobile-focused website */}
-                <Box height="1.3em" lineHeight=".8em">{capsLock && "⚠ CAPSLOCK IS ON ⚠"}</Box>
-
-                <Box display="inline-block"  width="12ch" marginBottom="1em">
+                <Box height="1.3em" lineHeight=".8em">
+                    {capsLock && "⚠ CAPSLOCK IS ON ⚠"}
+                </Box>
+                <Box display="inline-block" width="12ch" marginBottom="1em">
                     {loggingIn ? (
                         <LoadingIndicator size="30px" />
                     ) : (
@@ -76,21 +77,18 @@ const SignIn = () => {
                         </Centerer>
                     )}
                 </Box>
-                <span style={{ fontSize: "14px" }}>
-                    <br />
+                <br />
+                <span style={{ fontSize: "1em" }}>
                     <Link style={{ color: "white" }} to="/forgotpass">
                         Forgot Password
                     </Link>
-                </span>
                 {" "}
-                <span>
+                
                     <Link style={{ color: "white" }} to="/signup">
                         Create Account
                     </Link>
                 </span>
-
             </form>
-
         </div>
     );
 };

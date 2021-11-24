@@ -3,7 +3,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useStateValue } from "./state/StateProvider";
 import { Auth, Hub } from "aws-amplify";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
 import {
     ThemeProvider,
     createTheme,
@@ -26,8 +26,11 @@ import { Box } from "@mui/material";
 import { SnackbarProvider } from "notistack";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import SportsBarIcon from '@mui/icons-material/SportsBar';
+import SportsBarIcon from "@mui/icons-material/SportsBar";
 import { color } from "@mui/system";
+import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
+import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
+console.debug("================= console.debug is enabled ===============")
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
@@ -74,10 +77,10 @@ function App() {
     function toggleDrawerOpen() {
         setDrawerOpen(!drawerOpen);
     }
-    function closeDrawer(){
+    function closeDrawer() {
         setDrawerOpen(false);
     }
-    function openDrawer(){
+    function openDrawer() {
         setDrawerOpen(true);
     }
     const [{ state, user, order }, dispatch] = useStateValue();
@@ -146,6 +149,7 @@ function App() {
         };
     }, [triggerFetch]);
 
+
     return (
         <ThemeProvider theme={theme}>
             <SnackbarProvider maxSnack={3}>
@@ -182,9 +186,17 @@ function App() {
                         </Box>
                         {/* appbar-right */}
                         <Box position="absolute" right="1ch">
-                            
-                        <a style={{textDecoration: 'none', color: "#fcba03"}} href='/ordersummary'><SportsBarIcon /><span>{order.length}</span></a>
-                        
+                            <a
+                                style={{
+                                    textDecoration: "none",
+                                    color: "#fcba03",
+                                }}
+                                href="/ordersummary"
+                            >
+                                <SportsBarIcon />
+                                <span>{order.length}</span>
+                            </a>
+
                             {/* put user profile thingy here */}
                         </Box>
                     </Box>
@@ -205,12 +217,11 @@ function App() {
                         style={{ backgroundColor: "#111" }}
                         position="relative"
                     >
-                        <Box position="absolute"
-                        right="0">
+                        <Box position="absolute" right="0">
                             <IconButton onClick={closeDrawer} color="primary">
-                                <ChevronLeftIcon/>
+                                <ChevronLeftIcon />
                             </IconButton>
-                            </Box>
+                        </Box>
                     </Box>
                     <Box width="min(50vw, 30ch)">
                         <List>
@@ -228,8 +239,10 @@ function App() {
                         </List>
                     </Box>
                 </SwipeableDrawer>
+
+                {/* ================= Router to all the pages ================= */}
                 <Router>
-                    <Box className="App" margin="2ch">
+                    <Box className="App" height="100%" width="100%">
                         <Routes>
                             {!user ? (
                                 <>
@@ -237,6 +250,14 @@ function App() {
                                     <Route
                                         path="/signup"
                                         element={<SignUp />}
+                                    />
+                                    <Route
+                                        path="/forgotpass"
+                                        element={<RequestPasswordReset />}
+                                    />
+                                    <Route
+                                        path="/resetpass/:email"
+                                        element={<ResetPasswordPage />}
                                     />
                                 </>
                             ) : (
