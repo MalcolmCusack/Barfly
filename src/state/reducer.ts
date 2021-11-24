@@ -5,14 +5,64 @@ export const initialState = {
 
 export const getOrderTotal = (order: any) =>
     order?.reduce((amount: any, item: any) => item.price + amount, 0);
+
+function getOrderStoragekey(state) {
+    return `${state?.user?.username ?? ""}-order-state`;
+}
+
+/**
+ * Takes the order data from state and saves it to local storage with a key based on the username.
+ */
+function saveOrder(state) {
+    const orderToSave = state?.order;
+    const key = getOrderStoragekey(state);
+    if (orderToSave.length === 0 || orderToSave == null) {
+        localStorage.removeItem(key);
+    } else {
+        localStorage.setItem(key, JSON.stringify(orderToSave));
+    }
+    return state;
+}
+
+/**
+ * Loads the user's order based on state and returns a new state with the loaded order.
+ */
+function loadOrder(state) {
+    const order_str = localStorage.getItem(getOrderStoragekey(state));
+    if (order_str == null) {
+        return { ...state };
+    }
+
+    const order = (() => {
+        try {
+            return JSON.parse(order_str);
+        } catch (e) {
+            if (e instanceof SyntaxError) {
+                return null;
+            } else {
+                throw e;
+            }
+        }
+    })();
+
+    if (order == null) {
+        return {
+            ...state,
+        };
+    } else {
+        return {
+            ...state,
+            order: order,
+        };
+    }
+}
+
 // This goes through all the items in the basket and adds them up starting from 0
 // reduces the array to one value
 
 const reducer = (state: any, action: any) => {
     console.log(action);
-    function getOrderStoragekey(state) {
-        return `${state?.user?.username ?? ""}-order-state`;
-    }
+
     switch (
         action.type //mutable updates
     ) {
@@ -39,11 +89,11 @@ const reducer = (state: any, action: any) => {
 
         case "ADD_TO_ORDER":
             //Logic for order
-            return {
+            return saveOrder({
                 ...state,
                 order: [...state.order, action.item],
-                // returning the current state of the basket plus the new state
-            };
+            });
+
         case "REMOVE_FROM_ORDER":
             let newOrder = [...state.order]; //copying the basket state to new basket
 
@@ -60,44 +110,19 @@ const reducer = (state: any, action: any) => {
                 );
             }
 
-            return { ...state, order: newOrder };
+            return saveOrder({ ...state, order: newOrder });
 
         case "EMPTY_ORDER":
-            return {
+            return saveOrder({
                 ...state,
                 order: [],
-            };
+            });
 
         case "SAVE_ORDER":
-            const orderToSave = state?.order;
-            const key = getOrderStoragekey(state);
-            if (orderToSave.length === 0 || orderToSave == null) {
-                localStorage.removeItem(key);
-            } else {
-                localStorage.setItem(key, JSON.stringify(orderToSave));
-            }
-            return { ...state };
+            return saveOrder({ ...state });
 
         case "LOAD_ORDER":
-            const order_str = localStorage.getItem(getOrderStoragekey(state));
-            if (order_str == null) {
-                return { ...state };
-            }
-            const order = (() => {
-                try {
-                    return JSON.parse(order_str) ?? [];
-                } catch (e) {
-                    if (e instanceof SyntaxError) {
-                        return [];
-                    } else {
-                        throw e;
-                    }
-                }
-            })();
-            return {
-                ...state,
-                order: order,
-            };
+            return loadOrder(state);
 
         default:
             return state;

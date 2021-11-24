@@ -16,9 +16,6 @@ const MenuItem = ({ item }) => {
                 price: item.price,
             },
         });
-        dispatch({
-            type: "SAVE_ORDER",
-        });
 
         enqueueSnackbar(`${item.name} Added To Order`, {
             autoHideDuration: 1000,
