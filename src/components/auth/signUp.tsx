@@ -150,6 +150,7 @@ const SignUp = () => {
                             <Button
                                 style={{ width: "20ch", height: "5ch" }}
                                 variant="outlined"
+                                onClick={() => navigate("/")}
                             >
                                 Back To Sign In
                             </Button>

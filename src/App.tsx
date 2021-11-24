@@ -22,6 +22,8 @@ import {
     Link as Typeography,
     SwipeableDrawer,
     Typography,
+    ListItem,
+    ListItemButton,
 } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
@@ -80,7 +82,6 @@ const theme = createTheme({
 });
 
 function App() {
-
     const [drawerOpen, setDrawerOpen] = useState(false);
     function toggleDrawerOpen() {
         setDrawerOpen(!drawerOpen);
@@ -203,17 +204,19 @@ function App() {
                         </Box>
                         {/* appbar-right */}
                         <Box position="absolute" right="2ch">
-                            <IconButton href="/ordersummary">
-                                <span style={{ color: "$fcba03" }}>
-                                    <SportsBarIcon color="primary" />
-                                    <Typography
-                                        color="primary"
-                                        display="inline"
-                                    >
-                                        {order.length}
-                                    </Typography>
-                                </span>
-                            </IconButton>
+                            {user && (
+                                <IconButton href="/ordersummary">
+                                    <span style={{ color: "$fcba03" }}>
+                                        <SportsBarIcon color="primary" />
+                                        <Typography
+                                            color="primary"
+                                            display="inline"
+                                        >
+                                            {order.length}
+                                        </Typography>
+                                    </span>
+                                </IconButton>
+                            )}
                         </Box>
                     </Box>
                 </AppBar>
@@ -241,17 +244,20 @@ function App() {
                     </Box>
                     <Box width="min(50vw, 30ch)">
                         <List>
-                            <Button
-                                onClick={() => {
-                                    closeDrawer();
-                                    handleSignout().then(
-                                        () => (window.location.href = "/")
-                                    );
-                                }}
-                                variant="contained"
-                            >
-                                Log Out
-                            </Button>
+                            {user && (
+                                
+                                <ListItemButton
+                                
+                                    onClick={() => {
+                                        closeDrawer();
+                                        handleSignout().then(
+                                            () => (window.location.href = "/")
+                                        );
+                                    }}
+                                >
+                                    Log Out
+                                </ListItemButton>
+                            )}
                         </List>
                     </Box>
                 </SwipeableDrawer>
