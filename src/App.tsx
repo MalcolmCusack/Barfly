@@ -94,12 +94,6 @@ function App() {
     }
     const [{ state, user, order }, dispatch] = useStateValue();
 
-    const LOCAL_STORAGE_KEY_ORDER = `${user?.id}-order-state`;
-    function saveOrderState() {
-        localStorage.setItem(LOCAL_STORAGE_KEY_ORDER, JSON.stringify(order));
-    }
-    function loadOrderState() {}
-
     const [triggerFetch, setTriggerFetch] = useState(false);
 
     const handleSignout = async () => {
@@ -245,9 +239,7 @@ function App() {
                     <Box width="min(50vw, 30ch)">
                         <List>
                             {user && (
-                                
                                 <ListItemButton
-                                
                                     onClick={() => {
                                         closeDrawer();
                                         handleSignout().then(
