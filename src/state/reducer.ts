@@ -69,14 +69,20 @@ const reducer = (state: any, action: any) => {
             };
 
         case "SAVE_ORDER":
-            localStorage.setItem(
-                getOrderStoragekey(state),
-                JSON.stringify(state?.order)
-            );
+            const orderToSave = state?.order;
+            const key = getOrderStoragekey(state);
+            if (orderToSave.length === 0 || orderToSave == null) {
+                localStorage.removeItem(key);
+            } else {
+                localStorage.setItem(key, JSON.stringify(orderToSave));
+            }
             return { ...state };
 
         case "LOAD_ORDER":
             const order_str = localStorage.getItem(getOrderStoragekey(state));
+            if (order_str == null) {
+                return { ...state };
+            }
             const order = (() => {
                 try {
                     return JSON.parse(order_str) ?? [];
