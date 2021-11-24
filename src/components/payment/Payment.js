@@ -41,7 +41,7 @@ function Payment() {
         }
 
         dispatch({
-            type: 'EMPTY_BASKET'
+            type: 'EMPTY_ORDER'
         })
 
         navigate('/orderstatus')

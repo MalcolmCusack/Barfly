@@ -24,6 +24,7 @@ import {
     Typography,
     ListItem,
     ListItemButton,
+    Tooltip,
 } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
@@ -199,17 +200,21 @@ function App() {
                         {/* appbar-right */}
                         <Box position="absolute" right="2ch">
                             {user && (
-                                <IconButton href="/ordersummary">
-                                    <span style={{ color: "$fcba03" }}>
-                                        <SportsBarIcon color="primary" />
-                                        <Typography
-                                            color="primary"
-                                            display="inline"
-                                        >
-                                            {order.length}
-                                        </Typography>
-                                    </span>
-                                </IconButton>
+                                <Tooltip
+                                    title={`${order.length} Items in your order`}
+                                >
+                                    <IconButton href="/ordersummary">
+                                        <Box display="inline" sx={{color:theme=>theme.palette.primary.main}}>
+                                            <SportsBarIcon color="primary" />
+                                            <Typography
+                                                color="primary"
+                                                display="inline"
+                                            >
+                                                {order.length}
+                                            </Typography>
+                                        </Box>
+                                    </IconButton>
+                                </Tooltip>
                             )}
                         </Box>
                     </Box>
@@ -247,7 +252,7 @@ function App() {
                                         );
                                     }}
                                 >
-                                    Log Out
+                                    Sign Out
                                 </ListItemButton>
                             )}
                         </List>
