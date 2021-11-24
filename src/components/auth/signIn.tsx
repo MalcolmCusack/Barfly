@@ -33,9 +33,10 @@ const SignIn = () => {
             setLoggingIn(false);
         }
     };
+
     return (
         <div onKeyUp={prevDef(detectCapsLock)}>
-            <h1>Sign In To Barfly!</h1>
+            
             <img src={logoWhite} className="App-logo" alt="logo" />
 
             <h2>Sign In</h2>
