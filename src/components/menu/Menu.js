@@ -25,7 +25,7 @@ const Menu = () => {
                 const orders_promise = API.graphql(graphqlOperation(listOrders));
 
                 const response = await response_promise
-                console.log(response.data);
+                //console.log(response.data);
                 setMenu(response.data.getMenu);
 
                 orders_promise.then(orders => console.log(orders));
@@ -37,7 +37,10 @@ const Menu = () => {
                 setIsLoading(false);
             }
         };
+
         fetchMenu();
+
+
     }, []);
 
     const renderMenu = () => {
@@ -52,9 +55,6 @@ const Menu = () => {
                 />
             ));
     };
-
-    console.log(menu);
-
 
     return (
         <Box>

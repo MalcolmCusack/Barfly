@@ -46,54 +46,7 @@ export const onDeleteNote = /* GraphQL */ `
     }
   }
 `;
-export const onCreateOrderHistory = /* GraphQL */ `
-  subscription OnCreateOrderHistory {
-    onCreateOrderHistory {
-      id
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-      Orders {
-        nextToken
-        startedAt
-      }
-    }
-  }
-`;
-export const onUpdateOrderHistory = /* GraphQL */ `
-  subscription OnUpdateOrderHistory {
-    onUpdateOrderHistory {
-      id
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-      Orders {
-        nextToken
-        startedAt
-      }
-    }
-  }
-`;
-export const onDeleteOrderHistory = /* GraphQL */ `
-  subscription OnDeleteOrderHistory {
-    onDeleteOrderHistory {
-      id
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-      Orders {
-        nextToken
-        startedAt
-      }
-    }
-  }
-`;
+
 export const onCreateMixer = /* GraphQL */ `
   subscription OnCreateMixer {
     onCreateMixer {
@@ -1047,10 +1000,8 @@ export const onCreateOrder = /* GraphQL */ `
       items
       completed
       userID
-      tabID
       barID
       employeeID
-      orderhistoryID
       _version
       _deleted
       _lastChangedAt
@@ -1062,14 +1013,11 @@ export const onCreateOrder = /* GraphQL */ `
         phone
         profileImg
         location
-        payment
         age
         createdAt
         name
         address
         order
-        orderHistory
-        tabID
         _version
         _deleted
         _lastChangedAt
