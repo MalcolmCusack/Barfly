@@ -6,8 +6,6 @@ function OrderItem({ item }) {
 
     const [{order}, dispatch] = useStateValue()
 
-    console.log(order)
-
     const removeFromOrder = () => {
         dispatch({
             type: "REMOVE_FROM_ORDER",
