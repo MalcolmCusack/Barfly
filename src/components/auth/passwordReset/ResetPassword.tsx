@@ -1,36 +1,40 @@
-import React, { useState, useEffect, FormEvent } from "react";
+import React, { useState} from "react";
 import logoWhite from "../../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { TextField, Box, ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../../../styles/auth.css";
-import prevDef from "../../../decorators/prevDef";
+//import prevDef from "../../../decorators/prevDef";
 import LoadingIndicator from "../../LoadingIndicator";
 import Centerer from "../../Centerer";
 import { useSleep } from "../../../hooks/timing";
-import { useParams } from "react-router";
+//import { useParams } from "react-router";
 
 export default function ResetPassword({email}:{email:string}) {
     console.log("Email:", email);
     const [code, setCode] = useState("");
-    const [password1, setPassword1] = useState("");
-    const [password2, setPassword2] = useState("");
+    const [password, setPassword] = useState("");
+    //const [email, setEmail] = useState("");
     const TEXTFIELD_SPACING = "2ch";
 
     // const [requestingReset, setRequestingReset] = useState(false);
     const [resetingPassword, setResetingPassword] = useState(false);
     const sleep = useSleep();
-    async function resetPassword(email: string) {
+
+    const navigate = useNavigate();
+
+    async function resetPassword() {
         try {
+            Auth.forgotPasswordSubmit(email, code, password)
             setResetingPassword(true);
-            await sleep(1000);
+            navigate('/')
         } finally {
             setResetingPassword(false);
         }
     }
 
-    const navigate = useNavigate();
+    
 
     return (
         <div>
@@ -39,7 +43,7 @@ export default function ResetPassword({email}:{email:string}) {
             <h2>Reset Password</h2>
             <Centerer>
             <form
-                onSubmit={prevDef(() => resetPassword(email))}
+                onSubmit={resetPassword}
                 style={{
                     display: "flex",
                     flexDirection: "column",
@@ -58,17 +62,17 @@ export default function ResetPassword({email}:{email:string}) {
                 />
                 <TextField
                     label="New Password"
-                    value={password1}
-                    onChange={(e) => setPassword1(e.target.value)}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     style={{ marginBottom: TEXTFIELD_SPACING, width:"100%"}}
                     required
                 />
                 <TextField
-                    label="Confirm New Password"
-                    value={password2}
-                    onChange={(e) => setPassword2(e.target.value)}
+                    value={email}
+                    //onChange={(e) => setPassword2(e.target.value)}
+                    disabled
                     style={{ marginBottom: TEXTFIELD_SPACING, width:"100%" }}
-                    required
+                    
                 />
                 <ButtonGroup
                     style={{ width: "100%", height: "5ch" }}
@@ -91,7 +95,7 @@ export default function ResetPassword({email}:{email:string}) {
                             variant="contained"
                             style={{ width: "50%", height: "100%" }}
                         >
-                            Reset Password
+                            Reset
                         </Button>
                     )}
                 </ButtonGroup>

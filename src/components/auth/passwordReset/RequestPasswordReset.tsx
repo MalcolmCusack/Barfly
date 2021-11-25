@@ -1,11 +1,11 @@
-import React, { useState, useEffect, FormEvent } from "react";
+import React, { useState} from "react";
 import logoWhite from "../../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { TextField, Box, ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../../../styles/auth.css";
-import prevDef from "../../../decorators/prevDef";
+//import prevDef from "../../../decorators/prevDef";
 import LoadingIndicator from "../../LoadingIndicator";
 import Centerer from "../../Centerer";
 import { useSleep } from "../../../hooks/timing";
@@ -14,10 +14,14 @@ export default function RequestPasswordReset() {
     const [email, setEmail] = useState("");
     const [requestingReset, setRequestingReset] = useState(false);
     const sleep = useSleep();
-    async function requestPasswordReset(email: string) {
+    async function requestPasswordReset(event) {
+        event.preventDefault()
         try {
+            Auth.forgotPassword(email)
             setRequestingReset(true);
-            await sleep(1000);
+            navigate("/resetpass/" + email)
+
+            //await sleep(1000);
         } finally {
             setRequestingReset(false);
         }
@@ -32,7 +36,7 @@ export default function RequestPasswordReset() {
             <h2>Request Password Reset</h2>
             <Centerer>
             <form
-                onSubmit={prevDef(() => requestPasswordReset(email))}
+                onSubmit={requestPasswordReset}
                 style={{
                     display: "flex",
                     flexDirection: "column",
@@ -68,7 +72,7 @@ export default function RequestPasswordReset() {
                             variant="contained"
                             style={{ width: "50%", height: "100%" }}
                         >
-                            Request Reset
+                            Reset
                         </Button>
                     )}
                 </ButtonGroup>
