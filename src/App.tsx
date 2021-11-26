@@ -68,7 +68,7 @@ const theme = createTheme({
         },
         text: {
             primary: "#fcba03",
-            secondary: "#fcba03",
+            secondary: "#eee",
         },
     },
     components: {

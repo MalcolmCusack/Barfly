@@ -57,7 +57,7 @@ const Menu = () => {
     };
 
     return (
-        <Box>
+        <Box paddingBottom="5em">
             <h2>Menu</h2>
             {isLoading ? <LoadingIndicator size="30px" /> : renderMenu()}
             <Box height="2em"/>
