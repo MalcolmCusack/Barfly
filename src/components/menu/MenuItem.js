@@ -35,6 +35,7 @@ const MenuItem = ({ item }) => {
             padding="1ch"
             borderColor={(theme) => theme.palette.primary.main}
             borderBottom="1px solid"
+            onClick={toggleDescription}
             // style={{ borderBottom: "1px solid #fcba03", paddingBottom: "20px" }}
         >
             <Typography>{item.name}</Typography>
@@ -43,20 +44,35 @@ const MenuItem = ({ item }) => {
                 flexDirection="column"
                 alignitems="flex-start"
                 paddingLeft="1ch"
-                onClick={toggleDescription}
             >
+                <Collapse in={descriptionOpen}
+                // style={{ borderBottom: "1px dotted" }}
+                sx={{borderBottom:"1px dotted",borderColor:theme => theme.palette.text.secondary}}
+                >
+                    <Typography
+                        textAlign="left"
+                        color={(theme) => theme.palette.text.secondary}
+                        
+                    >
+                        test description test description test description test
+                        descriptanalkfnasd
+                    </Typography>
+                </Collapse>
                 <Typography
                     color={(theme) => theme.palette.text.secondary}
                     textAlign="left"
                 >
                     $ {item.price.toFixed(2)}
                 </Typography>
-                <Collapse in={descriptionOpen}>
-                    test description test description test description test
-                    descriptanalkfnasd
-                </Collapse>
             </Box>
-            <Button size="small" variant="contained" onClick={addToOrder}>
+            <Button
+                size="small"
+                variant="contained"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    addToOrder();
+                }}
+            >
                 Add To Order
             </Button>
         </Box>

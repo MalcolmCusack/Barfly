@@ -165,7 +165,7 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <SnackbarProvider maxSnack={3}>
+            <SnackbarProvider maxSnack={1}>
                 <AppBar>
                     <Box
                         display="flex"
