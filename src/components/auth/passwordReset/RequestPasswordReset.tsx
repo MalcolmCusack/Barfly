@@ -21,7 +21,6 @@ export default function RequestPasswordReset() {
             setRequestingReset(true);
             navigate("/resetpass/" + email)
 
-            //await sleep(1000);
         } finally {
             setRequestingReset(false);
         }
@@ -78,7 +77,7 @@ export default function RequestPasswordReset() {
                 </ButtonGroup>
             </form>
             </Centerer>
-            <a href="/resetpass/someemail">debugskip</a>
+            
         </div>
     );
 }
