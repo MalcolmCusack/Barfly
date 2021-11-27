@@ -52,7 +52,7 @@ const MenuItem = ({ item }) => {
                     <Typography
                         textAlign="left"
                         color={(theme) => theme.palette.text.secondary}
-                        
+                        onClick={(e) => e.stopPropagation()}
                     >
                         test description test description test description test
                         descriptanalkfnasd
