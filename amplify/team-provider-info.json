@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "barfly2b04a7f4": {}
+      },
+      "function": {
+        "CreateUser": {
+          "deploymentBucketName": "amplify-barfly-staging-35333-deployment",
+          "s3Key": "amplify-builds/CreateUser-2b67654e7037726d2b69-build.zip"
+        }
       }
     }
   }
