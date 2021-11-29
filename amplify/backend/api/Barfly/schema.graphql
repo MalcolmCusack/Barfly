@@ -144,15 +144,14 @@ type Order @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: [
 
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
-  email: AWSEmail!
-  phone: AWSPhone
+  email: String!
+  phone: String
   profileImg: AWSJSON
   location: AWSJSON
   age: String
   createdAt: AWSDateTime
   name: String!
   address: AWSJSON
-  order: String
   Orders: [Order] @connection(keyName: "byUser", fields: ["id"])
 }
 
@@ -195,5 +194,4 @@ type MixerSpecial @model(queries: null) @key(name: "byMixer", fields: ["mixerID"
   mixer: Mixer! @connection(fields: ["mixerID"])
   special: Special! @connection(fields: ["specialID"])
 }
-
  

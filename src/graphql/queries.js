@@ -1424,14 +1424,10 @@ export const listUsers = /* GraphQL */ `
         phone
         profileImg
         location
-        payment
         age
-        createdAt
         name
         address
-        order
-        orderHistory
-        tabID
+        
         _version
         _deleted
         _lastChangedAt
