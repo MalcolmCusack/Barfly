@@ -40,6 +40,7 @@ import SportsBarIcon from "@mui/icons-material/SportsBar";
 import { color } from "@mui/system";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
+import RouteNavigator from "./components/RouteNavigator";
 console.debug("================= console.debug is enabled ===============");
 
 // Back end push: amplify push
@@ -83,6 +84,12 @@ const theme = createTheme({
 });
 
 function App() {
+    const navigate_ref = [];
+    function navigate(path){
+        if (navigate_ref[0] != undefined){
+            navigate_ref[0](path);
+        }
+    }
     const [drawerOpen, setDrawerOpen] = useState(false);
     function toggleDrawerOpen() {
         setDrawerOpen(!drawerOpen);
@@ -109,6 +116,7 @@ function App() {
 
     useEffect(() => {
         let isMounted = true;
+
 
         const fetchUserData = async () => {
             if (isMounted) {
@@ -203,7 +211,7 @@ function App() {
                                 <Tooltip
                                     title={`${order.length} Items in your order`}
                                 >
-                                    <IconButton href="/ordersummary">
+                                    <IconButton onClick={() => navigate("/ordersummary")}>
                                         <Box display="inline" sx={{color:theme=>theme.palette.primary.main}}>
                                             <SportsBarIcon color="primary" />
                                             <Typography
@@ -265,47 +273,44 @@ function App() {
                         <Routes>
                             {!user ? (
                                 <>
-                                    <Route path="/" element={<SignIn />} />
+                                    <Route path="/" element={<><RouteNavigator navigate_ref={navigate_ref}/><SignIn /></>} />
                                     <Route
                                         path="/signup"
-                                        element={<SignUp />}
+                                        element={<><RouteNavigator navigate_ref={navigate_ref}/><SignUp /></>}
                                     />
                                     <Route
                                         path="/forgotpass"
-                                        element={<RequestPasswordReset />}
+                                        element={<><RouteNavigator navigate_ref={navigate_ref}/><RequestPasswordReset /></>}
                                     />
                                     <Route
                                         path="/resetpass/:email"
-                                        element={<ResetPasswordPage />}
+                                        element={<><RouteNavigator navigate_ref={navigate_ref}/><ResetPasswordPage /></>}
                                     />
                                 </>
                             ) : (
                                 <>
                                     <Route
                                         path="/"
-                                        element={
-                                            <Welcome
-                                                onSignOut={handleSignout}
-                                            />
-                                        }
+                                        element={<><RouteNavigator navigate_ref={navigate_ref}/><Welcome onSignOut={handleSignout}/></>}
                                     />
 
                                     <Route
                                         path="/ordersummary"
-                                        element={<OrderSummary />}
+                                        element={<><RouteNavigator navigate_ref={navigate_ref}/><OrderSummary /></>}
                                     />
 
                                     <Route
                                         path="/payment"
-                                        element={<Payment />}
+                                        element={<><RouteNavigator navigate_ref={navigate_ref}/><Payment /></>}
                                     />
 
                                     <Route
                                         path="/orderstatus"
-                                        element={<OrderStatus />}
+                                        element={<><RouteNavigator navigate_ref={navigate_ref}/><OrderStatus /></>}
                                     />
                                 </>
                             )}
+                            
                         </Routes>
                     </Box>
                 </Router>
