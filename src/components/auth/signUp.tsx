@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
-import { Auth } from "aws-amplify";
+import { Auth, API, graphqlOperation } from "aws-amplify";
 import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -8,6 +8,7 @@ import prevDef from "../../decorators/prevDef";
 import { Box, Box as span } from "@mui/system";
 import Centerer from "../Centerer";
 import { ButtonGroup } from "@mui/material";
+import {  createUser, deleteTab } from "../../graphql/mutations"
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -25,14 +26,21 @@ const SignUp = () => {
     const createAccount = async (event: any) => {
         event.preventDefault(); //prevents referesh
         try {
-            Auth.signUp(name.replace(" ", ""), password, email);
+            const data = Auth.signUp(name.replace(" ", ""), password, email);
+            const dataResponse = await data
+            console.log(data)
+            const user = API.graphql(graphqlOperation(createUser, {input: {id: dataResponse.userSub, name: name, email: email}}))
+            const userResponse = await user
+            console.log(userResponse)
             setSignedUp(true);
+
             //onCreateAccount(name)
             //navigate('/confirmSignUp');
         } catch (err) {
             console.log(err);
         }
     };
+
 
     async function confirmSignUp() {
         try {

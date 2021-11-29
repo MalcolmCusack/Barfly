@@ -18,7 +18,7 @@
       "function": {
         "CreateUser": {
           "deploymentBucketName": "amplify-barfly-staging-35333-deployment",
-          "s3Key": "amplify-builds/CreateUser-2b67654e7037726d2b69-build.zip"
+          "s3Key": "amplify-builds/CreateUser-50526e52735168384c34-build.zip"
         }
       }
     }
