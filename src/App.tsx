@@ -39,7 +39,7 @@ import SportsBarIcon from "@mui/icons-material/SportsBar";
 import { color } from "@mui/system";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
-import RouteNavigator from "./components/RouteNavigator";
+import Common from "./components/Common";
 import PaymentSuccess from "./components/payment/PaymentSuccess";
 
 export const NavigateContext = createContext((path: string) => undefined);
@@ -176,114 +176,6 @@ function App() {
         <NavigateContext.Provider value={navigate}>
             <ThemeProvider theme={theme}>
                 <SnackbarProvider maxSnack={1}>
-                    <AppBar>
-                        <Box
-                            display="flex"
-                            alignItems="center"
-                            justifyContent="center"
-                            position="relative"
-                            width="100%"
-                            height={APPBAR_HEIGHT}
-                        >
-                            {/* appbar-left */}
-                            <Box position="absolute" left="2ch">
-                                <IconButton
-                                    style={{ justifySelf: "flex-end" }}
-                                    onClick={toggleDrawerOpen}
-                                    color="primary"
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                            </Box>
-                            {/* appbar-center */}
-                            <Box>
-                                <Typeography
-                                    onClick={() => navigate("/")}
-                                    style={{
-                                        textDecoration: "none",
-                                        fontSize: "3ch",
-                                        cursor: "pointer",
-                                    }}
-                                >
-                                    Barfly
-                                </Typeography>
-                            </Box>
-                            {/* appbar-right */}
-                            <Box position="absolute" right="2ch">
-                                {user && (
-                                    <Tooltip
-                                        title={`${order.length} Items in your order`}
-                                    >
-                                        <IconButton
-                                            onClick={() =>
-                                                navigate("/ordersummary")
-                                            }
-                                        >
-                                            <Box
-                                                display="inline"
-                                                sx={{
-                                                    color: (theme) =>
-                                                        theme.palette.primary
-                                                            .main,
-                                                }}
-                                            >
-                                                <SportsBarIcon color="primary" />
-                                                <Typography
-                                                    color="primary"
-                                                    display="inline"
-                                                >
-                                                    {order.length}
-                                                </Typography>
-                                            </Box>
-                                        </IconButton>
-                                    </Tooltip>
-                                )}
-                            </Box>
-                        </Box>
-                    </AppBar>
-                    <Toolbar />
-                    <SwipeableDrawer
-                        open={drawerOpen}
-                        onClose={closeDrawer}
-                        onOpen={openDrawer}
-                        anchor="left"
-                        style={{
-                            height: "100%",
-                        }}
-                        onBackdropClick={closeDrawer}
-                    >
-                        <Box
-                            height={APPBAR_HEIGHT}
-                            style={{ backgroundColor: "#111" }}
-                            position="relative"
-                        >
-                            <Box position="absolute" right="0">
-                                <IconButton
-                                    onClick={closeDrawer}
-                                    color="primary"
-                                >
-                                    <ChevronLeftIcon />
-                                </IconButton>
-                            </Box>
-                        </Box>
-                        <Box width="min(50vw, 30ch)">
-                            <List>
-                                {user && (
-                                    <ListItemButton
-                                        onClick={() => {
-                                            closeDrawer();
-                                            handleSignout().then(() =>
-                                                navigate("/")
-                                            );
-                                        }}
-                                    >
-                                        Sign Out
-                                    </ListItemButton>
-                                )}
-                            </List>
-                        </Box>
-                    </SwipeableDrawer>
-
                     {/* ================= Router to all the pages ================= */}
                     <Router>
                         <Box className="App" height="100%" width="100%">
@@ -293,41 +185,33 @@ function App() {
                                         <Route
                                             path="/"
                                             element={
-                                                <RouteNavigator
-                                                    navigate_ref={navigate_ref}
-                                                >
+                                                <Common>
                                                     <SignIn />
-                                                </RouteNavigator>
+                                                </Common>
                                             }
                                         />
                                         <Route
                                             path="/signup"
                                             element={
-                                                <RouteNavigator
-                                                    navigate_ref={navigate_ref}
-                                                >
+                                                <Common>
                                                     <SignUp />
-                                                </RouteNavigator>
+                                                </Common>
                                             }
                                         />
                                         <Route
                                             path="/forgotpass"
                                             element={
-                                                <RouteNavigator
-                                                    navigate_ref={navigate_ref}
-                                                >
+                                                <Common>
                                                     <RequestPasswordReset />
-                                                </RouteNavigator>
+                                                </Common>
                                             }
                                         />
                                         <Route
                                             path="/resetpass/:email"
                                             element={
-                                                <RouteNavigator
-                                                    navigate_ref={navigate_ref}
-                                                >
+                                                <Common>
                                                     <ResetPasswordPage />
-                                                </RouteNavigator>
+                                                </Common>
                                             }
                                         />
                                     </>
@@ -336,59 +220,49 @@ function App() {
                                         <Route
                                             path="/"
                                             element={
-                                                <RouteNavigator
-                                                    navigate_ref={navigate_ref}
-                                                >
+                                                <Common>
                                                     <Welcome
                                                         onSignOut={
                                                             handleSignout
                                                         }
                                                     />
-                                                </RouteNavigator>
+                                                </Common>
                                             }
                                         />
 
                                         <Route
                                             path="/ordersummary"
                                             element={
-                                                <RouteNavigator
-                                                    navigate_ref={navigate_ref}
-                                                >
+                                                <Common>
                                                     <OrderSummary />
-                                                </RouteNavigator>
+                                                </Common>
                                             }
                                         />
 
                                         <Route
                                             path="/payment"
                                             element={
-                                                <RouteNavigator
-                                                    navigate_ref={navigate_ref}
-                                                >
+                                                <Common>
                                                     <Payment />
-                                                </RouteNavigator>
+                                                </Common>
                                             }
                                         />
 
                                         <Route
                                             path="/paymentsuccess"
                                             element={
-                                                <RouteNavigator
-                                                    navigate_ref={navigate_ref}
-                                                >
+                                                <Common>
                                                     <PaymentSuccess />
-                                                </RouteNavigator>
+                                                </Common>
                                             }
                                         />
 
                                         <Route
                                             path="/orderstatus"
                                             element={
-                                                <RouteNavigator
-                                                    navigate_ref={navigate_ref}
-                                                >
+                                                <Common>
                                                     <OrderStatus />
-                                                </RouteNavigator>
+                                                </Common>
                                             }
                                         />
                                     </>

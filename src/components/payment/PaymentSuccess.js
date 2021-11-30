@@ -3,11 +3,12 @@ import { Button, ButtonGroup } from "@mui/material";
 import { useStateValue } from "../../state/StateProvider";
 import { API, graphqlOperation } from "aws-amplify";
 import { NavigateContext } from "../../App";
+import { useNavigate } from "react-router";
 
 const PaymentSuccess = () => {
     const [{ order, user }, dispatch] = useStateValue();
 
-    const navigator = useContext(NavigateContext);
+    const navigator = useNavigate();
 
     function navigate(destination) {
         navigator(destination);

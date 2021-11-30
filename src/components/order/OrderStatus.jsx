@@ -15,6 +15,7 @@ import { NavigateContext } from "../../App";
 import { useTimeout } from "../../hooks/timing";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { useNavigate } from "react-router";
 
 //@ts-ignore
 window.tq = async (input, condition) => {
@@ -96,7 +97,7 @@ function OrderItem({ order, style }) {
 }
 
 export default function OrderStatus() {
-    const navigate = useContext(NavigateContext);
+    const navigate = useNavigate();
     const data = [
         {
             status: "open",

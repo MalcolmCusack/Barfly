@@ -8,6 +8,7 @@ import "../../../styles/auth.css";
 import LoadingIndicator from "../../LoadingIndicator";
 import Centerer from "../../Centerer";
 import { NavigateContext } from "../../../App";
+import { useNavigate } from "react-router";
 //import { useParams } from "react-router";
 
 export default function ResetPassword({email}:{email:string}) {
@@ -20,7 +21,7 @@ export default function ResetPassword({email}:{email:string}) {
     // const [requestingReset, setRequestingReset] = useState(false);
     const [resetingPassword, setResetingPassword] = useState(false);
 
-    const navigate = useContext(NavigateContext);
+    const navigate = useNavigate();
 
     async function resetPassword() {
         try {

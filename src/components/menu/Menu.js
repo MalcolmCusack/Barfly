@@ -12,7 +12,7 @@ const Menu = () => {
     const [menu, setMenu] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
-    const navigate = useContext(NavigateContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
 

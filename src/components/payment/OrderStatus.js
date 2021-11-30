@@ -16,7 +16,7 @@ const OrderStatus = () => {
 
     console.log(params)
 
-    const navigator = useContext(NavigateContext);
+    const navigator = useNavigate();
 
     function navigate(destination) {
         navigator(destination)

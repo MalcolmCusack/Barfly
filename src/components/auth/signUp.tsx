@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth, API, graphqlOperation } from "aws-amplify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import prevDef from "../../decorators/prevDef";
@@ -22,7 +22,7 @@ const SignUp = () => {
 
     const [signedUp, setSignedUp] = useState(false);
 
-    const navigate = useContext(NavigateContext);
+    const navigate = useNavigate();
 
     const createAccount = async (event: any) => {
         event.preventDefault(); //prevents referesh

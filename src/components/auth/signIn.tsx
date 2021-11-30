@@ -1,7 +1,7 @@
 import { FormEvent, useContext, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TextField, Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../../styles/auth.css";
@@ -19,7 +19,7 @@ const SignIn = () => {
         setCapsLock(e.getModifierState("CapsLock"));
     }
 
-    const navigate = useContext(NavigateContext);
+    const navigate = useNavigate();
 
     const signIn = async (event: any) => {
         try {

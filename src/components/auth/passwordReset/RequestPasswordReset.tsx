@@ -9,6 +9,7 @@ import LoadingIndicator from "../../LoadingIndicator";
 import Centerer from "../../Centerer";
 import { useSleep } from "../../../hooks/timing";
 import { NavigateContext } from "../../../App";
+import { useNavigate } from "react-router";
 
 export default function RequestPasswordReset() {
     const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ export default function RequestPasswordReset() {
         }
     }
 
-    const navigate = useContext(NavigateContext);
+    const navigate = useNavigate();
 
     return (
         <div>

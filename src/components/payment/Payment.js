@@ -14,7 +14,7 @@ import { NavigateContext } from "../../App";
 function Payment() {
     const [{ order, user }, dispatch] = useStateValue();
 
-    const navigator = useContext(NavigateContext);
+    const navigator = useNavigate();
 
     function navigate(destination) {
         navigator(destination);

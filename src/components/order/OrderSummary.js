@@ -11,7 +11,7 @@ const OrderSummary = () => {
 
     const [{order}, dispatch] = useStateValue()
 
-    const navigator = useContext(NavigateContext);
+    const navigator = useNavigate();
 
     function navigate(destination) {
         navigator(destination)
