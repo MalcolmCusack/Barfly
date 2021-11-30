@@ -376,7 +376,6 @@ function App() {
                                                     navigate_ref={navigate_ref}
                                                 >
                                                     <OrderStatus />
-                                                    <p>helloooooooo</p>
                                                 </RouteNavigator>
                                             }
                                         />
