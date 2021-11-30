@@ -13,7 +13,7 @@ import { useSleep } from "../../../hooks/timing";
 export default function RequestPasswordReset() {
     const [email, setEmail] = useState("");
     const [requestingReset, setRequestingReset] = useState(false);
-    const sleep = useSleep();
+
     async function requestPasswordReset(event) {
         event.preventDefault()
         try {

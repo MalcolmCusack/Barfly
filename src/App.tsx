@@ -301,7 +301,7 @@ function App() {
                                     />
 
                                     <Route
-                                        path="/orderstatus"
+                                        path="/orderstatus/:orderid"
                                         element={<OrderStatus />}
                                     />
                                 </>

@@ -1184,7 +1184,6 @@ export const createOrder = /* GraphQL */ `
         createdAt
         name
         address
-        order
         _version
         _deleted
         _lastChangedAt

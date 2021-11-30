@@ -29,6 +29,7 @@ const SignUp = () => {
             const data = Auth.signUp(name.replace(" ", ""), password, email);
             const dataResponse = await data
             console.log(data)
+            //Move this too confirm sign up later once error checking is implemented
             const user = API.graphql(graphqlOperation(createUser, {input: {id: dataResponse.userSub, name: name, email: email}}))
             const userResponse = await user
             console.log(userResponse)
