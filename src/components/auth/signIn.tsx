@@ -67,7 +67,7 @@ const SignIn = () => {
                 />
                 {/* caps lock warning: only a littler pointless on a mobile-focused website */}
                 <Box height="1.3em" lineHeight=".8em" alignSelf="flex-start">
-                    {capsLock && "CAPSLOCK IS ON"}
+                    {capsLock && "⚠ CAPSLOCK IS ON ⚠"}
                 </Box>
                 <Centerer>
                     <Box display="inline-block" width="12ch" marginBottom="1em">

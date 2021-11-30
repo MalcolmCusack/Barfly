@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth, API, graphqlOperation } from "aws-amplify";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,16 +8,34 @@ import prevDef from "../../decorators/prevDef";
 import { Box, Box as span } from "@mui/system";
 import Centerer from "../Centerer";
 import { ButtonGroup } from "@mui/material";
-import {  createUser, deleteTab } from "../../graphql/mutations"
+import { createUser, deleteTab } from "../../graphql/mutations";
 
 const SignUp = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [password2, setPassword2] = useState(null);
+    const [formIssue, setFormIssue] = useState("");
 
     const [phone, setPhone] = useState("");
     const [age, setAge] = useState("");
     const [name, setName] = useState("");
     const [code, setCode] = useState("");
+
+    useEffect(() => {
+        if (email === null || password === null || password2 === null) {
+            setFormIssue("");
+        } else if (password !== password2) {
+            setFormIssue("Passwords Do Not Match");
+        } else if (password === "") {
+            setFormIssue("Password is Blank");
+        } else if (email === "") {
+            setFormIssue("Email is Blank");
+        } else if (name === "") {
+            setFormIssue("Name is Blank");
+        } else {
+            setFormIssue(null);
+        }
+    }, [email, password, password2, phone, age, name]);
 
     const [signedUp, setSignedUp] = useState(false);
 
@@ -27,12 +45,20 @@ const SignUp = () => {
         event.preventDefault(); //prevents referesh
         try {
             const data = Auth.signUp(name.replace(" ", ""), password, email);
-            const dataResponse = await data
-            console.log(data)
+            const dataResponse = await data;
+            console.log(data);
             //Move this too confirm sign up later once error checking is implemented
-            const user = API.graphql(graphqlOperation(createUser, {input: {id: dataResponse.userSub, name: name, email: email}}))
-            const userResponse = await user
-            console.log(userResponse)
+            const user = API.graphql(
+                graphqlOperation(createUser, {
+                    input: {
+                        id: dataResponse.userSub,
+                        name: name,
+                        email: email,
+                    },
+                })
+            );
+            const userResponse = await user;
+            console.log(userResponse);
             setSignedUp(true);
 
             //onCreateAccount(name)
@@ -41,7 +67,6 @@ const SignUp = () => {
             console.log(err);
         }
     };
-
 
     async function confirmSignUp() {
         try {
@@ -99,7 +124,11 @@ const SignUp = () => {
 
                 <h2>Create An Account</h2>
                 <form
-                    onSubmit={prevDef(createAccount)}
+                    onSubmit={prevDef((e) => {
+                        if (formIssue === null) {
+                            createAccount(e);
+                        }
+                    })}
                     style={{
                         display: "flex",
                         flexDirection: "column",
@@ -127,13 +156,22 @@ const SignUp = () => {
                         margin="dense"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        label="password"
+                        label="Password"
+                        variant="outlined"
+                        type="password"
+                        required
+                    />
+                    <TextField
+                        margin="dense"
+                        value={password2}
+                        onChange={(e) => setPassword2(e.target.value)}
+                        label="Confirm Password"
                         variant="outlined"
                         type="password"
                         required
                     />
 
-                    <Box display="flex" marginBottom="2ch">
+                    <Box display="flex">
                         <TextField
                             margin="dense"
                             value={phone}
@@ -142,7 +180,7 @@ const SignUp = () => {
                             variant="outlined"
                             type="phone"
                             required
-                            style={{ flexGrow:1, minWidth:"5ch"}}
+                            style={{ flexGrow: 1, minWidth: "5ch" }}
                         />
                         <TextField
                             margin="dense"
@@ -151,11 +189,14 @@ const SignUp = () => {
                             label="age"
                             type="number"
                             required
-                            style={{ width: "20ch", minWidth:"10ch"}}
+                            style={{ width: "20ch", minWidth: "10ch" }}
                         />
                     </Box>
+                    <Box height="2em">{formIssue}</Box>
                     <Centerer>
-                        <ButtonGroup style={{width:"40ch", minWidth:"25ch"}}>
+                        <ButtonGroup
+                            style={{ width: "40ch", minWidth: "25ch" }}
+                        >
                             <Button
                                 style={{ width: "50%", height: "5ch" }}
                                 variant="outlined"
@@ -168,6 +209,7 @@ const SignUp = () => {
                                 style={{ width: "50%", height: "5ch" }}
                                 variant="contained"
                                 type="submit"
+                                disabled={formIssue !== null}
                             >
                                 Sign Up!
                             </Button>
