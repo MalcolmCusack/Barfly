@@ -1,16 +1,17 @@
 import { Button, ButtonGroup} from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useStateValue } from '../../state/StateProvider';
 import OrderItem from './OrderItem';
 import {getOrderTotal} from '../../state/reducer'
 import { useNavigate } from 'react-router-dom';
+import { NavigateContext } from '../../App';
 
 
 const OrderSummary = () => {
 
     const [{order}, dispatch] = useStateValue()
 
-    const navigator = useNavigate()
+    const navigator = useContext(NavigateContext);
 
     function navigate(destination) {
         navigator(destination)
@@ -23,7 +24,7 @@ const OrderSummary = () => {
         
             <ButtonGroup style={{borderBottom: '1px solid #fcba03', padding: '15px'}} disableElevation variant='outlined'>
                 <Button  onClick={() => navigate('/')}>Back to Menu</Button>
-                <Button  variant='contained' onClick={() => navigate('/payment')}>Checkout</Button>
+                <Button  variant='contained' onClick={() => navigate('/payment')} disabled={order.length === 0}>Checkout</Button>
             </ButtonGroup>
 
             <div>

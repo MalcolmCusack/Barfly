@@ -1,6 +1,6 @@
 //import logoWhite from './BarflyLogoWhite.png';
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import { useStateValue } from "./state/StateProvider";
 import { Auth, Hub } from "aws-amplify";
 import {
@@ -9,7 +9,6 @@ import {
     Route,
     useParams,
 } from "react-router-dom";
-import { useNavigate } from "react-router";
 import {
     ThemeProvider,
     createTheme,
@@ -31,7 +30,7 @@ import SignUp from "./components/auth/signUp";
 import Welcome from "./components/welcome";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
-import OrderStatus from "./components/payment/OrderStatus";
+import OrderStatus from "./components/order/OrderStatus";
 import { Box } from "@mui/material";
 import { SnackbarProvider } from "notistack";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -41,6 +40,9 @@ import { color } from "@mui/system";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
 import RouteNavigator from "./components/RouteNavigator";
+import PaymentSuccess from "./components/payment/PaymentSuccess";
+
+export const NavigateContext = createContext((path: string) => undefined);
 console.debug("================= console.debug is enabled ===============");
 
 // Back end push: amplify push
@@ -171,213 +173,232 @@ function App() {
     }, [triggerFetch]);
 
     return (
-        <ThemeProvider theme={theme}>
-            <SnackbarProvider maxSnack={1}>
-                <AppBar>
-                    <Box
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        position="relative"
-                        width="100%"
-                        height={APPBAR_HEIGHT}
-                    >
-                        {/* appbar-left */}
-                        <Box position="absolute" left="2ch">
-                            <IconButton
-                                style={{ justifySelf: "flex-end" }}
-                                onClick={toggleDrawerOpen}
-                                color="primary"
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        </Box>
-                        {/* appbar-center */}
-                        <Box>
-                            <Typeography
-                                onClick={() => navigate("/")}
-                                style={{
-                                    textDecoration: "none",
-                                    fontSize: "3ch",
-                                    cursor: "pointer",
-                                }}
-                            >
-                                Barfly
-                            </Typeography>
-                        </Box>
-                        {/* appbar-right */}
-                        <Box position="absolute" right="2ch">
-                            {user && (
-                                <Tooltip
-                                    title={`${order.length} Items in your order`}
+        <NavigateContext.Provider value={navigate}>
+            <ThemeProvider theme={theme}>
+                <SnackbarProvider maxSnack={1}>
+                    <AppBar>
+                        <Box
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                            position="relative"
+                            width="100%"
+                            height={APPBAR_HEIGHT}
+                        >
+                            {/* appbar-left */}
+                            <Box position="absolute" left="2ch">
+                                <IconButton
+                                    style={{ justifySelf: "flex-end" }}
+                                    onClick={toggleDrawerOpen}
+                                    color="primary"
                                 >
-                                    <IconButton
-                                        onClick={() =>
-                                            navigate("/ordersummary")
-                                        }
-                                    >
-                                        <Box
-                                            display="inline"
-                                            sx={{
-                                                color: (theme) =>
-                                                    theme.palette.primary.main,
-                                            }}
-                                        >
-                                            <SportsBarIcon color="primary" />
-                                            <Typography
-                                                color="primary"
-                                                display="inline"
-                                            >
-                                                {order.length}
-                                            </Typography>
-                                        </Box>
-                                    </IconButton>
-                                </Tooltip>
-                            )}
-                        </Box>
-                    </Box>
-                </AppBar>
-                <Toolbar />
-                <SwipeableDrawer
-                    open={drawerOpen}
-                    onClose={closeDrawer}
-                    onOpen={openDrawer}
-                    anchor="left"
-                    style={{
-                        height: "100%",
-                    }}
-                    onBackdropClick={closeDrawer}
-                >
-                    <Box
-                        height={APPBAR_HEIGHT}
-                        style={{ backgroundColor: "#111" }}
-                        position="relative"
-                    >
-                        <Box position="absolute" right="0">
-                            <IconButton onClick={closeDrawer} color="primary">
-                                <ChevronLeftIcon />
-                            </IconButton>
-                        </Box>
-                    </Box>
-                    <Box width="min(50vw, 30ch)">
-                        <List>
-                            {user && (
-                                <ListItemButton
-                                    onClick={() => {
-                                        closeDrawer();
-                                        handleSignout().then(
-                                            () => navigate("/")
-                                        );
+                                    <MenuIcon />
+                                </IconButton>
+                            </Box>
+                            {/* appbar-center */}
+                            <Box>
+                                <Typeography
+                                    onClick={() => navigate("/")}
+                                    style={{
+                                        textDecoration: "none",
+                                        fontSize: "3ch",
+                                        cursor: "pointer",
                                     }}
                                 >
-                                    Sign Out
-                                </ListItemButton>
-                            )}
-                        </List>
-                    </Box>
-                </SwipeableDrawer>
+                                    Barfly
+                                </Typeography>
+                            </Box>
+                            {/* appbar-right */}
+                            <Box position="absolute" right="2ch">
+                                {user && (
+                                    <Tooltip
+                                        title={`${order.length} Items in your order`}
+                                    >
+                                        <IconButton
+                                            onClick={() =>
+                                                navigate("/ordersummary")
+                                            }
+                                        >
+                                            <Box
+                                                display="inline"
+                                                sx={{
+                                                    color: (theme) =>
+                                                        theme.palette.primary
+                                                            .main,
+                                                }}
+                                            >
+                                                <SportsBarIcon color="primary" />
+                                                <Typography
+                                                    color="primary"
+                                                    display="inline"
+                                                >
+                                                    {order.length}
+                                                </Typography>
+                                            </Box>
+                                        </IconButton>
+                                    </Tooltip>
+                                )}
+                            </Box>
+                        </Box>
+                    </AppBar>
+                    <Toolbar />
+                    <SwipeableDrawer
+                        open={drawerOpen}
+                        onClose={closeDrawer}
+                        onOpen={openDrawer}
+                        anchor="left"
+                        style={{
+                            height: "100%",
+                        }}
+                        onBackdropClick={closeDrawer}
+                    >
+                        <Box
+                            height={APPBAR_HEIGHT}
+                            style={{ backgroundColor: "#111" }}
+                            position="relative"
+                        >
+                            <Box position="absolute" right="0">
+                                <IconButton
+                                    onClick={closeDrawer}
+                                    color="primary"
+                                >
+                                    <ChevronLeftIcon />
+                                </IconButton>
+                            </Box>
+                        </Box>
+                        <Box width="min(50vw, 30ch)">
+                            <List>
+                                {user && (
+                                    <ListItemButton
+                                        onClick={() => {
+                                            closeDrawer();
+                                            handleSignout().then(() =>
+                                                navigate("/")
+                                            );
+                                        }}
+                                    >
+                                        Sign Out
+                                    </ListItemButton>
+                                )}
+                            </List>
+                        </Box>
+                    </SwipeableDrawer>
 
-                {/* ================= Router to all the pages ================= */}
-                <Router>
-                    <Box className="App" height="100%" width="100%">
-                        <Routes>
-                            {!user ? (
-                                <>
-                                    <Route
-                                        path="/"
-                                        element={
-                                            <RouteNavigator
-                                                navigate_ref={navigate_ref}
-                                            >
-                                                <SignIn />
-                                            </RouteNavigator>
-                                        }
-                                    />
-                                    <Route
-                                        path="/signup"
-                                        element={
-                                            <RouteNavigator
-                                                navigate_ref={navigate_ref}
-                                            >
-                                                <SignUp />
-                                            </RouteNavigator>
-                                        }
-                                    />
-                                    <Route
-                                        path="/forgotpass"
-                                        element={
-                                            <RouteNavigator
-                                                navigate_ref={navigate_ref}
-                                            >
-                                                <RequestPasswordReset />
-                                            </RouteNavigator>
-                                        }
-                                    />
-                                    <Route
-                                        path="/resetpass/:email"
-                                        element={
-                                            <RouteNavigator
-                                                navigate_ref={navigate_ref}
-                                            >
-                                                <ResetPasswordPage />
-                                            </RouteNavigator>
-                                        }
-                                    />
-                                </>
-                            ) : (
-                                <>
-                                    <Route
-                                        path="/"
-                                        element={
-                                            <RouteNavigator
-                                                navigate_ref={navigate_ref}
-                                            >
-                                                <Welcome
-                                                    onSignOut={handleSignout}
-                                                />
-                                            </RouteNavigator>
-                                        }
-                                    />
+                    {/* ================= Router to all the pages ================= */}
+                    <Router>
+                        <Box className="App" height="100%" width="100%">
+                            <Routes>
+                                {!user ? (
+                                    <>
+                                        <Route
+                                            path="/"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <SignIn />
+                                                </RouteNavigator>
+                                            }
+                                        />
+                                        <Route
+                                            path="/signup"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <SignUp />
+                                                </RouteNavigator>
+                                            }
+                                        />
+                                        <Route
+                                            path="/forgotpass"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <RequestPasswordReset />
+                                                </RouteNavigator>
+                                            }
+                                        />
+                                        <Route
+                                            path="/resetpass/:email"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <ResetPasswordPage />
+                                                </RouteNavigator>
+                                            }
+                                        />
+                                    </>
+                                ) : (
+                                    <>
+                                        <Route
+                                            path="/"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <Welcome
+                                                        onSignOut={
+                                                            handleSignout
+                                                        }
+                                                    />
+                                                </RouteNavigator>
+                                            }
+                                        />
 
-                                    <Route
-                                        path="/ordersummary"
-                                        element={
-                                            <RouteNavigator
-                                                navigate_ref={navigate_ref}
-                                            >
-                                                <OrderSummary />
-                                            </RouteNavigator>
-                                        }
-                                    />
+                                        <Route
+                                            path="/ordersummary"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <OrderSummary />
+                                                </RouteNavigator>
+                                            }
+                                        />
 
-                                    <Route
-                                        path="/payment"
-                                        element={
-                                            <RouteNavigator
-                                                navigate_ref={navigate_ref}
-                                            >
-                                                <Payment />
-                                            </RouteNavigator>
-                                        }
-                                    />
+                                        <Route
+                                            path="/payment"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <Payment />
+                                                </RouteNavigator>
+                                            }
+                                        />
 
-                                    <Route
-                                        path="/orderstatus/:orderid"
-                                        element={
-                                            <RouteNavigator
-                                                navigate_ref={navigate_ref}
-                                            >
-                                                <OrderStatus />
-                                            </RouteNavigator>
-                                        }
-                                    />
-                                </>
-                            )}
-                        </Routes>
-                    </Box>
-                </Router>
-            </SnackbarProvider>
-        </ThemeProvider>
+                                        <Route
+                                            path="/paymentsuccess"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <PaymentSuccess />
+                                                </RouteNavigator>
+                                            }
+                                        />
+
+                                        <Route
+                                            path="/orderstatus"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <OrderStatus />
+                                                </RouteNavigator>
+                                            }
+                                        />
+                                    </>
+                                )}
+                            </Routes>
+                        </Box>
+                    </Router>
+                </SnackbarProvider>
+            </ThemeProvider>
+        </NavigateContext.Provider>
     );
 }
 

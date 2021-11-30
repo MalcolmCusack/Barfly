@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '@mui/material'
 import { useStateValue } from '../../state/StateProvider'
 import { API, graphqlOperation } from "aws-amplify";
 import { onOrderByUserId, onOrderByOrderId} from '../../graphql/subscriptions';
 import { Yard } from '@mui/icons-material';
+import { NavigateContext } from '../../App';
 
 const OrderStatus = () => {
 
@@ -15,7 +16,7 @@ const OrderStatus = () => {
 
     console.log(params)
 
-    const navigator = useNavigate()
+    const navigator = useContext(NavigateContext);
 
     function navigate(destination) {
         navigator(destination)
