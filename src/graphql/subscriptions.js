@@ -24,7 +24,8 @@ export const onOrderByOrderId = /* GraphQL */`
   subscription OnOrderByOrderId($id: ID!) {
     onOrderByOrderId(id: $id) {
       id
-      items
+      completed
+
       
     }
   }

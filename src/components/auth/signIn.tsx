@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
 import { Link, useNavigate } from "react-router-dom";
@@ -33,6 +33,7 @@ const SignIn = () => {
             setLoggingIn(false);
         }
     };
+
 
     return (
         <div onKeyUp={prevDef(detectCapsLock)}>
