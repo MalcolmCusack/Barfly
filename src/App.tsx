@@ -40,6 +40,7 @@ import SportsBarIcon from "@mui/icons-material/SportsBar";
 import { color } from "@mui/system";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
+import RouteNavigator from "./components/RouteNavigator";
 console.debug("================= console.debug is enabled ===============");
 
 // Back end push: amplify push
@@ -83,6 +84,12 @@ const theme = createTheme({
 });
 
 function App() {
+    const navigate_ref = [];
+    function navigate(path) {
+        if (navigate_ref[0] != undefined) {
+            navigate_ref[0](path);
+        }
+    }
     const [drawerOpen, setDrawerOpen] = useState(false);
     function toggleDrawerOpen() {
         setDrawerOpen(!drawerOpen);
@@ -188,10 +195,11 @@ function App() {
                         {/* appbar-center */}
                         <Box>
                             <Typeography
-                                href="/"
+                                onClick={() => navigate("/")}
                                 style={{
                                     textDecoration: "none",
                                     fontSize: "3ch",
+                                    cursor: "pointer",
                                 }}
                             >
                                 Barfly
@@ -203,8 +211,18 @@ function App() {
                                 <Tooltip
                                     title={`${order.length} Items in your order`}
                                 >
-                                    <IconButton href="/ordersummary">
-                                        <Box display="inline" sx={{color:theme=>theme.palette.primary.main}}>
+                                    <IconButton
+                                        onClick={() =>
+                                            navigate("/ordersummary")
+                                        }
+                                    >
+                                        <Box
+                                            display="inline"
+                                            sx={{
+                                                color: (theme) =>
+                                                    theme.palette.primary.main,
+                                            }}
+                                        >
                                             <SportsBarIcon color="primary" />
                                             <Typography
                                                 color="primary"
@@ -248,7 +266,7 @@ function App() {
                                     onClick={() => {
                                         closeDrawer();
                                         handleSignout().then(
-                                            () => (window.location.href = "/")
+                                            () => navigate("/")
                                         );
                                     }}
                                 >
@@ -265,18 +283,45 @@ function App() {
                         <Routes>
                             {!user ? (
                                 <>
-                                    <Route path="/" element={<SignIn />} />
+                                    <Route
+                                        path="/"
+                                        element={
+                                            <RouteNavigator
+                                                navigate_ref={navigate_ref}
+                                            >
+                                                <SignIn />
+                                            </RouteNavigator>
+                                        }
+                                    />
                                     <Route
                                         path="/signup"
-                                        element={<SignUp />}
+                                        element={
+                                            <RouteNavigator
+                                                navigate_ref={navigate_ref}
+                                            >
+                                                <SignUp />
+                                            </RouteNavigator>
+                                        }
                                     />
                                     <Route
                                         path="/forgotpass"
-                                        element={<RequestPasswordReset />}
+                                        element={
+                                            <RouteNavigator
+                                                navigate_ref={navigate_ref}
+                                            >
+                                                <RequestPasswordReset />
+                                            </RouteNavigator>
+                                        }
                                     />
                                     <Route
                                         path="/resetpass/:email"
-                                        element={<ResetPasswordPage />}
+                                        element={
+                                            <RouteNavigator
+                                                navigate_ref={navigate_ref}
+                                            >
+                                                <ResetPasswordPage />
+                                            </RouteNavigator>
+                                        }
                                     />
                                 </>
                             ) : (
@@ -284,25 +329,47 @@ function App() {
                                     <Route
                                         path="/"
                                         element={
-                                            <Welcome
-                                                onSignOut={handleSignout}
-                                            />
+                                            <RouteNavigator
+                                                navigate_ref={navigate_ref}
+                                            >
+                                                <Welcome
+                                                    onSignOut={handleSignout}
+                                                />
+                                            </RouteNavigator>
                                         }
                                     />
 
                                     <Route
                                         path="/ordersummary"
-                                        element={<OrderSummary />}
+                                        element={
+                                            <RouteNavigator
+                                                navigate_ref={navigate_ref}
+                                            >
+                                                <OrderSummary />
+                                            </RouteNavigator>
+                                        }
                                     />
 
                                     <Route
                                         path="/payment"
-                                        element={<Payment />}
+                                        element={
+                                            <RouteNavigator
+                                                navigate_ref={navigate_ref}
+                                            >
+                                                <Payment />
+                                            </RouteNavigator>
+                                        }
                                     />
 
                                     <Route
                                         path="/orderstatus/:orderid"
-                                        element={<OrderStatus />}
+                                        element={
+                                            <RouteNavigator
+                                                navigate_ref={navigate_ref}
+                                            >
+                                                <OrderStatus />
+                                            </RouteNavigator>
+                                        }
                                     />
                                 </>
                             )}
