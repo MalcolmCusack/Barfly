@@ -40,6 +40,7 @@ import { color } from "@mui/system";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
 import RouteNavigator from "./components/RouteNavigator";
+import PaymentSuccess from "./components/payment/PaymentSuccess";
 
 export const NavigateContext = createContext((path: string) => undefined);
 console.debug("================= console.debug is enabled ===============");
@@ -365,6 +366,17 @@ function App() {
                                                     navigate_ref={navigate_ref}
                                                 >
                                                     <Payment />
+                                                </RouteNavigator>
+                                            }
+                                        />
+
+                                        <Route
+                                            path="/paymentsuccess"
+                                            element={
+                                                <RouteNavigator
+                                                    navigate_ref={navigate_ref}
+                                                >
+                                                    <PaymentSuccess />
                                                 </RouteNavigator>
                                             }
                                         />
