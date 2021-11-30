@@ -7,7 +7,6 @@ import "../../../styles/auth.css";
 //import prevDef from "../../../decorators/prevDef";
 import LoadingIndicator from "../../LoadingIndicator";
 import Centerer from "../../Centerer";
-import { NavigateContext } from "../../../App";
 import { useNavigate } from "react-router";
 //import { useParams } from "react-router";
 

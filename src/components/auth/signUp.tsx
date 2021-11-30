@@ -9,7 +9,6 @@ import { Box, Box as span } from "@mui/system";
 import Centerer from "../Centerer";
 import { ButtonGroup } from "@mui/material";
 import {  createUser, deleteTab } from "../../graphql/mutations"
-import { NavigateContext } from "../../App";
 
 const SignUp = () => {
     const [email, setEmail] = useState("");

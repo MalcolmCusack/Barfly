@@ -8,7 +8,6 @@ import "../../styles/auth.css";
 import prevDef from "../../decorators/prevDef";
 import LoadingIndicator from "../LoadingIndicator";
 import Centerer from "../Centerer";
-import { NavigateContext } from "../../App";
 
 const SignIn = () => {
     const [email, setEmail] = useState("");

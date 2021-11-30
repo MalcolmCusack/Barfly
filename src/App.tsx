@@ -42,7 +42,9 @@ import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage
 import Common from "./components/Common";
 import PaymentSuccess from "./components/payment/PaymentSuccess";
 
-export const NavigateContext = createContext((path: string) => undefined);
+export const ActionsContext = createContext(
+    {} as { fetchData: () => void; signOut: () => Promise<void> }
+);
 console.debug("================= console.debug is enabled ===============");
 
 // Back end push: amplify push
@@ -86,35 +88,22 @@ const theme = createTheme({
 });
 
 function App() {
-    const navigate_ref = [];
-    function navigate(path) {
-        if (navigate_ref[0] != undefined) {
-            navigate_ref[0](path);
-        }
-    }
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    function toggleDrawerOpen() {
-        setDrawerOpen(!drawerOpen);
-    }
-    function closeDrawer() {
-        setDrawerOpen(false);
-    }
-    function openDrawer() {
-        setDrawerOpen(true);
-    }
     const [{ state, user, order }, dispatch] = useStateValue();
 
     const [triggerFetch, setTriggerFetch] = useState(false);
 
-    const handleSignout = async () => {
+    function fetchData() {
+        setTriggerFetch(true);
+    }
+
+    async function signOut() {
         try {
             await Auth.signOut();
-            setTriggerFetch(false);
             dispatch({ type: "RESET_USER_DATA" });
         } catch (error) {
             console.log(error);
         }
-    };
+    }
 
     useEffect(() => {
         let isMounted = true;
@@ -173,7 +162,7 @@ function App() {
     }, [triggerFetch]);
 
     return (
-        <NavigateContext.Provider value={navigate}>
+        <ActionsContext.Provider value={{ fetchData, signOut }}>
             <ThemeProvider theme={theme}>
                 <SnackbarProvider maxSnack={1}>
                     {/* ================= Router to all the pages ================= */}
@@ -221,11 +210,7 @@ function App() {
                                             path="/"
                                             element={
                                                 <Common>
-                                                    <Welcome
-                                                        onSignOut={
-                                                            handleSignout
-                                                        }
-                                                    />
+                                                    <Welcome />
                                                 </Common>
                                             }
                                         />
@@ -272,7 +257,7 @@ function App() {
                     </Router>
                 </SnackbarProvider>
             </ThemeProvider>
-        </NavigateContext.Provider>
+        </ActionsContext.Provider>
     );
 }
 

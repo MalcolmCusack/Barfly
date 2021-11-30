@@ -1,6 +1,6 @@
 //import logoWhite from './BarflyLogoWhite.png';
 import "../App.css";
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import { useStateValue } from "../state/StateProvider";
 import { Auth, Hub } from "aws-amplify";
 import {
@@ -25,6 +25,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import SportsBarIcon from "@mui/icons-material/SportsBar";
 import { useNavigate } from "react-router";
+import { ActionsContext } from "../App";
 
 export const NavigateContext = createContext((path: string) => undefined);
 console.debug("================= console.debug is enabled ===============");
@@ -34,7 +35,7 @@ console.debug("================= console.debug is enabled ===============");
 
 const APPBAR_HEIGHT = "5ch";
 
-export default function Common({ children }: {children:any}) {
+export default function Common({ children }: { children: any }) {
     const [drawerOpen, setDrawerOpen] = useState(false);
     function toggleDrawerOpen() {
         setDrawerOpen(!drawerOpen);
@@ -47,20 +48,9 @@ export default function Common({ children }: {children:any}) {
     }
     const [{ state, user, order }, dispatch] = useStateValue();
 
-    const [triggerFetch, setTriggerFetch] = useState(false);
-
 
     const navigate = useNavigate();
-
-    const handleSignout = async () => {
-        try {
-            await Auth.signOut();
-            dispatch({ type: "RESET_USER_DATA" });
-            window.location.reload();
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const {signOut} = useContext(ActionsContext);
 
     return (
         <>
@@ -149,12 +139,13 @@ export default function Common({ children }: {children:any}) {
                     </Box>
                 </Box>
                 <Box width="min(50vw, 30ch)">
+                    {/* ===== Draw Content ==== */}
                     <List>
                         {user && (
                             <ListItemButton
                                 onClick={() => {
                                     closeDrawer();
-                                    handleSignout().then(() => navigate("/"));
+                                    signOut().then(() => navigate("/"));
                                 }}
                             >
                                 Sign Out

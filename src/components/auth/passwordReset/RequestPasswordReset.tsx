@@ -8,7 +8,6 @@ import "../../../styles/auth.css";
 import LoadingIndicator from "../../LoadingIndicator";
 import Centerer from "../../Centerer";
 import { useSleep } from "../../../hooks/timing";
-import { NavigateContext } from "../../../App";
 import { useNavigate } from "react-router";
 
 export default function RequestPasswordReset() {
