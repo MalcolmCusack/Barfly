@@ -1,13 +1,13 @@
-import React, { useState} from "react";
+import React, { useContext, useState} from "react";
 import logoWhite from "../../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
-import {  useNavigate } from "react-router-dom";
 import { TextField, Box, ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../../../styles/auth.css";
 //import prevDef from "../../../decorators/prevDef";
 import LoadingIndicator from "../../LoadingIndicator";
 import Centerer from "../../Centerer";
+import { NavigateContext } from "../../../App";
 //import { useParams } from "react-router";
 
 export default function ResetPassword({email}:{email:string}) {
@@ -20,7 +20,7 @@ export default function ResetPassword({email}:{email:string}) {
     // const [requestingReset, setRequestingReset] = useState(false);
     const [resetingPassword, setResetingPassword] = useState(false);
 
-    const navigate = useNavigate();
+    const navigate = useContext(NavigateContext);
 
     async function resetPassword() {
         try {

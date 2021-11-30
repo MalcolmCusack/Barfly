@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth, API, graphqlOperation } from "aws-amplify";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import prevDef from "../../decorators/prevDef";
@@ -9,6 +9,7 @@ import { Box, Box as span } from "@mui/system";
 import Centerer from "../Centerer";
 import { ButtonGroup } from "@mui/material";
 import {  createUser, deleteTab } from "../../graphql/mutations"
+import { NavigateContext } from "../../App";
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const SignUp = () => {
 
     const [signedUp, setSignedUp] = useState(false);
 
-    const navigate = useNavigate();
+    const navigate = useContext(NavigateContext);
 
     const createAccount = async (event: any) => {
         event.preventDefault(); //prevents referesh

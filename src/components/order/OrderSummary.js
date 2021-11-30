@@ -1,16 +1,17 @@
 import { Button, ButtonGroup} from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useStateValue } from '../../state/StateProvider';
 import OrderItem from './OrderItem';
 import {getOrderTotal} from '../../state/reducer'
 import { useNavigate } from 'react-router-dom';
+import { NavigateContext } from '../../App';
 
 
 const OrderSummary = () => {
 
     const [{order}, dispatch] = useStateValue()
 
-    const navigator = useNavigate()
+    const navigator = useContext(NavigateContext);
 
     function navigate(destination) {
         navigator(destination)

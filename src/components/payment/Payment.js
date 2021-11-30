@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, TextField} from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { getOrderTotal } from '../../state/reducer';
 import { useStateValue } from '../../state/StateProvider';
@@ -7,6 +7,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import { createOrder } from '../../graphql/mutations';
 import { onCreateOrder } from '../../graphql/subscriptions';
 import { getUser } from '../../graphql/queries';
+import { NavigateContext } from '../../App';
 
 //import {listOrders} from '../../graphql/queries';
 
@@ -15,7 +16,7 @@ function Payment() {
 
     const [{ order, user }, dispatch ] = useStateValue()
 
-    const navigator = useNavigate()
+    const navigator = useContext(NavigateContext);
 
     function navigate(destination) {
         navigator(destination)

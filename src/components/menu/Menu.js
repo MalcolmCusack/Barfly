@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { getWholeMenu } from "../../graphql/queries";
 import LoadingIndicator from "../LoadingIndicator";
@@ -6,12 +6,13 @@ import MenuCategory from "./MenuCategory";
 import { listOrders, listUsers} from "../../graphql/queries";
 import { Box, Button } from "@mui/material";
 import { useNavigate } from "react-router";
+import { NavigateContext } from "../../App";
 
 const Menu = () => {
     const [menu, setMenu] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
-    const navigate = useNavigate();
+    const navigate = useContext(NavigateContext);
 
     useEffect(() => {
 

@@ -1,7 +1,6 @@
-import React, { useState} from "react";
+import React, { useContext, useState} from "react";
 import logoWhite from "../../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
-import { useNavigate } from "react-router-dom";
 import { TextField, Box, ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../../../styles/auth.css";
@@ -9,6 +8,7 @@ import "../../../styles/auth.css";
 import LoadingIndicator from "../../LoadingIndicator";
 import Centerer from "../../Centerer";
 import { useSleep } from "../../../hooks/timing";
+import { NavigateContext } from "../../../App";
 
 export default function RequestPasswordReset() {
     const [email, setEmail] = useState("");
@@ -26,7 +26,7 @@ export default function RequestPasswordReset() {
         }
     }
 
-    const navigate = useNavigate();
+    const navigate = useContext(NavigateContext);
 
     return (
         <div>

@@ -1,13 +1,14 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TextField, Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../../styles/auth.css";
 import prevDef from "../../decorators/prevDef";
 import LoadingIndicator from "../LoadingIndicator";
 import Centerer from "../Centerer";
+import { NavigateContext } from "../../App";
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ const SignIn = () => {
         setCapsLock(e.getModifierState("CapsLock"));
     }
 
-    const navigate = useNavigate();
+    const navigate = useContext(NavigateContext);
 
     const signIn = async (event: any) => {
         try {
