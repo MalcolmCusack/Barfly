@@ -24,7 +24,7 @@ const OrderSummary = () => {
         
             <ButtonGroup style={{borderBottom: '1px solid #fcba03', padding: '15px'}} disableElevation variant='outlined'>
                 <Button  onClick={() => navigate('/')}>Back to Menu</Button>
-                <Button  variant='contained' onClick={() => navigate('/payment')}>Checkout</Button>
+                <Button  variant='contained' onClick={() => navigate('/payment')} disabled={order.length === 0}>Checkout</Button>
             </ButtonGroup>
 
             <div>
