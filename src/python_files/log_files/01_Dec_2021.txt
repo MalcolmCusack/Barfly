@@ -1,44 +1,212 @@
 
-01/Dec/2021 15:17:47 Starting Pourhouse Food Function
-01/Dec/2021 15:17:48 ERROR: Description unavailible for FRENCH FRIES | 6.50
-01/Dec/2021 15:17:48 ERROR: Price unavailible for FRENCH FRIES | 6.50
-01/Dec/2021 15:17:48 ERROR: Description unavailible for TATER TOTS | 7.50
-01/Dec/2021 15:17:48 ERROR: Price unavailible for TATER TOTS | 7.50
-01/Dec/2021 15:17:48 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
-01/Dec/2021 15:17:48 ERROR: Price unavailible for SWEET POTATO FRIES | 8.50
-01/Dec/2021 15:17:48 ERROR: Description unavailible for ONION RINGS | 8.50
-01/Dec/2021 15:17:48 ERROR: Price unavailible for ONION RINGS | 8.50
-01/Dec/2021 15:17:48 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
-01/Dec/2021 15:17:48 ERROR: Price unavailible for SMALL HOUSE SALAD | 4.00
-01/Dec/2021 15:17:48 ERROR: Description unavailible for CUP SOUP | 4.00
-01/Dec/2021 15:17:48 ERROR: Price unavailible for CUP SOUP | 4.00
-01/Dec/2021 15:17:48 ERROR: Description unavailible for BOWL SOUP | 5.50
-01/Dec/2021 15:17:48 ERROR: Price unavailible for BOWL SOUP | 5.50
-01/Dec/2021 15:17:48 Finished Pourhouse Food Function
-01/Dec/2021 15:19:44 Starting Pourhouse Food Function
-01/Dec/2021 15:19:45 ERROR: Description unavailible for FRENCH FRIES | 6.50
-01/Dec/2021 15:19:45 ERROR: Description unavailible for TATER TOTS | 7.50
-01/Dec/2021 15:19:45 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
-01/Dec/2021 15:19:45 ERROR: Description unavailible for ONION RINGS | 8.50
-01/Dec/2021 15:19:45 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
-01/Dec/2021 15:19:45 ERROR: Description unavailible for CUP SOUP | 4.00
-01/Dec/2021 15:19:45 ERROR: Description unavailible for BOWL SOUP | 5.50
-01/Dec/2021 15:19:45 Finished Pourhouse Food Function
-01/Dec/2021 15:21:06 Starting Pourhouse Food Function
-01/Dec/2021 15:21:07 ERROR: Description unavailible for FRENCH FRIES | 6.50
-01/Dec/2021 15:21:07 ERROR: Description unavailible for TATER TOTS | 7.50
-01/Dec/2021 15:21:07 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
-01/Dec/2021 15:21:07 ERROR: Description unavailible for ONION RINGS | 8.50
-01/Dec/2021 15:21:07 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
-01/Dec/2021 15:21:07 ERROR: Description unavailible for CUP SOUP | 4.00
-01/Dec/2021 15:21:07 ERROR: Description unavailible for BOWL SOUP | 5.50
-01/Dec/2021 15:21:07 Finished Pourhouse Food Function
-01/Dec/2021 15:21:50 Starting Pourhouse Food Function
-01/Dec/2021 15:21:51 ERROR: Description unavailible for FRENCH FRIES | 6.50
-01/Dec/2021 15:21:51 ERROR: Description unavailible for TATER TOTS | 7.50
-01/Dec/2021 15:21:51 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
-01/Dec/2021 15:21:51 ERROR: Description unavailible for ONION RINGS | 8.50
-01/Dec/2021 15:21:51 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
-01/Dec/2021 15:21:51 ERROR: Description unavailible for CUP SOUP | 4.00
-01/Dec/2021 15:21:51 ERROR: Description unavailible for BOWL SOUP | 5.50
-01/Dec/2021 15:21:51 Finished Pourhouse Food Function
+01/Dec/2021 16:22:02 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:22:03 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:22:03 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:22:04 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:22:04 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:22:04 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:24:17 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:24:19 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:24:19 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:24:22 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:24:22 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:24:22 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:24:22 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:24:23 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:24:37 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:24:39 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:24:56 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:24:57 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:25:57 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:25:58 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:26:16 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:26:17 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:27:16 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:27:17 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:27:41 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:27:42 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:27:59 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:28:00 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:28:00 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:28:04 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:28:04 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:28:04 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:28:04 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:28:05 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:30:35 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:30:35 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:30:35 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:30:37 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:30:37 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:30:37 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:30:37 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:30:38 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:30:41 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:30:42 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:30:42 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:30:43 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:30:43 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:30:43 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:30:43 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:30:44 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:30:51 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:30:52 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:30:52 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:30:53 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:30:53 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:30:53 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:30:53 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:30:54 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:33:53 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:33:54 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:33:54 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:33:55 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:33:55 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:33:55 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:33:55 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:33:56 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:39:07 Starting Pourhouse Food Function
+01/Dec/2021 16:39:08 ERROR: Description unavailible for FRENCH FRIES | 6.50
+01/Dec/2021 16:39:08 ERROR: Description unavailible for TATER TOTS | 7.50
+01/Dec/2021 16:39:08 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+01/Dec/2021 16:39:08 ERROR: Description unavailible for ONION RINGS | 8.50
+01/Dec/2021 16:39:08 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+01/Dec/2021 16:39:08 ERROR: Description unavailible for CUP SOUP | 4.00
+01/Dec/2021 16:39:08 ERROR: Description unavailible for BOWL SOUP | 5.50
+01/Dec/2021 16:39:08 Finished Pourhouse Food Function
+01/Dec/2021 16:39:57 Starting Rocking R Drinks Function
+01/Dec/2021 16:39:58 Finished Rocking R Drinks Function
+01/Dec/2021 16:39:58 Starting Rocking R Food Function
+01/Dec/2021 16:39:59 ERROR: Description unavailible for House Salad
+01/Dec/2021 16:39:59 ERROR: Price unavailible for House Salad
+01/Dec/2021 16:39:59 ERROR: Description unavailible for Caesar Salad
+01/Dec/2021 16:39:59 ERROR: Price unavailible for Caesar Salad
+01/Dec/2021 16:39:59 ERROR: Description unavailible for Fresh House-Cut Fries
+01/Dec/2021 16:39:59 ERROR: Price unavailible for Fresh House-Cut Fries
+01/Dec/2021 16:39:59 ERROR: Description unavailible for Chips & Salsa
+01/Dec/2021 16:39:59 ERROR: Price unavailible for Chips & Salsa
+01/Dec/2021 16:39:59 ERROR: Description unavailible for Tangy Slaw
+01/Dec/2021 16:39:59 ERROR: Price unavailible for Tangy Slaw
+01/Dec/2021 16:39:59 ERROR: Description unavailible for Brussel Sprouts with Balsamic Reduction
+01/Dec/2021 16:39:59 ERROR: Price unavailible for Brussel Sprouts with Balsamic Reduction
+01/Dec/2021 16:39:59 ERROR: Description unavailible for Onion Rings
+01/Dec/2021 16:39:59 ERROR: Description unavailible for Sweet Potato Fries
+01/Dec/2021 16:39:59 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+01/Dec/2021 16:39:59 ERROR: Description unavailible for GRILLED CHEESE
+01/Dec/2021 16:39:59 ERROR: Description unavailible for CHICKEN TENDERS
+01/Dec/2021 16:39:59 ERROR: Description unavailible for CHEESE QUESADILLA
+01/Dec/2021 16:39:59 ERROR: Description unavailible for CHEESEBURGER
+01/Dec/2021 16:39:59 Finished Rocking R Food Function
+01/Dec/2021 16:40:05 Starting Rocking R Drinks Function
+01/Dec/2021 16:40:05 Finished Rocking R Drinks Function
+01/Dec/2021 16:40:05 Starting Rocking R Food Function
+01/Dec/2021 16:40:06 ERROR: Description unavailible for House Salad
+01/Dec/2021 16:40:06 ERROR: Price unavailible for House Salad
+01/Dec/2021 16:40:06 ERROR: Description unavailible for Caesar Salad
+01/Dec/2021 16:40:06 ERROR: Price unavailible for Caesar Salad
+01/Dec/2021 16:40:06 ERROR: Description unavailible for Fresh House-Cut Fries
+01/Dec/2021 16:40:06 ERROR: Price unavailible for Fresh House-Cut Fries
+01/Dec/2021 16:40:06 ERROR: Description unavailible for Chips & Salsa
+01/Dec/2021 16:40:06 ERROR: Price unavailible for Chips & Salsa
+01/Dec/2021 16:40:06 ERROR: Description unavailible for Tangy Slaw
+01/Dec/2021 16:40:06 ERROR: Price unavailible for Tangy Slaw
+01/Dec/2021 16:40:06 ERROR: Description unavailible for Brussel Sprouts with Balsamic Reduction
+01/Dec/2021 16:40:06 ERROR: Price unavailible for Brussel Sprouts with Balsamic Reduction
+01/Dec/2021 16:40:06 ERROR: Description unavailible for Onion Rings
+01/Dec/2021 16:40:06 ERROR: Description unavailible for Sweet Potato Fries
+01/Dec/2021 16:40:06 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+01/Dec/2021 16:40:06 ERROR: Description unavailible for GRILLED CHEESE
+01/Dec/2021 16:40:06 ERROR: Description unavailible for CHICKEN TENDERS
+01/Dec/2021 16:40:06 ERROR: Description unavailible for CHEESE QUESADILLA
+01/Dec/2021 16:40:06 ERROR: Description unavailible for CHEESEBURGER
+01/Dec/2021 16:40:06 Finished Rocking R Food Function
+01/Dec/2021 16:40:07 Starting Pourhouse Food Function
+01/Dec/2021 16:40:08 ERROR: Description unavailible for FRENCH FRIES | 6.50
+01/Dec/2021 16:40:08 ERROR: Description unavailible for TATER TOTS | 7.50
+01/Dec/2021 16:40:08 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+01/Dec/2021 16:40:08 ERROR: Description unavailible for ONION RINGS | 8.50
+01/Dec/2021 16:40:08 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+01/Dec/2021 16:40:08 ERROR: Description unavailible for CUP SOUP | 4.00
+01/Dec/2021 16:40:08 ERROR: Description unavailible for BOWL SOUP | 5.50
+01/Dec/2021 16:40:08 Finished Pourhouse Food Function
+01/Dec/2021 16:40:10 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:40:11 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:40:11 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:40:13 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:40:13 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:40:13 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:40:13 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:40:14 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:40:15 Starting Pourhouse Food Function
+01/Dec/2021 16:40:16 ERROR: Description unavailible for FRENCH FRIES | 6.50
+01/Dec/2021 16:40:16 ERROR: Description unavailible for TATER TOTS | 7.50
+01/Dec/2021 16:40:16 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+01/Dec/2021 16:40:16 ERROR: Description unavailible for ONION RINGS | 8.50
+01/Dec/2021 16:40:16 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+01/Dec/2021 16:40:16 ERROR: Description unavailible for CUP SOUP | 4.00
+01/Dec/2021 16:40:16 ERROR: Description unavailible for BOWL SOUP | 5.50
+01/Dec/2021 16:40:16 Finished Pourhouse Food Function
+01/Dec/2021 16:40:17 Starting Rocking R Drinks Function
+01/Dec/2021 16:40:18 Finished Rocking R Drinks Function
+01/Dec/2021 16:40:18 Starting Rocking R Food Function
+01/Dec/2021 16:40:19 ERROR: Description unavailible for House Salad
+01/Dec/2021 16:40:19 ERROR: Price unavailible for House Salad
+01/Dec/2021 16:40:19 ERROR: Description unavailible for Caesar Salad
+01/Dec/2021 16:40:19 ERROR: Price unavailible for Caesar Salad
+01/Dec/2021 16:40:19 ERROR: Description unavailible for Fresh House-Cut Fries
+01/Dec/2021 16:40:19 ERROR: Price unavailible for Fresh House-Cut Fries
+01/Dec/2021 16:40:19 ERROR: Description unavailible for Chips & Salsa
+01/Dec/2021 16:40:19 ERROR: Price unavailible for Chips & Salsa
+01/Dec/2021 16:40:19 ERROR: Description unavailible for Tangy Slaw
+01/Dec/2021 16:40:19 ERROR: Price unavailible for Tangy Slaw
+01/Dec/2021 16:40:19 ERROR: Description unavailible for Brussel Sprouts with Balsamic Reduction
+01/Dec/2021 16:40:19 ERROR: Price unavailible for Brussel Sprouts with Balsamic Reduction
+01/Dec/2021 16:40:19 ERROR: Description unavailible for Onion Rings
+01/Dec/2021 16:40:19 ERROR: Description unavailible for Sweet Potato Fries
+01/Dec/2021 16:40:19 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+01/Dec/2021 16:40:19 ERROR: Description unavailible for GRILLED CHEESE
+01/Dec/2021 16:40:19 ERROR: Description unavailible for CHICKEN TENDERS
+01/Dec/2021 16:40:19 ERROR: Description unavailible for CHEESE QUESADILLA
+01/Dec/2021 16:40:19 ERROR: Description unavailible for CHEESEBURGER
+01/Dec/2021 16:40:19 Finished Rocking R Food Function
+01/Dec/2021 16:40:21 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:40:22 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:40:22 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:40:23 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:40:23 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:40:23 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:40:23 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:40:24 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:47:20 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:47:21 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:47:21 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:47:22 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:47:22 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:47:22 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:47:22 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:47:23 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:49:21 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:49:23 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:49:23 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:49:24 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:49:24 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:49:24 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:49:24 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:49:26 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:52:44 Starting Montana Aleworks Beer Function
+01/Dec/2021 16:52:45 Finished Montana Aleworks Beer Function
+01/Dec/2021 16:52:45 Starting Montana Aleworks Cocktail Function
+01/Dec/2021 16:52:47 ERROR: Price unavailible for huckleberry margarita
+01/Dec/2021 16:52:47 ERROR: Price unavailible for cuba libre
+01/Dec/2021 16:52:47 Finished Montana Aleworks Cocktail Function
+01/Dec/2021 16:52:47 Starting Montana Aleworks Wine Function
+01/Dec/2021 16:52:47 Finished Montana Aleworks Wine Function
+01/Dec/2021 16:52:58 Starting Pourhouse Food Function
+01/Dec/2021 16:52:59 ERROR: Description unavailible for FRENCH FRIES | 6.50
+01/Dec/2021 16:52:59 ERROR: Description unavailible for TATER TOTS | 7.50
+01/Dec/2021 16:52:59 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+01/Dec/2021 16:52:59 ERROR: Description unavailible for ONION RINGS | 8.50
+01/Dec/2021 16:52:59 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+01/Dec/2021 16:52:59 ERROR: Description unavailible for CUP SOUP | 4.00
+01/Dec/2021 16:52:59 ERROR: Description unavailible for BOWL SOUP | 5.50
+01/Dec/2021 16:52:59 Finished Pourhouse Food Function

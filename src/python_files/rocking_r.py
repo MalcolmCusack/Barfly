@@ -4,8 +4,8 @@ import datetime
 
 log_mode = 1
 log = []
-log_file = "A:/Fall_2021/CSCI_331/Barfly/Barfly/src/python_files/log_files/"+datetime.datetime.now().strftime("%d_%b_%Y")+".txt"
-output_location = "A:/Fall_2021/CSCI_331/Barfly/Barfly/src/scraped_files/rocking_r.txt"
+log_file = "C:/Fall_2021/CSCI_331/Final_Project/Barfly/src/python_files/log_files/"+datetime.datetime.now().strftime("%d_%b_%Y")+".txt"
+output_location = "C:/Fall_2021/CSCI_331/Final_Project/Barfly/src/scraped_files/rocking_r.txt"
 
 def time():
     return datetime.datetime.now().strftime("%d/%b/%Y %H:%M:%S")
