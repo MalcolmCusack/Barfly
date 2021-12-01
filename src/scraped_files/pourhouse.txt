@@ -1,0 +1,29 @@
+Pourhouse|Food|WINGS (BONELESS OR TRADITIONAL)|15.75|Sauces: Spicy (dry rub), Classic Buffalo, BBQ, Dragon, Hoisin, or Tangy Mustard.  served with carrots & celery
+Pourhouse|Food|CHIPS & QUESO|8.25|fresh chips, house queso dip
+Pourhouse|Food|QUESADILLA|11.50|choice of beef or chicken, cheddar cheese. salsa & sour cream on side
+Pourhouse|Food|NACHOS|16.00|choice of beef or chicken, fresh chips, cheese, jalapenos, black beans, onions, and tomatoes. salsa, sour cream &  guacamole on side
+Pourhouse|Food|TOT-CHOS|16.00|tater tots, topped with your choice of beef or chicken, house queso, black beans, jalapenos, onions, and tomatoes. salsa and sour cream on side
+Pourhouse|Food|CHEESE CURDS|13.50|10 oz. breaded Wisconsin cheese curds. served with chipotle aioli & ranch
+Pourhouse|Food|MINI CORN DOGS|11.00|mini corn dogs, served with honey mustard
+Pourhouse|Food|FRENCH FRIES|6.50|
+Pourhouse|Food|TATER TOTS|7.50|
+Pourhouse|Food|SWEET POTATO FRIES|8.50|
+Pourhouse|Food|ONION RINGS|8.50|
+Pourhouse|Food|SMALL HOUSE SALAD|4.00|
+Pourhouse|Food|CUP SOUP|4.00|
+Pourhouse|Food|BOWL SOUP|5.50|
+Pourhouse|Food|HOUSE SALAD|7.00|fresh mixed greens topped with tomatoes, Parmesan & croutons (no side).  add chicken +5 or avocado +2.50
+Pourhouse|Food|CHICKEN CAESAR SALAD|13.50|choice of grilled or crispy chicken, tossed with romaine lettuce, bacon bits, Parmesan, croutons, and Caesar dressing (no side)
+Pourhouse|Food|CLASSIC|14.00|choice of cheese, LTOP
+Pourhouse|Food|BIG BLEU BURGER|17.00|bleu cheese, swiss cheese, bacon, grilled mushrooms and onions
+Pourhouse|Food|BOBCAT|16.00|cheddar, bacon, fried egg and guacamole
+Pourhouse|Food|WESTERN|15.00|pepper jack, onion strings, bbq and guacamole
+Pourhouse|Food|FRENCH DIP|14.00|shaved beef, melted Swiss cheese and auj jus.   mushrooms +.75 | onions +.75 | peppers +.75
+Pourhouse|Food|ORIGINAL PHILLY|16.00|beef, mushrooms, onions and peppers, topped with cheese sauce.
+Pourhouse|Food|CLASSIC CHICKEN SANDWICH|14.00|crispy chicken, choice of cheese, LTOP
+Pourhouse|Food|BUFFALO CHICKEN SANDWICH|15.75|crispy chicken, tossed in buffalo sauce, topped with bacon, bleu cheese crumbles, and Swiss cheese
+Pourhouse|Food|CHIPOTLE CHICKEN WRAP|15.75|grilled chicken, bacon, cheddar cheese, romaine lettuce, tomato, chipotle aioli and guac
+Pourhouse|Food|CHICKEN CAESAR WRAP|15.25|choice of grilled or crispy chicken, tossed with romaine lettuce, bacon bits, Parmesan and Caesar dressing
+Pourhouse|Food|FISH TACOS|16.00|beer battered cod, romaine lettuce, tomatoes, and cheddar jack cheese, topped with chipotle aioli.  salsa & sour cream on side.  add guac +1
+Pourhouse|Food|CHICKEN STRIPS|12.00|served with choice of side and dipping sauce
+Pourhouse|Food|FISH & CHIPS|16.00|beer battered cod, tartar sauce and lemon wedge

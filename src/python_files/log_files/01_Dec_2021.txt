@@ -1,0 +1,44 @@
+
+01/Dec/2021 15:17:47 Starting Pourhouse Food Function
+01/Dec/2021 15:17:48 ERROR: Description unavailible for FRENCH FRIES | 6.50
+01/Dec/2021 15:17:48 ERROR: Price unavailible for FRENCH FRIES | 6.50
+01/Dec/2021 15:17:48 ERROR: Description unavailible for TATER TOTS | 7.50
+01/Dec/2021 15:17:48 ERROR: Price unavailible for TATER TOTS | 7.50
+01/Dec/2021 15:17:48 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+01/Dec/2021 15:17:48 ERROR: Price unavailible for SWEET POTATO FRIES | 8.50
+01/Dec/2021 15:17:48 ERROR: Description unavailible for ONION RINGS | 8.50
+01/Dec/2021 15:17:48 ERROR: Price unavailible for ONION RINGS | 8.50
+01/Dec/2021 15:17:48 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+01/Dec/2021 15:17:48 ERROR: Price unavailible for SMALL HOUSE SALAD | 4.00
+01/Dec/2021 15:17:48 ERROR: Description unavailible for CUP SOUP | 4.00
+01/Dec/2021 15:17:48 ERROR: Price unavailible for CUP SOUP | 4.00
+01/Dec/2021 15:17:48 ERROR: Description unavailible for BOWL SOUP | 5.50
+01/Dec/2021 15:17:48 ERROR: Price unavailible for BOWL SOUP | 5.50
+01/Dec/2021 15:17:48 Finished Pourhouse Food Function
+01/Dec/2021 15:19:44 Starting Pourhouse Food Function
+01/Dec/2021 15:19:45 ERROR: Description unavailible for FRENCH FRIES | 6.50
+01/Dec/2021 15:19:45 ERROR: Description unavailible for TATER TOTS | 7.50
+01/Dec/2021 15:19:45 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+01/Dec/2021 15:19:45 ERROR: Description unavailible for ONION RINGS | 8.50
+01/Dec/2021 15:19:45 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+01/Dec/2021 15:19:45 ERROR: Description unavailible for CUP SOUP | 4.00
+01/Dec/2021 15:19:45 ERROR: Description unavailible for BOWL SOUP | 5.50
+01/Dec/2021 15:19:45 Finished Pourhouse Food Function
+01/Dec/2021 15:21:06 Starting Pourhouse Food Function
+01/Dec/2021 15:21:07 ERROR: Description unavailible for FRENCH FRIES | 6.50
+01/Dec/2021 15:21:07 ERROR: Description unavailible for TATER TOTS | 7.50
+01/Dec/2021 15:21:07 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+01/Dec/2021 15:21:07 ERROR: Description unavailible for ONION RINGS | 8.50
+01/Dec/2021 15:21:07 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+01/Dec/2021 15:21:07 ERROR: Description unavailible for CUP SOUP | 4.00
+01/Dec/2021 15:21:07 ERROR: Description unavailible for BOWL SOUP | 5.50
+01/Dec/2021 15:21:07 Finished Pourhouse Food Function
+01/Dec/2021 15:21:50 Starting Pourhouse Food Function
+01/Dec/2021 15:21:51 ERROR: Description unavailible for FRENCH FRIES | 6.50
+01/Dec/2021 15:21:51 ERROR: Description unavailible for TATER TOTS | 7.50
+01/Dec/2021 15:21:51 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+01/Dec/2021 15:21:51 ERROR: Description unavailible for ONION RINGS | 8.50
+01/Dec/2021 15:21:51 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+01/Dec/2021 15:21:51 ERROR: Description unavailible for CUP SOUP | 4.00
+01/Dec/2021 15:21:51 ERROR: Description unavailible for BOWL SOUP | 5.50
+01/Dec/2021 15:21:51 Finished Pourhouse Food Function
