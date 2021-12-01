@@ -13,10 +13,10 @@ import { useTimeout } from "../../hooks/timing";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useNavigate } from "react-router";
-import { onOrderByUserId} from '../../graphql/subscriptions';
+import { onOrderByUserId } from "../../graphql/subscriptions";
 import { useStateValue } from "../../state/StateProvider";
-import {listOrders} from "../../graphql/queries";
-
+import { listOrders } from "../../graphql/queries";
+import LoadingIndicator from "../LoadingIndicator";
 //In case subscriptions delete themselves again some how
 /*	onOrderByUserId(userID: String): Order
 		@aws_subscribe(mutations: ["updateOrder"])
@@ -29,56 +29,53 @@ import {listOrders} from "../../graphql/queries";
 */
 
 function OrderItem({ orderItem, style }) {
-    const [showItems, setShowItems] = useState(false);
-    const [showCancel, setShowCancel] = useState(false);
+    const [showItems, setShowItems] = useState(true);
+    const [showConfirmCancel, setShowConfirmCancel] = useState(false);
     const timeout = useTimeout();
 
-    const [order, setOrder] = useState(orderItem)
-    const [items, setItems] = useState(JSON.parse(orderItem.items))
-
+    const [order, setOrder] = useState(orderItem);
+    const [items, setItems] = useState(JSON.parse(orderItem.items));
 
     function openCancel() {
         try {
-            setShowCancel(true);
+            setShowConfirmCancel(true);
         } finally {
-            timeout(() => setShowCancel(false), 3000);
+            timeout(() => setShowConfirmCancel(false), 3000);
         }
     }
 
-    const [{ user }, dispatch ] = useStateValue()
+    const [{ user }, dispatch] = useStateValue();
 
     useEffect(() => {
-        
         const subscribe = async () => {
-
-            
             const userSub = API.graphql({
-                query: onOrderByUserId, 
+                query: onOrderByUserId,
                 variables: {
                     userID: user.attributes.sub,
-            }})
-            .subscribe({
+                },
+            }).subscribe({
                 next: (orderData) => {
-                    const mutatedOrder = orderData.value.data.onOrderByUserId
-                    if (typeof mutatedOrder !== undefined && typeof order !== undefined) {
-                        if(order.id === mutatedOrder.id) {
-
-                            setOrder({...order, orderStatus: mutatedOrder.orderStatus})
+                    const mutatedOrder = orderData.value.data.onOrderByUserId;
+                    if (
+                        typeof mutatedOrder !== undefined &&
+                        typeof order !== undefined
+                    ) {
+                        if (order.id === mutatedOrder.id) {
+                            setOrder({
+                                ...order,
+                                orderStatus: mutatedOrder.orderStatus,
+                            });
                         }
                     }
-                    
-
-                }
-            })
+                },
+            });
 
             //const userSubResponse = await userSub
-            
-            //console.log(userSubResponse)
-            
-        }
-        subscribe()
 
-    }, [])
+            //console.log(userSubResponse)
+        };
+        subscribe();
+    }, []);
 
     return (
         <Paper onClick={() => setShowItems((show) => !show)} style={style}>
@@ -93,13 +90,12 @@ function OrderItem({ orderItem, style }) {
                     {items.length !== 1 && "s"}
                     {" - "}
                     {order.orderStatus}
-
                 </Typography>
-                
+
                 <Box position="relative" bottom="1ch" flexGrow="1">
                     <Collapse
-                        in={!showCancel}
-                        style={{ position: "absolute", right: "1ch"}}
+                        in={!showConfirmCancel}
+                        style={{ position: "absolute", right: "1ch" }}
                     >
                         <Tooltip title="Cancel" placement="left">
                             <IconButton
@@ -114,10 +110,14 @@ function OrderItem({ orderItem, style }) {
                         </Tooltip>
                     </Collapse>
                     <Collapse
-                        in={showCancel}
+                        in={showConfirmCancel}
                         style={{ position: "absolute", right: "1ch" }}
                     >
-                        <Tooltip title="Tap Again to Cancel" open={showCancel} placement="left">
+                        <Tooltip
+                            title="Tap Again to Cancel"
+                            open={showConfirmCancel}
+                            placement="left"
+                        >
                             <IconButton
                                 color="primary"
                                 onClick={(e) => {
@@ -131,13 +131,17 @@ function OrderItem({ orderItem, style }) {
                 </Box>
             </Box>
             <Collapse in={showItems}>
-                {items.map((item) => (
-                    <Typography key={Math.random(1000)} style={{ marginLeft: "4ch" }}>
-                        <span key={Math.random(1000) + ''} onClick={(e) => e.stopPropagation()}>
-                            ${item.price.toFixed(2)} {item.name}
-                        </span>
-                    </Typography>
-                ))}
+                <div onClick={(e) => e.stopPropagation()} style={{display:"inline-block", marginLeft: "4ch"}}>
+                    {items.map((item, index) => (
+                        <Typography
+                            key={index}
+                        >
+                            <span key={Math.random(1000) + ""}>
+                                ${item.price.toFixed(2)} {item.name}
+                            </span>
+                        </Typography>
+                    ))}
+                </div>
             </Collapse>
         </Paper>
     );
@@ -146,45 +150,54 @@ function OrderItem({ orderItem, style }) {
 export default function OrderStatus() {
     const navigate = useNavigate();
 
-    const [{ user }, dispatch ] = useStateValue()  
-    const [activeOrders, setActiveOrders] = useState()
-    const [isLoading, setIsLoading] = useState(true)
+    const [{ user }, dispatch] = useStateValue();
+    const [activeOrders, setActiveOrders] = useState();
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-
         const listOrdersBy = async () => {
             try {
-                const response_promise = API.graphql(graphqlOperation(listOrders, {filter: {orderStatus: {eq: 'received'}, userID: {eq: user.attributes.sub}}}))
-                const response = await response_promise
+                const response_promise = API.graphql(
+                    graphqlOperation(listOrders, {
+                        filter: {
+                            orderStatus: { eq: "received" },
+                            userID: { eq: user.attributes.sub },
+                        },
+                    })
+                );
+                const response = await response_promise;
                 //console.log(response)
-                setActiveOrders(response.data.listOrders.items)
-                setIsLoading(false)
+                setActiveOrders(response.data.listOrders.items);
+                setIsLoading(false);
             } catch (err) {
-                console.log(err)
+                console.log(err);
             }
-        }
-        listOrdersBy()
-
-        
-    }, [])
+        };
+        listOrdersBy();
+    }, []);
 
     //console.log(activeOrders)
 
     return (
         <Box>
             <h1>Orders</h1>
-            {!isLoading ? activeOrders.map((order) => (
-                <OrderItem
-                    key={Math.random(1000)}
-                    orderItem={order}
-                    
-                    style={{
-                        marginBottom: "1em",
-                        textAlign: "left",
-                        padding: "1ch",
-                    }}
-                />
-            )) : null}
+            {!isLoading ? (
+                activeOrders.map((order) => (
+                    <OrderItem
+                        key={Math.random(1000)}
+                        orderItem={order}
+                        style={{
+                            marginBottom: "1em",
+                            textAlign: "left",
+                            padding: "1ch",
+                        }}
+                    />
+                ))
+            ) : (
+                <Box marginBottom="1em">
+                    <LoadingIndicator size="3ch" />
+                </Box>
+            )}
             <Button variant="outlined" onClick={() => navigate("/")}>
                 Back to Menu
             </Button>
