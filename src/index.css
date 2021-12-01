@@ -17,6 +17,16 @@ code {
     monospace;
 }
 
-input:-webkit-autofill{
-  -webkit-text-fill-color: black !important;
+/*
+from:
+https://stackoverflow.com/questions/29580704/change-input-background-to-transparent-on-autocomplete-form
+(user: wahmal)
+*/
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+   -webkit-transition-delay: 9999s;
+   transition-delay: 9999s;
 }
