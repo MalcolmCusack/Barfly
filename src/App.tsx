@@ -122,7 +122,6 @@ function App() {
                 case "signIn":
                     if (isMounted) {
                         setTriggerFetch(true);
-                        console.log("signed in");
                     }
                     break;
                 default:

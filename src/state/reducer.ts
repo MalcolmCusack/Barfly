@@ -61,7 +61,7 @@ function loadOrder(state) {
 // reduces the array to one value
 
 const reducer = (state: any, action: any) => {
-    console.log(action);
+    //console.log(action);
 
     switch (
         action.type //mutable updates

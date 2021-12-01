@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { updateOrder } from "../../graphql/mutations";
 import { API, graphqlOperation } from "aws-amplify";
 import {
     Button,
@@ -14,9 +13,9 @@ import { useTimeout } from "../../hooks/timing";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useNavigate } from "react-router";
-import { onOrderByUserId, onOrderByOrderId} from '../../graphql/subscriptions';
+import { onOrderByUserId} from '../../graphql/subscriptions';
 import { useStateValue } from "../../state/StateProvider";
-import {listOrders, listOrdersByCompletedAndUserId} from "../../graphql/queries";
+import {listOrders} from "../../graphql/queries";
 
 //In case subscriptions delete themselves again some how
 /*	onOrderByUserId(userID: String): Order
@@ -29,17 +28,7 @@ import {listOrders, listOrdersByCompletedAndUserId} from "../../graphql/queries"
 @aws_iam
 */
 
-
-//@ts-ignore
-/*
-window.tq = async (input, condition) => {
-    return await API.graphql(
-        graphqlOperation(updateOrder, { input, condition })
-    );
-};*/
-
 function OrderItem({ orderItem, style }) {
-    console.log(orderItem)
     const [showItems, setShowItems] = useState(false);
     const [showCancel, setShowCancel] = useState(false);
     const timeout = useTimeout();
@@ -63,7 +52,6 @@ function OrderItem({ orderItem, style }) {
         const subscribe = async () => {
 
             
-            console.log(user.attributes.sub)
             const userSub = API.graphql({
                 query: onOrderByUserId, 
                 variables: {
@@ -71,45 +59,22 @@ function OrderItem({ orderItem, style }) {
             }})
             .subscribe({
                 next: (orderData) => {
-                    console.log("userSubData: ", orderData)
                     const mutatedOrder = orderData.value.data.onOrderByUserId
-                    console.log(mutatedOrder)
                     if (typeof mutatedOrder !== undefined && typeof order !== undefined) {
                         if(order.id === mutatedOrder.id) {
-                            console.log("hit")
 
                             setOrder({...order, orderStatus: mutatedOrder.orderStatus})
                         }
                     }
                     
-                    //const order = JSON.parse(orderData.value.data.onOrderByUserId.items)
-                    //console.log(order)
-                    //updateTest(order)
+
                 }
             })
 
-            const userSubResponse = await userSub
+            //const userSubResponse = await userSub
             
-            console.log(userSubResponse)
+            //console.log(userSubResponse)
             
-            /*
-            // works, but mutation needs abunch all perevious values
-            const userSubByID = API.graphql({
-                query: onOrderByOrderId, 
-                variables: {
-                    id: params.orderid
-
-            }})
-            .subscribe({
-                next: (data) => {
-                    console.log("userSubdata: ", data)
-                    //const orderr = JSON.parse(data.value.data)
-                    //console.log(orderr)
-                    //updateTest(orderr)
-                }
-            })
-            const userOrderR = await userSubByID
-            console.log(userOrderR)*/
         }
         subscribe()
 
@@ -191,7 +156,7 @@ export default function OrderStatus() {
             try {
                 const response_promise = API.graphql(graphqlOperation(listOrders, {filter: {orderStatus: {eq: 'received'}, userID: {eq: user.attributes.sub}}}))
                 const response = await response_promise
-                console.log(response)
+                //console.log(response)
                 setActiveOrders(response.data.listOrders.items)
                 setIsLoading(false)
             } catch (err) {
@@ -203,7 +168,7 @@ export default function OrderStatus() {
         
     }, [])
 
-    console.log(activeOrders)
+    //console.log(activeOrders)
 
     return (
         <Box>

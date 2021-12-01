@@ -23,17 +23,13 @@ const Menu = () => {
                         id: "c7171fde-ffc4-4635-9d9e-ab3852d3d0b9",
                     })
                 );
-                const orders_promise = API.graphql(graphqlOperation(listOrders));
+                //const orders_promise = API.graphql(graphqlOperation(listOrders));
 
                 const response = await response_promise
-                //console.log(response.data);
                 setMenu(response.data.getMenu);
 
-                orders_promise.then(orders => console.log(orders));
-
-                const users = API.graphql(graphqlOperation(listUsers))
-                const userResponse = await users
-                console.log(userResponse)
+                //const users = API.graphql(graphqlOperation(listUsers))
+                //const userResponse = await users
 
             } catch (err) {
                 console.log(err);

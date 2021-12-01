@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth, API, graphqlOperation } from "aws-amplify";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import prevDef from "../../decorators/prevDef";
 import { Box } from "@mui/system";
 import Centerer from "../Centerer";
 import { ButtonGroup } from "@mui/material";
-import { createUser, deleteTab } from "../../graphql/mutations";
+import { createUser } from "../../graphql/mutations";
 import LoadingIndicator from "../LoadingIndicator";
 
 const SignUp = () => {
@@ -60,7 +60,6 @@ const SignUp = () => {
             setSigningUp(true);
             const data = Auth.signUp(name.replace(" ", ""), password, email);
             const dataResponse = await data;
-            console.log(data);
             //Move this too confirm sign up later once error checking is implemented
             const user = API.graphql(
                 graphqlOperation(createUser, {
@@ -72,13 +71,11 @@ const SignUp = () => {
                 })
             );
             const userResponse = await user;
-            console.log(userResponse);
             setSignedUp(true);
 
             //onCreateAccount(name)
             //navigate('/confirmSignUp');
         } catch (err) {
-            console.log(err);
             setMessage(err.message);
         } finally {
             setSigningUp(false);

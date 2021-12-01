@@ -57,20 +57,5 @@
       "providerPlugin": "awscloudformation"
     }
   },
-  "function": {
-    "CreateUser": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "Barfly",
-          "attributes": [
-            "GraphQLAPIIdOutput"
-          ]
-        }
-      ]
-    }
-  }
+  "function": {}
 }
