@@ -17,12 +17,11 @@ function Payment() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        let orderId = "";
         const payload = {
             items: JSON.stringify(order),
             completed: false,
             userID: user.attributes.sub,
-            orderStatus: 'start'
+            orderStatus: 'received'
         };
 
         try {

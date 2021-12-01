@@ -16,6 +16,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { useNavigate } from "react-router";
 import { onOrderByUserId, onOrderByOrderId} from '../../graphql/subscriptions';
 import { useStateValue } from "../../state/StateProvider";
+import {listOrders, listOrdersByCompletedAndUserId} from "../../graphql/queries";
 
 //In case subscriptions delete themselves again some how
 /*	onOrderByUserId(userID: String): Order
@@ -37,10 +38,16 @@ window.tq = async (input, condition) => {
     );
 };*/
 
-function OrderItem({ order, style }) {
+function OrderItem({ orderItem, style }) {
+    console.log(orderItem)
     const [showItems, setShowItems] = useState(false);
     const [showCancel, setShowCancel] = useState(false);
     const timeout = useTimeout();
+
+    const [order, setOrder] = useState(orderItem)
+    const [items, setItems] = useState(JSON.parse(orderItem.items))
+
+
     function openCancel() {
         try {
             setShowCancel(true);
@@ -49,7 +56,7 @@ function OrderItem({ order, style }) {
         }
     }
 
-    const [{ user }, dispatch ] = useStateValue()  
+    const [{ user }, dispatch ] = useStateValue()
 
     useEffect(() => {
         
@@ -64,13 +71,25 @@ function OrderItem({ order, style }) {
             }})
             .subscribe({
                 next: (orderData) => {
-                    console.log("userSubdata: ", orderData)
+                    console.log("userSubData: ", orderData)
+                    const mutatedOrder = orderData.value.data.onOrderByUserId
+                    console.log(mutatedOrder)
+                    if (typeof mutatedOrder !== undefined && typeof order !== undefined) {
+                        if(order.id === mutatedOrder.id) {
+                            console.log("hit")
+
+                            setOrder({...order, orderStatus: mutatedOrder.orderStatus})
+                        }
+                    }
+                    
                     //const order = JSON.parse(orderData.value.data.onOrderByUserId.items)
-                    console.log(order)
+                    //console.log(order)
                     //updateTest(order)
                 }
             })
+
             const userSubResponse = await userSub
+            
             console.log(userSubResponse)
             
             /*
@@ -101,14 +120,17 @@ function OrderItem({ order, style }) {
             <Box display="flex" flexDirection="row">
                 <Typography>
                     $
-                    {order.items
+                    {items
                         .reduce((total, item) => total + item.price, 0.0)
                         .toFixed(2)}
                     {" - "}
-                    {order.items.length} item
-                    {order.items.length !== 1 && "s"}
-                </Typography>
+                    {items.length} item
+                    {items.length !== 1 && "s"}
+                    {" - "}
+                    {order.orderStatus}
 
+                </Typography>
+                
                 <Box position="relative" bottom="1ch" flexGrow="1">
                     <Collapse
                         in={!showCancel}
@@ -144,7 +166,7 @@ function OrderItem({ order, style }) {
                 </Box>
             </Box>
             <Collapse in={showItems}>
-                {order.items.map((item) => (
+                {items.map((item) => (
                     <Typography key={Math.random(1000)} style={{ marginLeft: "4ch" }}>
                         <span key={Math.random(1000) + ''} onClick={(e) => e.stopPropagation()}>
                             ${item.price.toFixed(2)} {item.name}
@@ -158,35 +180,46 @@ function OrderItem({ order, style }) {
 
 export default function OrderStatus() {
     const navigate = useNavigate();
-    const data = [
-        {
-            status: "open",
-            items: [
-                { name: "miller heaver", price: 3.29 },
-                { name: "knuckle sandwich", price: 5.99 },
-                { name: "can of whopass", price: 1.5 },
-            ],
-        },
-        {
-            status: "in progress",
-            items: [{ name: "vodka shot", price: 7.69 }],
-        },
-    ];
+
+    const [{ user }, dispatch ] = useStateValue()  
+    const [activeOrders, setActiveOrders] = useState()
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+
+        const listOrdersBy = async () => {
+            try {
+                const response_promise = API.graphql(graphqlOperation(listOrders, {filter: {orderStatus: {eq: 'received'}, userID: {eq: user.attributes.sub}}}))
+                const response = await response_promise
+                console.log(response)
+                setActiveOrders(response.data.listOrders.items)
+                setIsLoading(false)
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        listOrdersBy()
+
+        
+    }, [])
+
+    console.log(activeOrders)
 
     return (
         <Box>
             <h1>Orders</h1>
-            {data.map((order) => (
+            {!isLoading ? activeOrders.map((order) => (
                 <OrderItem
                     key={Math.random(1000)}
-                    order={order}
+                    orderItem={order}
+                    
                     style={{
                         marginBottom: "1em",
                         textAlign: "left",
                         padding: "1ch",
                     }}
                 />
-            ))}
+            )) : null}
             <Button variant="outlined" onClick={() => navigate("/")}>
                 Back to Menu
             </Button>
