@@ -7,6 +7,8 @@ import "../../../styles/auth.css";
 //import prevDef from "../../../decorators/prevDef";
 import LoadingIndicator from "../../LoadingIndicator";
 import { useNavigate } from "react-router";
+import prevDef from "../../../decorators/prevDef";
+import { useSnackbar } from "notistack";
 //import { useParams } from "react-router";
 
 export default function ResetPassword({ email }: { email: string }) {
@@ -14,7 +16,13 @@ export default function ResetPassword({ email }: { email: string }) {
     const [code, setCode] = useState("");
     const [password, setPassword] = useState(null);
     const [password2, setPassword2] = useState(null);
-    const [passwordIssue, setPasswordIssue] = useState("");
+    const [message, setMessage] = useState("");
+    const [passwordIssue, setPasswordIssue_raw] = useState("");
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    function setPasswordIssue(value) {
+        setPasswordIssue_raw(value);
+        setMessage(value);
+    }
 
     useEffect(() => {
         if (password === null || password2 === null) {
@@ -38,12 +46,17 @@ export default function ResetPassword({ email }: { email: string }) {
 
     async function resetPassword() {
         try {
-            if (passwordIssue == null) {
+            if (passwordIssue !== null) {
                 return;
             }
-            Auth.forgotPasswordSubmit(email, code, password);
             setResetingPassword(true);
+            await Auth.forgotPasswordSubmit(email, code, password);
+            enqueueSnackbar("Password Reset Successfuly", {
+                autoHideDuration: 5000,
+            });
             navigate("/");
+        } catch (err) {
+            setMessage(err.message);
         } finally {
             setResetingPassword(false);
         }
@@ -55,71 +68,86 @@ export default function ResetPassword({ email }: { email: string }) {
 
             <h2>Reset Password</h2>
             <Box display="flex" flexDirection="column" alignItems="center">
-                <TextField
-                    label="code"
-                    value={code}
-                    onChange={(e) => setCode(e.target.value)}
-                    style={{ marginBottom: TEXTFIELD_SPACING }}
-                    required
-                    autoFocus
-                    autoComplete="off"
-                />
-                <form
-                    onSubmit={resetPassword}
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        width: "min(100%, 50ch)",
-                    }}
-                >
+                <Box width="min(100%, 60ch)">
                     <TextField
-                        label="New Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        type="password"
+                        label="code"
+                        value={code ?? ""}
+                        onChange={(e) => setCode(e.target.value)}
                         style={{
                             marginBottom: TEXTFIELD_SPACING,
                             width: "100%",
                         }}
                         required
+                        autoFocus
+                        autoComplete="off"
                     />
                     <TextField
-                        label="Confirm New Password"
-                        value={[password2]}
-                        onChange={(e) => setPassword2(e.target.value)}
-                        type="password"
+                        label="email"
+                        value={email ?? ""}
+                        disabled
                         style={{
+                            marginBottom: TEXTFIELD_SPACING,
                             width: "100%",
                         }}
-                        required
                     />
-                    <Box height="2em">{passwordIssue}</Box>
-                    <ButtonGroup style={{ width: "100%", height: "5ch" }}>
-                        <Button
-                            variant="outlined"
-                            style={{ width: "50%" }}
-                            onClick={() => navigate("/")}
-                        >
-                            Back To Signin
-                        </Button>
-                        {resetingPassword ? (
-                            <Box width="50%" height="100%">
-                                <LoadingIndicator size="30px" />
-                            </Box>
-                        ) : (
+                    
+                    <form
+                        onSubmit={prevDef(resetPassword)}
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            width: "100%",
+                        }}
+                    >
+                        <TextField
+                            label="New Password"
+                            value={password ?? ""}
+                            onChange={(e) => setPassword(e.target.value)}
+                            type="password"
+                            style={{
+                                marginBottom: TEXTFIELD_SPACING,
+                                width: "100%",
+                            }}
+                            required
+                        />
+                        <TextField
+                            label="Confirm New Password"
+                            value={password2 ?? ""}
+                            onChange={(e) => setPassword2(e.target.value)}
+                            type="password"
+                            style={{
+                                width: "100%",
+                            }}
+                            required
+                        />
+                        <Box height="2em">{message}</Box>
+                        <ButtonGroup style={{ width: "100%", height: "5ch" }}>
                             <Button
-                                size="large"
-                                type="submit"
-                                variant="contained"
-                                style={{ width: "50%", height: "100%" }}
-                                disabled={passwordIssue != null}
+                                variant="outlined"
+                                style={{ width: "50%" }}
+                                onClick={() => navigate("/")}
                             >
-                                Reset
+                                Back To Signin
                             </Button>
-                        )}
-                    </ButtonGroup>
-                </form>
+                            {resetingPassword ? (
+                                <Box width="50%" height="100%">
+                                    <LoadingIndicator size="30px" />
+                                </Box>
+                            ) : (
+                                <Button
+                                    size="large"
+                                    type="submit"
+                                    variant="contained"
+                                    style={{ width: "50%", height: "100%" }}
+                                    disabled={passwordIssue != null}
+                                >
+                                    Reset
+                                </Button>
+                            )}
+                        </ButtonGroup>
+                    </form>
+                </Box>
             </Box>
         </div>
     );

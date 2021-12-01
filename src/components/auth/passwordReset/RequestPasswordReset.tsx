@@ -12,15 +12,18 @@ import { useNavigate } from "react-router";
 export default function RequestPasswordReset() {
     const [email, setEmail] = useState("");
     const [requestingReset, setRequestingReset] = useState(false);
+    const [message, setMessage] = useState("");
 
     async function requestPasswordReset(event) {
         event.preventDefault()
         try {
-            Auth.forgotPassword(email)
             setRequestingReset(true);
+            await Auth.forgotPassword(email)
             navigate("/resetpass/" + email)
 
-        } finally {
+        } catch(err){
+            setMessage(err.message);
+        }finally {
             setRequestingReset(false);
         }
     }
@@ -43,12 +46,13 @@ export default function RequestPasswordReset() {
                 }}
             >
                 <TextField
-                    value={email}
+                    value={email ?? ""}
                     onChange={(e) => setEmail(e.target.value)}
                     label="email"
-                    style={{ marginBottom:"2ch", width:"100%" }}
+                    style={{width:"100%" }}
                     required
                 />
+                <Box margin="1ch">{message}</Box>
                 <ButtonGroup
                     style={{ width: "min(100%, 50ch)", height: "5ch" }}
                 >

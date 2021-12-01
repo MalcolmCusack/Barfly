@@ -8,18 +8,27 @@ import prevDef from "../../decorators/prevDef";
 import { Box } from "@mui/system";
 import Centerer from "../Centerer";
 import { ButtonGroup } from "@mui/material";
-import { createUser } from "../../graphql/mutations";
+import { createUser, deleteTab } from "../../graphql/mutations";
+import LoadingIndicator from "../LoadingIndicator";
 
 const SignUp = () => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [password2, setPassword2] = useState(null);
-    const [formIssue, setFormIssue] = useState("");
+    const [formIssue, setFormIssue_raw] = useState("");
+    function setFormIssue(value) {
+        setFormIssue_raw(value);
+        setMessage(value);
+    }
+    const [message, setMessage] = useState("");
 
     const [phone, setPhone] = useState("");
     const [age, setAge] = useState("");
     const [name, setName] = useState("");
     const [code, setCode] = useState("");
+
+    const [signingUp, setSigningUp] = useState(false);
+    const [confirming, setConfirming] = useState(false);
 
     useEffect(() => {
         if (email === null || password === null || password2 === null) {
@@ -44,6 +53,7 @@ const SignUp = () => {
     const createAccount = async (event: any) => {
         event.preventDefault(); //prevents referesh
         try {
+            setSigningUp(true);
             const data = Auth.signUp(name.replace(" ", ""), password, email);
             const dataResponse = await data;
             console.log(data);
@@ -65,15 +75,22 @@ const SignUp = () => {
             //navigate('/confirmSignUp');
         } catch (err) {
             console.log(err);
+            setMessage(err.message);
+        } finally {
+            setSigningUp(false);
         }
     };
 
     async function confirmSignUp() {
         try {
+            setConfirming(true);
             await Auth.confirmSignUp(name.replace(" ", ""), code);
             navigate("/");
         } catch (error) {
+            setMessage(error.message);
             console.log("error confirming sign up", error);
+        } finally{
+            setConfirming(false);
         }
     }
 
@@ -85,33 +102,46 @@ const SignUp = () => {
                 <TextField
                     fullWidth
                     margin="dense"
-                    value={name}
+                    value={name ?? ""}
                     label="name"
                     variant="outlined"
                     disabled
                 />
                 <TextField
                     margin="dense"
-                    value={code}
+                    value={code ?? ""}
                     onChange={(e) => setCode(e.target.value)}
                     label="code"
                     variant="outlined"
                     type="text"
                     required
                 />
-                <br />
-                <Button
-                    style={{ margin: "20px" }}
-                    size="large"
-                    variant="contained"
-                    onClick={confirmSignUp}
-                >
-                    CONFIRM
-                </Button>
-                <br />
-                <Link style={{ color: "white" }} to="/">
-                    Back To Sign In
-                </Link>
+                
+                <Box minHeight="2em">{message}</Box>
+                <ButtonGroup style={{ width:"min(50ch, 100%)" }}>
+                    <Button
+                    style={{width:"50%"}}
+                        size="large"
+                        variant="outlined"
+                        onClick={() => navigate("/")}
+                    >
+                        Back To Sign In
+                    </Button>
+                    {confirming ? (
+                        <Box width="50%">
+                            <LoadingIndicator size="3ch"/>
+                        </Box>
+                    ) : (
+                        <Button
+                        style={{width:"50%"}}
+                            size="large"
+                            variant="contained"
+                            onClick={confirmSignUp}
+                        >
+                            CONFIRM
+                        </Button>
+                    )}
+                </ButtonGroup>
             </div>
         );
     };
@@ -137,7 +167,7 @@ const SignUp = () => {
                 >
                     <TextField
                         margin="dense"
-                        value={name}
+                        value={name ?? ""}
                         onChange={(e) => setName(e.target.value)}
                         label="name"
                         variant="outlined"
@@ -146,7 +176,7 @@ const SignUp = () => {
                     />
                     <TextField
                         margin="dense"
-                        value={email}
+                        value={email ?? ""}
                         onChange={(e) => setEmail(e.target.value)}
                         label="email"
                         variant="outlined"
@@ -154,7 +184,7 @@ const SignUp = () => {
                     />
                     <TextField
                         margin="dense"
-                        value={password}
+                        value={password ?? ""}
                         onChange={(e) => setPassword(e.target.value)}
                         label="Password"
                         variant="outlined"
@@ -163,7 +193,7 @@ const SignUp = () => {
                     />
                     <TextField
                         margin="dense"
-                        value={password2}
+                        value={password2 ?? ""}
                         onChange={(e) => setPassword2(e.target.value)}
                         label="Confirm Password"
                         variant="outlined"
@@ -174,7 +204,7 @@ const SignUp = () => {
                     <Box display="flex">
                         <TextField
                             margin="dense"
-                            value={phone}
+                            value={phone ?? ""}
                             onChange={(e) => setPhone(e.target.value)}
                             label="phone"
                             variant="outlined"
@@ -184,7 +214,7 @@ const SignUp = () => {
                         />
                         <TextField
                             margin="dense"
-                            value={age}
+                            value={age ?? ""}
                             onChange={(e) => setAge(e.target.value)}
                             label="age"
                             type="number"
@@ -192,7 +222,7 @@ const SignUp = () => {
                             style={{ width: "20ch", minWidth: "10ch" }}
                         />
                     </Box>
-                    <Box height="2em">{formIssue}</Box>
+                    <Box margin="1ch" marginBottom="1.3ch" lineHeight=".5em">{message}</Box>
                     <Centerer>
                         <ButtonGroup
                             style={{ width: "40ch", minWidth: "25ch" }}
@@ -204,15 +234,20 @@ const SignUp = () => {
                             >
                                 Back To Sign In
                             </Button>
-
-                            <Button
-                                style={{ width: "50%", height: "5ch" }}
-                                variant="contained"
-                                type="submit"
-                                disabled={formIssue !== null}
-                            >
-                                Sign Up!
-                            </Button>
+                            {signingUp ? (
+                                <div style={{ width: "50%", height: "5ch" }}>
+                                    <LoadingIndicator size="3ch" />
+                                </div>
+                            ) : (
+                                <Button
+                                    style={{ width: "50%", height: "5ch" }}
+                                    variant="contained"
+                                    type="submit"
+                                    disabled={formIssue !== null}
+                                >
+                                    Sign Up!
+                                </Button>
+                            )}
                         </ButtonGroup>
                     </Centerer>
                 </form>

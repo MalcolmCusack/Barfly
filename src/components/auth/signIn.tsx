@@ -1,6 +1,7 @@
 import { useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
+
 import { Link, useNavigate } from "react-router-dom";
 import { TextField, Box } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -14,6 +15,7 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
     const [loggingIn, setLoggingIn] = useState(false);
     const [capsLock, setCapsLock] = useState(false);
+    const [message, setMessage] = useState("");
     function detectCapsLock(e: React.KeyboardEvent) {
         setCapsLock(e.getModifierState("CapsLock"));
     }
@@ -23,12 +25,15 @@ const SignIn = () => {
     const signIn = async (event: any) => {
         try {
             setLoggingIn(true);
+
             await Auth.signIn(email, password);
             console.log("hit");
 
+            setMessage("Loggin Successful");
             navigate("/");
         } catch (err) {
-            console.log(err);
+            setMessage(err.message);
+            console.error(err);
         } finally {
             setLoggingIn(false);
         }
@@ -50,14 +55,16 @@ const SignIn = () => {
                 }}
             >
                 <TextField
-                    value={email}
+                    value={email ?? ""}
                     onChange={(e) => setEmail(e.target.value)}
                     label="email"
-                    style={{ marginBottom: "1ch" }}
                     required
                 />
+                <Box height="1.3em" lineHeight="2.9em" alignSelf="flex-start">
+                    {capsLock && "⚠ CAPSLOCK IS ON ⚠"}
+                </Box>
                 <TextField
-                    value={password}
+                    value={password ?? ""}
                     onChange={(e) => setPassword(e.target.value)}
                     label="password"
                     variant="outlined"
@@ -65,10 +72,10 @@ const SignIn = () => {
                     margin="normal"
                     required
                 />
-                {/* caps lock warning: only a littler pointless on a mobile-focused website */}
                 <Box height="1.3em" lineHeight=".8em" alignSelf="flex-start">
-                    {capsLock && "⚠ CAPSLOCK IS ON ⚠"}
+                    {message}
                 </Box>
+                {/* caps lock warning: only a littler pointless on a mobile-focused website */}
                 <Centerer>
                     <Box display="inline-block" width="12ch" marginBottom="1em">
                         {loggingIn ? (
