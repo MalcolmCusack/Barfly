@@ -27,7 +27,6 @@ const SignIn = () => {
             setLoggingIn(true);
 
             await Auth.signIn(email, password);
-            console.log("hit");
 
             setMessage("Loggin Successful");
             navigate("/");

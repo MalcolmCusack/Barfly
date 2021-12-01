@@ -135,6 +135,7 @@ export default function Common({ children }: { children: any }) {
                     {/* ===== Draw Content ==== */}
                     <List>
                         {user && (
+                            <>
                             <ListItemButton
                                 onClick={() => {
                                     closeDrawer();
@@ -143,6 +144,18 @@ export default function Common({ children }: { children: any }) {
                             >
                                 Sign Out
                             </ListItemButton>
+                            <ListItemButton
+                            onClick={() => {
+                                closeDrawer();
+                                navigate("/orderstatus");
+                            }}
+                        >
+                            Order Summary
+                        </ListItemButton>
+                            
+                            </>
+                           
+
                         )}
                     </List>
                 </Box>

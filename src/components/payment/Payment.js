@@ -29,7 +29,7 @@ function Payment() {
                 graphqlOperation(createOrder, { input: payload })
             );
             //const responseBeer = await API.graphql(graphqlOperation(listBeers))
-            console.log(response);
+            //console.log(response);
             //orderId = response.data.createOrder.id;
         } catch (err) {
             console.log(err);
