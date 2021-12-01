@@ -29,7 +29,6 @@ import {listOrders} from "../../graphql/queries";
 */
 
 function OrderItem({ orderItem, style }) {
-    console.log(orderItem)
     const [showItems, setShowItems] = useState(false);
     const [showCancel, setShowCancel] = useState(false);
     const timeout = useTimeout();
@@ -53,7 +52,6 @@ function OrderItem({ orderItem, style }) {
         const subscribe = async () => {
 
             
-            console.log(user.attributes.sub)
             const userSub = API.graphql({
                 query: onOrderByUserId, 
                 variables: {
@@ -61,12 +59,9 @@ function OrderItem({ orderItem, style }) {
             }})
             .subscribe({
                 next: (orderData) => {
-                    console.log("userSubData: ", orderData)
                     const mutatedOrder = orderData.value.data.onOrderByUserId
-                    console.log(mutatedOrder)
                     if (typeof mutatedOrder !== undefined && typeof order !== undefined) {
                         if(order.id === mutatedOrder.id) {
-                            console.log("hit")
 
                             setOrder({...order, orderStatus: mutatedOrder.orderStatus})
                         }
@@ -76,9 +71,9 @@ function OrderItem({ orderItem, style }) {
                 }
             })
 
-            const userSubResponse = await userSub
+            //const userSubResponse = await userSub
             
-            console.log(userSubResponse)
+            //console.log(userSubResponse)
             
         }
         subscribe()
@@ -161,7 +156,7 @@ export default function OrderStatus() {
             try {
                 const response_promise = API.graphql(graphqlOperation(listOrders, {filter: {orderStatus: {eq: 'received'}, userID: {eq: user.attributes.sub}}}))
                 const response = await response_promise
-                console.log(response)
+                //console.log(response)
                 setActiveOrders(response.data.listOrders.items)
                 setIsLoading(false)
             } catch (err) {
@@ -173,7 +168,7 @@ export default function OrderStatus() {
         
     }, [])
 
-    console.log(activeOrders)
+    //console.log(activeOrders)
 
     return (
         <Box>

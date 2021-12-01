@@ -12,7 +12,6 @@ import { useSnackbar } from "notistack";
 //import { useParams } from "react-router";
 
 export default function ResetPassword({ email }: { email: string }) {
-    console.log("Email:", email);
     const [code, setCode] = useState("");
     const [password, setPassword] = useState(null);
     const [password2, setPassword2] = useState(null);
