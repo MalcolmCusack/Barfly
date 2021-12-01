@@ -6,6 +6,10 @@
 
 }
 
+input:-webkit-autofill{
+  -webkit-text-fill-color: black !important;
+}
+
 
 .App-logo {
   height: 40vmin;

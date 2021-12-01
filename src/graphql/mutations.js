@@ -1163,11 +1163,11 @@ export const createOrder = /* GraphQL */ `
   ) {
     createOrder(input: $input, condition: $condition) {
       id
-      timestamp
       items
       completed
       userID
       barID
+      orderStatus
       employeeID
       _version
       _deleted
@@ -1184,7 +1184,6 @@ export const createOrder = /* GraphQL */ `
         createdAt
         name
         address
-        order
         _version
         _deleted
         _lastChangedAt
@@ -1366,14 +1365,10 @@ export const createUser = /* GraphQL */ `
       phone
       profileImg
       location
-      payment
       age
       createdAt
       name
       address
-      order
-      orderHistory
-      tabID
       _version
       _deleted
       _lastChangedAt
@@ -1382,17 +1377,7 @@ export const createUser = /* GraphQL */ `
         nextToken
         startedAt
       }
-      Tab {
-        id
-        paid
-        tip
-        timestamp
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
+      
     }
   }
 `;

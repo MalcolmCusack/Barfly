@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { getWholeMenu } from "../../graphql/queries";
 import LoadingIndicator from "../LoadingIndicator";
 import MenuCategory from "./MenuCategory";
-import { listOrders } from "../../graphql/queries";
+import { listOrders, listUsers} from "../../graphql/queries";
 import { Box, Button } from "@mui/material";
 import { useNavigate } from "react-router";
 
@@ -14,6 +14,7 @@ const Menu = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+
         const fetchMenu = async () => {
             try {
                 setIsLoading(true);
@@ -29,6 +30,10 @@ const Menu = () => {
                 setMenu(response.data.getMenu);
 
                 orders_promise.then(orders => console.log(orders));
+
+                const users = API.graphql(graphqlOperation(listUsers))
+                const userResponse = await users
+                console.log(userResponse)
 
             } catch (err) {
                 console.log(err);
@@ -57,7 +62,7 @@ const Menu = () => {
     };
 
     return (
-        <Box>
+        <Box paddingBottom="5em">
             <h2>Menu</h2>
             {isLoading ? <LoadingIndicator size="30px" /> : renderMenu()}
             <Box height="2em"/>

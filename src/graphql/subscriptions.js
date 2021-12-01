@@ -1,6 +1,41 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onOrderByUserId = /* GraphQL */`
+  subscription OnOrderByUserId($userID: String!) {
+    onOrderByUserId(userID: $userID) {
+      id
+      items
+      orderStatus
+      completed
+      userID
+      barID
+      employeeID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+  `;
+
+export const onOrderByOrderId = /* GraphQL */`
+  subscription OnOrderByOrderId($id: ID!) {
+    onOrderByOrderId(id: $id) {
+      id
+      completed
+      orderStatus
+      items
+      userID
+      updatedAt
+      createdAt
+
+      
+    }
+  }
+  `;
+
 export const onCreateNote = /* GraphQL */ `
   subscription OnCreateNote {
     onCreateNote {

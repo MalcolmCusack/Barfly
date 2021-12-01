@@ -1,28 +1,29 @@
-import React, { useState} from "react";
+import { useState} from "react";
 import logoWhite from "../../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
-import { useNavigate } from "react-router-dom";
 import { TextField, Box, ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../../../styles/auth.css";
 //import prevDef from "../../../decorators/prevDef";
 import LoadingIndicator from "../../LoadingIndicator";
 import Centerer from "../../Centerer";
-import { useSleep } from "../../../hooks/timing";
+import { useNavigate } from "react-router";
 
 export default function RequestPasswordReset() {
     const [email, setEmail] = useState("");
     const [requestingReset, setRequestingReset] = useState(false);
-    const sleep = useSleep();
+    const [message, setMessage] = useState("");
+
     async function requestPasswordReset(event) {
         event.preventDefault()
         try {
-            Auth.forgotPassword(email)
             setRequestingReset(true);
+            await Auth.forgotPassword(email)
             navigate("/resetpass/" + email)
 
-            //await sleep(1000);
-        } finally {
+        } catch(err){
+            setMessage(err.message);
+        }finally {
             setRequestingReset(false);
         }
     }
@@ -45,12 +46,13 @@ export default function RequestPasswordReset() {
                 }}
             >
                 <TextField
-                    value={email}
+                    value={email ?? ""}
                     onChange={(e) => setEmail(e.target.value)}
                     label="email"
-                    style={{ marginBottom:"2ch", width:"100%" }}
+                    style={{width:"100%" }}
                     required
                 />
+                <Box margin="1ch">{message}</Box>
                 <ButtonGroup
                     style={{ width: "min(100%, 50ch)", height: "5ch" }}
                 >
@@ -78,7 +80,7 @@ export default function RequestPasswordReset() {
                 </ButtonGroup>
             </form>
             </Centerer>
-            <a href="/resetpass/someemail">debugskip</a>
+            
         </div>
     );
 }

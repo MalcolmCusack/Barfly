@@ -1,11 +1,14 @@
-import { Button } from "@mui/material";
+import { useState } from "react";
+import { Button, Typography, Collapse } from "@mui/material";
+import { Box } from "@mui/system";
 import { useSnackbar } from "notistack";
 import { useStateValue } from "../../state/StateProvider";
 
 const MenuItem = ({ item }) => {
-    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-
     const [{ order }, dispatch] = useStateValue();
+    const { enqueueSnackbar } = useSnackbar();
+    const [descriptionOpen, setDescriptionOpen] = useState();
+    const toggleDescription = () => setDescriptionOpen(!descriptionOpen);
 
     const addToOrder = () => {
         dispatch({
@@ -23,15 +26,54 @@ const MenuItem = ({ item }) => {
     };
 
     return (
-        <div
-            style={{ borderBottom: "1px solid #fcba03", paddingBottom: "20px" }}
+        <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="flex-start"
+            padding="1ch"
+            borderColor={(theme) => theme.palette.primary.main}
+            borderBottom="1px solid"
+            onClick={toggleDescription}
+            // style={{ borderBottom: "1px solid #fcba03", paddingBottom: "20px" }}
         >
-            <h3>{item.name}</h3>
-            <h4>$ {item.price.toFixed(2)}</h4>
-            <Button size="small" variant="contained" onClick={addToOrder}>
+            <Typography>{item.name}</Typography>
+            <Box
+                display="flex"
+                flexDirection="column"
+                alignitems="flex-start"
+                paddingLeft="1ch"
+            >
+                <Collapse in={descriptionOpen}
+                // style={{ borderBottom: "1px dotted" }}
+                sx={{borderBottom:"1px dotted",borderColor:theme => theme.palette.text.secondary}}
+                >
+                    <Typography
+                        textAlign="left"
+                        color={(theme) => theme.palette.text.secondary}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        test description test description test description test
+                        descriptanalkfnasd
+                    </Typography>
+                </Collapse>
+                <Typography
+                    color={(theme) => theme.palette.text.secondary}
+                    textAlign="left"
+                >
+                    $ {item.price.toFixed(2)}
+                </Typography>
+            </Box>
+            <Button
+                size="small"
+                variant="contained"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    addToOrder();
+                }}
+            >
                 Add To Order
             </Button>
-        </div>
+        </Box>
     );
 };
 
