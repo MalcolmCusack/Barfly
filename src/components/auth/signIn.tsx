@@ -55,7 +55,7 @@ const SignIn = () => {
                 }}
             >
                 <TextField
-                    value={email}
+                    value={email ?? ""}
                     onChange={(e) => setEmail(e.target.value)}
                     label="email"
                     required
@@ -64,7 +64,7 @@ const SignIn = () => {
                     {capsLock && "⚠ CAPSLOCK IS ON ⚠"}
                 </Box>
                 <TextField
-                    value={password}
+                    value={password ?? ""}
                     onChange={(e) => setPassword(e.target.value)}
                     label="password"
                     variant="outlined"
