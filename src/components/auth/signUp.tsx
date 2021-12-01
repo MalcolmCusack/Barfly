@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth, API, graphqlOperation } from "aws-amplify";
 import { Link, useNavigate } from "react-router-dom";
@@ -41,6 +41,10 @@ const SignUp = () => {
             setFormIssue("Email is Blank");
         } else if (name === "") {
             setFormIssue("Name is Blank");
+        } else if (phone === "") {
+            setFormIssue("Phone Number is Blank");
+        } else if (age == "") {
+            setFormIssue("Age is Blank");
         } else {
             setFormIssue(null);
         }
@@ -89,7 +93,7 @@ const SignUp = () => {
         } catch (error) {
             setMessage(error.message);
             console.log("error confirming sign up", error);
-        } finally{
+        } finally {
             setConfirming(false);
         }
     }
@@ -116,11 +120,11 @@ const SignUp = () => {
                     type="text"
                     required
                 />
-                
+
                 <Box minHeight="2em">{message}</Box>
-                <ButtonGroup style={{ width:"min(50ch, 100%)" }}>
+                <ButtonGroup style={{ width: "min(50ch, 100%)" }}>
                     <Button
-                    style={{width:"50%"}}
+                        style={{ width: "50%" }}
                         size="large"
                         variant="outlined"
                         onClick={() => navigate("/")}
@@ -129,11 +133,11 @@ const SignUp = () => {
                     </Button>
                     {confirming ? (
                         <Box width="50%">
-                            <LoadingIndicator size="3ch"/>
+                            <LoadingIndicator size="3ch" />
                         </Box>
                     ) : (
                         <Button
-                        style={{width:"50%"}}
+                            style={{ width: "50%" }}
                             size="large"
                             variant="contained"
                             onClick={confirmSignUp}
@@ -222,7 +226,9 @@ const SignUp = () => {
                             style={{ width: "20ch", minWidth: "10ch" }}
                         />
                     </Box>
-                    <Box margin="1ch" marginBottom="1.3ch" lineHeight=".5em">{message}</Box>
+                    <Box margin="1ch" marginBottom="1.3ch" lineHeight=".5em">
+                        {message}
+                    </Box>
                     <Centerer>
                         <ButtonGroup
                             style={{ width: "40ch", minWidth: "25ch" }}
