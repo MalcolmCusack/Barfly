@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Route, useNavigate } from "react-router"
+import { useNavigate } from "react-router"
 
 export default function RouteNavigator({navigate_ref, children} : {navigate_ref: any[], children: any}){
     const navigate = useNavigate();

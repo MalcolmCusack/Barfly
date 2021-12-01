@@ -1,10 +1,8 @@
 import { Button, ButtonGroup} from '@mui/material';
-import React, { useContext } from 'react';
 import { useStateValue } from '../../state/StateProvider';
 import OrderItem from './OrderItem';
 import {getOrderTotal} from '../../state/reducer'
 import { useNavigate } from 'react-router-dom';
-import { NavigateContext } from '../../App';
 
 
 const OrderSummary = () => {

@@ -1163,11 +1163,11 @@ export const createOrder = /* GraphQL */ `
   ) {
     createOrder(input: $input, condition: $condition) {
       id
-      timestamp
       items
       completed
       userID
       barID
+      orderStatus
       employeeID
       _version
       _deleted

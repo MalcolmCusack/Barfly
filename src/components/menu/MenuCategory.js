@@ -2,24 +2,15 @@ import {
     Accordion,
     AccordionDetails,
     AccordionSummary,
-    Button,
-    Collapse,
 } from "@mui/material";
-import { useState, useEffect} from "react";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+//import { useState, useEffect} from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuItem from "./MenuItem";
-import {Storage} from 'aws-amplify';
+//import {Storage} from 'aws-amplify';
 
 const MenuCategory = ({ category, items }) => {
-    const [show, setShow] = useState(false);
 
-    const displayItems = () => {
-        setShow(!show);
-    };
-
-    useEffect(() => {
+   /* useEffect(() => {
 
         const getPhoto = async () => {
 
@@ -39,7 +30,7 @@ const MenuCategory = ({ category, items }) => {
 
         
 
-    }, [])
+    }, []) */
 
     return (
         <Accordion>

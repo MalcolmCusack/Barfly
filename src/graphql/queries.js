@@ -124,7 +124,6 @@ query MyQuery($id: ID!) {
   }
 }
 `;
-
 export const syncNotes = /* GraphQL */ `
   query SyncNotes(
     $filter: ModelNoteFilterInput
@@ -1247,9 +1246,9 @@ export const listOrders = /* GraphQL */ `
     listOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        timestamp
         items
         completed
+        orderStatus
         userID
         barID
         employeeID

@@ -1,16 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react'
+import { useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '@mui/material'
-import { useStateValue } from '../../state/StateProvider'
-import { API, graphqlOperation } from "aws-amplify";
-import { onOrderByUserId, onOrderByOrderId} from '../../graphql/subscriptions';
-import { Yard } from '@mui/icons-material';
-import { NavigateContext } from '../../App';
+import { API } from "aws-amplify";
+import { onOrderByOrderId} from '../../graphql/subscriptions';
 
 const OrderStatus = () => {
 
-    const [{ order, user }, dispatch ] = useStateValue()
-    const [test, updateTest] = useState()
     
     const params = useParams();
 

@@ -284,13 +284,13 @@ export declare class Employee {
 
 export declare class Order {
   readonly id: string;
-  readonly timestamp?: string;
   readonly items?: string[];
   readonly completed: boolean;
   readonly userID?: string;
   readonly User?: User;
   readonly barID?: string;
   readonly employeeID?: string;
+  readonly orderStatus?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Order, OrderMetaData>);

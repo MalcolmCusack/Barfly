@@ -1900,13 +1900,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "timestamp": {
-                    "name": "timestamp",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "items": {
                     "name": "items",
                     "isArray": true,
@@ -1953,6 +1946,13 @@ export const schema = {
                     "name": "employeeID",
                     "isArray": false,
                     "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "orderStatus": {
+                    "name": "orderStatus",
+                    "isArray": false,
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -2306,5 +2306,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "37c8e72d4cac744afe372f8939f3def1"
+    "version": "dd2c4f564a6a147a4e79239b2b3c31ee"
 };

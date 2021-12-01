@@ -1,14 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth, API, graphqlOperation } from "aws-amplify";
 import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import prevDef from "../../decorators/prevDef";
-import { Box, Box as span } from "@mui/system";
+import { Box } from "@mui/system";
 import Centerer from "../Centerer";
 import { ButtonGroup } from "@mui/material";
-import { createUser, deleteTab } from "../../graphql/mutations";
+import { createUser } from "../../graphql/mutations";
 
 const SignUp = () => {
     const [email, setEmail] = useState(null);

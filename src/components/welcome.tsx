@@ -1,9 +1,5 @@
-import React from "react";
-import { Button } from "@mui/material";
 import logoWhite from "../BarflyLogoWhite.png";
-import { useStateValue } from "../state/StateProvider";
 import Menu from "./menu/Menu";
-import Centerer from "./Centerer";
 
 const Welcome = () => {
     return (

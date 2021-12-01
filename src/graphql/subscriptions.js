@@ -5,8 +5,8 @@ export const onOrderByUserId = /* GraphQL */`
   subscription OnOrderByUserId($userID: String!) {
     onOrderByUserId(userID: $userID) {
       id
-      timestamp
       items
+      orderStatus
       completed
       userID
       barID
@@ -25,6 +25,11 @@ export const onOrderByOrderId = /* GraphQL */`
     onOrderByOrderId(id: $id) {
       id
       completed
+      orderStatus
+      items
+      userID
+      updatedAt
+      createdAt
 
       
     }

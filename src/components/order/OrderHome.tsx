@@ -1,5 +1,4 @@
 import { Button, Typography, Box } from "@mui/material";
-import React, { useState, useEffect } from "react";
 
 function OrderLink({ image, label, href="#" }: { image: string; label: string, href?: string }) {
     return (

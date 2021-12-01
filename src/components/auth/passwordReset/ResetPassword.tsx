@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import  {  useEffect, useState } from "react";
 import logoWhite from "../../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
-import { TextField, Box, ButtonGroup, Tooltip } from "@mui/material";
+import { TextField, Box, ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../../../styles/auth.css";
 //import prevDef from "../../../decorators/prevDef";
 import LoadingIndicator from "../../LoadingIndicator";
-import Centerer from "../../Centerer";
 import { useNavigate } from "react-router";
 //import { useParams } from "react-router";
 

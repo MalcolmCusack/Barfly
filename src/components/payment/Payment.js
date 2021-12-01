@@ -1,15 +1,9 @@
 import { Button, ButtonGroup, TextField } from "@mui/material";
-import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { getOrderTotal } from "../../state/reducer";
 import { useStateValue } from "../../state/StateProvider";
 import { API, graphqlOperation } from "aws-amplify";
 import { createOrder } from "../../graphql/mutations";
-import { onCreateOrder } from "../../graphql/subscriptions";
-import { getUser } from "../../graphql/queries";
-import { NavigateContext } from "../../App";
-
-//import {listOrders} from '../../graphql/queries';
 
 function Payment() {
     const [{ order, user }, dispatch] = useStateValue();
@@ -28,6 +22,7 @@ function Payment() {
             items: JSON.stringify(order),
             completed: false,
             userID: user.attributes.sub,
+            orderStatus: 'start'
         };
 
         try {
@@ -36,7 +31,7 @@ function Payment() {
             );
             //const responseBeer = await API.graphql(graphqlOperation(listBeers))
             console.log(response);
-            orderId = response.data.createOrder.id;
+            //orderId = response.data.createOrder.id;
         } catch (err) {
             console.log(err);
         }

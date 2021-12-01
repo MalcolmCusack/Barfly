@@ -1,26 +1,19 @@
 //import logoWhite from './BarflyLogoWhite.png';
 import "../App.css";
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, createContext, useContext } from "react";
 import { useStateValue } from "../state/StateProvider";
-import { Auth, Hub } from "aws-amplify";
 import {
-    ThemeProvider,
-    createTheme,
     AppBar,
-    Button,
     IconButton,
-    Drawer,
     List,
     Toolbar,
     Link as Typeography,
     SwipeableDrawer,
     Typography,
-    ListItem,
     ListItemButton,
     Tooltip,
 } from "@mui/material";
 import { Box } from "@mui/material";
-import { SnackbarProvider } from "notistack";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import SportsBarIcon from "@mui/icons-material/SportsBar";

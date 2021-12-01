@@ -6,10 +6,8 @@ import { useStateValue } from "../../state/StateProvider";
 
 const MenuItem = ({ item }) => {
     const [{ order }, dispatch] = useStateValue();
-    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const { enqueueSnackbar } = useSnackbar();
     const [descriptionOpen, setDescriptionOpen] = useState();
-    const openDescription = () => setDescriptionOpen(true);
-    const closeDescription = () => setDescriptionOpen(false);
     const toggleDescription = () => setDescriptionOpen(!descriptionOpen);
 
     const addToOrder = () => {

@@ -7,23 +7,10 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
-    useParams,
 } from "react-router-dom";
 import {
     ThemeProvider,
     createTheme,
-    AppBar,
-    Button,
-    IconButton,
-    Drawer,
-    List,
-    Toolbar,
-    Link as Typeography,
-    SwipeableDrawer,
-    Typography,
-    ListItem,
-    ListItemButton,
-    Tooltip,
 } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
@@ -33,10 +20,6 @@ import Payment from "./components/payment/Payment";
 import OrderStatus from "./components/order/OrderStatus";
 import { Box } from "@mui/material";
 import { SnackbarProvider } from "notistack";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import SportsBarIcon from "@mui/icons-material/SportsBar";
-import { color } from "@mui/system";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
 import Common from "./components/Common";
@@ -49,8 +32,6 @@ console.debug("================= console.debug is enabled ===============");
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
-
-const APPBAR_HEIGHT = "5ch";
 
 const theme = createTheme({
     palette: {
@@ -88,7 +69,7 @@ const theme = createTheme({
 });
 
 function App() {
-    const [{ state, user, order }, dispatch] = useStateValue();
+    const [{ state, user }, dispatch] = useStateValue();
 
     const [triggerFetch, setTriggerFetch] = useState(false);
 

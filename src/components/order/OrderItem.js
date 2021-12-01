@@ -1,5 +1,4 @@
 import { Button } from '@mui/material'
-import React from 'react'
 import { useStateValue } from '../../state/StateProvider'
 
 function OrderItem({ item }) {
