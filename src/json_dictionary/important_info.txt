@@ -1,0 +1,2 @@
+**Note 1**
+Due to the fact that some food items have multiple prices, any items with more than 1 price will be stored in the price value as num1/num2

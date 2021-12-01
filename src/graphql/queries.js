@@ -1,6 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+
+
+
 export const listWholeMenu =  /* GraphQL */ `
   query MyQuery {
   listMenus {
@@ -124,7 +127,6 @@ query MyQuery($id: ID!) {
   }
 }
 `;
-
 export const syncNotes = /* GraphQL */ `
   query SyncNotes(
     $filter: ModelNoteFilterInput
@@ -1238,6 +1240,29 @@ export const getOrder = /* GraphQL */ `
     }
   }
 `;
+
+//Not finished
+export const listOrdersByCompletedAndUserId = /* GraphQL */`
+  query listOrdersByCompletedAndUserId($completed: completed, $userID: userID){
+    listOrders(filter: {completed: {eq: $$completed}, userID: {eq: "7b91aced-aa0f-44f8-b436-9dbe35862c8e"}}) {
+      items {
+        completed
+        barID
+        createdAt
+        employeeID
+        id
+        items
+        orderStatus
+        updatedAt
+        userID
+        _deleted
+        _lastChangedAt
+        _version
+      }
+    }
+  }
+`;
+
 export const listOrders = /* GraphQL */ `
   query ListOrders(
     $filter: ModelOrderFilterInput
@@ -1247,9 +1272,9 @@ export const listOrders = /* GraphQL */ `
     listOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        timestamp
         items
         completed
+        orderStatus
         userID
         barID
         employeeID
@@ -1373,6 +1398,7 @@ export const syncTabs = /* GraphQL */ `
     }
   }
 `;
+
 export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
@@ -1424,14 +1450,10 @@ export const listUsers = /* GraphQL */ `
         phone
         profileImg
         location
-        payment
         age
-        createdAt
         name
         address
-        order
-        orderHistory
-        tabID
+        
         _version
         _deleted
         _lastChangedAt

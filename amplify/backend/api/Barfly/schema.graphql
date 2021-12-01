@@ -133,26 +133,25 @@ type Bar @model @auth(rules: [{allow: public}]) {
 
 type Order @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: ["userID"]) @key(name: "byBar", fields: ["barID"]) @key(name: "byEmployee", fields: ["employeeID"]) {
   id: ID!
-  timestamp: AWSDateTime
   items: [AWSJSON!]
   completed: Boolean!
   userID: ID
   User: User @connection
   barID: ID
   employeeID: ID
+  orderStatus: String
 }
 
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
-  email: AWSEmail!
-  phone: AWSPhone
+  email: String!
+  phone: String
   profileImg: AWSJSON
   location: AWSJSON
   age: String
   createdAt: AWSDateTime
   name: String!
   address: AWSJSON
-  order: String
   Orders: [Order] @connection(keyName: "byUser", fields: ["id"])
 }
 

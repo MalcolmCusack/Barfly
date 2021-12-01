@@ -1,4 +1,3 @@
-import React from "react";
 import { styled } from "@mui/material/styles";
 
 const Centerer = styled("div")((theme) => ({

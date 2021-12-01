@@ -1,38 +1,37 @@
 //import logoWhite from './BarflyLogoWhite.png';
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import { useStateValue } from "./state/StateProvider";
 import { Auth, Hub } from "aws-amplify";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from "react-router-dom";
 import {
     ThemeProvider,
     createTheme,
-    AppBar,
-    Button,
-    IconButton,
-    Drawer,
-    List,
-    Toolbar,
-    Link as Typeography,
-    SwipeableDrawer,
 } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import Welcome from "./components/welcome";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
-import OrderStatus from "./components/payment/OrderStatus";
+import OrderStatus from "./components/order/OrderStatus";
 import { Box } from "@mui/material";
 import { SnackbarProvider } from "notistack";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import SportsBarIcon from '@mui/icons-material/SportsBar';
-import { color } from "@mui/system";
+import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
+import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
+import Common from "./components/Common";
+import PaymentSuccess from "./components/payment/PaymentSuccess";
+
+export const ActionsContext = createContext(
+    {} as { fetchData: () => void; signOut: () => Promise<void> }
+);
+console.debug("================= console.debug is enabled ===============");
 
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
-
-const APPBAR_HEIGHT = "5ch";
 
 const theme = createTheme({
     palette: {
@@ -55,7 +54,7 @@ const theme = createTheme({
         },
         text: {
             primary: "#fcba03",
-            secondary: "#fcba03",
+            secondary: "#eee",
         },
     },
     components: {
@@ -70,28 +69,22 @@ const theme = createTheme({
 });
 
 function App() {
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    function toggleDrawerOpen() {
-        setDrawerOpen(!drawerOpen);
-    }
-    function closeDrawer(){
-        setDrawerOpen(false);
-    }
-    function openDrawer(){
-        setDrawerOpen(true);
-    }
-    const [{ state, user, order }, dispatch] = useStateValue();
+    const [{ state, user }, dispatch] = useStateValue();
+
     const [triggerFetch, setTriggerFetch] = useState(false);
 
-    const handleSignout = async () => {
+    function fetchData() {
+        setTriggerFetch(true);
+    }
+
+    async function signOut() {
         try {
             await Auth.signOut();
-            setTriggerFetch(false);
             dispatch({ type: "RESET_USER_DATA" });
         } catch (error) {
             console.log(error);
         }
-    };
+    }
 
     useEffect(() => {
         let isMounted = true;
@@ -129,7 +122,6 @@ function App() {
                 case "signIn":
                     if (isMounted) {
                         setTriggerFetch(true);
-                        console.log("signed in");
                     }
                     break;
                 default:
@@ -138,7 +130,10 @@ function App() {
         };
 
         HubListener();
-        fetchUserData();
+        fetchUserData().then(() => {
+            // load order after loading user data
+            dispatch({ type: "LOAD_ORDER" });
+        });
 
         return () => {
             Hub.remove("auth", () => {});
@@ -147,130 +142,102 @@ function App() {
     }, [triggerFetch]);
 
     return (
-        <ThemeProvider theme={theme}>
-            <SnackbarProvider maxSnack={3}>
-                <AppBar>
-                    <Box
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        position="relative"
-                        width="100%"
-                        height={APPBAR_HEIGHT}
-                    >
-                        {/* appbar-left */}
-                        <Box position="absolute" left="0">
-                            <IconButton
-                                style={{ justifySelf: "flex-end" }}
-                                onClick={toggleDrawerOpen}
-                                color="primary"
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        </Box>
-                        {/* appbar-center */}
-                        <Box>
-                            <Typeography
-                                href="/"
-                                style={{
-                                    textDecoration: "none",
-                                    fontSize: "3ch",
-                                }}
-                            >
-                                Barfly
-                            </Typeography>
-                        </Box>
-                        {/* appbar-right */}
-                        <Box position="absolute" right="1ch">
-                            
-                        <a style={{textDecoration: 'none', color: "#fcba03"}} href='/ordersummary'><SportsBarIcon /><span>{order.length}</span></a>
-                        
-                            {/* put user profile thingy here */}
-                        </Box>
-                    </Box>
-                </AppBar>
-                <Toolbar />
-                <SwipeableDrawer
-                    open={drawerOpen}
-                    onClose={closeDrawer}
-                    onOpen={openDrawer}
-                    anchor="left"
-                    style={{
-                        height: "100%",
-                    }}
-                    onBackdropClick={closeDrawer}
-                >
-                    <Box
-                        height={APPBAR_HEIGHT}
-                        style={{ backgroundColor: "#111" }}
-                        position="relative"
-                    >
-                        <Box position="absolute"
-                        right="0">
-                            <IconButton onClick={closeDrawer} color="primary">
-                                <ChevronLeftIcon/>
-                            </IconButton>
-                            </Box>
-                    </Box>
-                    <Box width="min(50vw, 30ch)">
-                        <List>
-                            <Button
-                                onClick={() => {
-                                    closeDrawer();
-                                    handleSignout().then(
-                                        () => (window.location.href = "/")
-                                    );
-                                }}
-                                variant="contained"
-                            >
-                                Log Out
-                            </Button>
-                        </List>
-                    </Box>
-                </SwipeableDrawer>
-                <Router>
-                    <Box className="App" margin="2ch">
-                        <Routes>
-                            {!user ? (
-                                <>
-                                    <Route path="/" element={<SignIn />} />
-                                    <Route
-                                        path="/signup"
-                                        element={<SignUp />}
-                                    />
-                                </>
-                            ) : (
-                                <>
-                                    <Route
-                                        path="/"
-                                        element={
-                                            <Welcome
-                                                onSignOut={handleSignout}
-                                            />
-                                        }
-                                    />
+        <ActionsContext.Provider value={{ fetchData, signOut }}>
+            <ThemeProvider theme={theme}>
+                <SnackbarProvider maxSnack={1}>
+                    {/* ================= Router to all the pages ================= */}
+                    <Router>
+                        <Box className="App" height="100%" width="100%">
+                            <Routes>
+                                {!user ? (
+                                    <>
+                                        <Route
+                                            path="/"
+                                            element={
+                                                <Common>
+                                                    <SignIn />
+                                                </Common>
+                                            }
+                                        />
+                                        <Route
+                                            path="/signup"
+                                            element={
+                                                <Common>
+                                                    <SignUp />
+                                                </Common>
+                                            }
+                                        />
+                                        <Route
+                                            path="/forgotpass"
+                                            element={
+                                                <Common>
+                                                    <RequestPasswordReset />
+                                                </Common>
+                                            }
+                                        />
+                                        <Route
+                                            path="/resetpass/:email"
+                                            element={
+                                                <Common>
+                                                    <ResetPasswordPage />
+                                                </Common>
+                                            }
+                                        />
+                                    </>
+                                ) : (
+                                    <>
+                                        <Route
+                                            path="/"
+                                            element={
+                                                <Common>
+                                                    <Welcome />
+                                                </Common>
+                                            }
+                                        />
 
-                                    <Route
-                                        path="/ordersummary"
-                                        element={<OrderSummary />}
-                                    />
+                                        <Route
+                                            path="/ordersummary"
+                                            element={
+                                                <Common>
+                                                    <OrderSummary />
+                                                </Common>
+                                            }
+                                        />
 
-                                    <Route
-                                        path="/payment"
-                                        element={<Payment />}
-                                    />
+                                        <Route
+                                            path="/payment"
+                                            element={
+                                                <Common>
+                                                    <Payment />
+                                                </Common>
+                                            }
+                                        />
 
-                                    <Route
-                                        path="/status"
-                                        element={<OrderStatus />}
-                                    />
-                                </>
-                            )}
-                        </Routes>
-                    </Box>
-                </Router>
-            </SnackbarProvider>
-        </ThemeProvider>
+                                        <Route
+                                            path="/paymentsuccess"
+                                            element={
+                                                <Common>
+                                                    <PaymentSuccess />
+                                                </Common>
+                                            }
+                                        />
+
+                                        <Route
+                                            path="/orderstatus"
+                                            element={
+                                                <Common>
+                                                    <OrderStatus />
+                                                </Common>
+                                            }
+                                        />
+                                    </>
+                                )}
+                            </Routes>
+                        </Box>
+                    </Router>
+                </SnackbarProvider>
+            </ThemeProvider>
+        </ActionsContext.Provider>
     );
 }
 

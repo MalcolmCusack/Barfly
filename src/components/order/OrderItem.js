@@ -1,12 +1,9 @@
 import { Button } from '@mui/material'
-import React from 'react'
 import { useStateValue } from '../../state/StateProvider'
 
 function OrderItem({ item }) {
 
     const [{order}, dispatch] = useStateValue()
-
-    console.log(order)
 
     const removeFromOrder = () => {
         dispatch({
@@ -16,7 +13,7 @@ function OrderItem({ item }) {
     }
 
     return (
-        <div style={{border: '1px solid #fcba03', padding: '15px'}}>
+        <div style={{borderBottom: '1px solid #fcba03', padding: '15px'}}>
             <h2 style={{margin: '10px'}}>{item.name}</h2>
             <h3>$ {item.price.toFixed(2)}</h3>
             

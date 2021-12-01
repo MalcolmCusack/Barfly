@@ -59,3 +59,11 @@ export function useInterval() {
         return id;
     };
 }
+
+export function useSleep() {
+    const reactTimeout = useTimeout();
+
+    return function reactSleep(ms: number) {
+        return new Promise((resolve) => reactTimeout(resolve, ms));
+    };
+}
