@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { updateOrder } from "../../graphql/mutations";
 import { API, graphqlOperation } from "aws-amplify";
 import {
     Button,
@@ -14,9 +13,9 @@ import { useTimeout } from "../../hooks/timing";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useNavigate } from "react-router";
-import { onOrderByUserId, onOrderByOrderId} from '../../graphql/subscriptions';
+import { onOrderByUserId} from '../../graphql/subscriptions';
 import { useStateValue } from "../../state/StateProvider";
-import {listOrders, listOrdersByCompletedAndUserId} from "../../graphql/queries";
+import {listOrders} from "../../graphql/queries";
 
 //In case subscriptions delete themselves again some how
 /*	onOrderByUserId(userID: String): Order
@@ -28,15 +27,6 @@ import {listOrders, listOrdersByCompletedAndUserId} from "../../graphql/queries"
 @aws_api_key
 @aws_iam
 */
-
-
-//@ts-ignore
-/*
-window.tq = async (input, condition) => {
-    return await API.graphql(
-        graphqlOperation(updateOrder, { input, condition })
-    );
-};*/
 
 function OrderItem({ orderItem, style }) {
     console.log(orderItem)
@@ -82,9 +72,7 @@ function OrderItem({ orderItem, style }) {
                         }
                     }
                     
-                    //const order = JSON.parse(orderData.value.data.onOrderByUserId.items)
-                    //console.log(order)
-                    //updateTest(order)
+
                 }
             })
 
@@ -92,24 +80,6 @@ function OrderItem({ orderItem, style }) {
             
             console.log(userSubResponse)
             
-            /*
-            // works, but mutation needs abunch all perevious values
-            const userSubByID = API.graphql({
-                query: onOrderByOrderId, 
-                variables: {
-                    id: params.orderid
-
-            }})
-            .subscribe({
-                next: (data) => {
-                    console.log("userSubdata: ", data)
-                    //const orderr = JSON.parse(data.value.data)
-                    //console.log(orderr)
-                    //updateTest(orderr)
-                }
-            })
-            const userOrderR = await userSubByID
-            console.log(userOrderR)*/
         }
         subscribe()
 
