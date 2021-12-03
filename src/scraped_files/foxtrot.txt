@@ -1,0 +1,59 @@
+Rocking R Bar|Food|BEEF BRISKET NACHOS|16|Loaded with beef brisket burnt ends & queso cheese & topped with tomatoes, onions, black olives, jalapeños, salsa, & sour cream.
+Rocking R Bar|Food|BROCCOLI CHEDDAR SOUP|5/8|Homemade & served as a cup or bowl.
+Rocking R Bar|Food|FRIED MUSHROOMS|8|Served with A1 aioli.
+Rocking R Bar|Food|FRIED SWEET N' SPICY PICKLES|8|From Plate & Pantry in Bozeman, MT. Served with house O.F.Y. sauce.
+Rocking R Bar|Food|MEXICAN FIRECRACKERS|8|Fried tortillas filled with cream cheese, jalapeños, & bacon. Served with house-made pepper jelly.
+Rocking R Bar|Food|HOUSE-MADE MOZZARELLA STICKS|9|Served with marinara.
+Rocking R Bar|Food|TORTILLA CHIPS, SALSA & QUESO|9|Chips served with fire-roasted salsa & queso.
+Rocking R Bar|Food|MAC & CHEESE BITES|9|Served with jalapeño ranch.
+Rocking R Bar|Food|DECONSTRUCTED PIZZA DIP|10|Marinara, arugula, & parmesan. Served with garlic cheese bread.
+Rocking R Bar|Food|HOUSE-MADE BACON-WRAPPED MOZZARELLA STICKS|12|Served with marinara & jalapeño ranch.
+Rocking R Bar|Food|CHICKEN WINGS|13|House bbq, buffalo hawt, stingin' honey garlic, or cajun dry rub.
+Rocking R Bar|Food|LOADED NACHOS|13|Loaded with queso cheese & served with tomatoes, onions, black olives, jalapeños, salsa, & sour cream.
+Rocking R Bar|Food|CHICKEN TENDER BASKET|13|Served with house-cut fries & O.F.Y sauce.
+Rocking R Bar|Food|COCONUT SHRIMP BASKET|14|Served with house-cut fries, tangy slaw, & stingin' honey garlic sauce.
+Rocking R Bar|Food|WILD ALASKAN FISH & CHIPS|14|Served with house-made tartar sauce & malt vinegar.
+Rocking R Bar|Food|FRIED STEAK BITES BASKET|15|Served with house-cut fries, tangy slaw & A-1 aoili.
+Rocking R Bar|Food|THE SONNY HOLLAND|12|Total Classic. Lettuce, tomato, onion, & local sweet n' spicy pickles.
+Rocking R Bar|Food|THE KNOCK OUT|13|Sautéed mushrooms & melted swiss.
+Rocking R Bar|Food|DIVINE INTERVENTION|14|Bacon, bleu cheese, & whiskey caramelized onions.
+Rocking R Bar|Food|OUR FATHER|15|Bacon, pepper-jack cheese, avocado, roasted red pepper aioli, arugula, & a fried egg.
+Rocking R Bar|Food|THE ALOHA|15|Bacon, grilled pineapple, cream cheese, & stingin' honey garlic glaze.
+Rocking R Bar|Food|SADDLE UP|15|Bacon, cheddar cheese, house bbq, & whiskey caramelized onions.
+Rocking R Bar|Food|THE HAWAIIAN PIZZA BURGER|15|Grilled pork belly, pineapple, fresh jalapeño, marinara, & mozzarella.
+Rocking R Bar|Food|THE CUBANO|15|Pulled pork, swiss, dijon mustard, pickled red onions, & sweet n' spicy pickles.
+Rocking R Bar|Food|THE GAME CHANGER|15|Topped with firecracker guts (our house recipe of bacon, cream cheese, jalapeños, & other secret ingredients), fried jalapeños, house pepper jelly, lettuce, & tomato.
+Rocking R Bar|Food|PB&J BURGER|16|House-made chipotle-bacon peanut butter, pork belly, house pepper jelly, & brie cheese.
+Rocking R Bar|Food|ELK BURGER|16|Topped with sautéed mushrooms, whiskey caramelized onions, swiss cheese, & A-1 aioli.
+Rocking R Bar|Food|THE ALL-AMERICAN|9|A basic grilled cheese. Enough said.
+Rocking R Bar|Food|CAPRESE GRILLED CHEESE|12|Mozzarella, tomato, arugula, & balsamic reduction.
+Rocking R Bar|Food|PORK CHOP JOHN'S|13|Lettuce, tomato, onion, local sweet n' spicy pickles, mustard, & mayo.
+Rocking R Bar|Food|GRILLED CHICKEN CAESAR WRAP|14|Grilled chicken, romaine lettuce, house croutons, parmesan, & caesar dressing.
+Rocking R Bar|Food|PULLED PORK SANDWICH|14|Pepper-jack cheese, tangy slaw, sweet n' spicy pickles, & house bbq.
+Rocking R Bar|Food|THE MADONNA|14|Grilled chicken, melted brie, bacon, apple, arugula, & house pepper jelly.
+Rocking R Bar|Food|PORK BELLY BLT|14|Thick-cut bacon, arugula, tomato, balsamic reduction, pickled red onions, & roasted red pepper aioli.
+Rocking R Bar|Food|THE HANG TEN|14|Grilled chicken, swiss, bacon, lettuce, tomato, grilled pineapple, & stingin‘ honey garlic sauce.
+Rocking R Bar|Food|ASIAN CHICKEN WRAP|14|Grilled chicken, mixed greens, purple cabbage, carrots, crispy wontons, almonds, mandarin oranges, stingin‘ honey garlic sauce, & soy ginger dressing.
+Rocking R Bar|Food|FRENCH DIP|12|Thinly-sliced slow-roasted beef topped with swiss cheese. Served on a rustic hoagie roll.
+Rocking R Bar|Food|HOUSE|9|Mixed greens with tomatoes, onions, carrots, croutons, & your choice of dressing on the side.
+Rocking R Bar|Food|CAESAR|9|Romaine with parmesan, croutons, & dressed with caesar.
+Rocking R Bar|Food|DRUNKEN WEDGE|12|Grilled romaine lettuce with bacon, onions, tomatoes, bleu cheese crumbles, & bacon bourbon bleu cheese dressing.
+Rocking R Bar|Food|THE JUST BEET IT|13|Arugula, beets, pickled red onions, candied walnuts, brie cheese, & balsamic reduction.
+Rocking R Bar|Food|TACO|14|Romaine lettuce, tomatoes, jalapeños, onions, black olives, cheddar cheese, salsa, & sour cream. Choice of chicken or beef. Served with jalapeño ranch.
+Rocking R Bar|Food|ASIAN CHICKEN|14|Grilled chicken, mixed greens, purple cabbage, carrots, crispy wontons, almonds, mandarin oranges, & stingin‘ honey garlic sauce. Served with soy ginger dressing on the side.
+Rocking R Bar|Food|CHOPPED COBB|14|Romaine lettuce with grilled chicken, tomatoes, bacon, hard-boiled eggs, onions, & bleu cheese crumbles. Served with your choice of dressing.
+Rocking R Bar|Food|BUFFALO CHICKEN|14|Grilled chicken over romaine, carrots, onions, & bleu cheese crumbles. Served with bacon bourbon bleu cheese & buffalo sauce.
+Rocking R Bar|Food|STRAWBERRY APPLE WITH GRILLED CHICKEN|15|Mixed greens, bacon, candied walnuts, apples, & bleu cheese crumbles. Served with strawberry vinaigrette.
+Rocking R Bar|Food|Sweet Potato Fries|2|
+Rocking R Bar|Food|House Salad|2|
+Rocking R Bar|Food|Caesar Salad|2|
+Rocking R Bar|Food|MILKSHAKES|7|Flavors: Vanilla, Chocolate, Huckleberry, Peanut Butter, Oreo, Salted Caramel, or Strawberry.
+Rocking R Bar|Food|DEEP FRIED VANILLA ICE CREAM|8|Served with whipped cream, chocolate, & caramel.
+Rocking R Bar|Food|TUESDAYS: Taco Tuesday|14|Three Tacos & Margarita from 11am-9:30pm!
+Rocking R Bar|Food|WEDNESDAYS: Nacho Night!|15|Loaded Nachos & Any Pitcher of Beer from 5pm-9:30pm!
+Rocking R Bar|Food|THURSDAYS: Burger Day!|10|Local Burger, Hand-Cut Fries, & Any Pint of Beer from 11am-9:30pm!
+Rocking R Bar|Food|GRILLED CHEESE|8|
+Rocking R Bar|Food|CHICKEN TENDERS|9|
+Rocking R Bar|Food|CHEESE QUESADILLA|9|
+Rocking R Bar|Food|CHEESEBURGER|11|
+Rocking R Bar|Food|KID SUNDAE|5|One scoop of vanilla ice cream with chocolate, caramel, & whipped cream.

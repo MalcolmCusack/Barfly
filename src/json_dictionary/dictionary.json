@@ -1,7 +1,7 @@
 {
     "Beer": [
         {
-            "description": "neptune\u00e2\u20ac\u2122s brewery, livingston, mt",
+            "description": "neptune\u2019s brewery, livingston, mt",
             "location": "Montana Aleworks",
             "name": "siren song honey rye",
             "price": "6"
@@ -45,8 +45,8 @@
         {
             "description": "kettlehouse brewing, missoula, mt",
             "location": "Montana Aleworks",
-            "name": "scared of the dark white stout",
-            "price": "6"
+            "name": "snowblind white stout",
+            "price": "6.5"
         },
         {
             "description": "kettlehouse brewing, missoula, mt",
@@ -100,7 +100,7 @@
             "description": "draught works, missoula, mt",
             "location": "Montana Aleworks",
             "name": "scepter ipa",
-            "price": "6"
+            "price": "6.5"
         },
         {
             "description": "outlaw brewing, bozeman, mt",
@@ -273,13 +273,13 @@
             "price": "10"
         },
         {
-            "description": "sauza signature blue tequila, gran gala, fresh citrus, taj\u00c3\u00adn spiced rim",
+            "description": "sauza signature blue tequila, gran gala, fresh citrus, taj\u00edn spiced rim",
             "location": "Montana Aleworks",
             "name": "ale works marg",
             "price": "9.5"
         },
         {
-            "description": "house-infused pineapple and jalape\u00c3\u00b1o tequila, fresh lime, sweet & sour",
+            "description": "house-infused pineapple and jalape\u00f1o tequila, fresh lime, sweet & sour",
             "location": "Montana Aleworks",
             "name": "pj marg",
             "price": "10"
@@ -317,7 +317,7 @@
         {
             "description": "willie's distillery, ennis, mt",
             "location": "Montana Aleworks",
-            "name": "willie\u00e2\u20ac\u2122s bighorn",
+            "name": "willie\u2019s bighorn",
             "price": "7"
         },
         {
@@ -329,7 +329,7 @@
         {
             "description": "grand teton distillery, driggs, id",
             "location": "Montana Aleworks",
-            "name": "grand teton colter\u00e2\u20ac\u2122s run",
+            "name": "grand teton colter\u2019s run",
             "price": "7"
         },
         {
@@ -347,7 +347,7 @@
         {
             "description": "willie's distillery, ennis, mt",
             "location": "Montana Aleworks",
-            "name": "willie\u00e2\u20ac\u2122s canadian",
+            "name": "willie\u2019s canadian",
             "price": "6"
         },
         {
@@ -407,7 +407,7 @@
         {
             "description": "wildrye distillery, bozeman, mt",
             "location": "Montana Aleworks",
-            "name": "ramsdell\u00e2\u20ac\u2122s parrot rum",
+            "name": "ramsdell\u2019s parrot rum",
             "price": "8"
         },
         {
@@ -519,9 +519,9 @@
             "price": "6"
         },
         {
-            "description": "44\u00c2\u00b0 north distillery, boise, id",
+            "description": "44\u00b0 north distillery, boise, id",
             "location": "Montana Aleworks",
-            "name": "44\u00c2\u00b0 north huckleberry",
+            "name": "44\u00b0 north huckleberry",
             "price": "6"
         },
         {
@@ -533,7 +533,7 @@
         {
             "description": "willie's distillery, ennis, mt",
             "location": "Montana Aleworks",
-            "name": "willie\u00e2\u20ac\u2122s huckleberry cream",
+            "name": "willie\u2019s huckleberry cream",
             "price": "6"
         },
         {
@@ -545,7 +545,7 @@
         {
             "description": "willie's distillery, ennis, mt",
             "location": "Montana Aleworks",
-            "name": "willie\u00e2\u20ac\u2122s mt honey moonshine",
+            "name": "willie\u2019s mt honey moonshine",
             "price": "6"
         },
         {
@@ -959,28 +959,16 @@
             "price": "16.00"
         },
         {
-            "description": "Grilled chicken, swiss, bacon, tomato & arugula pesto on toasted local sourdough. Served with choice of side.",
+            "description": "Loaded with beef brisket burnt ends & queso cheese & topped with tomatoes, onions, black olives, jalape\u00f1os, salsa, & sour cream.",
             "location": "Rocking R Bar",
-            "name": "CHICKEN PESTO SANDWICH",
-            "price": "14"
-        },
-        {
-            "description": "Arugula, beets, pickled red onion, candied walnuts, brie cheese & balsamic reduction.",
-            "location": "Rocking R Bar",
-            "name": "ROASTED BEET SALAD",
-            "price": "13"
+            "name": "BEEF BRISKET NACHOS",
+            "price": "16"
         },
         {
             "description": "Homemade & served as a cup or bowl.",
             "location": "Rocking R Bar",
             "name": "BROCCOLI CHEDDAR SOUP",
             "price": "5/8"
-        },
-        {
-            "description": "Loaded nachos & a pitcher of beer! 5pm-9:30pm",
-            "location": "Rocking R Bar",
-            "name": "WEDNESDAY NACHO NIGHT",
-            "price": "15"
         },
         {
             "description": "Served with A1 aioli.",
@@ -995,33 +983,15 @@
             "price": "8"
         },
         {
-            "description": "Served with marinara.",
-            "location": "Rocking R Bar",
-            "name": "HOUSE-MADE MOZZARELLA STICKS",
-            "price": "9"
-        },
-        {
-            "description": "Up your game with bacon! Served with marinara & jalape\u00f1o ranch.",
-            "location": "Rocking R Bar",
-            "name": "HOUSE-MADE BACON-WRAPPED MOZZARELLA STICKS",
-            "price": "12"
-        },
-        {
-            "description": "Served with roasted red pepper aioli.",
-            "location": "Rocking R Bar",
-            "name": "FRIED ARTICHOKE HEARTS",
-            "price": "8"
-        },
-        {
-            "description": "Fried tortillas filled with cream cheese, jalape\u00f1os, & bacon. Served with house-made jalape\u00f1o pepper jelly.",
+            "description": "Fried tortillas filled with cream cheese, jalape\u00f1os, & bacon. Served with house-made pepper jelly.",
             "location": "Rocking R Bar",
             "name": "MEXICAN FIRECRACKERS",
             "price": "8"
         },
         {
-            "description": "Fried Brussels sprouts tossed in buffalo hawt sauce with blue cheese crumbles & bacon.",
+            "description": "Served with marinara.",
             "location": "Rocking R Bar",
-            "name": "BUFFALO BRUSSELS SPROUTS",
+            "name": "HOUSE-MADE MOZZARELLA STICKS",
             "price": "9"
         },
         {
@@ -1031,25 +1001,37 @@
             "price": "9"
         },
         {
-            "description": "Layers of marinara, arugula, & parmesan. Served with garlic cheese bread.",
+            "description": "Served with jalape\u00f1o ranch.",
+            "location": "Rocking R Bar",
+            "name": "MAC & CHEESE BITES",
+            "price": "9"
+        },
+        {
+            "description": "Marinara, arugula, & parmesan. Served with garlic cheese bread.",
             "location": "Rocking R Bar",
             "name": "DECONSTRUCTED PIZZA DIP",
             "price": "10"
         },
         {
+            "description": "Served with marinara & jalape\u00f1o ranch.",
+            "location": "Rocking R Bar",
+            "name": "HOUSE-MADE BACON-WRAPPED MOZZARELLA STICKS",
+            "price": "12"
+        },
+        {
             "description": "House bbq, buffalo hawt, stingin' honey garlic, or cajun dry rub.",
             "location": "Rocking R Bar",
-            "name": "10 CHICKEN WINGS",
-            "price": "10"
+            "name": "CHICKEN WINGS",
+            "price": "13"
         },
         {
             "description": "Loaded with queso cheese & served with tomatoes, onions, black olives, jalape\u00f1os, salsa, & sour cream.",
             "location": "Rocking R Bar",
             "name": "LOADED NACHOS",
-            "price": "12"
+            "price": "13"
         },
         {
-            "description": "Served with house-cut fries.",
+            "description": "Served with house-cut fries & O.F.Y sauce.",
             "location": "Rocking R Bar",
             "name": "CHICKEN TENDER BASKET",
             "price": "13"
@@ -1067,9 +1049,9 @@
             "price": "14"
         },
         {
-            "description": "Served with house-cut fries, tangy slaw & house cocktail sauce.",
+            "description": "Served with house-cut fries, tangy slaw & A-1 aoili.",
             "location": "Rocking R Bar",
-            "name": "STEAK FINGERS",
+            "name": "FRIED STEAK BITES BASKET",
             "price": "15"
         },
         {
@@ -1079,13 +1061,13 @@
             "price": "12"
         },
         {
-            "description": "Saut\u00e9ed mushrooms, melted swiss, & onion rings.",
+            "description": "Saut\u00e9ed mushrooms & melted swiss.",
             "location": "Rocking R Bar",
             "name": "THE KNOCK OUT",
-            "price": "14"
+            "price": "13"
         },
         {
-            "description": "Bacon, gorgonzola, & whiskey caramelized onions.",
+            "description": "Bacon, bleu cheese, & whiskey caramelized onions.",
             "location": "Rocking R Bar",
             "name": "DIVINE INTERVENTION",
             "price": "14"
@@ -1109,31 +1091,31 @@
             "price": "15"
         },
         {
-            "description": "Pulled pork, swiss, dijon mustard, sweet n' spicy pickles, & onion rings.",
+            "description": "Grilled pork belly, pineapple, fresh jalape\u00f1o, marinara, & mozzarella.",
+            "location": "Rocking R Bar",
+            "name": "THE HAWAIIAN PIZZA BURGER",
+            "price": "15"
+        },
+        {
+            "description": "Pulled pork, swiss, dijon mustard, pickled red onions, & sweet n' spicy pickles.",
             "location": "Rocking R Bar",
             "name": "THE CUBANO",
             "price": "15"
         },
         {
-            "description": "Topped with firecracker guts (our house recipe of bacon, cream cheese, jalape\u00f1os, & other secret ingredients), fried jalape\u00f1os, house jalape\u00f1o sweet pepper jelly, lettuce, & tomato.",
+            "description": "Topped with firecracker guts (our house recipe of bacon, cream cheese, jalape\u00f1os, & other secret ingredients), fried jalape\u00f1os, house pepper jelly, lettuce, & tomato.",
             "location": "Rocking R Bar",
             "name": "THE GAME CHANGER",
             "price": "15"
         },
         {
-            "description": "Pepper jack, bacon, fresh jalape\u00f1os, pickled red onion, lettuce, local sweet n' spicy pickles, tomato, a fried egg, & haba\u00f1ero aioli.",
+            "description": "House-made chipotle-bacon peanut butter, pork belly, house pepper jelly, & brie cheese.",
             "location": "Rocking R Bar",
-            "name": "THE FAT LADY SINGS",
-            "price": "15"
-        },
-        {
-            "description": "House-made chipotle-bacon peanut butter, jalape\u00f1o pepper jelly, pork belly, & brie cheese.",
-            "location": "Rocking R Bar",
-            "name": "PB&J BURG",
+            "name": "PB&J BURGER",
             "price": "16"
         },
         {
-            "description": "Topped with saut\u00e9ed mushrooms, whiskey caramelized onions, swiss cheese, & house-made \"special sauce\" A-1 aioli.",
+            "description": "Topped with saut\u00e9ed mushrooms, whiskey caramelized onions, swiss cheese, & A-1 aioli.",
             "location": "Rocking R Bar",
             "name": "ELK BURGER",
             "price": "16"
@@ -1142,61 +1124,61 @@
             "description": "A basic grilled cheese. Enough said.",
             "location": "Rocking R Bar",
             "name": "THE ALL-AMERICAN",
-            "price": "8"
-        },
-        {
-            "description": "AKA The Bomb Breaky Sandwich - bacon, fried egg, cheddar, arugula, tomato, & sweet jalape\u00f1o pepper aioli.",
-            "location": "Rocking R Bar",
-            "name": "THE TYLER DEAN",
-            "price": "11"
+            "price": "9"
         },
         {
             "description": "Mozzarella, tomato, arugula, & balsamic reduction.",
             "location": "Rocking R Bar",
             "name": "CAPRESE GRILLED CHEESE",
-            "price": "11"
+            "price": "12"
+        },
+        {
+            "description": "Lettuce, tomato, onion, local sweet n' spicy pickles, mustard, & mayo.",
+            "location": "Rocking R Bar",
+            "name": "PORK CHOP JOHN'S",
+            "price": "13"
         },
         {
             "description": "Grilled chicken, romaine lettuce, house croutons, parmesan, & caesar dressing.",
             "location": "Rocking R Bar",
             "name": "GRILLED CHICKEN CAESAR WRAP",
-            "price": "13"
+            "price": "14"
         },
         {
-            "description": "Pepper-jack cheese, tangy slaw, & house bbq.",
+            "description": "Pepper-jack cheese, tangy slaw, sweet n' spicy pickles, & house bbq.",
             "location": "Rocking R Bar",
             "name": "PULLED PORK SANDWICH",
-            "price": "13"
+            "price": "14"
         },
         {
-            "description": "Grilled chicken, melted brie, bacon, apple, arugula, & house jalape\u00f1o pepper jelly.",
+            "description": "Grilled chicken, melted brie, bacon, apple, arugula, & house pepper jelly.",
             "location": "Rocking R Bar",
             "name": "THE MADONNA",
-            "price": "13"
+            "price": "14"
         },
         {
             "description": "Thick-cut bacon, arugula, tomato, balsamic reduction, pickled red onions, & roasted red pepper aioli.",
             "location": "Rocking R Bar",
             "name": "PORK BELLY BLT",
-            "price": "13.50"
-        },
-        {
-            "description": "Slow-smoked brisket burnt ends smothered in house bbq sauce with pickled red onions, tangy slaw, & fried jalape\u00f1os. Served on a rustic hoagie roll.",
-            "location": "Rocking R Bar",
-            "name": "FORK & KNIFE BRISKET SANDWICH",
             "price": "14"
         },
         {
-            "description": "Thinly-sliced slow-roasted beef topped with swiss cheese & onion rings. Served on a rustic hoagie roll with house au jus.",
+            "description": "Grilled chicken, swiss, bacon, lettuce, tomato, grilled pineapple, & stingin\u2018 honey garlic sauce.",
             "location": "Rocking R Bar",
-            "name": "FRENCH DIP",
-            "price": "14.50"
+            "name": "THE HANG TEN",
+            "price": "14"
         },
         {
-            "description": "Fried chicken topped with crisp cabbage, bacon, local pickles, sweet potato fries, mandarin orange pico de gallo, haba\u00f1ero aioli, stingin' honey garlic glaze, & two fried eggs. Not served with a choice of side. Trust us, you won't need it!",
+            "description": "Grilled chicken, mixed greens, purple cabbage, carrots, crispy wontons, almonds, mandarin oranges, stingin\u2018 honey garlic sauce, & soy ginger dressing.",
             "location": "Rocking R Bar",
-            "name": "WHAT THE CLUCK?!?!",
-            "price": "15"
+            "name": "ASIAN CHICKEN WRAP",
+            "price": "14"
+        },
+        {
+            "description": "Thinly-sliced slow-roasted beef topped with swiss cheese. Served on a rustic hoagie roll.",
+            "location": "Rocking R Bar",
+            "name": "FRENCH DIP",
+            "price": "12"
         },
         {
             "description": "Mixed greens with tomatoes, onions, carrots, croutons, & your choice of dressing on the side.",
@@ -1211,46 +1193,46 @@
             "price": "9"
         },
         {
-            "description": "Mixed greens, mandarin oranges, mozzarella, walnuts, & onions. Dressed with poppy seed vinaigrette & balsamic reduction.",
-            "location": "Rocking R Bar",
-            "name": "MANDARIN ORANGE POPPY SEED",
-            "price": "12"
-        },
-        {
             "description": "Grilled romaine lettuce with bacon, onions, tomatoes, bleu cheese crumbles, & bacon bourbon bleu cheese dressing.",
             "location": "Rocking R Bar",
             "name": "DRUNKEN WEDGE",
             "price": "12"
         },
         {
-            "description": "Romaine lettuce, tortilla chips, tomatoes, jalape\u00f1os, onions, black olives, cheddar cheese, salsa, & sour cream. Choice of chicken or beef. Served with jalape\u00f1o ranch.",
+            "description": "Arugula, beets, pickled red onions, candied walnuts, brie cheese, & balsamic reduction.",
+            "location": "Rocking R Bar",
+            "name": "THE JUST BEET IT",
+            "price": "13"
+        },
+        {
+            "description": "Romaine lettuce, tomatoes, jalape\u00f1os, onions, black olives, cheddar cheese, salsa, & sour cream. Choice of chicken or beef. Served with jalape\u00f1o ranch.",
             "location": "Rocking R Bar",
             "name": "TACO",
             "price": "14"
         },
         {
-            "description": "Romaine lettuce with choice of grilled or crispy chicken, tomatoes, bacon, hard-boiled eggs, onions, & bleu cheese crumbles. Served with your choice of dressing.",
+            "description": "Grilled chicken, mixed greens, purple cabbage, carrots, crispy wontons, almonds, mandarin oranges, & stingin\u2018 honey garlic sauce. Served with soy ginger dressing on the side.",
+            "location": "Rocking R Bar",
+            "name": "ASIAN CHICKEN",
+            "price": "14"
+        },
+        {
+            "description": "Romaine lettuce with grilled chicken, tomatoes, bacon, hard-boiled eggs, onions, & bleu cheese crumbles. Served with your choice of dressing.",
             "location": "Rocking R Bar",
             "name": "CHOPPED COBB",
             "price": "14"
         },
         {
-            "description": "Choice of grilled or crispy chicken over romaine, carrots, onions, & bleu cheese crumbles. Served with bacon bourbon bleu cheese.",
+            "description": "Grilled chicken over romaine, carrots, onions, & bleu cheese crumbles. Served with bacon bourbon bleu cheese & buffalo sauce.",
             "location": "Rocking R Bar",
-            "name": "Buffalo Chicken",
+            "name": "BUFFALO CHICKEN",
             "price": "14"
         },
         {
-            "description": "Mixed greens, bacon, walnuts, apples, & bleu cheese crumbles. Served with strawberry vinaigrette.",
+            "description": "Mixed greens, bacon, candied walnuts, apples, & bleu cheese crumbles. Served with strawberry vinaigrette.",
             "location": "Rocking R Bar",
-            "name": "Strawberry Apple with Grilled Chicken",
+            "name": "STRAWBERRY APPLE WITH GRILLED CHICKEN",
             "price": "15"
-        },
-        {
-            "description": "",
-            "location": "Rocking R Bar",
-            "name": "Onion Rings",
-            "price": "2"
         },
         {
             "description": "",
@@ -1259,7 +1241,19 @@
             "price": "2"
         },
         {
-            "description": "Vanilla, chocolate, huckleberry, peanut butter, oreo, & strawberry.",
+            "description": "",
+            "location": "Rocking R Bar",
+            "name": "House Salad",
+            "price": "2"
+        },
+        {
+            "description": "",
+            "location": "Rocking R Bar",
+            "name": "Caesar Salad",
+            "price": "2"
+        },
+        {
+            "description": "Flavors: Vanilla, Chocolate, Huckleberry, Peanut Butter, Oreo, Salted Caramel, or Strawberry.",
             "location": "Rocking R Bar",
             "name": "MILKSHAKES",
             "price": "7"
@@ -1269,12 +1263,6 @@
             "location": "Rocking R Bar",
             "name": "DEEP FRIED VANILLA ICE CREAM",
             "price": "8"
-        },
-        {
-            "description": "Waffle-cut fries tossed in cinnamon & sugar, drizzled with caramel. Topped with whipped cream & bacon.",
-            "location": "Rocking R Bar",
-            "name": "DESSERT SWEET POTATO FRIES",
-            "price": "9"
         },
         {
             "description": "Three Tacos & Margarita from 11am-9:30pm!",
@@ -1347,7 +1335,7 @@
         {
             "description": "crios - france",
             "location": "Montana Aleworks",
-            "name": "ros\u00c3\u00a9",
+            "name": "ros\u00e9",
             "price": "9/34"
         },
         {
