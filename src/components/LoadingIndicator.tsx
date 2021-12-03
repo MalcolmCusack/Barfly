@@ -3,7 +3,7 @@ import Centerer from "./Centerer";
 
 export default function LoadingIndicator({
     show,
-    size = "10ch",
+    size = "5ch",
     ...rest
 }: {
     show?: boolean;

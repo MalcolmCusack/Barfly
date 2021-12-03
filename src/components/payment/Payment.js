@@ -15,7 +15,7 @@ function Payment() {
     }
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        //event.preventDefault();
 
         const payload = {
             items: JSON.stringify(order),
@@ -27,21 +27,24 @@ function Payment() {
         try {
             const response = await API.graphql(
                 graphqlOperation(createOrder, { input: payload })
-            );
-            //const responseBeer = await API.graphql(graphqlOperation(listBeers))
-            //console.log(response);
-            //orderId = response.data.createOrder.id;
+            ).then((data) => {
+                dispatch({
+                    type: "EMPTY_ORDER",
+                });
+                //console.log("response, ", response)
+                setTimeout( () => {
+                    navigate("/paymentsuccess");
+                }, [100])
+                
+                return data
+            });
+            console.log(response)
         } catch (err) {
             console.log(err);
         }
-
+        
         //orderSubscription.unsubscribe();
-
-        dispatch({
-            type: "EMPTY_ORDER",
-        });
-
-        navigate("/paymentsuccess");
+        
     };
 
     return (
