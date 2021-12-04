@@ -1,0 +1,36 @@
+Rocking R Bar|Cocktail|POMEGRANATE MARTINI|10|Tito’s Handmade Vodka, PAMA liqueur, Cointreau, Lime Juice, Cranberry
+Rocking R Bar|Cocktail|PURPLE HAZE MARTINI|10|Rocking R Bar Huckleberry Vodka, Montana huckleberry syrup, lemon
+Rocking R Bar|Cocktail|THELMA & LOUISE|10|Absolut Citron, Cointreau, Ginger Simple Syrup, Lemon Juice
+Rocking R Bar|Cocktail|WINTER COSMOPOLITAN|10|Tito's Vodka, Triple Sec, Blue Curacao, Lime Juice, Coconut Flakes
+Rocking R Bar|Cocktail|AFTER 8|10|Hendricks Gin, PAMA Liqueur, Fresh Lime, Ginger Simple Syrup, Rosemary
+Rocking R Bar|Cocktail|PICKLE MARTINI|10|World Famous Pickle Vodka, Dry Vermouth, Splash of Lime, Bloody Mary Juice Mix
+Rocking R Bar|Cocktail|LEMON DROP|10|Absolut Citron, Triple Sec, Lemon, Sugar
+Rocking R Bar|Cocktail|AVIATOR MARTINI|10|Aviation Gin, Maraschino Liqueur, Creme de Lavender, Lime Juice
+Rocking R Bar|Cocktail|COLOR ME ROSEMARY|10|Rocking R Bar Vodka, Black Raspberry Liqueur, Lime Juice, Rosemary Simple Syrup
+Rocking R Bar|Cocktail|ESPRESSO MARTINI|10|Espresso Vodka, Coffee Liqueur, Irish Cream
+Rocking R Bar|Cocktail|SAGE ADVICE|10|Rocking R Bar Vodka, Fresh Grapefruit, Sage Simple Syrup
+Rocking R Bar|Cocktail|OLD FASHIONED|10|Buffalo Trace Bourbon, Muddled sugar cubes, orange, cherry, splash of water, dash of bitters
+Rocking R Bar|Cocktail|SALTED CARMEL WHITE RUSSIAN|10|Salted Carmel Bailey's, Disaronno, Half & Half, Carmel Syrup, Rosemary Sprig
+Rocking R Bar|Cocktail|JALEPENO BUSINESS|10|Hornitos Tequlia, Triple Sec, Lime Juice, Muddled Jalapenos, Cucumber, Simple Syrup
+Rocking R Bar|Cocktail|MAPLE RYE SOUR|10|Rocking R Bar Rye Whiskey, Maple Syrup, Lemon Juice, Rosemary Simple Syrup
+Rocking R Bar|Cocktail|MONTANA LEMONADE|10|Rocking R Bar Huckleberry Vodka, huckleberry syrup, lemonade
+Rocking R Bar|Cocktail|GREYHOUND|10|Tito's Handmade Vodka, fresh squeezed grapefruit juice
+Rocking R Bar|Cocktail|MOJITO|10|Bacardi Rum, Muddled Mint Leaves, Lime, Simple Syrup, Soda
+Rocking R Bar|Cocktail|APEROL SPRITZ|10|Aperol, Champagne, Simple Syrup, Soda Water
+Rocking R Bar|Cocktail|WINTER SUN|10|Hendricks Gin, Aperol, Rosemary Simple Syrup, Grapefruit Juice
+Rocking R Bar|Cocktail|MERRY BERRY BUCK|10|Rocking R Bar Rye Whiskey, Lemon Juice, Cranberry Juice, Ginger Beer
+Rocking R Bar|Cocktail|BIG ASS BLOODY MARY OR CAESAR|10|UV Sriracha Vodka, Guinness, bloody seasonings, olive juice mix, horseradish, tobacco, tomato or clamato juice, and topped with everything but the kitchen sink
+Rocking R Bar|Cocktail|ALAN'S BREW|10|Irish Cream, Coffee Liqueur, Cointsrea, Coffee
+Rocking R Bar|Cocktail|ORANGE JULIUS|10|Vanilla McGillycuddy's, Triple Sec, Orange Juice, Milk, Simple Syrup. Served Blended
+Rocking R Bar|Cocktail|MAPLE NUT|10|Buffalo Trace, Irish Cream, Butterscotch Schnapps, Frangelico, Maple Syrup, Coffee
+Rocking R Bar|Cocktail|PINEAPPLE BREEZE |10|Malibu Rum, Three Olives Pinapple, Pineapple Juice, 7-up and served Blended
+Rocking R Bar|Cocktail|HONEY, I'M HOME|10|Willie's Honey Moonshine, Lemon Juice, Hot Apple Cider
+Rocking R Bar|Cocktail|ALPINE|10|Menthol Mint McGillycuddy's, Hot Chocolate, Whipped Cream
+Rocking R Bar|Cocktail|BOOZY MILKSHAKES|12|16oz. BLENDED TO PERFECTION. LOCAL MONTANA-MADE ICE CREAM FROM WILCOXIN'S. VANILLA, CHOCOLATE, HUCKLEBERRY, STRAWBERRY, CHOCOLATE PEANUT BUTTER, MINT CHOCOLATE, OREO, MAPLE CANDIED BACON, & BOOZE. (Oh F Yeah!)
+Rocking R Bar|Cocktail|R BAR MULE|10|Rocking R Bar Vodka, Lime Juice, Gingerbeer
+Rocking R Bar|Cocktail|ALPENGLOW MULE|10|Tito's Vodka, Fresh Grapefruit, Lime, Ginger Beer, Rosemary Sprig
+Rocking R Bar|Cocktail|APPLE SAUCED MULE|10|Crown Royal Apple, Cinnamon Simple Syrup, Fresh Lime, Ginger Beer
+Rocking R Bar|Cocktail|FALL ALL OVER MULE|10|Three Olives Apples & Pears Vodka, Apple Cider, Fresh Lemon, Ginger Beer
+Rocking R Bar|Cocktail|HUCKLEBERRY MULE|10|Rocking R Bar Huckleberry Vodka, Lime Juice, Gingerbeer
+Rocking R Bar|Cocktail|CRANBERRY VANILLA MULE|10|Three Olives Vanilla Vodka, Cranberry Juice, Fresh Lime, Ginger Beer, Rosemary Sprig
+Rocking R Bar|Cocktail|RBAR RYE MULE|10|Rocking R Bar Rye Whiskey, Fresh Lime Juice, Ginger Beer

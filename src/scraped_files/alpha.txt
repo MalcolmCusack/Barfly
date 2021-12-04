@@ -1,0 +1,44 @@
+Montana Aleworks|Beer|siren song honey rye|6|neptune’s brewery, livingston, mt
+Montana Aleworks|Beer|bozone select amber|6|bozeman brewing, bozeman, mt
+Montana Aleworks|Beer|huckleberry cream ale|6|laughing dog brewing, ponderay, id
+Montana Aleworks|Beer|gambler amber|6|outlaw brewing, bozeman, mt
+Montana Aleworks|Beer|gallatin pale ale|6|bozeman brewing, bozeman, mt
+Montana Aleworks|Beer|cold smoke scottish|6|kettlehouse brewing, missoula, mt
+Montana Aleworks|Beer|moose drool brown ale|6|big sky brewing, missoula, mt
+Montana Aleworks|Beer|snowblind white stout|6.5|kettlehouse brewing, missoula, mt
+Montana Aleworks|Beer|muley buck mosaic pale ale|6.5|kettlehouse brewing, missoula, mt
+Montana Aleworks|Beer|galactic cowboy nitro imperial stout|6(12oz)|left hand brewing, longmont,co
+Montana Aleworks|Beer|cinnamon dolce nitro stout|6.5|firestone walker brewing, paso robles, ca
+Montana Aleworks|Beer|raspberry & cherise sour ale|6(8oz)|kettle house brewing, missoula, mt
+Montana Aleworks|Beer|katabatic pale ale|6|katabatic brewing, livingston, mt
+Montana Aleworks|Beer|corner's coffee porter|6|philipsburg brewing, philipsburg , mt
+Montana Aleworks|Beer|eagle mount anniversary pale ale|6|lehrkinds brewing, bozeman, mt
+Montana Aleworks|Beer|hopzone ipa|6|bozeman brewing, bozeman, mt
+Montana Aleworks|Beer|scepter ipa|6.5|draught works, missoula, mt
+Montana Aleworks|Beer|yuppie hammer neipa|6|outlaw brewing, bozeman, mt
+Montana Aleworks|Beer|midas crush ipa|6|map brewing, bozeman, mt
+Montana Aleworks|Beer|yaak attack ipa|6|cabinet mountain brewing, libby, mt
+Montana Aleworks|Beer|patio pounder hazy ipa|6|outlaw brewing, bozeman, mt
+Montana Aleworks|Beer|summit dog double ipa|6|outlaw brewing, bozeman, mt
+Montana Aleworks|Beer|magic hobo monkey neipa|6.5|meadowlark brewing, sidney, mt
+Montana Aleworks|Beer|bozeman-ale works dry hopped hopzone|6|bozeman brewing, bozeman, mt
+Montana Aleworks|Beer|shake-a-day ipa|6|big sky brewing, missoula, mt
+Montana Aleworks|Beer|caravan double ipa|6|uinta brewing, salt lake city, ut
+Montana Aleworks|Beer|hazy little thing ipa|6|sierra nevada brewing, chico, ca
+Montana Aleworks|Beer|czech mate pilsner|6|red lodge ales brewing, red lodge, mt
+Montana Aleworks|Beer|bavik super pilsner|6|brewery de brabandere, bavikhove, belgium
+Montana Aleworks|Beer|razzu! raspberry wheat|6|philipsburg brewing, philipsburg, mt
+Montana Aleworks|Beer|beltian white wheat|6|harvest moon brewing, belt, mt
+Montana Aleworks|Beer|helio hefeweizen|6|red lodge ales brewing, red lodge, mt
+Montana Aleworks|Beer|party mexican lager|6|map brewing, bozeman, mt
+Montana Aleworks|Beer|montana helles lager|6|bayern brewing, missoula, mt
+Montana Aleworks|Beer|hoodoo hefeweizen|6|cabinet mountain brewing, libby, mt
+Montana Aleworks|Beer|water works tropical express seltzer|5.5|draught works, missoula, mt
+Montana Aleworks|Beer|water works citrus cowboy seltzer|5.5|draught works, missoula, mt
+Montana Aleworks|Beer|big sky huckleberry-lemonade seltzer|5.5|big sky brewing, missoula, mt
+Montana Aleworks|Beer|beaverhead root beer on tap|5|gluten free, beaverhead brewery, dillon, mt
+Montana Aleworks|Beer|finnriver black currant cider|7(12oz)|finnriver cidery, chimacum, wa
+Montana Aleworks|Beer|raspberry & cherise sour ale|6(8oz)|kettle house brewing, missoula, mt
+Montana Aleworks|Beer|allkind tropical turmeric hard kombucha|7|odell brewing, fort collins, co
+Montana Aleworks|Beer|run wild ipa|5.5|athletic brewing, san diego, ca
+Montana Aleworks|Beer|free wave hazy ipa|5.5|athletic brewing, san diego, ca

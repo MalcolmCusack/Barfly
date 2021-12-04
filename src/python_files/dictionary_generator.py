@@ -2,8 +2,8 @@ import json
 from os import listdir
 from os.path import isfile, join
 
-json_path = "A:/Fall_2021/CSCI_331/Barfly/Barfly/src/json_dictionary/dictionary.json"
-scanned_files_path = "A:/Fall_2021/CSCI_331/Barfly/Barfly/src/scraped_files/"
+json_path = "C:/Fall_2021/CSCI_331/Final_Project/Barfly/src/json_dictionary/dictionary.json"
+scanned_files_path = "C:/Fall_2021/CSCI_331/Final_Project/Barfly/src/scraped_files/"
 
 output = {}
 
@@ -30,3 +30,5 @@ file = open(json_path, "w")
 for item in dump:
     file.write(item)
 file.close()
+
+print("JSON Generation Completed")
