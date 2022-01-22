@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
+import ChangePassword from "./components/auth/passwordReset/ChangePassword";
 import Welcome from "./components/welcome";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
@@ -227,6 +228,15 @@ function App() {
                                             element={
                                                 <Common>
                                                     <OrderStatus />
+                                                </Common>
+                                            }
+                                        />
+
+                                            <Route
+                                            path="/changepass"
+                                            element={
+                                                <Common>
+                                                    <ChangePassword />
                                                 </Common>
                                             }
                                         />

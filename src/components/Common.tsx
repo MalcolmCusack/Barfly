@@ -152,7 +152,14 @@ export default function Common({ children }: { children: any }) {
                         >
                             Order Summary
                         </ListItemButton>
-                            
+                        <ListItemButton
+                            onClick={() => {
+                                closeDrawer();
+                                navigate("/changepass");
+                            }}
+                        >
+                            Change Password
+                        </ListItemButton>
                             </>
                            
 
