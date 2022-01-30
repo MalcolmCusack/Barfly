@@ -16,7 +16,7 @@ const SignUp = () => {
     const [password, setPassword] = useState(null);
     const [password2, setPassword2] = useState(null);
     const [formIssue, setFormIssue_raw] = useState("");
-    function setFormIssue(value) {
+    function setFormIssue(value : string) {
         setFormIssue_raw(value);
         setMessage(value);
     }
@@ -30,6 +30,7 @@ const SignUp = () => {
     const [signingUp, setSigningUp] = useState(false);
     const [confirming, setConfirming] = useState(false);
 
+
     useEffect(() => {
         if (email === null || password === null || password2 === null) {
             setFormIssue("");
@@ -42,9 +43,13 @@ const SignUp = () => {
         } else if (name === "") {
             setFormIssue("Name is Blank");
         } else if (phone === "") {
-            setFormIssue("Phone Number is Blank");
-        } else if (age == "") {
-            setFormIssue("Age is Blank");
+            setFormIssue("Phone is Blank");
+        } else if (phone.match(/^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/)) {
+            setFormIssue("Phone Number Issn't Valid")
+        } else if (!age) {
+            setFormIssue("Age is Blank")
+        } else if (parseInt(age) < 21) {
+            setFormIssue("You Must be 21 Years Old")
         } else {
             setFormIssue(null);
         }
@@ -67,12 +72,14 @@ const SignUp = () => {
                         id: dataResponse.userSub,
                         name: name,
                         email: email,
+                        phone: phone,
+                        age: age.toString()
                     },
                 })
             );
             const userResponse = await user;
             setSignedUp(true);
-
+            return userResponse
             //onCreateAccount(name)
             //navigate('/confirmSignUp');
         } catch (err) {
@@ -215,13 +222,14 @@ const SignUp = () => {
                         />
                         <TextField
                             margin="dense"
-                            value={age ?? ""}
+                            value={age}
                             onChange={(e) => setAge(e.target.value)}
                             label="age"
                             type="number"
                             required
                             style={{ width: "20ch", minWidth: "10ch" }}
                         />
+                
                     </Box>
                     <Box margin="1ch" marginBottom="1.3ch" lineHeight=".5em">
                         {message}
