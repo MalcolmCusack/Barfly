@@ -14,12 +14,15 @@ import {
 } from "@mui/material";
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
+import ChangePassword from "./components/auth/passwordReset/ChangePassword";
 import Welcome from "./components/welcome";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
 import OrderStatus from "./components/order/OrderStatus";
 import { Box } from "@mui/material";
 import { SnackbarProvider } from "notistack";
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from "@stripe/react-stripe-js";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
 import Common from "./components/Common";
@@ -69,6 +72,8 @@ const theme = createTheme({
 });
 
 function App() {
+    const stripe = loadStripe("pk_test_51KF9vsKLUQNKwRj5JSihMuNbCzb7bZ2GvHMwPggdS7W2fJsaoHrHXGtEamHHHD7l6DD2mIQ5gOHeB9pj4nemhcny00qmvTpHNZ");
+
     const [{ state, user }, dispatch] = useStateValue();
 
     const [triggerFetch, setTriggerFetch] = useState(false);
@@ -208,7 +213,9 @@ function App() {
                                             path="/payment"
                                             element={
                                                 <Common>
-                                                    <Payment />
+                                                    <Elements stripe={stripe}> 
+                                                        <Payment />                                                      
+                                                    </Elements>
                                                 </Common>
                                             }
                                         />
@@ -227,6 +234,15 @@ function App() {
                                             element={
                                                 <Common>
                                                     <OrderStatus />
+                                                </Common>
+                                            }
+                                        />
+
+                                            <Route
+                                            path="/changepass"
+                                            element={
+                                                <Common>
+                                                    <ChangePassword />
                                                 </Common>
                                             }
                                         />

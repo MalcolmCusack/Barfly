@@ -43,17 +43,23 @@ const MenuItem = ({ item }) => {
                 alignitems="flex-start"
                 paddingLeft="1ch"
             >
-                <Collapse in={descriptionOpen}
-                // style={{ borderBottom: "1px dotted" }}
-                sx={{borderBottom:"1px dotted",borderColor:theme => theme.palette.text.secondary}}
+                <Collapse
+                    in={descriptionOpen}
+                    // style={{ borderBottom: "1px dotted" }}
+                    sx={{
+                        borderBottom: "1px dotted",
+                        borderColor: (theme) => theme.palette.text.secondary,
+                    }}
                 >
                     <Typography
                         textAlign="left"
                         color={(theme) => theme.palette.text.secondary}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        test description test description test description test
-                        descriptanalkfnasd
+                        Tanta vis admonitionis inest in locis; An haec ab eo non
+                        dicuntur? Iubet igitur nos Pythius Apollo noscere nosmet
+                        ipsos. Quis enim redargueret? salvum esse flentes sui
+                        respondissent, rogavit essentne fusi hostes.
                     </Typography>
                 </Collapse>
                 <Typography

@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth, API, graphqlOperation } from "aws-amplify";
 import {  useNavigate } from "react-router-dom";
@@ -96,7 +96,8 @@ const SignUp = () => {
             navigate("/");
         } catch (error) {
             setMessage(error.message);
-        } finally{
+            console.log("error confirming sign up", error);
+        } finally {
             setConfirming(false);
         }
     }
@@ -123,11 +124,11 @@ const SignUp = () => {
                     type="text"
                     required
                 />
-                
+
                 <Box minHeight="2em">{message}</Box>
-                <ButtonGroup style={{ width:"min(50ch, 100%)" }}>
+                <ButtonGroup style={{ width: "min(50ch, 100%)" }}>
                     <Button
-                    style={{width:"50%"}}
+                        style={{ width: "50%" }}
                         size="large"
                         variant="outlined"
                         onClick={() => navigate("/")}
@@ -136,11 +137,11 @@ const SignUp = () => {
                     </Button>
                     {confirming ? (
                         <Box width="50%">
-                            <LoadingIndicator size="3ch"/>
+                            <LoadingIndicator size="3ch" />
                         </Box>
                     ) : (
                         <Button
-                        style={{width:"50%"}}
+                            style={{ width: "50%" }}
                             size="large"
                             variant="contained"
                             onClick={confirmSignUp}
@@ -230,7 +231,9 @@ const SignUp = () => {
                         />
                 
                     </Box>
-                    <Box margin="1ch" marginBottom="1.3ch" lineHeight=".5em">{message}</Box>
+                    <Box margin="1ch" marginBottom="1.3ch" lineHeight=".5em">
+                        {message}
+                    </Box>
                     <Centerer>
                         <ButtonGroup
                             style={{ width: "40ch", minWidth: "25ch" }}

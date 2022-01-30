@@ -1,0 +1,193 @@
+03/Dec/2021 11:52:08 Starting Montana Aleworks Beer Function
+03/Dec/2021 11:52:08 Finished Montana Aleworks Beer Function
+03/Dec/2021 11:54:12 Starting Montana Aleworks Cocktail Function
+03/Dec/2021 11:54:13 ERROR: Price unavailible for huckleberry margarita
+03/Dec/2021 11:54:13 ERROR: Price unavailible for cuba libre
+03/Dec/2021 11:54:13 Finished Montana Aleworks Cocktail Function
+03/Dec/2021 11:55:18 Starting Montana Aleworks Wine Function
+03/Dec/2021 11:55:19 Finished Montana Aleworks Wine Function
+03/Dec/2021 11:56:36 Starting Pourhouse Food Function
+03/Dec/2021 11:56:37 ERROR: Description unavailible for FRENCH FRIES | 6.50
+03/Dec/2021 11:56:37 ERROR: Description unavailible for TATER TOTS | 7.50
+03/Dec/2021 11:56:37 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+03/Dec/2021 11:56:37 ERROR: Description unavailible for ONION RINGS | 8.50
+03/Dec/2021 11:56:37 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+03/Dec/2021 11:56:37 ERROR: Description unavailible for CUP SOUP | 4.00
+03/Dec/2021 11:56:37 ERROR: Description unavailible for BOWL SOUP | 5.50
+03/Dec/2021 11:56:37 Finished Pourhouse Food Function
+03/Dec/2021 11:57:54 Starting Rocking R Drinks Function
+03/Dec/2021 11:57:55 Finished Rocking R Drinks Function
+03/Dec/2021 11:58:46 Starting Rocking R Food Function
+03/Dec/2021 11:58:46 ERROR: Description unavailible for Fresh House-Cut Fries
+03/Dec/2021 11:58:46 ERROR: Price unavailible for Fresh House-Cut Fries
+03/Dec/2021 11:58:46 ERROR: Description unavailible for Chips & Salsa
+03/Dec/2021 11:58:46 ERROR: Price unavailible for Chips & Salsa
+03/Dec/2021 11:58:46 ERROR: Description unavailible for Tangy Slaw
+03/Dec/2021 11:58:46 ERROR: Price unavailible for Tangy Slaw
+03/Dec/2021 11:58:46 ERROR: Description unavailible for Sweet Potato Fries
+03/Dec/2021 11:58:46 ERROR: Description unavailible for House Salad
+03/Dec/2021 11:58:46 ERROR: Description unavailible for Caesar Salad
+03/Dec/2021 11:58:46 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+03/Dec/2021 11:58:46 ERROR: Description unavailible for GRILLED CHEESE
+03/Dec/2021 11:58:46 ERROR: Description unavailible for CHICKEN TENDERS
+03/Dec/2021 11:58:46 ERROR: Description unavailible for CHEESE QUESADILLA
+03/Dec/2021 11:58:46 ERROR: Description unavailible for CHEESEBURGER
+03/Dec/2021 11:58:46 Finished Rocking R Food Function
+03/Dec/2021 12:10:08 Starting Montana Aleworks Beer Function
+03/Dec/2021 12:10:09 Finished Montana Aleworks Beer Function
+03/Dec/2021 12:11:21 Starting Montana Aleworks Beer Function
+03/Dec/2021 12:11:22 Finished Montana Aleworks Beer Function
+03/Dec/2021 12:11:22 Starting Montana Aleworks Cocktail Function
+03/Dec/2021 12:11:24 ERROR: Price unavailible for huckleberry margarita
+03/Dec/2021 12:11:24 ERROR: Price unavailible for cuba libre
+03/Dec/2021 12:11:24 Finished Montana Aleworks Cocktail Function
+03/Dec/2021 12:11:24 Starting Montana Aleworks Wine Function
+03/Dec/2021 12:11:24 Finished Montana Aleworks Wine Function
+03/Dec/2021 12:11:24 Starting Pourhouse Food Function
+03/Dec/2021 12:11:25 ERROR: Description unavailible for FRENCH FRIES | 6.50
+03/Dec/2021 12:11:25 ERROR: Description unavailible for TATER TOTS | 7.50
+03/Dec/2021 12:11:25 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+03/Dec/2021 12:11:25 ERROR: Description unavailible for ONION RINGS | 8.50
+03/Dec/2021 12:11:25 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+03/Dec/2021 12:11:25 ERROR: Description unavailible for CUP SOUP | 4.00
+03/Dec/2021 12:11:25 ERROR: Description unavailible for BOWL SOUP | 5.50
+03/Dec/2021 12:11:25 Finished Pourhouse Food Function
+03/Dec/2021 12:11:25 Starting Rocking R Drinks Function
+03/Dec/2021 12:11:26 Finished Rocking R Drinks Function
+03/Dec/2021 12:11:26 Starting Rocking R Food Function
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:11:26 ERROR: Price unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Chips & Salsa
+03/Dec/2021 12:11:26 ERROR: Price unavailible for Chips & Salsa
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Tangy Slaw
+03/Dec/2021 12:11:26 ERROR: Price unavailible for Tangy Slaw
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Sweet Potato Fries
+03/Dec/2021 12:11:26 ERROR: Description unavailible for House Salad
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Caesar Salad
+03/Dec/2021 12:11:26 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+03/Dec/2021 12:11:26 ERROR: Description unavailible for GRILLED CHEESE
+03/Dec/2021 12:11:26 ERROR: Description unavailible for CHICKEN TENDERS
+03/Dec/2021 12:11:26 ERROR: Description unavailible for CHEESE QUESADILLA
+03/Dec/2021 12:11:26 ERROR: Description unavailible for CHEESEBURGER
+03/Dec/2021 12:11:26 Finished Rocking R Food Function
+03/Dec/2021 12:11:26 Starting Rocking R Food Function
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:11:26 ERROR: Price unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Chips & Salsa
+03/Dec/2021 12:11:26 ERROR: Price unavailible for Chips & Salsa
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Tangy Slaw
+03/Dec/2021 12:11:26 ERROR: Price unavailible for Tangy Slaw
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Sweet Potato Fries
+03/Dec/2021 12:11:26 ERROR: Description unavailible for House Salad
+03/Dec/2021 12:11:26 ERROR: Description unavailible for Caesar Salad
+03/Dec/2021 12:11:26 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+03/Dec/2021 12:11:26 ERROR: Description unavailible for GRILLED CHEESE
+03/Dec/2021 12:11:26 ERROR: Description unavailible for CHICKEN TENDERS
+03/Dec/2021 12:11:26 ERROR: Description unavailible for CHEESE QUESADILLA
+03/Dec/2021 12:11:26 ERROR: Description unavailible for CHEESEBURGER
+03/Dec/2021 12:11:26 Finished Rocking R Food Function
+<_io.TextIOWrapper name='C:/Fall_2021/CSCI_331/Final_Project/Barfly/src/python_files/log_files/03_Dec_2021.txt' mode='a' encoding='cp1252'> Completed
+03/Dec/2021 12:11:49 Starting Montana Aleworks Beer Function
+03/Dec/2021 12:11:50 Finished Montana Aleworks Beer Function
+03/Dec/2021 12:11:50 Starting Montana Aleworks Cocktail Function
+03/Dec/2021 12:11:51 ERROR: Price unavailible for huckleberry margarita
+03/Dec/2021 12:11:51 ERROR: Price unavailible for cuba libre
+03/Dec/2021 12:11:51 Finished Montana Aleworks Cocktail Function
+03/Dec/2021 12:11:51 Starting Montana Aleworks Wine Function
+03/Dec/2021 12:11:51 Finished Montana Aleworks Wine Function
+03/Dec/2021 12:11:51 Starting Pourhouse Food Function
+03/Dec/2021 12:11:52 ERROR: Description unavailible for FRENCH FRIES | 6.50
+03/Dec/2021 12:11:52 ERROR: Description unavailible for TATER TOTS | 7.50
+03/Dec/2021 12:11:52 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+03/Dec/2021 12:11:52 ERROR: Description unavailible for ONION RINGS | 8.50
+03/Dec/2021 12:11:52 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+03/Dec/2021 12:11:52 ERROR: Description unavailible for CUP SOUP | 4.00
+03/Dec/2021 12:11:52 ERROR: Description unavailible for BOWL SOUP | 5.50
+03/Dec/2021 12:11:52 Finished Pourhouse Food Function
+03/Dec/2021 12:11:52 Starting Rocking R Drinks Function
+03/Dec/2021 12:11:53 Finished Rocking R Drinks Function
+03/Dec/2021 12:11:53 Starting Rocking R Food Function
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:11:53 ERROR: Price unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Chips & Salsa
+03/Dec/2021 12:11:53 ERROR: Price unavailible for Chips & Salsa
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Tangy Slaw
+03/Dec/2021 12:11:53 ERROR: Price unavailible for Tangy Slaw
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Sweet Potato Fries
+03/Dec/2021 12:11:53 ERROR: Description unavailible for House Salad
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Caesar Salad
+03/Dec/2021 12:11:53 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+03/Dec/2021 12:11:53 ERROR: Description unavailible for GRILLED CHEESE
+03/Dec/2021 12:11:53 ERROR: Description unavailible for CHICKEN TENDERS
+03/Dec/2021 12:11:53 ERROR: Description unavailible for CHEESE QUESADILLA
+03/Dec/2021 12:11:53 ERROR: Description unavailible for CHEESEBURGER
+03/Dec/2021 12:11:53 Finished Rocking R Food Function
+03/Dec/2021 12:11:53 Starting Rocking R Food Function
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:11:53 ERROR: Price unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Chips & Salsa
+03/Dec/2021 12:11:53 ERROR: Price unavailible for Chips & Salsa
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Tangy Slaw
+03/Dec/2021 12:11:53 ERROR: Price unavailible for Tangy Slaw
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Sweet Potato Fries
+03/Dec/2021 12:11:53 ERROR: Description unavailible for House Salad
+03/Dec/2021 12:11:53 ERROR: Description unavailible for Caesar Salad
+03/Dec/2021 12:11:53 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+03/Dec/2021 12:11:53 ERROR: Description unavailible for GRILLED CHEESE
+03/Dec/2021 12:11:53 ERROR: Description unavailible for CHICKEN TENDERS
+03/Dec/2021 12:11:53 ERROR: Description unavailible for CHEESE QUESADILLA
+03/Dec/2021 12:11:53 ERROR: Description unavailible for CHEESEBURGER
+03/Dec/2021 12:11:53 Finished Rocking R Food Function
+<_io.TextIOWrapper name='C:/Fall_2021/CSCI_331/Final_Project/Barfly/src/python_files/log_files/03_Dec_2021.txt' mode='a' encoding='cp1252'> Completed
+03/Dec/2021 12:12:13 Starting Montana Aleworks Beer Function
+03/Dec/2021 12:12:14 Finished Montana Aleworks Beer Function
+03/Dec/2021 12:12:14 Starting Montana Aleworks Cocktail Function
+03/Dec/2021 12:12:15 ERROR: Price unavailible for huckleberry margarita
+03/Dec/2021 12:12:15 ERROR: Price unavailible for cuba libre
+03/Dec/2021 12:12:15 Finished Montana Aleworks Cocktail Function
+03/Dec/2021 12:12:15 Starting Montana Aleworks Wine Function
+03/Dec/2021 12:12:15 Finished Montana Aleworks Wine Function
+03/Dec/2021 12:12:15 Starting Pourhouse Food Function
+03/Dec/2021 12:12:16 ERROR: Description unavailible for FRENCH FRIES | 6.50
+03/Dec/2021 12:12:16 ERROR: Description unavailible for TATER TOTS | 7.50
+03/Dec/2021 12:12:16 ERROR: Description unavailible for SWEET POTATO FRIES | 8.50
+03/Dec/2021 12:12:16 ERROR: Description unavailible for ONION RINGS | 8.50
+03/Dec/2021 12:12:16 ERROR: Description unavailible for SMALL HOUSE SALAD | 4.00
+03/Dec/2021 12:12:16 ERROR: Description unavailible for CUP SOUP | 4.00
+03/Dec/2021 12:12:16 ERROR: Description unavailible for BOWL SOUP | 5.50
+03/Dec/2021 12:12:16 Finished Pourhouse Food Function
+03/Dec/2021 12:12:16 Starting Rocking R Drinks Function
+03/Dec/2021 12:12:17 Finished Rocking R Drinks Function
+03/Dec/2021 12:12:17 Starting Rocking R Food Function
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:12:17 ERROR: Price unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Chips & Salsa
+03/Dec/2021 12:12:17 ERROR: Price unavailible for Chips & Salsa
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Tangy Slaw
+03/Dec/2021 12:12:17 ERROR: Price unavailible for Tangy Slaw
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Sweet Potato Fries
+03/Dec/2021 12:12:17 ERROR: Description unavailible for House Salad
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Caesar Salad
+03/Dec/2021 12:12:17 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+03/Dec/2021 12:12:17 ERROR: Description unavailible for GRILLED CHEESE
+03/Dec/2021 12:12:17 ERROR: Description unavailible for CHICKEN TENDERS
+03/Dec/2021 12:12:17 ERROR: Description unavailible for CHEESE QUESADILLA
+03/Dec/2021 12:12:17 ERROR: Description unavailible for CHEESEBURGER
+03/Dec/2021 12:12:17 Finished Rocking R Food Function
+03/Dec/2021 12:12:17 Starting Rocking R Food Function
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:12:17 ERROR: Price unavailible for Fresh House-Cut Fries
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Chips & Salsa
+03/Dec/2021 12:12:17 ERROR: Price unavailible for Chips & Salsa
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Tangy Slaw
+03/Dec/2021 12:12:17 ERROR: Price unavailible for Tangy Slaw
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Sweet Potato Fries
+03/Dec/2021 12:12:17 ERROR: Description unavailible for House Salad
+03/Dec/2021 12:12:17 ERROR: Description unavailible for Caesar Salad
+03/Dec/2021 12:12:17 ERROR: Price unavailible for MONDAYS: Half Off Appetizers
+03/Dec/2021 12:12:17 ERROR: Description unavailible for GRILLED CHEESE
+03/Dec/2021 12:12:17 ERROR: Description unavailible for CHICKEN TENDERS
+03/Dec/2021 12:12:17 ERROR: Description unavailible for CHEESE QUESADILLA
+03/Dec/2021 12:12:17 ERROR: Description unavailible for CHEESEBURGER
+03/Dec/2021 12:12:17 Finished Rocking R Food Function
+<_io.TextIOWrapper name='C:/Fall_2021/CSCI_331/Final_Project/Barfly/src/python_files/log_files/03_Dec_2021.txt' mode='a' encoding='cp1252'> Completed

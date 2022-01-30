@@ -1,0 +1,29 @@
+Montana Aleworks|Wine|house white|6/21|vandori pinot grigio - italy
+Montana Aleworks|Wine|sauvignon blanc|9/34|villa maria - new zealand
+Montana Aleworks|Wine|riesling|8/29|bex - germany
+Montana Aleworks|Wine|rosé|9/34|crios - france
+Montana Aleworks|Wine|chardonnay|10/36|kendall jackson - california
+Montana Aleworks|Wine|chardonnay|12/45|raeburn - california
+Montana Aleworks|Wine|chardonnay|38|steele cuvee- california
+Montana Aleworks|Wine|sauvignon blanc|35|whitehaven - new zealand
+Montana Aleworks|Wine|house red|8/29|j dusi - california
+Montana Aleworks|Wine|malbec|9/33|altos las hormigas- argentina
+Montana Aleworks|Wine|malbec|10/36|la flor- argentina
+Montana Aleworks|Wine|zinfandel|10/36|ozv - california
+Montana Aleworks|Wine|pinot noir|12/45|pike road - oregon
+Montana Aleworks|Wine|pinot noir|14/53|banshee - california
+Montana Aleworks|Wine|cabernet|12/45|joel gott - california
+Montana Aleworks|Wine|cabernet|12/45|klinker brick old vine - california
+Montana Aleworks|Wine|merlot|9/32|cannonball - california
+Montana Aleworks|Wine|merlot|10/36|rook - california
+Montana Aleworks|Wine|cabernet|46|francis coppola - california
+Montana Aleworks|Wine|old vine zinfandel|52|turley - california
+Montana Aleworks|Wine|cabernet|40|louis m martini - california
+Montana Aleworks|Wine|pinot noir|52|roco - oregon
+Montana Aleworks|Wine|red blend|55|chappellet mtn. cuvee - california
+Montana Aleworks|Wine|cabernet|53|justin - california
+Montana Aleworks|Wine|pinot noir|36|whole cluster - oregon
+Montana Aleworks|Wine|brut cava|10Split/36|segura viudas - spain
+Montana Aleworks|Wine|prosecco|35|adami, italy
+Montana Aleworks|Wine|vintage brut|44|argyle, or
+Montana Aleworks|Wine|champagne|80|veuve clicquot, france
