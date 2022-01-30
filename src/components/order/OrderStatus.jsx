@@ -70,15 +70,17 @@ function OrderItem({ orderItem, style }) {
 
                 }
             })
+            
 
-            //const userSubResponse = await userSub
+            const userSubResponse = await userSub
             
             //console.log(userSubResponse)
+            return userSubResponse
             
         }
-        subscribe()
+        return subscribe()
 
-    }, [])
+    }, [order, user.attributes.sub])
 
     return (
         <Paper onClick={() => setShowItems((show) => !show)} style={style}>
@@ -152,23 +154,21 @@ export default function OrderStatus() {
 
     useEffect(() => {
 
+
         const listOrdersBy = async () => {
             try {
-                const response_promise = API.graphql(graphqlOperation(listOrders, {filter: {orderStatus: {eq: 'received'}, userID: {eq: user.attributes.sub}}}))
+                const response_promise = API.graphql(graphqlOperation(listOrders, {filter: {orderStatus: {eq: "received"}, userID: {eq: user.attributes.sub}}}))
                 const response = await response_promise
-                //console.log(response)
                 setActiveOrders(response.data.listOrders.items)
                 setIsLoading(false)
             } catch (err) {
                 console.log(err)
             }
         }
-        listOrdersBy()
+        return listOrdersBy()
 
         
-    }, [])
-
-    //console.log(activeOrders)
+    }, [user.attributes.sub])
 
     return (
         <Box>

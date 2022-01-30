@@ -21,7 +21,8 @@ function Payment() {
             items: JSON.stringify(order),
             completed: false,
             userID: user.attributes.sub,
-            orderStatus: 'received'
+            orderStatus: 'received',
+             
         };
 
         try {
@@ -31,17 +32,21 @@ function Payment() {
             //const responseBeer = await API.graphql(graphqlOperation(listBeers))
             //console.log(response);
             //orderId = response.data.createOrder.id;
+            console.log(response)
+            dispatch({
+                type: "EMPTY_ORDER",
+            });
+    
+            navigate("/paymentsuccess");
+            return response;
+            
+
         } catch (err) {
             console.log(err);
         }
-
         //orderSubscription.unsubscribe();
 
-        dispatch({
-            type: "EMPTY_ORDER",
-        });
-
-        navigate("/paymentsuccess");
+        
     };
 
     return (
