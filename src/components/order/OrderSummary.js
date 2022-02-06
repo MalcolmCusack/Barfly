@@ -17,19 +17,24 @@ const OrderSummary = () => {
 
     return (
         <div>
+            <h2>Summary</h2>
+            <div>
+                {order.map(item => {
+                    return <OrderItem key={item.id} item={item} />
+                })}
+            </div>
 
-            <h2>Order Total: $ {getOrderTotal(order).toFixed(2)}</h2>
+            <h4 >Order Total: ${getOrderTotal(order).toFixed(2)}</h4>
         
-            <ButtonGroup style={{borderBottom: '1px solid #fcba03', padding: '15px'}} disableElevation variant='outlined'>
-                <Button  onClick={() => navigate('/')}>Back to Menu</Button>
-                <Button  variant='contained' onClick={() => navigate('/payment')} disabled={order.length === 0}>Checkout</Button>
+            <ButtonGroup style={{ padding: '15px'}} disableElevation variant='outlined'>
+                <Button  className='buttons' style={{backgroundColor:'#292929'}} onClick={() => navigate('/')}>Back to Menu</Button>
+                <Button  className='buttons' variant='contained' onClick={() => navigate('/payment')} 
+                disabled={order.length === 0}>
+                Checkout (${getOrderTotal(order).toFixed(2)})
+                </Button>
             </ButtonGroup>
 
-            <div>
-            {order.map(item => {
-                return <OrderItem key={item.id} item={item} />
-            })}
-            </div>
+            
 
             
             

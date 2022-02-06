@@ -14,10 +14,10 @@ const PaymentSuccess = () => {
 
     return (
         <div>
-            <h2>Your order has been Recieved!</h2>
+            <h2>Order Recieved!</h2>
 
             <ButtonGroup>
-                <Button variant="outlined" onClick={() => navigate("/")}>
+                <Button variant="outlined" onClick={() => navigate("/")} style={{ backgroundColor:'#292929'}}>
                     Back To Menu
                 </Button>
                 <Button

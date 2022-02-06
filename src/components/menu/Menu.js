@@ -63,6 +63,7 @@ const Menu = () => {
             {isLoading ? <LoadingIndicator size="30px" /> : renderMenu()}
             <Box height="2em"/>
             <Button
+                className='buttons'
                 variant="contained"
                 onClick={() => navigate("./ordersummary")}
             >

@@ -1,9 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
 .App {
   text-align: center;
-  
   color: #fcba03;
+}
 
+h2{
+  text-align:left;
+}
 
+body{
+  background-color: #333;
+  font-family: tahoma, sans-serif;
+  letter-spacing: 1px;
+}
+
+.buttons{
+  letter-spacing: 1px !important;
+  
+}
+
+.numbers{
+  margin: 0;
+  margin-left: 10px;
+  text-align: left;
 }
 
 input:-webkit-autofill{
