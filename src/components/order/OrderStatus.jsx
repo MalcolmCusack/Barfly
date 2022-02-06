@@ -161,8 +161,9 @@ export default function OrderStatus() {
                 const response = await response_promise
                 setActiveOrders(response.data.listOrders.items)
                 setIsLoading(false)
+                console.debug(response)
             } catch (err) {
-                console.log(err)
+                console.debug(err)
             }
         }
         return listOrdersBy()
@@ -172,7 +173,7 @@ export default function OrderStatus() {
 
     return (
         <Box>
-            <h1>Orders</h1>
+            <h2>Orders</h2>
             {!isLoading ? activeOrders.map((order) => (
                 <OrderItem
                     key={Math.random(1000)}
@@ -185,7 +186,7 @@ export default function OrderStatus() {
                     }}
                 />
             )) : null}
-            <Button variant="outlined" onClick={() => navigate("/")}>
+            <Button variant="outlined" style={{ backgroundColor:'#292929'}} onClick={() => navigate("/")}>
                 Back to Menu
             </Button>
         </Box>

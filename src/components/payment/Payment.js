@@ -5,7 +5,7 @@ import { getOrderTotal } from "../../state/reducer";
 import { useStateValue } from "../../state/StateProvider";
 import { API, graphqlOperation } from "aws-amplify";
 import { createOrder } from "../../graphql/mutations";
-import CreditCardIcon from '@mui/icons-material/CreditCard';
+//import CreditCardIcon from '@mui/icons-material/CreditCard';
 import {
     useStripe,
     useElements,
@@ -40,7 +40,7 @@ function Payment() {
   
     if (error) {
         //console.log(error.message);
-        setMessage("Payment was unsuccessful");
+        setMessage("Payment was unsuccessful !");
       } else {
         
         //console.log(" token generated!", paymentMethod);
@@ -88,11 +88,11 @@ function Payment() {
                 }
             }
             else{
-                setMessage("Payment was unsuccessful");
+                setMessage("Payment was unsuccessful !");
             }
         } catch (error) {
             console.log(error);
-            setMessage("Payment was unsuccessful");
+            setMessage("Payment was unsuccessful !");
         }        
     }
     setLoading(false);    
@@ -101,15 +101,18 @@ function Payment() {
 
     return (
         <div>
-            <h1>Payment</h1>
-            <h2>Order Total: $ {getOrderTotal(order).toFixed(2)}</h2>
-            <div style={{ width: "35%", margin: "auto", marginTop: "50px", display: "inline-flex" }}>
-                <CreditCardIcon/>
+            <h2>Payment</h2>
+          
+            
+            <div style={{ width: "35%",minWidth: "200px", margin: "auto", marginTop: "50px" }}>     
                 <TextField
                     label="Credit Card Number"
                     name="ccnumber"
                     variant="outlined"
                     fullWidth
+                    style={{ 
+                        backgroundColor:'#292929'
+                    }}
                     InputProps={{
                         inputComponent: StripeInput,
                         inputProps: {
@@ -119,13 +122,16 @@ function Payment() {
                     InputLabelProps={{ shrink: true }}
                 />
             </div>
-            <div style={{ width: "35%", margin: "auto", marginTop: "20px", marginBottom: "20px", display: "flex" }}>
+            <div style={{ width: "35%", minWidth: "200px",margin: "auto", marginTop: "20px", marginBottom: "20px", display: "flex" }}>
                 <TextField 
                     label="Expiration Date"
                     name="ccexp"
                     variant="outlined"
                     required
                     fullWidth
+                    style={{ 
+                        backgroundColor:'#292929'
+                    }}
                     InputProps={{
                         inputProps: {
                            component: CardExpiryElement
@@ -140,7 +146,10 @@ function Payment() {
                     name="cvc"
                     variant="outlined"
                     required
-                    //fullWidth
+                    fullWidth
+                    style={{ 
+                        backgroundColor:'#292929'
+                    }}
                     InputProps={{
                         inputProps: {
                            component: CardCvcElement
@@ -150,15 +159,20 @@ function Payment() {
                     InputLabelProps={{ shrink: true }}
                 ></TextField>
             </div>
-            <Box height="2em">{message}</Box>     
+            <h4>Order Total: ${getOrderTotal(order).toFixed(2)}</h4>     
             <ButtonGroup>
                 <Button
+                    className='buttons'
                     variant="outlined"
                     onClick={() => navigate("/ordersummary")}
+                    style={{ 
+                        backgroundColor:'#292929'
+                    }}
                 >
                     Back to Summary
                 </Button>
                 <Button 
+                    className='buttons'
                     variant="contained" 
                     disabled={loading}
                     onClick={handleSubmit}>
@@ -171,6 +185,7 @@ function Payment() {
                     }     
                 </Button>
             </ButtonGroup>
+            <Box height="2em" style={{marginTop:'20px'}}>{message}</Box>
         </div>
     );
 }

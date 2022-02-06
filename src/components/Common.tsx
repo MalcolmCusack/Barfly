@@ -26,7 +26,7 @@ console.debug("================= console.debug is enabled ===============");
 // Back end push: amplify push
 // Front end push: git push <branch> or origin master
 
-const APPBAR_HEIGHT = "5ch";
+const APPBAR_HEIGHT = "7ch";
 
 export default function Common({ children }: { children: any }) {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -72,8 +72,10 @@ export default function Common({ children }: { children: any }) {
                             onClick={() => navigate("/")}
                             style={{
                                 textDecoration: "none",
-                                fontSize: "3ch",
+                                fontSize: "4ch",
                                 cursor: "pointer",
+                                fontFamily: "Quintessential",
+                                letterSpacing: "2px"
                             }}
                         >
                             Barfly
@@ -137,14 +139,6 @@ export default function Common({ children }: { children: any }) {
                         {user && (
                             <>
                             <ListItemButton
-                                onClick={() => {
-                                    closeDrawer();
-                                    signOut().then(() => navigate("/"));
-                                }}
-                            >
-                                Sign Out
-                            </ListItemButton>
-                            <ListItemButton
                             onClick={() => {
                                 closeDrawer();
                                 navigate("/orderstatus");
@@ -160,6 +154,14 @@ export default function Common({ children }: { children: any }) {
                         >
                             Change Password
                         </ListItemButton>
+                        <ListItemButton
+                                onClick={() => {
+                                    closeDrawer();
+                                    signOut().then(() => navigate("/"));
+                                }}
+                            >
+                                Sign Out
+                            </ListItemButton>
                             </>
                            
 

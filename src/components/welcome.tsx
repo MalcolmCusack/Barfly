@@ -7,7 +7,7 @@ const Welcome = () => {
             <img src={logoWhite} className="App-logo" alt="logo" />
             
 
-            <div style={{ border: "1px solid black" }}>
+            <div>
                 <Menu />
             </div>
         </div>
