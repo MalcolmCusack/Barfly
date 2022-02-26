@@ -1,5 +1,6 @@
 import logoWhite from "../BarflyLogoWhite.png";
-import Menu from "./menu/Menu";
+//import Menu from "./menu/Menu";
+import Bar from "./bars/ViewBars"
 
 const Welcome = () => {
     return (
@@ -8,7 +9,7 @@ const Welcome = () => {
             
 
             <div>
-                <Menu />
+                <Bar/>
             </div>
         </div>
     );

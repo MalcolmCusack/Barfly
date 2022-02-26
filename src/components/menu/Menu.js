@@ -1,32 +1,53 @@
 import { useState, useEffect } from "react";
 import { API, graphqlOperation } from "aws-amplify";
-import { getWholeMenu } from "../../graphql/queries";
+import { getWholeMenu, listMenus } from "../../graphql/queries";
 import LoadingIndicator from "../LoadingIndicator";
 import MenuCategory from "./MenuCategory";
-import { listOrders, listUsers} from "../../graphql/queries";
 import { Box, Button } from "@mui/material";
 import { useNavigate } from "react-router";
+import { useStateValue } from "../../state/StateProvider";
 
 const Menu = () => {
     const [menu, setMenu] = useState({});
+    const [menuID, setMenuID] = useState("");
     const [isLoading, setIsLoading] = useState(true);
-
     const navigate = useNavigate();
+    const [ {currentBar}, dispatch] = useStateValue();
+    //const currentBarID="a0381d31-0b50-494c-9a9d-7b2115679893";
+    //const menuID=
+    
+    
 
     useEffect(() => {
 
         const fetchMenu = async () => {
             try {
-                setIsLoading(true);
                 const response_promise = API.graphql(
+                    graphqlOperation(listMenus, {filter: {barID: {eq: currentBar.id}}})
+                );
+        
+                const response = await response_promise
+                console.log(response)  
+
+                var menuData=response.data.listMenus.items[0]
+                setMenuID(String(menuData.id))
+                
+    
+            } catch (err) {
+                 console.log(err);
+            }           
+
+            try {
+                setIsLoading(true);
+                const tresponse_promise = API.graphql(
                     graphqlOperation(getWholeMenu, {
-                        id: "c7171fde-ffc4-4635-9d9e-ab3852d3d0b9",
+                        id: menuID,
                     })
                 );
                 //const orders_promise = API.graphql(graphqlOperation(listOrders));
 
-                const response = await response_promise
-                setMenu(response.data.getMenu);
+                const tresponse = await tresponse_promise
+                setMenu(tresponse.data.getMenu);
 
                 //const users = API.graphql(graphqlOperation(listUsers))
                 //const userResponse = await users
@@ -42,7 +63,7 @@ const Menu = () => {
         fetchMenu();
 
 
-    }, []);
+    }, [menuID]);
 
     const renderMenu = () => {
         return Object.keys(menu)
@@ -59,13 +80,14 @@ const Menu = () => {
 
     return (
         <Box paddingBottom="5em">
+            <h1>{currentBar.name}</h1>
             <h2>Menu</h2>
             {isLoading ? <LoadingIndicator size="30px" /> : renderMenu()}
             <Box height="2em"/>
             <Button
                 className='buttons'
                 variant="contained"
-                onClick={() => navigate("./ordersummary")}
+                onClick={() => navigate("/ordersummary")}
             >
                 Place Order
             </Button>

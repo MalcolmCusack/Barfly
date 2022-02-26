@@ -1,6 +1,7 @@
 export const initialState = {
     order: [],
     user: null,
+    currentBar: null
 };
 
 export const getOrderTotal = (order: any) =>
@@ -79,6 +80,12 @@ const reducer = (state: any, action: any) => {
                 isLoading: false,
                 isError: false,
                 user: action.payload.user,
+            };
+
+        case "SET_BAR":
+            return {
+                ...state,
+                currentBar : action.bar
             };
 
         case "FETCH_USER_DATA_FAILURE":
