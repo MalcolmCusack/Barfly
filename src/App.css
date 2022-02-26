@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 
 .App {
   text-align: center;
@@ -6,12 +6,16 @@
 }
 
 h2{
+  font-family: 'Racing Sans One';
+  letter-spacing: 1px;
+  font-weight: lighter;
   text-align:left;
 }
 
 body{
   background-color: #333;
-  font-family: tahoma, sans-serif;
+  /*font-family: tahoma, sans-serif;*/
+  font-family: 'Racing Sans One';
   letter-spacing: 1px;
 }
 

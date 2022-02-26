@@ -15,12 +15,16 @@ const OrderSummary = () => {
         navigator(destination)
     }
 
+    const uniqueOrder = [...new Map(order.map(item => 
+        [item["name"], item])).values()]
     return (
         <div>
             <h2>Summary</h2>
             <div>
-                {order.map(item => {
-                    return <OrderItem key={item.id} item={item} />
+                {uniqueOrder.map(item => {
+                    
+                    var count = order.filter((v) => (v.name === item.name)).length;
+                    return <OrderItem key={item.id} item={item} count={count} />
                 })}
             </div>
 

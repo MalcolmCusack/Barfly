@@ -1,9 +1,9 @@
-import { Button } from '@mui/material';
+import { Button, IconButton, Typography } from '@mui/material';
 import { useStateValue } from '../../state/StateProvider';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 import RemoveCircleOutlinedIcon from '@mui/icons-material/RemoveCircleOutlined';
 
-function OrderItem({ item }) {
+function OrderItem({ item, count }) {
 
     const [{order}, dispatch] = useStateValue()
 
@@ -41,10 +41,12 @@ function OrderItem({ item }) {
                 <h5 class='numbers' >${item.price.toFixed(2)}</h5>
             </div>
 
-            <div style={{display: 'flex', justifyContent: 'space-between', maxWidth: '300px', width:'40%'}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', maxWidth: '200px', width:'40%', 
+                  backgroundColor:'rgb(41, 41, 41)', borderRadius: '40px'}}>
                 
-                <Button variant="outlined" onClick={addToOrder}><AddCircleOutlinedIcon></AddCircleOutlinedIcon></Button>
-                <Button variant="outlined" onClick={removeFromOrder}><RemoveCircleOutlinedIcon></RemoveCircleOutlinedIcon></Button>
+                <IconButton variant="outlined" onClick={addToOrder}><AddCircleOutlinedIcon style={{fontSize:'30px'}} color="primary"/></IconButton>
+                 <Typography style={{fontSize:'1.3em', paddingTop:'13px'}}>{count}</Typography>
+                <IconButton variant="outlined" onClick={removeFromOrder}><RemoveCircleOutlinedIcon style={{fontSize:'30px'}} color="primary"/></IconButton>
             </div>
             
 

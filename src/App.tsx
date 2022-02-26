@@ -16,6 +16,7 @@ import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import ChangePassword from "./components/auth/passwordReset/ChangePassword";
 import Welcome from "./components/welcome";
+import Menu from "./components/menu/Menu";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
 import OrderStatus from "./components/order/OrderStatus";
@@ -199,6 +200,15 @@ function App() {
                                                 </Common>
                                             }
                                         />
+
+                                        <Route
+                                            path="/menu"
+                                            element={
+                                                <Common>
+                                                    <Menu />
+                                                </Common>
+                                            }
+                                        />  
 
                                         <Route
                                             path="/ordersummary"
