@@ -4,15 +4,19 @@ import { listBars } from "../../graphql/queries";
 import LoadingIndicator from "../LoadingIndicator";
 import Bar from "./Bar";
 import { Box, Button } from "@mui/material";
+import { useStateValue } from "../../state/StateProvider";
 
 const ViewBars = () => {
     const [barList, setBarList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
    // const currentBarID="8b421edf-e7c3-4e40-8d6a-9d53e04e98c8";
    //var barList=[]
-    
+
+   const [{state}, dispatch] = useStateValue();
+
 
     useEffect(() => {
+        dispatch({ type: "EMPTY_ORDER" });
 
         const fetchBars = async () => {
             try {
@@ -24,10 +28,7 @@ const ViewBars = () => {
                   
                 
                 setBarList(response.data.listBars.items)   
-                  
-                console.log(response.data.listBars.items)
-                console.log(barList)
-    
+                                      
             } catch (err) {
                  console.log(err);
             

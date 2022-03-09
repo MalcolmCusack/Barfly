@@ -12,30 +12,24 @@ const Menu = () => {
     const [menuID, setMenuID] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
-    const [ {currentBar}, dispatch] = useStateValue();
-    //const currentBarID="a0381d31-0b50-494c-9a9d-7b2115679893";
-    //const menuID=
-    
-    
+    const [{ currentBar }] = useStateValue();
 
     useEffect(() => {
-
         const fetchMenu = async () => {
             try {
                 const response_promise = API.graphql(
-                    graphqlOperation(listMenus, {filter: {barID: {eq: currentBar.id}}})
+                    graphqlOperation(listMenus, {
+                        filter: { barID: { eq: currentBar.id } },
+                    })
                 );
-        
-                const response = await response_promise
-                console.log(response)  
 
-                var menuData=response.data.listMenus.items[0]
-                setMenuID(String(menuData.id))
-                
-    
+                const response = await response_promise;
+
+                var menuData = response.data.listMenus.items[0];
+                setMenuID(String(menuData.id));
             } catch (err) {
-                 console.log(err);
-            }           
+                console.log(err);
+            }
 
             try {
                 setIsLoading(true);
@@ -44,26 +38,19 @@ const Menu = () => {
                         id: menuID,
                     })
                 );
-                //const orders_promise = API.graphql(graphqlOperation(listOrders));
 
-                const tresponse = await tresponse_promise
+                const tresponse = await tresponse_promise;
                 setMenu(tresponse.data.getMenu);
-
-                //const users = API.graphql(graphqlOperation(listUsers))
-                //const userResponse = await users
 
             } catch (err) {
                 console.log(err);
-            }
-            finally{
+            } finally {
                 setIsLoading(false);
             }
         };
 
         fetchMenu();
-
-
-    }, [menuID]);
+    }, [ menuID]);
 
     const renderMenu = () => {
         return Object.keys(menu)
@@ -73,7 +60,6 @@ const Menu = () => {
                     key={category}
                     category={category}
                     items={menu[category]}
-                    
                 />
             ));
     };
@@ -83,11 +69,11 @@ const Menu = () => {
             <h1>{currentBar.name}</h1>
             <h2>Menu</h2>
             {isLoading ? <LoadingIndicator size="30px" /> : renderMenu()}
-            <Box height="2em"/>
+            <Box height="2em" />
             <Button
-                className='buttons'
+                className="buttons"
                 variant="contained"
-                onClick={() => navigate("/ordersummary")}
+                onClick={() => navigate(`/${currentBar.id}/ordersummary`)}
             >
                 Place Order
             </Button>

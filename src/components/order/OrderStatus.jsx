@@ -13,9 +13,9 @@ import { useTimeout } from "../../hooks/timing";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useNavigate } from "react-router";
-import { onOrderByUserId} from '../../graphql/subscriptions';
+import { onOrderByUserId } from "../../graphql/subscriptions";
 import { useStateValue } from "../../state/StateProvider";
-import {listOrders} from "../../graphql/queries";
+import { listOrders } from "../../graphql/queries";
 
 //In case subscriptions delete themselves again some how
 /*	onOrderByUserId(userID: String): Order
@@ -33,9 +33,8 @@ function OrderItem({ orderItem, style }) {
     const [showCancel, setShowCancel] = useState(false);
     const timeout = useTimeout();
 
-    const [order, setOrder] = useState(orderItem)
-    const [items, setItems] = useState(JSON.parse(orderItem.items))
-
+    const [order, setOrder] = useState(orderItem);
+    const [items, setItems] = useState(JSON.parse(orderItem.items));
 
     function openCancel() {
         try {
@@ -45,42 +44,38 @@ function OrderItem({ orderItem, style }) {
         }
     }
 
-    const [{ user }, dispatch ] = useStateValue()
+    const [{ user }] = useStateValue();
 
     useEffect(() => {
-        
         const subscribe = async () => {
-
-            
             const userSub = API.graphql({
-                query: onOrderByUserId, 
+                query: onOrderByUserId,
                 variables: {
                     userID: user.attributes.sub,
-            }})
-            .subscribe({
+                },
+            }).subscribe({
                 next: (orderData) => {
-                    const mutatedOrder = orderData.value.data.onOrderByUserId
-                    if (typeof mutatedOrder !== undefined && typeof order !== undefined) {
-                        if(order.id === mutatedOrder.id) {
-
-                            setOrder({...order, orderStatus: mutatedOrder.orderStatus})
+                    const mutatedOrder = orderData.value.data.onOrderByUserId;
+                    if (
+                        typeof mutatedOrder !== undefined &&
+                        typeof order !== undefined
+                    ) {
+                        if (order.id === mutatedOrder.id) {
+                            setOrder({
+                                ...order,
+                                orderStatus: mutatedOrder.orderStatus,
+                            });
                         }
                     }
-                    
+                },
+            });
 
-                }
-            })
-            
+            const userSubResponse = await userSub;
 
-            const userSubResponse = await userSub
-            
-            //console.log(userSubResponse)
-            return userSubResponse
-            
-        }
-        return subscribe()
-
-    }, [order, user.attributes.sub])
+            return userSubResponse;
+        };
+        return subscribe();
+    }, [order, user.attributes.sub]);
 
     return (
         <Paper onClick={() => setShowItems((show) => !show)} style={style}>
@@ -95,13 +90,12 @@ function OrderItem({ orderItem, style }) {
                     {items.length !== 1 && "s"}
                     {" - "}
                     {order.orderStatus}
-
                 </Typography>
-                
+
                 <Box position="relative" bottom="1ch" flexGrow="1">
                     <Collapse
                         in={!showCancel}
-                        style={{ position: "absolute", right: "1ch"}}
+                        style={{ position: "absolute", right: "1ch" }}
                     >
                         <Tooltip title="Cancel" placement="left">
                             <IconButton
@@ -119,7 +113,11 @@ function OrderItem({ orderItem, style }) {
                         in={showCancel}
                         style={{ position: "absolute", right: "1ch" }}
                     >
-                        <Tooltip title="Tap Again to Cancel" open={showCancel} placement="left">
+                        <Tooltip
+                            title="Tap Again to Cancel"
+                            open={showCancel}
+                            placement="left"
+                        >
                             <IconButton
                                 color="primary"
                                 onClick={(e) => {
@@ -134,8 +132,14 @@ function OrderItem({ orderItem, style }) {
             </Box>
             <Collapse in={showItems}>
                 {items.map((item) => (
-                    <Typography key={Math.random(1000)} style={{ marginLeft: "4ch" }}>
-                        <span key={Math.random(1000) + ''} onClick={(e) => e.stopPropagation()}>
+                    <Typography
+                        key={Math.random(1000)}
+                        style={{ marginLeft: "4ch" }}
+                    >
+                        <span
+                            key={Math.random(1000) + ""}
+                            onClick={(e) => e.stopPropagation()}
+                        >
                             ${item.price.toFixed(2)} {item.name}
                         </span>
                     </Typography>
@@ -148,45 +152,53 @@ function OrderItem({ orderItem, style }) {
 export default function OrderStatus() {
     const navigate = useNavigate();
 
-    const [{ user }, dispatch ] = useStateValue()  
-    const [activeOrders, setActiveOrders] = useState()
-    const [isLoading, setIsLoading] = useState(true)
+    const [{ user, currentBar }] = useStateValue();
+    const [activeOrders, setActiveOrders] = useState();
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-
-
         const listOrdersBy = async () => {
             try {
-                const response_promise = API.graphql(graphqlOperation(listOrders, {filter: {orderStatus: {eq: "received"}, userID: {eq: user.attributes.sub}}}))
-                const response = await response_promise
-                setActiveOrders(response.data.listOrders.items)
-                setIsLoading(false)
-                console.debug(response)
+                const response_promise = API.graphql(
+                    graphqlOperation(listOrders, {
+                        filter: {
+                            orderStatus: { eq: "received" },
+                            userID: { eq: user.attributes.sub },
+                        },
+                    })
+                );
+                const response = await response_promise;
+                setActiveOrders(response.data.listOrders.items);
+                setIsLoading(false);
+                console.debug(response);
             } catch (err) {
-                console.debug(err)
+                console.debug(err);
             }
-        }
-        return listOrdersBy()
-
-        
-    }, [user.attributes.sub])
+        };
+        return listOrdersBy();
+    }, [user.attributes.sub]);
 
     return (
         <Box>
             <h2>Orders</h2>
-            {!isLoading ? activeOrders.map((order) => (
-                <OrderItem
-                    key={Math.random(1000)}
-                    orderItem={order}
-                    
-                    style={{
-                        marginBottom: "1em",
-                        textAlign: "left",
-                        padding: "1ch",
-                    }}
-                />
-            )) : null}
-            <Button variant="outlined" style={{ backgroundColor:'#292929'}} onClick={() => navigate("/")}>
+            {!isLoading
+                ? activeOrders.map((order) => (
+                      <OrderItem
+                          key={Math.random(1000)}
+                          orderItem={order}
+                          style={{
+                              marginBottom: "1em",
+                              textAlign: "left",
+                              padding: "1ch",
+                          }}
+                      />
+                  ))
+                : null}
+            <Button
+                variant="outlined"
+                style={{ backgroundColor: "#292929" }}
+                onClick={() => navigate(`/${currentBar.id}/menu`)}
+            >
                 Back to Menu
             </Button>
         </Box>

@@ -13,7 +13,7 @@ function Bar({ bar }) {
             type: "SET_BAR",
             bar: bar,
         })
-        navigate("./menu")
+        navigate(`/${bar.id}/menu`)
     }
 
 
