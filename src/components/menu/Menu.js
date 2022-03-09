@@ -13,6 +13,8 @@ const Menu = () => {
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const [{ currentBar }] = useStateValue();
+    //const currentBarID="a0381d31-0b50-494c-9a9d-7b2115679893";
+    //const menuID=
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -38,10 +40,13 @@ const Menu = () => {
                         id: menuID,
                     })
                 );
+                //const orders_promise = API.graphql(graphqlOperation(listOrders));
 
                 const tresponse = await tresponse_promise;
                 setMenu(tresponse.data.getMenu);
 
+                //const users = API.graphql(graphqlOperation(listUsers))
+                //const userResponse = await users
             } catch (err) {
                 console.log(err);
             } finally {
@@ -50,7 +55,7 @@ const Menu = () => {
         };
 
         fetchMenu();
-    }, [ menuID]);
+    }, [menuID]);
 
     const renderMenu = () => {
         return Object.keys(menu)
