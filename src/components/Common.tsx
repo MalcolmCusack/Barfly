@@ -144,7 +144,7 @@ export default function Common({ children }: { children: any }) {
                                 navigate("/orderstatus");
                             }}
                         >
-                            Order Summary
+                            Order Status
                         </ListItemButton>
                         <ListItemButton
                             onClick={() => {
