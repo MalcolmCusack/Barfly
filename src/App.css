@@ -24,6 +24,21 @@ body{
   
 }
 
+.tab{
+  letter-spacing: 1px !important;
+  background-color: #393939 !important;
+  width: 33%;
+  border: 0 !important;
+}
+
+
+.activeTab{
+  letter-spacing: 1px !important;
+  background-color: #393939 !important;
+  width: 33%;
+  border: 0 !important;
+  border-bottom: 2px solid !important;
+}
 .numbers{
   margin: 0;
   margin-left: 10px;

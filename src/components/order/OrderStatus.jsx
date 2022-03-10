@@ -7,6 +7,7 @@ import {
     Paper,
     Tooltip,
     Typography,
+    ButtonGroup,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useTimeout } from "../../hooks/timing";
@@ -34,7 +35,7 @@ function OrderItem({ orderItem, style }) {
     const timeout = useTimeout();
 
     const [order, setOrder] = useState(orderItem);
-    const [items, setItems] = useState(JSON.parse(orderItem.items));
+    const [items] = useState(JSON.parse(orderItem.items));
 
     function openCancel() {
         try {
@@ -151,10 +152,11 @@ function OrderItem({ orderItem, style }) {
 
 export default function OrderStatus() {
     const navigate = useNavigate();
-
+    const [status, setStatus] = useState("received");
     const [{ user, currentBar }] = useStateValue();
     const [activeOrders, setActiveOrders] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    const [empty, setEmpty] = useState(false);
 
     useEffect(() => {
         const listOrdersBy = async () => {
@@ -162,7 +164,7 @@ export default function OrderStatus() {
                 const response_promise = API.graphql(
                     graphqlOperation(listOrders, {
                         filter: {
-                            orderStatus: { eq: "received" },
+                            orderStatus: { eq: status },
                             userID: { eq: user.attributes.sub },
                         },
                     })
@@ -170,30 +172,65 @@ export default function OrderStatus() {
                 const response = await response_promise;
                 setActiveOrders(response.data.listOrders.items);
                 setIsLoading(false);
+
+                if (response.data.listOrders.items.length === 0) {
+                    setEmpty(true);
+                } else {
+                    setEmpty(false);
+                }
+
                 console.debug(response);
             } catch (err) {
                 console.debug(err);
             }
         };
         return listOrdersBy();
-    }, [user.attributes.sub]);
+    }, [user.attributes.sub, status]);
 
     return (
         <Box>
             <h2>Orders</h2>
-            {!isLoading
-                ? activeOrders.map((order) => (
-                      <OrderItem
-                          key={Math.random(1000)}
-                          orderItem={order}
-                          style={{
-                              marginBottom: "1em",
-                              textAlign: "left",
-                              padding: "1ch",
-                          }}
-                      />
-                  ))
-                : null}
+
+            <ButtonGroup
+                style={{ padding: "15px", width: "100%" }}
+                disableElevation
+                variant="outlined"
+            >
+                <Button
+                    className={status === "received" ? "activeTab" : "tab"}
+                    onClick={() => setStatus("received")}
+                >
+                    Recieved
+                </Button>
+                <Button
+                    className={status === "in-progress" ? "activeTab" : "tab"}
+                    onClick={() => setStatus("in-progress")}
+                >
+                    In-Progress
+                </Button>
+                <Button
+                    className={status === "completed" ? "activeTab" : "tab"}
+                    onClick={() => setStatus("completed")}
+                >
+                    Completed
+                </Button>
+            </ButtonGroup>
+
+            {!isLoading && !empty ? (
+                activeOrders.map((order) => (
+                    <OrderItem
+                        key={Math.random(1000)}
+                        orderItem={order}
+                        style={{
+                            marginBottom: "1em",
+                            textAlign: "left",
+                            padding: "1ch",
+                        }}
+                    />
+                ))
+            ) : (
+                <h2>No items are {status} yet.</h2>
+            )}
             <Button
                 variant="outlined"
                 style={{ backgroundColor: "#292929" }}

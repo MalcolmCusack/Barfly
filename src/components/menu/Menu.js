@@ -3,16 +3,25 @@ import { API, graphqlOperation } from "aws-amplify";
 import { getWholeMenu, listMenus } from "../../graphql/queries";
 import LoadingIndicator from "../LoadingIndicator";
 import MenuCategory from "./MenuCategory";
-import { Box, Button } from "@mui/material";
+import SearchList from "../search/SearchList"
+import { Box, Button, TextField, InputAdornment } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useStateValue } from "../../state/StateProvider";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Menu = () => {
     const [menu, setMenu] = useState({});
     const [menuID, setMenuID] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
-    const [{ currentBar }] = useStateValue();
+    const [ {currentBar}, dispatch] = useStateValue();
+    const [searchText, setSearchText] = useState("");
+    const [items, setItems] = useState([]);
+
+    let searchHandler = (e) => {
+        var lowerCase = e.target.value.toLowerCase();
+        setSearchText(lowerCase);
+    };
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -41,6 +50,9 @@ const Menu = () => {
 
                 const tresponse = await tresponse_promise;
                 setMenu(tresponse.data.getMenu);
+                
+                //Need to iterate through all menu categories to search everything
+                setItems(tresponse.data.getMenu.Beers.items)
 
             } catch (err) {
                 console.log(err);
@@ -50,7 +62,9 @@ const Menu = () => {
         };
 
         fetchMenu();
-    }, [ menuID]);
+
+
+    }, [menuID]);
 
     const renderMenu = () => {
         return Object.keys(menu)
@@ -67,6 +81,18 @@ const Menu = () => {
     return (
         <Box paddingBottom="5em">
             <h1>{currentBar.name}</h1>
+            <div className="search">
+                <TextField
+                  id="outlined-basic"
+                  variant="outlined"
+                  fullWidth
+                  label="Search Menu"
+                  onChange={searchHandler}
+                  style={{ backgroundColor:"#292929", width: "60%", minWidth: "300px" }}
+                  InputProps={{ endAdornment: ( <InputAdornment> <SearchIcon /> </InputAdornment> ) }}
+               />
+               {(searchText!="" && !isLoading) ? <SearchList input={searchText}  data={items} type="menuItem"></SearchList> : null}
+            </div>
             <h2>Menu</h2>
             {isLoading ? <LoadingIndicator size="30px" /> : renderMenu()}
             <Box height="2em" />
