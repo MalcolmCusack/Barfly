@@ -3,6 +3,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import { listBars } from "../../graphql/queries";
 import LoadingIndicator from "../LoadingIndicator";
 import Bar from "./Bar";
+import { useStateValue } from "../../state/StateProvider";
 import SearchList from "../search/SearchList"
 import SearchIcon from "@mui/icons-material/Search";
 import { Box,  TextField, InputAdornment  } from "@mui/material";
@@ -14,12 +15,16 @@ const ViewBars = () => {
     
    // const currentBarID="8b421edf-e7c3-4e40-8d6a-9d53e04e98c8";
    //var barList=[]
+
+   const [{state}, dispatch] = useStateValue();
+
     let searchHandler = (e) => {
         var lowerCase = e.target.value.toLowerCase();
         setSearchText(lowerCase);
     };
 
     useEffect(() => {
+        dispatch({ type: "EMPTY_ORDER" });
 
         const fetchBars = async () => {
             try {
@@ -31,10 +36,7 @@ const ViewBars = () => {
                   
                 
                 setBarList(response.data.listBars.items)   
-                  
-                console.log(response.data.listBars.items)
-                console.log(barList)
-    
+                                      
             } catch (err) {
                  console.log(err);
             

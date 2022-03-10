@@ -16,6 +16,7 @@ import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import ChangePassword from "./components/auth/passwordReset/ChangePassword";
 import Welcome from "./components/welcome";
+import Bar from "./components/bars/Bar";
 import Menu from "./components/menu/Menu";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
@@ -28,6 +29,7 @@ import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswor
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
 import Common from "./components/Common";
 import PaymentSuccess from "./components/payment/PaymentSuccess";
+import ViewBars from "./components/bars/ViewBars";
 
 export const ActionsContext = createContext(
     {} as { fetchData: () => void; signOut: () => Promise<void> }
@@ -196,13 +198,14 @@ function App() {
                                             path="/"
                                             element={
                                                 <Common>
-                                                    <Welcome />
+                             
+                                                    <ViewBars/>
                                                 </Common>
                                             }
                                         />
 
                                         <Route
-                                            path="/menu"
+                                            path="/:barid/menu"
                                             element={
                                                 <Common>
                                                     <Menu />
@@ -211,7 +214,7 @@ function App() {
                                         />  
 
                                         <Route
-                                            path="/ordersummary"
+                                            path="/:barid/ordersummary"
                                             element={
                                                 <Common>
                                                     <OrderSummary />
@@ -220,7 +223,7 @@ function App() {
                                         />
 
                                         <Route
-                                            path="/payment"
+                                            path="/:barid/payment"
                                             element={
                                                 <Common>
                                                     <Elements stripe={stripe}> 
@@ -231,7 +234,7 @@ function App() {
                                         />
 
                                         <Route
-                                            path="/paymentsuccess"
+                                            path="/:barid/paymentsuccess"
                                             element={
                                                 <Common>
                                                     <PaymentSuccess />
@@ -240,7 +243,7 @@ function App() {
                                         />
 
                                         <Route
-                                            path="/orderstatus"
+                                            path="/:barid/orderstatus"
                                             element={
                                                 <Common>
                                                     <OrderStatus />

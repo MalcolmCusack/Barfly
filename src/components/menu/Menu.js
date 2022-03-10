@@ -24,23 +24,21 @@ const Menu = () => {
     };
 
     useEffect(() => {
-
         const fetchMenu = async () => {
             try {
                 const response_promise = API.graphql(
-                    graphqlOperation(listMenus, {filter: {barID: {eq: currentBar.id}}})
+                    graphqlOperation(listMenus, {
+                        filter: { barID: { eq: currentBar.id } },
+                    })
                 );
-        
-                const response = await response_promise
-                //console.log(response)  
 
-                var menuData=response.data.listMenus.items[0]
-                setMenuID(String(menuData.id))
-                
-    
+                const response = await response_promise;
+
+                var menuData = response.data.listMenus.items[0];
+                setMenuID(String(menuData.id));
             } catch (err) {
-                 console.log(err);
-            }           
+                console.log(err);
+            }
 
             try {
                 setIsLoading(true);
@@ -50,17 +48,15 @@ const Menu = () => {
                     })
                 );
 
-                const tresponse = await tresponse_promise
+                const tresponse = await tresponse_promise;
                 setMenu(tresponse.data.getMenu);
-                console.log(tresponse.data.getMenu)
                 
                 //Need to iterate through all menu categories to search everything
                 setItems(tresponse.data.getMenu.Beers.items)
 
             } catch (err) {
                 console.log(err);
-            }
-            finally{
+            } finally {
                 setIsLoading(false);
             }
         };
@@ -69,7 +65,7 @@ const Menu = () => {
 
 
     }, [menuID]);
-    console.log(items)
+
     const renderMenu = () => {
         return Object.keys(menu)
             .filter((category) => category !== "id")
@@ -78,7 +74,6 @@ const Menu = () => {
                     key={category}
                     category={category}
                     items={menu[category]}
-                    
                 />
             ));
     };
@@ -100,11 +95,11 @@ const Menu = () => {
             </div>
             <h2>Menu</h2>
             {isLoading ? <LoadingIndicator size="30px" /> : renderMenu()}
-            <Box height="2em"/>
+            <Box height="2em" />
             <Button
-                className='buttons'
+                className="buttons"
                 variant="contained"
-                onClick={() => navigate("/ordersummary")}
+                onClick={() => navigate(`/${currentBar.id}/ordersummary`)}
             >
                 Place Order
             </Button>

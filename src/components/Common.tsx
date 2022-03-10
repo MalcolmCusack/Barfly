@@ -39,11 +39,10 @@ export default function Common({ children }: { children: any }) {
     function openDrawer() {
         setDrawerOpen(true);
     }
-    const [{ state, user, order }, dispatch] = useStateValue();
-
+    const [{ user, order, currentBar }] = useStateValue();
 
     const navigate = useNavigate();
-    const {signOut} = useContext(ActionsContext);
+    const { signOut } = useContext(ActionsContext);
 
     return (
         <>
@@ -69,13 +68,13 @@ export default function Common({ children }: { children: any }) {
                     {/* appbar-center */}
                     <Box>
                         <Typeography
-                            onClick={() => navigate("/")}
+                            onClick={() => navigate(currentBar ? `/${currentBar.id}/menu` : '/')}
                             style={{
                                 textDecoration: "none",
                                 fontSize: "4ch",
                                 cursor: "pointer",
                                 fontFamily: "Racing Sans One",
-                                letterSpacing: "2px"
+                                letterSpacing: "2px",
                             }}
                         >
                             Barfly
@@ -83,12 +82,12 @@ export default function Common({ children }: { children: any }) {
                     </Box>
                     {/* appbar-right */}
                     <Box position="absolute" right="2ch">
-                        {user && (
+                        {user && currentBar ? (
                             <Tooltip
                                 title={`${order.length} Items in your order`}
                             >
                                 <IconButton
-                                    onClick={() => navigate("/ordersummary")}
+                                    onClick={() => navigate(`/${currentBar.id}/ordersummary`)}
                                 >
                                     <Box
                                         display="inline"
@@ -107,7 +106,7 @@ export default function Common({ children }: { children: any }) {
                                     </Box>
                                 </IconButton>
                             </Tooltip>
-                        )}
+                        ) : null}
                     </Box>
                 </Box>
             </AppBar>
@@ -138,33 +137,44 @@ export default function Common({ children }: { children: any }) {
                     <List>
                         {user && (
                             <>
-                            <ListItemButton
-                            onClick={() => {
-                                closeDrawer();
-                                navigate("/orderstatus");
-                            }}
-                        >
-                            Order Status
-                        </ListItemButton>
-                        <ListItemButton
-                            onClick={() => {
-                                closeDrawer();
-                                navigate("/changepass");
-                            }}
-                        >
-                            Change Password
-                        </ListItemButton>
-                        <ListItemButton
-                                onClick={() => {
-                                    closeDrawer();
-                                    signOut().then(() => navigate("/"));
-                                }}
-                            >
-                                Sign Out
-                            </ListItemButton>
-                            </>
-                           
+                                <ListItemButton
+                                    onClick={() => {
+                                        closeDrawer();
+                                        navigate(
+                                            `/${currentBar.id}/orderstatus`
+                                        );
+                                    }}
+                                >
+                                    Order Summary
+                                </ListItemButton>
+                                <ListItemButton
+                                    onClick={() => {
+                                        closeDrawer();
+                                        navigate(
+                                            `/`
+                                        );
+                                    }}
+                                >
+                                    Choose A Different Bar
+                                </ListItemButton>
 
+                                <ListItemButton
+                                    onClick={() => {
+                                        closeDrawer();
+                                        navigate("/changepass");
+                                    }}
+                                >
+                                    Change Password
+                                </ListItemButton>
+                                <ListItemButton
+                                    onClick={() => {
+                                        closeDrawer();
+                                        signOut().then(() => navigate("/"));
+                                    }}
+                                >
+                                    Sign Out
+                                </ListItemButton>
+                            </>
                         )}
                     </List>
                 </Box>
