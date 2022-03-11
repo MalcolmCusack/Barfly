@@ -26,7 +26,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
 import Common from "./components/Common";
-import PaymentSuccess from "./components/payment/PaymentSuccess";
 import ViewBars from "./components/bars/ViewBars";
 
 export const ActionsContext = createContext(
@@ -232,16 +231,7 @@ function App() {
                                                 </Common>
                                             }
                                         />
-
-                                        <Route
-                                            path="/:barid/paymentsuccess"
-                                            element={
-                                                <Common>
-                                                    <PaymentSuccess />
-                                                </Common>
-                                            }
-                                        />
-
+                                        
                                         <Route
                                             path="/:barid/orderstatus"
                                             element={

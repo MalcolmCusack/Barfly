@@ -41,7 +41,7 @@ const Menu = () => {
                 const bar = await bar_response;
 
                 setBar(bar.data.getBar);
-                console.log(bar.data.getBar)
+
                 dispatch({
                     type: "SET_BAR",
                     bar: bar.data.getBar,
