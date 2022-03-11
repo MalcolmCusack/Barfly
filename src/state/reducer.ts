@@ -58,6 +58,36 @@ function loadOrder(state) {
     }
 }
 
+function loadBar(state) {
+    const bar_str = localStorage.getItem(getOrderStoragekey(state));
+    if (bar_str == null) {
+        return { ...state };
+    }
+
+    const currentBar = (() => {
+        try {
+            return JSON.parse(bar_str);
+        } catch (e) {
+            if (e instanceof SyntaxError) {
+                return null;
+            } else {
+                throw e;
+            }
+        }
+    })();
+
+    if (currentBar == null) {
+        return {
+            ...state,
+        };
+    } else {
+        return {
+            ...state,
+            currentBar: currentBar,
+        };
+    }
+}
+
 // This goes through all the items in the basket and adds them up starting from 0
 // reduces the array to one value
 
@@ -130,6 +160,9 @@ const reducer = (state: any, action: any) => {
 
         case "LOAD_ORDER":
             return loadOrder(state);
+
+        case "LOAD_BAR":
+            return loadBar(state);
 
         default:
             return state;

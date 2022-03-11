@@ -15,8 +15,6 @@ import {
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import ChangePassword from "./components/auth/passwordReset/ChangePassword";
-import Welcome from "./components/welcome";
-import Bar from "./components/bars/Bar";
 import Menu from "./components/menu/Menu";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
@@ -138,16 +136,18 @@ function App() {
         };
 
         HubListener();
+
         fetchUserData().then(() => {
             // load order after loading user data
             dispatch({ type: "LOAD_ORDER" });
+            dispatch({ type: "LOAD_BAR"})
         });
 
         return () => {
             Hub.remove("auth", () => {});
             isMounted = false;
         };
-    }, [triggerFetch]);
+    }, [dispatch, triggerFetch]);
 
     return (
         <ActionsContext.Provider value={{ fetchData, signOut }}>

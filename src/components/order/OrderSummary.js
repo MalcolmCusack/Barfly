@@ -16,6 +16,8 @@ const OrderSummary = () => {
     const uniqueOrder = [
         ...new Map(order.map((item) => [item["name"], item])).values(),
     ];
+
+    console.log(currentBar)
     return (
         <div>
             <h2>Summary</h2>
