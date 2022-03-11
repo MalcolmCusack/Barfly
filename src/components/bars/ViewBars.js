@@ -53,6 +53,7 @@ const ViewBars = () => {
                     backgroundColor: "#292929",
                     width: "60%",
                     minWidth: "300px",
+                    marginTop:'1em'
                 }}
             />
             {searchText !== "" && !isLoading ? (
