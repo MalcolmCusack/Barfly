@@ -3,18 +3,20 @@ import { API, graphqlOperation } from "aws-amplify";
 import { getWholeMenu, listMenus } from "../../graphql/queries";
 import LoadingIndicator from "../LoadingIndicator";
 import MenuCategory from "./MenuCategory";
-import SearchList from "../search/SearchList"
+import SearchList from "../search/SearchList";
 import { Box, Button, TextField, InputAdornment } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useStateValue } from "../../state/StateProvider";
 import SearchIcon from "@mui/icons-material/Search";
+import { useLocation } from "react-router-dom";
+import { getBar } from "../../graphql/queries";
 
 const Menu = () => {
     const [menu, setMenu] = useState({});
     const [menuID, setMenuID] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
-    const [ {currentBar}, dispatch] = useStateValue();
+    const [{ currentBar }, dispatch] = useStateValue();
     const [searchText, setSearchText] = useState("");
     const [items, setItems] = useState([]);
 
@@ -22,6 +24,31 @@ const Menu = () => {
         var lowerCase = e.target.value.toLowerCase();
         setSearchText(lowerCase);
     };
+
+    const location = useLocation();
+
+    const barid = location.pathname.split("/")[1];
+
+    useEffect(() => {
+        const GetBar = () => {
+            try {
+                console.log(barid);
+
+                const bar_response = API.graphql(
+                    graphqlOperation(getBar, {
+                        filter: { id: { eq: barid } },
+                    })
+                );
+
+                const bar = bar_response;
+                console.log(bar);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        GetBar();
+    }, [barid]);
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -50,10 +77,9 @@ const Menu = () => {
 
                 const tresponse = await tresponse_promise;
                 setMenu(tresponse.data.getMenu);
-                
-                //Need to iterate through all menu categories to search everything
-                setItems(tresponse.data.getMenu.Beers.items)
 
+                //Need to iterate through all menu categories to search everything
+                setItems(tresponse.data.getMenu.Beers.items);
             } catch (err) {
                 console.log(err);
             } finally {
@@ -62,9 +88,7 @@ const Menu = () => {
         };
 
         fetchMenu();
-
-
-    }, [menuID]);
+    }, [barid, menuID]);
 
     const renderMenu = () => {
         return Object.keys(menu)
@@ -80,18 +104,35 @@ const Menu = () => {
 
     return (
         <Box paddingBottom="5em">
-            <h1>{currentBar.name}</h1>
+            {/* <h1>{currentBar.name}</h1> */}
             <div className="search">
                 <TextField
-                  id="outlined-basic"
-                  variant="outlined"
-                  fullWidth
-                  label="Search Menu"
-                  onChange={searchHandler}
-                  style={{ backgroundColor:"#292929", width: "60%", minWidth: "300px" }}
-                  InputProps={{ endAdornment: ( <InputAdornment> <SearchIcon /> </InputAdornment> ) }}
-               />
-               {(searchText!="" && !isLoading) ? <SearchList input={searchText}  data={items} type="menuItem"></SearchList> : null}
+                    id="outlined-basic"
+                    variant="outlined"
+                    fullWidth
+                    label="Search Menu"
+                    onChange={searchHandler}
+                    style={{
+                        backgroundColor: "#292929",
+                        width: "60%",
+                        minWidth: "300px",
+                    }}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment>
+                                {" "}
+                                <SearchIcon />{" "}
+                            </InputAdornment>
+                        ),
+                    }}
+                />
+                {searchText != "" && !isLoading ? (
+                    <SearchList
+                        input={searchText}
+                        data={items}
+                        type="menuItem"
+                    ></SearchList>
+                ) : null}
             </div>
             <h2>Menu</h2>
             {isLoading ? <LoadingIndicator size="30px" /> : renderMenu()}
@@ -99,7 +140,7 @@ const Menu = () => {
             <Button
                 className="buttons"
                 variant="contained"
-                onClick={() => navigate(`/${currentBar.id}/ordersummary`)}
+                //onClick={() => navigate(`/${currentBar.id}/ordersummary`)}
             >
                 Place Order
             </Button>
