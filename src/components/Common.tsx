@@ -1,6 +1,5 @@
-//import logoWhite from './BarflyLogoWhite.png';
 import "../App.css";
-import { useState, createContext, useContext } from "react";
+import React,{ useState, createContext, useContext } from "react";
 import { useStateValue } from "../state/StateProvider";
 import {
     AppBar,
@@ -23,8 +22,6 @@ import { ActionsContext } from "../App";
 export const NavigateContext = createContext((path: string) => undefined);
 console.debug("================= console.debug is enabled ===============");
 
-// Back end push: amplify push
-// Front end push: git push <branch> or origin master
 
 const APPBAR_HEIGHT = "7ch";
 

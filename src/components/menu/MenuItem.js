@@ -34,7 +34,6 @@ const MenuItem = ({ item }) => {
             borderColor={(theme) => theme.palette.primary.main}
             borderBottom="1px solid"
             onClick={toggleDescription}
-            // style={{ borderBottom: "1px solid #fcba03", paddingBottom: "20px" }}
         >
             <Typography>{item.name}</Typography>
             <Box

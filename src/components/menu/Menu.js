@@ -56,6 +56,7 @@ const Menu = () => {
 
     useEffect(() => {
         const fetchMenu = async () => {
+            
             try {
                 const response_promise = API.graphql(
                     graphqlOperation(listMenus, {
