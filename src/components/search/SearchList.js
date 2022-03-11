@@ -1,34 +1,38 @@
-import { React, useState, useEffect } from 'react'
+import React from "react";
 import SearchItem from "./SearchItem";
 
 function SearchList(props) {
-
-    console.log(props.data.items)
     var filteredData = props.data.filter((el) => {
         //if no input the return the original
-        if (props.input === '') {
+        if (props.input === "") {
             return el.name;
         }
         //return the item which contains the user input
         else {
-            return el.name.toLowerCase().includes(props.input)
+            return el.name.toLowerCase().includes(props.input);
         }
-    })
-
+    });
 
     return (
         <div
-        style={{backgroundColor:"#292929", width:"60%",minWidth: "300px", margin:"auto",display:"block",borderBottom:"0.5px solid" }}
+            style={{
+                backgroundColor: "#292929",
+                width: "60%",
+                minWidth: "300px",
+                margin: "auto",
+                display: "block",
+                borderBottom: "0.5px solid",
+            }}
         >
             {filteredData.map((item) => (
-                <SearchItem key={item.id} item={item} type={props.type}/>
+                <SearchItem key={item.id} item={item} type={props.type} />
             ))}
         </div>
-    )
+    );
 
     //return (
-   //     null
-   // )
+    //     null
+    // )
 }
 
-export default SearchList
+export default SearchList;

@@ -56,19 +56,26 @@ export default function Common({ children }: { children: any }) {
                     height={APPBAR_HEIGHT}
                 >
                     {/* appbar-left */}
-                    <Box position="absolute" left="2ch">
-                        <IconButton
-                            style={{ justifySelf: "flex-end" }}
-                            onClick={toggleDrawerOpen}
-                            color="primary"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                    </Box>
+                    {user && (
+                        <Box position="absolute" left="2ch">
+                            <IconButton
+                                style={{ justifySelf: "flex-end" }}
+                                onClick={toggleDrawerOpen}
+                                color="primary"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        </Box>
+                    )}
+
                     {/* appbar-center */}
                     <Box>
                         <Typeography
-                            onClick={() => navigate(currentBar ? `/${currentBar.id}/menu` : '/')}
+                            onClick={() =>
+                                navigate(
+                                    currentBar ? `/${currentBar.id}/menu` : "/"
+                                )
+                            }
                             style={{
                                 textDecoration: "none",
                                 fontSize: "4ch",
@@ -87,7 +94,11 @@ export default function Common({ children }: { children: any }) {
                                 title={`${order.length} Items in your order`}
                             >
                                 <IconButton
-                                    onClick={() => navigate(`/${currentBar.id}/ordersummary`)}
+                                    onClick={() =>
+                                        navigate(
+                                            `/${currentBar.id}/ordersummary`
+                                        )
+                                    }
                                 >
                                     <Box
                                         display="inline"
@@ -150,9 +161,7 @@ export default function Common({ children }: { children: any }) {
                                 <ListItemButton
                                     onClick={() => {
                                         closeDrawer();
-                                        navigate(
-                                            `/`
-                                        );
+                                        navigate(`/`);
                                     }}
                                 >
                                     Choose A Different Bar

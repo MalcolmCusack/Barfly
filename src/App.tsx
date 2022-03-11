@@ -15,8 +15,6 @@ import {
 import SignIn from "./components/auth/signIn";
 import SignUp from "./components/auth/signUp";
 import ChangePassword from "./components/auth/passwordReset/ChangePassword";
-import Welcome from "./components/welcome";
-import Bar from "./components/bars/Bar";
 import Menu from "./components/menu/Menu";
 import OrderSummary from "./components/order/OrderSummary";
 import Payment from "./components/payment/Payment";
@@ -28,7 +26,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswordReset";
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
 import Common from "./components/Common";
-import PaymentSuccess from "./components/payment/PaymentSuccess";
 import ViewBars from "./components/bars/ViewBars";
 
 export const ActionsContext = createContext(
@@ -138,16 +135,18 @@ function App() {
         };
 
         HubListener();
+
         fetchUserData().then(() => {
             // load order after loading user data
             dispatch({ type: "LOAD_ORDER" });
+            dispatch({ type: "LOAD_BAR"})
         });
 
         return () => {
             Hub.remove("auth", () => {});
             isMounted = false;
         };
-    }, [triggerFetch]);
+    }, [dispatch, triggerFetch]);
 
     return (
         <ActionsContext.Provider value={{ fetchData, signOut }}>
@@ -232,16 +231,7 @@ function App() {
                                                 </Common>
                                             }
                                         />
-
-                                        <Route
-                                            path="/:barid/paymentsuccess"
-                                            element={
-                                                <Common>
-                                                    <PaymentSuccess />
-                                                </Common>
-                                            }
-                                        />
-
+                                        
                                         <Route
                                             path="/:barid/orderstatus"
                                             element={

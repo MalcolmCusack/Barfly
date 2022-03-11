@@ -73,12 +73,11 @@ function Payment() {
                                 type: "EMPTY_ORDER",
                             });
                             setTimeout(() => {
-                                navigate(`/${currentBar.id}/paymentsuccess`);
+                                navigate(`/${currentBar.id}/orderstatus`);
                             }, [100]);
 
                             return data;
                         });
-
                     } catch (err) {
                         console.log(err);
                     }

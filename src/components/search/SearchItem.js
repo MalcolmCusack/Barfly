@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { Button, Typography, Collapse } from "@mui/material";
+import React from "react";
+import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router";
 import { useStateValue } from "../../state/StateProvider";
 
 const SearchItem = ({ item, type }) => {
-    const [{ order },{currentBar}, dispatch] = useStateValue();
+    const [{ state }, dispatch] = useStateValue();
     const { enqueueSnackbar } = useSnackbar();
-    
+
     const navigate = useNavigate();
 
     const goToMenu = () => {
         dispatch({
             type: "SET_BAR",
             bar: item,
-        })
-        navigate("./menu")
-    }
+        });
+        navigate("./menu");
+    };
 
     const addToOrder = () => {
         dispatch({
@@ -35,20 +35,26 @@ const SearchItem = ({ item, type }) => {
     };
 
     const renderAdd = () => {
-        return <Button
+        return (
+            <Button
                 size="small"
                 variant="contained"
                 onClick={(e) => {
                     e.stopPropagation();
                     addToOrder();
-                 }}
-                >
-                     Add To Order
-                </Button>
+                }}
+            >
+                Add To Order
+            </Button>
+        );
     };
 
     const renderSelect = () => {
-        return <Button variant="outlined" onClick={goToMenu}>Select Bar</Button>
+        return (
+            <Button variant="outlined" onClick={goToMenu}>
+                Select Bar
+            </Button>
+        );
     };
 
     return (
@@ -64,11 +70,9 @@ const SearchItem = ({ item, type }) => {
             backgroundColor="#222"
         >
             <Typography>{item.name}</Typography>
-            
-            {type==="menuItem" ? renderAdd(): null}
-            {type==="bar" ? renderSelect(): null}
 
-          
+            {type === "menuItem" ? renderAdd() : null}
+            {type === "bar" ? renderSelect() : null}
         </Box>
     );
 };
