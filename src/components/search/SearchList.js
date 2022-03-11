@@ -29,10 +29,6 @@ function SearchList(props) {
             ))}
         </div>
     );
-
-    //return (
-    //     null
-    // )
 }
 
 export default SearchList;

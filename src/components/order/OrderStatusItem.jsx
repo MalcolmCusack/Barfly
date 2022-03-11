@@ -32,7 +32,7 @@ export default function OrderStatusItem({ orderItem, style }) {
     const timeout = useTimeout();
 
     const [order, setOrder] = useState(orderItem);
-    const [items, setItems] = useState(JSON.parse(orderItem.items));
+    const [items] = useState(JSON.parse(orderItem.items));
 
     function openCancel() {
         try {
@@ -68,9 +68,6 @@ export default function OrderStatusItem({ orderItem, style }) {
                 },
             });
 
-            //const userSubResponse = await userSub
-
-            //console.log(userSubResponse)
         };
         subscribe();
     }, []);

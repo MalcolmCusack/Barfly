@@ -19,12 +19,12 @@ function Bar({ bar }) {
 
     return (
         <div style={{
-            display: 'flex', justifyContent: 'space-between', padding: '15px', 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            padding: '15px', 
             backgroundColor:'#121212',
             backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))',
             marginBottom:'10px',
-            display: 'flex',
-            justifyContent: 'space-between',
             borderRadius:'9px'}}           
             >
             

@@ -1,4 +1,3 @@
-//import logoWhite from './BarflyLogoWhite.png';
 import "./App.css";
 import { useState, useEffect, createContext } from "react";
 import { useStateValue } from "./state/StateProvider";
@@ -136,6 +135,7 @@ function App() {
 
         HubListener();
 
+
         fetchUserData().then(() => {
             // load order after loading user data
             dispatch({ type: "LOAD_ORDER" });
@@ -231,7 +231,7 @@ function App() {
                                                 </Common>
                                             }
                                         />
-                                        
+
                                         <Route
                                             path="/:barid/orderstatus"
                                             element={
