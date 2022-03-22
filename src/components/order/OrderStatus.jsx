@@ -45,38 +45,38 @@ function OrderItem({ orderItem, style }) {
         }
     }
 
-    const [{ user }] = useStateValue();
+    //const [{ user }] = useStateValue();
 
-    useEffect(() => {
-        const subscribe = async () => {
-            const userSub = API.graphql({
-                query: onOrderByUserId,
-                variables: {
-                    userID: user.attributes.sub,
-                },
-            }).subscribe({
-                next: (orderData) => {
-                    const mutatedOrder = orderData.value.data.onOrderByUserId;
-                    if (
-                        typeof mutatedOrder !== undefined &&
-                        typeof order !== undefined
-                    ) {
-                        if (order.id === mutatedOrder.id) {
-                            setOrder({
-                                ...order,
-                                orderStatus: mutatedOrder.orderStatus,
-                            });
-                        }
-                    }
-                },
-            });
+    // useEffect(() => {
+    //     const subscribe = async () => {
+    //         const userSub = API.graphql({
+    //             query: onOrderByUserId,
+    //             variables: {
+    //                 userID: user.attributes.sub,
+    //             },
+    //         }).subscribe({
+    //             next: (orderData) => {
+    //                 const mutatedOrder = orderData.value.data.onOrderByUserId;
+    //                 if (
+    //                     typeof mutatedOrder !== undefined &&
+    //                     typeof order !== undefined
+    //                 ) {
+    //                     if (order.id === mutatedOrder.id) {
+    //                         setOrder({
+    //                             ...order,
+    //                             orderStatus: mutatedOrder.orderStatus,
+    //                         });
+    //                     }
+    //                 }
+    //             },
+    //         });
 
-            const userSubResponse = await userSub;
+    //         const userSubResponse = await userSub;
 
-            return userSubResponse;
-        };
-        return subscribe();
-    }, [order, user.attributes.sub]);
+    //         return userSubResponse;
+    //     };
+    //     return subscribe();
+    // }, [order, user.attributes.sub]);
 
     return (
         <Paper onClick={() => setShowItems((show) => !show)} style={style}>
@@ -209,8 +209,8 @@ export default function OrderStatus() {
                     In-Progress
                 </Button>
                 <Button
-                    className={status === "completed" ? "activeTab" : "tab"}
-                    onClick={() => setStatus("completed")}
+                    className={status === "complete" ? "activeTab" : "tab"}
+                    onClick={() => setStatus("complete")}
                 >
                     Completed
                 </Button>
