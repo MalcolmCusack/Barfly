@@ -6,6 +6,7 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
+    Navigate
 } from "react-router-dom";
 import {
     ThemeProvider,
@@ -73,7 +74,7 @@ const theme = createTheme({
 function App() {
     const stripe = loadStripe("pk_test_51KF9vsKLUQNKwRj5JSihMuNbCzb7bZ2GvHMwPggdS7W2fJsaoHrHXGtEamHHHD7l6DD2mIQ5gOHeB9pj4nemhcny00qmvTpHNZ");
 
-    const [{ state, user }, dispatch] = useStateValue();
+    const [{ user }, dispatch] = useStateValue();
 
     const [triggerFetch, setTriggerFetch] = useState(false);
 
@@ -190,6 +191,13 @@ function App() {
                                                 </Common>
                                             }
                                         />
+                                        <Route
+                                            path="/:barid/menu"
+                                            element={          
+                                                <Navigate to="/" />                 
+                                            }
+                                        />  
+                                        
                                     </>
                                 ) : (
                                     <>
@@ -206,9 +214,14 @@ function App() {
                                         <Route
                                             path="/:barid/menu"
                                             element={
-                                                <Common>
-                                                    <Menu />
-                                                </Common>
+                                                user ? (
+                                                    <Common>
+                                                        <Menu />
+                                                    </Common>
+                                                ) : (
+                                                <Navigate to="/" />
+                                                )
+                                                
                                             }
                                         />  
 
