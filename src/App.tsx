@@ -6,6 +6,7 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
+    Navigate
 } from "react-router-dom";
 import {
     ThemeProvider,
@@ -206,9 +207,14 @@ function App() {
                                         <Route
                                             path="/:barid/menu"
                                             element={
-                                                <Common>
-                                                    <Menu />
-                                                </Common>
+                                                user ? (
+                                                    <Common>
+                                                        <Menu />
+                                                    </Common>
+                                                ) : (
+                                                <Navigate to="/" />
+                                                )
+                                                
                                             }
                                         />  
 

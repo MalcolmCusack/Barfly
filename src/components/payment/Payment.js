@@ -63,6 +63,7 @@ function Payment() {
                         completed: false,
                         userID: user.attributes.sub,
                         orderStatus: "received",
+                        barID: currentBar.id
                     };
 
                     try {
