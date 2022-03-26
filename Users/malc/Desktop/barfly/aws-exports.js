@@ -29,10 +29,7 @@ const awsmobile = {
         "EMAIL"
     ],
     "aws_user_files_s3_bucket": "barfly94785142da6b4040965c0807e122901a35333-staging",
-    "aws_user_files_s3_bucket_region": "us-west-2",
-    "aws_cognito_login_mechanisms": [
-        "EMAIL"
-    ]
+    "aws_user_files_s3_bucket_region": "us-west-2"
 };
 
 

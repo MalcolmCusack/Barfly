@@ -1839,6 +1839,27 @@ export const schema = {
                         "targetName": "employeeBarId"
                     }
                 },
+                "email": {
+                    "name": "email",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "admin": {
+                    "name": "admin",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "tips": {
+                    "name": "tips",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -2306,5 +2327,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "dd2c4f564a6a147a4e79239b2b3c31ee"
+    "version": "24f058ebdfdb8a8f4f00846811b38156"
 };

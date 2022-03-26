@@ -112,6 +112,9 @@ type Employee @model @auth(rules: [{allow: public}]) @key(name: "byBar", fields:
   Orders: [Order] @connection(keyName: "byEmployee", fields: ["id"])
   barID: ID
   Bar: Bar @connection
+  email: String!
+  admin: Boolean!
+  tips: Float
 }
 
 type Bar @model @auth(rules: [{allow: public}]) {
