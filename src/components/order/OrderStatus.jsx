@@ -45,6 +45,12 @@ function OrderItem({ orderItem, style }) {
         }
     }
 
+    const getTime = () => {
+        const orderDate = new Date(order.createdAt);
+        const time = orderDate.getMonth() + 1 + '/' +  orderDate.getDate() + '/' + orderDate.getFullYear();
+        return time
+    }
+
     //const [{ user }] = useStateValue();
 
     // useEffect(() => {
@@ -81,6 +87,7 @@ function OrderItem({ orderItem, style }) {
     return (
         <Paper onClick={() => setShowItems((show) => !show)} style={style}>
             <Box display="flex" flexDirection="row">
+                <Box display="flex" flexDirection="column">
                 <Typography>
                     $
                     {items
@@ -89,9 +96,14 @@ function OrderItem({ orderItem, style }) {
                     {" - "}
                     {items.length} item
                     {items.length !== 1 && "s"}
-                    {" - "}
-                    {order.orderStatus}
+                    {" on "}
+                    {getTime()}
                 </Typography>
+                
+                <Typography>
+                     Order code : {order.id.substring(0,5)}
+                </Typography>
+                </Box>
 
                 <Box position="relative" bottom="1ch" flexGrow="1">
                     <Collapse
