@@ -67,7 +67,7 @@ function Payment() {
                     };
 
                     try {
-                        const response = await API.graphql(
+                         await API.graphql(
                             graphqlOperation(createOrder, { input: payload })
                         ).then((data) => {
                             dispatch({

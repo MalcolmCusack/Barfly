@@ -149,11 +149,11 @@ export default function Common({ children }: { children: any }) {
                                     onClick={() => {
                                         closeDrawer();
                                         navigate(
-                                            `/${currentBar.id}/orderstatus`
+                                            `/orderstatus`
                                         );
                                     }}
                                 >
-                                    Order Summary
+                                    Order Status
                                 </ListItemButton>
                                 <ListItemButton
                                     onClick={() => {

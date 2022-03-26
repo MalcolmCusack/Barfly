@@ -246,7 +246,7 @@ function App() {
                                         />
 
                                         <Route
-                                            path="/:barid/orderstatus"
+                                            path="/orderstatus"
                                             element={
                                                 <Common>
                                                     <OrderStatus />
