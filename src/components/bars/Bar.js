@@ -29,7 +29,7 @@ function Bar({ bar }) {
             >
             
             <div>
-                <h3 style={{margin: '10px'}}>{bar.name}</h3>
+                <h3 style={{margin: '10px', fontFamily: 'Arial Black'}}>{bar.name}</h3>
                 <h5 >{bar.bio}</h5>
             </div>
 

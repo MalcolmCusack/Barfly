@@ -83,9 +83,15 @@ const Menu = () => {
 
                     const tresponse = await tresponse_promise;
                     setMenu(tresponse.data.getMenu);
-
-                    //Need to iterate through all menu categories to search everything
-                    setItems(tresponse.data.getMenu.Beers.items);
+                    
+                    Object.keys(tresponse.data.getMenu)
+                     .filter((category) => category !== "id")
+                     .map((category) => (
+                         tresponse.data.getMenu[category].items.map((item)=> (
+                            setItems(items => [...items,item])
+                         )
+                     )));
+                     
                 } catch (err) {
                     console.log(err);
                 } finally {
@@ -95,6 +101,7 @@ const Menu = () => {
         };
 
         fetchMenu();
+        console.log(items)
     }, [barid, menuID]);
 
     const renderMenu = () => {
@@ -139,7 +146,7 @@ const Menu = () => {
                             ></SearchList>
                         ) : null}
                     </div>
-                    <h2>Menu</h2>
+                    <h2 style={{fontFamily:"Arial black"}}>Menu</h2>
                     {isLoading ? (
                         <LoadingIndicator size="30px" />
                     ) : (
