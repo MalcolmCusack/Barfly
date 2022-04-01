@@ -2,6 +2,7 @@ import React from "react";
 import SearchItem from "./SearchItem";
 
 function SearchList(props) {
+    
     var filteredData = props.data.filter((el) => {
         //if no input the return the original
         if (props.input === "") {

@@ -3,6 +3,7 @@ import {
     Accordion,
     AccordionDetails,
     AccordionSummary,
+    Typography
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuItem from "./MenuItem";
@@ -10,9 +11,9 @@ import MenuItem from "./MenuItem";
 const MenuCategory = ({ category, items }) => {
 
     return (
-        <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                {category}
+        <Accordion >
+            <AccordionSummary  expandIcon={<ExpandMoreIcon />}>
+            <Typography fontFamily={"Arial Black"} >{category}</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 {items.items.map((item) => (

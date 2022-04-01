@@ -17,6 +17,7 @@ import { useNavigate } from "react-router";
 import { onOrderByUserId } from "../../graphql/subscriptions";
 import { useStateValue } from "../../state/StateProvider";
 import { listOrders } from "../../graphql/queries";
+import _ from "lodash";
 
 //In case subscriptions delete themselves again some how
 /*	onOrderByUserId(userID: String): Order
@@ -182,7 +183,9 @@ export default function OrderStatus() {
                     })
                 );
                 const response = await response_promise;
-                setActiveOrders(response.data.listOrders.items);
+                setActiveOrders(_.orderBy(response.data.listOrders.items, (item) => {
+                    return item.createdAt
+                },'desc'));
                 setIsLoading(false);
 
                 if (response.data.listOrders.items.length === 0) {

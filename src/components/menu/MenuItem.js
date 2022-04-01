@@ -34,8 +34,9 @@ const MenuItem = ({ item }) => {
             borderColor={(theme) => theme.palette.primary.main}
             borderBottom="1px solid"
             onClick={toggleDescription}
+            
         >
-            <Typography>{item.name}</Typography>
+            <Typography fontFamily={"Arial Black"} >{item.name}</Typography>
             <Box
                 display="flex"
                 flexDirection="column"

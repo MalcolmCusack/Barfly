@@ -30,7 +30,7 @@ const ViewBars = () => {
 
                 const response = await response_promise;
 
-                setBarList(response.data.listBars.items);
+                setBarList(response.data.listBars.items.filter((item) => item._deleted === null));
             } catch (err) {
                 console.log(err);
             } finally {
