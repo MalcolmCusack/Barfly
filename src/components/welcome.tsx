@@ -5,8 +5,6 @@ const Welcome = () => {
     return (
         <div>
             <img src={logoWhite} className="App-logo" alt="logo" />
-            
-
             <div>
                 <Bar/>
             </div>

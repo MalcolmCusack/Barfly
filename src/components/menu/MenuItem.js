@@ -1,3 +1,6 @@
+/* This component displays a single menu item and
+the option to select it. */
+
 import { useState } from "react";
 import { Button, Typography, Collapse } from "@mui/material";
 import { Box } from "@mui/system";

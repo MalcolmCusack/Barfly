@@ -1,3 +1,6 @@
+/* This component provides views and toggles that are common 
+throughout the website. */
+
 import "../App.css";
 import React,{ useState, createContext, useContext } from "react";
 import { useStateValue } from "../state/StateProvider";

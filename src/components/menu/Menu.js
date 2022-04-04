@@ -1,3 +1,6 @@
+/* This component gets the menu from the backend
+and displays the items in categories. */
+
 import { useState, useEffect } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { getWholeMenu, listMenus } from "../../graphql/queries";
@@ -84,6 +87,7 @@ const Menu = () => {
                     const tresponse = await tresponse_promise;
                     setMenu(tresponse.data.getMenu);
                     
+                    //iterate though menu to add to search list
                     Object.keys(tresponse.data.getMenu)
                      .filter((category) => category !== "id")
                      .map((category) => (

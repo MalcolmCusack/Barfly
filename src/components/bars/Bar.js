@@ -1,7 +1,9 @@
+/* This component displays a single bar and
+the option to select it. */
+
 import { Button } from '@mui/material';
 import { useStateValue } from '../../state/StateProvider';
 import { useNavigate } from "react-router";
-
 
 function Bar({ bar }) {
     const [ {currentBar}, dispatch] = useStateValue();
