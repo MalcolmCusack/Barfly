@@ -9,6 +9,7 @@ import Bar from "./Bar";
 import { useStateValue } from "../../state/StateProvider";
 import SearchList from "../search/SearchList";
 import { Box, TextField } from "@mui/material";
+import UploadImageToS3WithReactS3 from "../UploadImageToS3WithReactS3"
 
 const ViewBars = () => {
     const [barList, setBarList] = useState([]);
@@ -66,7 +67,7 @@ const ViewBars = () => {
                     type="bar"
                 ></SearchList>
             ) : null}
-
+            <UploadImageToS3WithReactS3/>
             <h2>Popular Bars in Your Area</h2>
             {!isLoading ? (
                 barList.map((bar) => <Bar key={bar.id} bar={bar} />)
