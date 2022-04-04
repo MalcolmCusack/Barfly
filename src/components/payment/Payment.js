@@ -76,7 +76,7 @@ function Payment() {
                                 type: "EMPTY_ORDER",
                             });
                             setTimeout(() => {
-                                navigate(`/${currentBar.id}/orderstatus`);
+                                navigate(`/orderstatus`);
                             }, [100]);
 
                             return data;
