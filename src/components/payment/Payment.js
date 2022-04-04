@@ -1,3 +1,6 @@
+/* This component handles the payment transcation using 
+Stripe.js. */
+
 import { useState } from "react";
 import {
     Button,
@@ -11,7 +14,6 @@ import { getOrderTotal } from "../../state/reducer";
 import { useStateValue } from "../../state/StateProvider";
 import { API, graphqlOperation } from "aws-amplify";
 import { createOrder } from "../../graphql/mutations";
-//import CreditCardIcon from '@mui/icons-material/CreditCard';
 import {
     useStripe,
     useElements,

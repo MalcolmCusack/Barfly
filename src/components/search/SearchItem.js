@@ -1,3 +1,6 @@
+/* This component displays a single search item and
+the option to select it. */
+
 import React from "react";
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";

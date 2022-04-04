@@ -1,3 +1,6 @@
+/* This component displays a user's order history 
+by different categories of 'status'. */
+
 import { useEffect, useState } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import {

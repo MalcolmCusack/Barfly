@@ -1,3 +1,6 @@
+/* This component displays a selected order item and
+the options to order more/less. */
+
 import React from 'react';
 import { IconButton, Typography } from "@mui/material";
 import { useStateValue } from "../../state/StateProvider";

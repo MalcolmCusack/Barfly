@@ -1,3 +1,6 @@
+/* This component displays the list of items in a user's
+cart as well as the order total. */
+
 import { Button, ButtonGroup } from "@mui/material";
 import { useStateValue } from "../../state/StateProvider";
 import OrderItem from "./OrderItem";

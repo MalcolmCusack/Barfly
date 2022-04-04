@@ -1,3 +1,6 @@
+/* This component handles filtering through provided
+input data for search functionality. */
+
 import React from "react";
 import SearchItem from "./SearchItem";
 

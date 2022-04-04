@@ -1,7 +1,9 @@
+/* This component handles Sign-In for 
+users with AWS authentication. */
+
 import { useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth } from "aws-amplify";
-
 import { Link, useNavigate } from "react-router-dom";
 import { TextField, Box } from "@mui/material";
 import Button from "@mui/material/Button";

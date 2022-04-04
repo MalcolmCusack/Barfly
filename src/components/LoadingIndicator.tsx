@@ -1,3 +1,6 @@
+/* This component displays a "loading" component to be used
+when processing/waiting for an action to be completed. */
+
 import { CircularProgress } from "@mui/material";
 import Centerer from "./Centerer";
 
