@@ -18,11 +18,14 @@ function Bar({ bar }) {
         navigate(`/${bar.id}/menu`)
     }
 
+    const barImgUrl = JSON.parse(bar.profileImg)
 
     return (
         <div style={{
             display: 'flex', 
             justifyContent: 'space-between', 
+            flexDirection: 'column',
+            alignItems: 'center',
             padding: '15px', 
             backgroundColor:'#121212',
             backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))',
@@ -31,8 +34,10 @@ function Bar({ bar }) {
             >
             
             <div>
-                <h3 style={{margin: '10px', fontFamily: 'Arial Black'}}>{bar.name}</h3>
-                <h5 >{bar.bio}</h5>
+                <h2 style={{margin: '10px', fontFamily: 'Arial Black', textAlign: 'center'}}>{bar.name}</h2>
+                {barImgUrl && <img  style={{ height: 'auto', width: '10em'}} alt="" src={barImgUrl.img}/>}
+                
+                <h4 >{bar.bio}</h4>
             </div>
 
             <Button variant="outlined" onClick={goToMenu}>Select Bar</Button>
