@@ -1,7 +1,7 @@
 /* This component takes a menu category as
 input and displays the items in it. */
 
-import React from "react";
+import React from 'react';
 import {
     Accordion,
     AccordionDetails,

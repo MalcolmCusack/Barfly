@@ -86,7 +86,6 @@ const Menu = () => {
                     const tresponse = await tresponse_promise;
 
                     setMenu(tresponse.data.getMenu);
-
                     //iterate though menu to add to search list
                     Object.keys(tresponse.data.getMenu)
                         .filter((category) => category !== "id")
