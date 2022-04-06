@@ -21,6 +21,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import SportsBarIcon from "@mui/icons-material/SportsBar";
 import { useNavigate } from "react-router";
 import { ActionsContext } from "../App";
+import DisplayProfileImg from "../Settings/DisplayProfileImg";
 
 export const NavigateContext = createContext((path: string) => undefined);
 console.debug("================= console.debug is enabled ===============");
@@ -63,7 +64,7 @@ export default function Common({ children }: { children: any }) {
                                 onClick={toggleDrawerOpen}
                                 color="primary"
                             >
-                                <MenuIcon />
+                                <DisplayProfileImg  />
                             </IconButton>
                         </Box>
                     )}

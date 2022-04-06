@@ -95,6 +95,7 @@ query MyQuery($id: ID!) {
         id
         name
         price
+        _deleted
         mixers {
           items {
             cocktail {

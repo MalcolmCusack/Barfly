@@ -6,7 +6,10 @@ function Profile() {
   
   return (
     <div>
-        <DisplayProfileImg />
+      <div style={{margin: '1em'}}>
+        <DisplayProfileImg/>
+
+      </div>
         <UploadImageToS3WithReactS3 />
     </div>
 

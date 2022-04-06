@@ -21,6 +21,7 @@ import { onOrderByUserId } from "../../graphql/subscriptions";
 import { useStateValue } from "../../state/StateProvider";
 import { listOrders } from "../../graphql/queries";
 import _ from "lodash";
+import DisplayProfileImg from "../../Settings/DisplayProfileImg";
 
 //In case subscriptions delete themselves again some how
 /*	onOrderByUserId(userID: String): Order
@@ -208,7 +209,9 @@ export default function OrderStatus() {
     return (
         <Box>
             <h2>Orders</h2>
-
+            <div>
+                <DisplayProfileImg size='5em'/>
+            </div>
             <ButtonGroup
                 style={{ padding: "15px", width: "100%" }}
                 disableElevation

@@ -1,51 +1,40 @@
-import { Avatar, IconButton } from '@mui/material'
-import { API, graphqlOperation } from 'aws-amplify';
-import React from 'react'
-import { getUser } from '../graphql/queries';
-import { useStateValue } from '../state/StateProvider';
+import { Avatar } from "@mui/material";
+import { API, graphqlOperation } from "aws-amplify";
+import React from "react";
+import Centerer from "../components/Centerer";
+import { getUser } from "../graphql/queries";
+import { useStateValue } from "../state/StateProvider";
 
-function DisplayProfileImg() {
-
+function DisplayProfileImg(props: any) {
     const [{ user }] = useStateValue();
-    const [profileImg, setProfileImg] = React.useState()
+    const [profileImg, setProfileImg] = React.useState();
 
     const GetUser = async () => {
         try {
             const userRes = API.graphql(
                 graphqlOperation(getUser, {
-                    id: user.attributes.sub
+                    id: user.attributes.sub,
                 })
             );
 
-            const profile:any = await userRes;
-            const location = JSON.parse(profile.data.getUser.profileImg)
-            console.log(location.img)
-            setProfileImg(location.img)
-            //console.log(JSON.parse(profile.data.getUser.profileImg))
-            //setProfileImg(profile)
+            const profile: any = await userRes;
+            const location = JSON.parse(profile.data.getUser.profileImg);
+            setProfileImg(location.img);
+
         } catch (err) {
             console.log(err);
         }
     };
 
-
     React.useEffect(() => {
-    
-        GetUser()
-
+        GetUser();
     }, []);
 
-
-
-    
-  return (
-    <div>
-        <IconButton onClick={() => alert("yeet")}>
-        <Avatar alt='' src={profileImg}/>
-
-        </IconButton>
-    </div>
-  )
+    return (
+        <Centerer>
+            <Avatar sx={{height: props.size, width: props.size }} alt="profile-img" src={profileImg} />
+        </Centerer>
+    );
 }
 
-export default DisplayProfileImg
+export default DisplayProfileImg;
