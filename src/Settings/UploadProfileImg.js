@@ -10,7 +10,6 @@ import { useSnackbar } from "notistack";
 const S3_BUCKET = "barfly-pics";
 const REGION = "us-west-2";
 const ACCESS_KEY = "AKIA33JESCSVFLWNP6VN";
-const SECRET_ACCESS_KEY = "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";
 
 const UploadImageToS3WithReactS3 = () => {
     const [{ user }] = useStateValue();
@@ -59,12 +58,13 @@ const UploadImageToS3WithReactS3 = () => {
             const newFileName = user.attributes.sub;
 
             // TODO change to ENV
+            console.log(process.env.REACT_APP_SECRET_ACCESS_KEY)
             const config = {
                 bucketName: S3_BUCKET,
                 dirName: "user_profile",
                 region: REGION,
                 accessKeyId: ACCESS_KEY,
-                secretAccessKey: SECRET_ACCESS_KEY,
+                secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY
             };
 
             const ReactS3Client = new S3(config);
