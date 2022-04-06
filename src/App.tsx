@@ -27,6 +27,7 @@ import RequestPasswordReset from "./components/auth/passwordReset/RequestPasswor
 import ResetPasswordPage from "./components/auth/passwordReset/ResetPasswordPage";
 import Common from "./components/Common";
 import ViewBars from "./components/bars/ViewBars";
+import Profile from "./Settings/Profile";
 
 export const ActionsContext = createContext(
     {} as { fetchData: () => void; signOut: () => Promise<void> }
@@ -275,6 +276,15 @@ function App() {
                                             element={
                                                 <Common>
                                                     <ChangePassword />
+                                                </Common>
+                                            }
+                                        />
+
+                                         <Route
+                                            path="/profile"
+                                            element={
+                                                <Common>
+                                                    <Profile />
                                                 </Common>
                                             }
                                         />

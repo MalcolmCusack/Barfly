@@ -1411,33 +1411,14 @@ export const getUser = /* GraphQL */ `
       phone
       profileImg
       location
-      payment
       age
       createdAt
       name
       address
-      order
-      orderHistory
-      tabID
       _version
       _deleted
       _lastChangedAt
       updatedAt
-      Orders {
-        nextToken
-        startedAt
-      }
-      Tab {
-        id
-        paid
-        tip
-        timestamp
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
     }
   }
 `;

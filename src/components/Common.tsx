@@ -166,6 +166,14 @@ export default function Common({ children }: { children: any }) {
                                 >
                                     Choose A Different Bar
                                 </ListItemButton>
+                                <ListItemButton
+                                    onClick={() => {
+                                        closeDrawer();
+                                        navigate(`/profile`);
+                                    }}
+                                >
+                                    Profile
+                                </ListItemButton>
 
                                 <ListItemButton
                                     onClick={() => {
