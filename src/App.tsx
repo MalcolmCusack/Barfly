@@ -210,6 +210,22 @@ function App() {
                                                 </Common>
                                             }
                                         />
+                                        <Route
+                                            path="/forgotpass"
+                                            element={
+                                                <Common>
+                                                    <RequestPasswordReset />
+                                                </Common>
+                                            }
+                                        />
+                                        <Route
+                                            path="/resetpass/:email"
+                                            element={
+                                                <Common>
+                                                    <ResetPasswordPage />
+                                                </Common>
+                                            }
+                                        />
 
                                         <Route
                                             path="/:barid/menu"
