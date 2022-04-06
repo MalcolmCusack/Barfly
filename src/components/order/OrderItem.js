@@ -1,3 +1,6 @@
+/* This component displays a selected order item and
+the options to order more/less. */
+
 import React from 'react';
 import { IconButton, Typography } from "@mui/material";
 import { useStateValue } from "../../state/StateProvider";
@@ -40,7 +43,7 @@ function OrderItem({ item, count }) {
         >
             <div>
                 <h3 style={{ margin: "10px" }}>{item.name}</h3>
-                <h5 className="numbers">${item.price.toFixed(2)}</h5>
+                <h5 className="numbers"> {item.price.toFixed(2)}</h5>
             </div>
 
             <div

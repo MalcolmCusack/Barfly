@@ -1,3 +1,6 @@
+/* This component provides views and toggles that are common 
+throughout the website. */
+
 import "../App.css";
 import React,{ useState, createContext, useContext } from "react";
 import { useStateValue } from "../state/StateProvider";
@@ -18,6 +21,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import SportsBarIcon from "@mui/icons-material/SportsBar";
 import { useNavigate } from "react-router";
 import { ActionsContext } from "../App";
+import DisplayProfileImg from "../Settings/DisplayProfileImg";
 
 export const NavigateContext = createContext((path: string) => undefined);
 console.debug("================= console.debug is enabled ===============");
@@ -60,7 +64,7 @@ export default function Common({ children }: { children: any }) {
                                 onClick={toggleDrawerOpen}
                                 color="primary"
                             >
-                                <MenuIcon />
+                                <DisplayProfileImg  />
                             </IconButton>
                         </Box>
                     )}
@@ -162,6 +166,14 @@ export default function Common({ children }: { children: any }) {
                                     }}
                                 >
                                     Choose A Different Bar
+                                </ListItemButton>
+                                <ListItemButton
+                                    onClick={() => {
+                                        closeDrawer();
+                                        navigate(`/profile`);
+                                    }}
+                                >
+                                    Profile
                                 </ListItemButton>
 
                                 <ListItemButton

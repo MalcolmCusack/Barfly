@@ -1,3 +1,7 @@
+/* This component handles Sign Up for 
+users with AWS authentication and adds users
+to the backend. */
+
 import { useEffect, useState } from "react";
 import logoWhite from "../../BarflyLogoWhite.png";
 import { Auth, API, graphqlOperation } from "aws-amplify";

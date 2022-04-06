@@ -86,7 +86,7 @@ query MyQuery($id: ID!) {
         brand
         id
         price
-        
+        _deleted
       }
     }
     Cocktails {
@@ -95,6 +95,7 @@ query MyQuery($id: ID!) {
         id
         name
         price
+        _deleted
         mixers {
           items {
             cocktail {
@@ -102,6 +103,7 @@ query MyQuery($id: ID!) {
               price
               id
               description
+              _deleted
             }
           }
         }
@@ -114,6 +116,7 @@ query MyQuery($id: ID!) {
         type
         description
         id
+        _deleted
       }
     }
     Shots {
@@ -122,6 +125,7 @@ query MyQuery($id: ID!) {
         price
         description
         id
+        _deleted
       }
     }
   }
@@ -1149,6 +1153,7 @@ export const listBars = /* GraphQL */ `
         name
         email
         phone
+        bio
         profileImg
         location
         payment
@@ -1407,33 +1412,14 @@ export const getUser = /* GraphQL */ `
       phone
       profileImg
       location
-      payment
       age
       createdAt
       name
       address
-      order
-      orderHistory
-      tabID
       _version
       _deleted
       _lastChangedAt
       updatedAt
-      Orders {
-        nextToken
-        startedAt
-      }
-      Tab {
-        id
-        paid
-        tip
-        timestamp
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
     }
   }
 `;

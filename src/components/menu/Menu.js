@@ -1,3 +1,6 @@
+/* This component gets the menu from the backend
+and displays the items in categories. */
+
 import { useState, useEffect } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { getWholeMenu, listMenus } from "../../graphql/queries";
@@ -56,7 +59,6 @@ const Menu = () => {
 
     useEffect(() => {
         const fetchMenu = async () => {
-            
             try {
                 const response_promise = API.graphql(
                     graphqlOperation(listMenus, {
@@ -82,16 +84,19 @@ const Menu = () => {
                     );
 
                     const tresponse = await tresponse_promise;
+
                     setMenu(tresponse.data.getMenu);
-                    
+
+                    //iterate though menu to add to search list
                     Object.keys(tresponse.data.getMenu)
-                     .filter((category) => category !== "id")
-                     .map((category) => (
-                         tresponse.data.getMenu[category].items.map((item)=> (
-                            setItems(items => [...items,item])
-                         )
-                     )));
-                     
+                        .filter((category) => category !== "id")
+                        .map((category) =>
+                            tresponse.data.getMenu[category].items
+                                .filter((item) => item._deleted === null)
+                                .map((item) =>
+                                    setItems((items) => [...items, item])
+                                )
+                        );
                 } catch (err) {
                     console.log(err);
                 } finally {
@@ -101,20 +106,21 @@ const Menu = () => {
         };
 
         fetchMenu();
-        console.log(items)
     }, [barid, menuID]);
 
     const renderMenu = () => {
         if (menu) {
             return Object.keys(menu)
                 .filter((category) => category !== "id")
-                .map((category) => (
-                    <MenuCategory
-                        key={category}
-                        category={category}
-                        items={menu[category]}
-                    />
-                ));
+                .map((category) => {
+                    return (
+                        <MenuCategory
+                            key={category}
+                            category={category}
+                            items={menu[category]}
+                        />
+                    );
+                });
         } else {
             return <></>;
         }
@@ -146,7 +152,7 @@ const Menu = () => {
                             ></SearchList>
                         ) : null}
                     </div>
-                    <h2 style={{fontFamily:"Arial black"}}>Menu</h2>
+                    <h2 style={{ fontFamily: "Arial black" }}>Menu</h2>
                     {isLoading ? (
                         <LoadingIndicator size="30px" />
                     ) : (

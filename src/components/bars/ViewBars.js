@@ -1,3 +1,6 @@
+/* This component gets the list of bars from the backend
+and displays them for the user to choose. */
+
 import { useState, useEffect } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { listBars } from "../../graphql/queries";
@@ -63,7 +66,6 @@ const ViewBars = () => {
                     type="bar"
                 ></SearchList>
             ) : null}
-
             <h2>Popular Bars in Your Area</h2>
             {!isLoading ? (
                 barList.map((bar) => <Bar key={bar.id} bar={bar} />)
