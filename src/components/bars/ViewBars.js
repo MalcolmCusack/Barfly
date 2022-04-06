@@ -66,7 +66,6 @@ const ViewBars = () => {
                     type="bar"
                 ></SearchList>
             ) : null}
-
             <h2>Popular Bars in Your Area</h2>
             {!isLoading ? (
                 barList.map((bar) => <Bar key={bar.id} bar={bar} />)

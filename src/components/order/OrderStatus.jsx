@@ -21,6 +21,9 @@ import { onOrderByUserId } from "../../graphql/subscriptions";
 import { useStateValue } from "../../state/StateProvider";
 import { listOrders } from "../../graphql/queries";
 import _ from "lodash";
+import DisplayProfileImg from "../../Settings/DisplayProfileImg";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 //In case subscriptions delete themselves again some how
 /*	onOrderByUserId(userID: String): Order
@@ -92,19 +95,24 @@ function OrderItem({ orderItem, style }) {
         <Paper onClick={() => setShowItems((show) => !show)} style={style}>
             <Box display="flex" flexDirection="row">
                 <Box display="flex" flexDirection="column">
-                <Typography>
-                    $
-                    {items
-                        .reduce((total, item) => total + item.price, 0.0)
-                        .toFixed(2)}
-                    {" - "}
-                    {items.length} item
-                    {items.length !== 1 && "s"}
-                    {" on "}
-                    {getTime()}
-                </Typography>
-                
-                <Typography>
+                <Box display='flex'>
+                    <Typography sx={{marginBottom: '.5em'}}> 
+                        $
+                        {items
+                            .reduce((total, item) => total + item.price, 0.0)
+                            .toFixed(2)}
+                        {" - "}
+                        {items.length} item
+                        {items.length !== 1 && "s"}
+                        {" on "}
+                        {getTime()}
+                    </Typography>
+                    <IconButton sx={{ paddingTop: '0px'}}>
+                        {showItems ? <ArrowDropUpIcon /> : <ArrowDropDownIcon /> }
+                    </IconButton>
+
+                </Box>
+                <Typography sx={{marginBottom: '.5em'}}>
                      Order code : {order.id.substring(0,5)}
                 </Typography>
                 </Box>
@@ -157,7 +165,7 @@ function OrderItem({ orderItem, style }) {
                             key={Math.random(1000) + ""}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            ${item.price.toFixed(2)} {item.name}
+                            ${item.price.toFixed(2)} - {item.name}
                         </span>
                     </Typography>
                 ))}
@@ -208,7 +216,9 @@ export default function OrderStatus() {
     return (
         <Box>
             <h2>Orders</h2>
-
+            <div>
+                <DisplayProfileImg size='5em'/>
+            </div>
             <ButtonGroup
                 style={{ padding: "15px", width: "100%" }}
                 disableElevation

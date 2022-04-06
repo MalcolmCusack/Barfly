@@ -43,7 +43,7 @@ function OrderItem({ item, count }) {
         >
             <div>
                 <h3 style={{ margin: "10px" }}>{item.name}</h3>
-                <h5 className="numbers">${item.price.toFixed(2)}</h5>
+                <h5 className="numbers"> {item.price.toFixed(2)}</h5>
             </div>
 
             <div
