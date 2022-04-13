@@ -9,6 +9,7 @@ import Bar from "./Bar";
 import { useStateValue } from "../../state/StateProvider";
 import SearchList from "../search/SearchList";
 import { Box, TextField } from "@mui/material";
+import { useNavigate } from "react-router";
 
 const ViewBars = () => {
     const [barList, setBarList] = useState([]);
@@ -16,6 +17,16 @@ const ViewBars = () => {
     const [searchText, setSearchText] = useState("");
 
     const [{ state }, dispatch] = useStateValue();
+
+    const navigate = useNavigate();
+
+    const goToMenu = (bar) => {
+        dispatch({
+            type: "SET_BAR",
+            bar: bar,
+        })
+        navigate(`/${bar.id}/menu`)
+    }
 
     let searchHandler = (e) => {
         var lowerCase = e.target.value.toLowerCase();
@@ -68,7 +79,7 @@ const ViewBars = () => {
             ) : null}
             <h2>Popular Bars in Your Area</h2>
             {!isLoading ? (
-                barList.map((bar) => <Bar key={bar.id} bar={bar} />)
+                barList.map((bar) => <div onClick={() => {goToMenu(bar)}} style={{cursor: "pointer"}}> <Bar key={bar.id} bar={bar}/> </div>)
             ) : (
                 <LoadingIndicator size="30px" />
             )}

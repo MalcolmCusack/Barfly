@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 
 .App {
   text-align: center;
@@ -6,7 +8,7 @@
 }
 
 h2{
-  font-family: 'Racing Sans One';
+  font-family: 'Tahoma';
   letter-spacing: 1px;
   font-weight: lighter;
   text-align:left;
@@ -14,9 +16,13 @@ h2{
 
 body{
   background-color: #333;
-  /*font-family: tahoma, sans-serif;*/
-  font-family: 'Racing Sans One';
-  letter-spacing: 1px;
+  font-family: 'Tahoma';
+}
+
+.bio{
+  font-family: 'Tahoma';
+  font-size: 15px;
+  text-align: center;
 }
 
 .buttons{

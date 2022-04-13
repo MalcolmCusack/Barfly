@@ -81,7 +81,7 @@ export default function Common({ children }: { children: any }) {
                                 textDecoration: "none",
                                 fontSize: "4ch",
                                 cursor: "pointer",
-                                fontFamily: "Racing Sans One",
+                                fontFamily: "Lobster",
                                 letterSpacing: "2px",
                             }}
                         >
@@ -152,20 +152,20 @@ export default function Common({ children }: { children: any }) {
                                 <ListItemButton
                                     onClick={() => {
                                         closeDrawer();
+                                        navigate(`/`);
+                                    }}
+                                >
+                                    Choose A Different Bar
+                                </ListItemButton>
+                                <ListItemButton
+                                    onClick={() => {
+                                        closeDrawer();
                                         navigate(
                                             `/orderstatus`
                                         );
                                     }}
                                 >
                                     Order Status
-                                </ListItemButton>
-                                <ListItemButton
-                                    onClick={() => {
-                                        closeDrawer();
-                                        navigate(`/`);
-                                    }}
-                                >
-                                    Choose A Different Bar
                                 </ListItemButton>
                                 <ListItemButton
                                     onClick={() => {

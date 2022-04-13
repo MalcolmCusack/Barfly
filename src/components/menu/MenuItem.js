@@ -43,7 +43,8 @@ const MenuItem = ({ item }) => {
             <Box display="flex">
                 <Typography
                     sx={{ marginBottom: ".5em" }}
-                    fontFamily={"Arial Black"}
+                    fontFamily={"Tahoma"}
+                    fontWeight="bold"
                 >
                     {item.name}
                 </Typography>
