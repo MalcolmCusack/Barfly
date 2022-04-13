@@ -151,7 +151,7 @@ const Menu = () => {
                             ></SearchList>
                         ) : null}
                     </div>
-                    <h2 style={{ fontFamily: "Arial black" }}>Menu</h2>
+                    <h2>Menu</h2>
                     {isLoading ? (
                         <LoadingIndicator size="30px" />
                     ) : (

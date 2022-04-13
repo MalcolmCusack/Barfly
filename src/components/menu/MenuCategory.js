@@ -17,7 +17,7 @@ const MenuCategory = ({ category, items }) => {
     return (
         <Accordion>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography fontFamily={"Arial Black"}>{category}</Typography>
+                <Typography fontFamily={"Lato"} fontStyle="bold" >{category}</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 {filteredItems.map((item) => (
