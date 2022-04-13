@@ -1,7 +1,7 @@
 export const initialState = {
     order: [],
     user: null,
-    currentBar: null
+    currentBar: null,
 };
 
 export const getOrderTotal = (order: any) =>
@@ -9,6 +9,10 @@ export const getOrderTotal = (order: any) =>
 
 function getOrderStoragekey(state) {
     return `${state?.user?.username ?? ""}-order-state`;
+}
+
+function getBarStoragekey(state) {
+    return `${state?.user?.username ?? ""}-bar-state`;
 }
 
 /**
@@ -29,7 +33,7 @@ function saveOrder(state) {
  * Loads the user's order based on state and returns a new state with the loaded order.
  */
 function loadOrder(state) {
-    const order_str = localStorage.getItem(getOrderStoragekey(state));
+    const order_str = localStorage.getItem(getBarStoragekey(state));
     if (order_str == null) {
         return { ...state };
     }
@@ -59,7 +63,7 @@ function loadOrder(state) {
 }
 
 function loadBar(state) {
-    const bar_str = localStorage.getItem(getOrderStoragekey(state));
+    const bar_str = localStorage.getItem(getBarStoragekey(state));
     if (bar_str == null) {
         return { ...state };
     }
@@ -115,7 +119,7 @@ const reducer = (state: any, action: any) => {
         case "SET_BAR":
             return {
                 ...state,
-                currentBar : action.bar
+                currentBar: action.bar,
             };
 
         case "FETCH_USER_DATA_FAILURE":
