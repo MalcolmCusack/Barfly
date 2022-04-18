@@ -81,7 +81,7 @@ export default function Common({ children }: { children: any }) {
                                 textDecoration: "none",
                                 fontSize: "4ch",
                                 cursor: "pointer",
-                                fontFamily: "Lobster",
+                                fontFamily: "Racing Sans One",
                                 letterSpacing: "2px",
                             }}
                         >
