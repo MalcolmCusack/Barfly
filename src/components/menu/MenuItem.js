@@ -30,6 +30,8 @@ const MenuItem = ({ item }) => {
         });
     };
 
+    console.log(item)
+
     return (
         <Box
             display="flex"
@@ -72,10 +74,6 @@ const MenuItem = ({ item }) => {
                         color={(theme) => theme.palette.text.secondary}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        Tanta vis admonitionis inest in locis; An haec ab eo non
-                        dicuntur? Iubet igitur nos Pythius Apollo noscere nosmet
-                        ipsos. Quis enim redargueret? salvum esse flentes sui
-                        respondissent, rogavit essentne fusi hostes.
                         {item.description}
                     </Typography>
                 </Collapse>
