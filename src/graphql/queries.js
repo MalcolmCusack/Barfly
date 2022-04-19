@@ -14,6 +14,7 @@ export const listWholeMenu =  /* GraphQL */ `
           name
           id
           brand
+          description
         }
       }
       Cocktails {
@@ -86,6 +87,7 @@ query MyQuery($id: ID!) {
         brand
         id
         price
+        description
         _deleted
       }
     }
