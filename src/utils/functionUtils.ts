@@ -1,4 +1,4 @@
-/** Runs the given callback function and logs any error thrown. */
+/** Runs the given callback function and captures and logs any error thrown, keeping the error from propogating up. */
 export function applyCallback(callback?: (...args: any) => any) {
     if (callback === undefined) return;
 

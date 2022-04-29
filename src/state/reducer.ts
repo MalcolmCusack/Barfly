@@ -33,7 +33,7 @@ function saveOrder(state) {
  * Loads the user's order based on state and returns a new state with the loaded order.
  */
 function loadOrder(state) {
-    const order_str = localStorage.getItem(getBarStoragekey(state));
+    const order_str = localStorage.getItem(getOrderStoragekey(state));
     if (order_str == null) {
         return { ...state };
     }
